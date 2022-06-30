@@ -2,21 +2,25 @@
 import XCTest
 
 class RemoteCategoryLoader {
+    let client: HTTPClient
+    
+    init(client: HTTPClient) {
+        self.client = client
+    }
+    
     func load() {
-        HTTPClient.shared.get(from: URL(string: "https://a-url.com")!)
+        client.get(from: URL(string: "https://a-url.com")!)
     }
 }
 
-class HTTPClient {
-    static var shared = HTTPClient()
-    
-    func get(from url: URL) {}
+protocol HTTPClient {
+    func get(from url: URL)
 }
 
 class HTTPClientSpy: HTTPClient {
     var requestedURL: URL?
     
-    override func get(from url: URL) {
+    func get(from url: URL) {
         requestedURL = url
     }
 }
@@ -25,16 +29,14 @@ final class RemoteCategoryLoaderTests: XCTestCase {
 
     func test_init_doesNotRequestDataFromURL() {
         let client = HTTPClientSpy()
-        HTTPClient.shared = client
-        _ = RemoteCategoryLoader()
+        _ = RemoteCategoryLoader(client: client)
         
         XCTAssertNil(client.requestedURL)
     }
     
     func test_load_requestDataFromURL() {
         let client = HTTPClientSpy()
-        HTTPClient.shared = client
-        let sut = RemoteCategoryLoader()
+        let sut = RemoteCategoryLoader(client: client)
         
         sut.load()
         
