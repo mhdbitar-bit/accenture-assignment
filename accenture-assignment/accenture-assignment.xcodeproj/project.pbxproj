@@ -12,7 +12,6 @@
 		4C233B64286E065800E5C13C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C233B62286E065800E5C13C /* Main.storyboard */; };
 		4C233B66286E065900E5C13C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C233B65286E065900E5C13C /* Assets.xcassets */; };
 		4C233B69286E065900E5C13C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C233B67286E065900E5C13C /* LaunchScreen.storyboard */; };
-		4C233B74286E065900E5C13C /* accenture_assignmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C233B73286E065900E5C13C /* accenture_assignmentTests.swift */; };
 		4C233B8D286E115A00E5C13C /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C233B8C286E115A00E5C13C /* Category.swift */; };
 		4C233B91286E11E800E5C13C /* CategoryLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C233B90286E11E800E5C13C /* CategoryLoader.swift */; };
 /* End PBXBuildFile section */
@@ -36,7 +35,6 @@
 		4C233B68286E065900E5C13C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4C233B6A286E065900E5C13C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C233B6F286E065900E5C13C /* accenture-assignmentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "accenture-assignmentTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4C233B73286E065900E5C13C /* accenture_assignmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = accenture_assignmentTests.swift; sourceTree = "<group>"; };
 		4C233B8C286E115A00E5C13C /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		4C233B90286E11E800E5C13C /* CategoryLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -94,7 +92,6 @@
 		4C233B72286E065900E5C13C /* accenture-assignmentTests */ = {
 			isa = PBXGroup;
 			children = (
-				4C233B73286E065900E5C13C /* accenture_assignmentTests.swift */,
 			);
 			path = "accenture-assignmentTests";
 			sourceTree = "<group>";
@@ -220,7 +217,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4C233B74286E065900E5C13C /* accenture_assignmentTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
