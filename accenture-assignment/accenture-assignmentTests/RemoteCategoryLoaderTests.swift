@@ -32,10 +32,10 @@ final class RemoteCategoryLoaderTests: XCTestCase {
         let (sut, client) = makeSUT()
         client.error = NSError(domain: "Test", code: 0)
         
-        var capturedError: RemoteCategoryLoader.Error?
-        sut.load { error in capturedError = error }
+        var capturedError = [RemoteCategoryLoader.Error]()
+        sut.load { capturedError.append($0) }
         
-        XCTAssertEqual(capturedError, .connecitivy)
+        XCTAssertEqual(capturedError, [.connecitivy])
     }
     
     // MARK: - Helpers
