@@ -17,6 +17,8 @@ final class RemoteCategoryLoader {
     private let url: URL
     private let client: HTTPClient
     
+    typealias CategoryResult = Result<[Category], Error>
+    
     enum Error: Swift.Error {
         case connecitivy
         case invalidData
@@ -27,13 +29,13 @@ final class RemoteCategoryLoader {
         self.client = client
     }
     
-    func load(completion: @escaping (Error) -> Void) {
+    func load(completion: @escaping (CategoryResult) -> Void) {
         client.get(from: url) { result in
             switch result {
             case .success:
-                completion(.invalidData)
+                completion(.failure(.invalidData))
             case .failure:
-                completion(.connecitivy)
+                completion(.failure(.connecitivy))
             }
         }
     }

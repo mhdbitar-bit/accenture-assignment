@@ -68,12 +68,12 @@ final class RemoteCategoryLoaderTests: XCTestCase {
     
     private func expcat(_ sut: RemoteCategoryLoader, toCompleteWithError error: RemoteCategoryLoader.Error, when action: () -> Void, file: StaticString = #filePath, line: UInt = #line) {
         
-        var capturedErrors = [RemoteCategoryLoader.Error]()
-        sut.load { capturedErrors.append($0) }
+        var capturedResults = [RemoteCategoryLoader.CategoryResult]()
+        sut.load { capturedResults.append($0) }
        
         action()
         
-        XCTAssertEqual(capturedErrors, [error], file: file, line: line)
+        XCTAssertEqual(capturedResults, [.failure(error)], file: file, line: line)
     }
     
     private class HTTPClientSpy: HTTPClient {
