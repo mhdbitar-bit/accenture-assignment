@@ -58,6 +58,18 @@ final class RemoteCategoryLoaderTests: XCTestCase {
         }
     }
     
+    func test_load_deliversNoItemsOn200HTTPResponseWithEmptyJSONlist() {
+        let (sut, client) = makeSUT()
+
+        var capturedResults = [RemoteCategoryLoader.CategoryResult]()
+        sut.load { capturedResults.append($0) }
+        
+        let emptyListJSON = Data("[]".utf8)
+        client.complete(withStatusCode: 200, data: emptyListJSON)
+        
+        XCTAssertEqual(capturedResults, [.success([])])
+    }
+    
     // MARK: - Helpers
     
     private func makeSUT(url: URL = URL(string: "https://a-url.com")!) -> (sut: RemoteCategoryLoader, client: HTTPClientSpy) {
