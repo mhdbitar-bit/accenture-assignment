@@ -9,24 +9,14 @@
 /* Begin PBXBuildFile section */
 		4C233B5D286E065800E5C13C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C233B5C286E065800E5C13C /* AppDelegate.swift */; };
 		4C233B5F286E065800E5C13C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C233B5E286E065800E5C13C /* SceneDelegate.swift */; };
-		4C233B61286E065800E5C13C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C233B60286E065800E5C13C /* ViewController.swift */; };
 		4C233B64286E065800E5C13C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C233B62286E065800E5C13C /* Main.storyboard */; };
 		4C233B66286E065900E5C13C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C233B65286E065900E5C13C /* Assets.xcassets */; };
 		4C233B69286E065900E5C13C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C233B67286E065900E5C13C /* LaunchScreen.storyboard */; };
 		4C233B74286E065900E5C13C /* accenture_assignmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C233B73286E065900E5C13C /* accenture_assignmentTests.swift */; };
-		4C233B7E286E065900E5C13C /* accenture_assignmentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C233B7D286E065900E5C13C /* accenture_assignmentUITests.swift */; };
-		4C233B80286E065900E5C13C /* accenture_assignmentUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C233B7F286E065900E5C13C /* accenture_assignmentUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		4C233B70286E065900E5C13C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4C233B51286E065800E5C13C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 4C233B58286E065800E5C13C;
-			remoteInfo = "accenture-assignment";
-		};
-		4C233B7A286E065900E5C13C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4C233B51286E065800E5C13C /* Project object */;
 			proxyType = 1;
@@ -39,16 +29,12 @@
 		4C233B59286E065800E5C13C /* accenture-assignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "accenture-assignment.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C233B5C286E065800E5C13C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C233B5E286E065800E5C13C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4C233B60286E065800E5C13C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4C233B63286E065800E5C13C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4C233B65286E065900E5C13C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4C233B68286E065900E5C13C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4C233B6A286E065900E5C13C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C233B6F286E065900E5C13C /* accenture-assignmentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "accenture-assignmentTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C233B73286E065900E5C13C /* accenture_assignmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = accenture_assignmentTests.swift; sourceTree = "<group>"; };
-		4C233B79286E065900E5C13C /* accenture-assignmentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "accenture-assignmentUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4C233B7D286E065900E5C13C /* accenture_assignmentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = accenture_assignmentUITests.swift; sourceTree = "<group>"; };
-		4C233B7F286E065900E5C13C /* accenture_assignmentUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = accenture_assignmentUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,13 +52,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4C233B76286E065900E5C13C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -81,7 +60,6 @@
 			children = (
 				4C233B5B286E065800E5C13C /* accenture-assignment */,
 				4C233B72286E065900E5C13C /* accenture-assignmentTests */,
-				4C233B7C286E065900E5C13C /* accenture-assignmentUITests */,
 				4C233B5A286E065800E5C13C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -91,7 +69,6 @@
 			children = (
 				4C233B59286E065800E5C13C /* accenture-assignment.app */,
 				4C233B6F286E065900E5C13C /* accenture-assignmentTests.xctest */,
-				4C233B79286E065900E5C13C /* accenture-assignmentUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -101,7 +78,6 @@
 			children = (
 				4C233B5C286E065800E5C13C /* AppDelegate.swift */,
 				4C233B5E286E065800E5C13C /* SceneDelegate.swift */,
-				4C233B60286E065800E5C13C /* ViewController.swift */,
 				4C233B62286E065800E5C13C /* Main.storyboard */,
 				4C233B65286E065900E5C13C /* Assets.xcassets */,
 				4C233B67286E065900E5C13C /* LaunchScreen.storyboard */,
@@ -116,15 +92,6 @@
 				4C233B73286E065900E5C13C /* accenture_assignmentTests.swift */,
 			);
 			path = "accenture-assignmentTests";
-			sourceTree = "<group>";
-		};
-		4C233B7C286E065900E5C13C /* accenture-assignmentUITests */ = {
-			isa = PBXGroup;
-			children = (
-				4C233B7D286E065900E5C13C /* accenture_assignmentUITests.swift */,
-				4C233B7F286E065900E5C13C /* accenture_assignmentUITestsLaunchTests.swift */,
-			);
-			path = "accenture-assignmentUITests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,24 +132,6 @@
 			productReference = 4C233B6F286E065900E5C13C /* accenture-assignmentTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		4C233B78286E065900E5C13C /* accenture-assignmentUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 4C233B89286E065900E5C13C /* Build configuration list for PBXNativeTarget "accenture-assignmentUITests" */;
-			buildPhases = (
-				4C233B75286E065900E5C13C /* Sources */,
-				4C233B76286E065900E5C13C /* Frameworks */,
-				4C233B77286E065900E5C13C /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				4C233B7B286E065900E5C13C /* PBXTargetDependency */,
-			);
-			name = "accenture-assignmentUITests";
-			productName = "accenture-assignmentUITests";
-			productReference = 4C233B79286E065900E5C13C /* accenture-assignmentUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -197,10 +146,6 @@
 						CreatedOnToolsVersion = 13.4.1;
 					};
 					4C233B6E286E065900E5C13C = {
-						CreatedOnToolsVersion = 13.4.1;
-						TestTargetID = 4C233B58286E065800E5C13C;
-					};
-					4C233B78286E065900E5C13C = {
 						CreatedOnToolsVersion = 13.4.1;
 						TestTargetID = 4C233B58286E065800E5C13C;
 					};
@@ -221,7 +166,6 @@
 			targets = (
 				4C233B58286E065800E5C13C /* accenture-assignment */,
 				4C233B6E286E065900E5C13C /* accenture-assignmentTests */,
-				4C233B78286E065900E5C13C /* accenture-assignmentUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -244,13 +188,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4C233B77286E065900E5C13C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -258,7 +195,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4C233B61286E065800E5C13C /* ViewController.swift in Sources */,
 				4C233B5D286E065800E5C13C /* AppDelegate.swift in Sources */,
 				4C233B5F286E065800E5C13C /* SceneDelegate.swift in Sources */,
 			);
@@ -272,15 +208,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4C233B75286E065900E5C13C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4C233B80286E065900E5C13C /* accenture_assignmentUITestsLaunchTests.swift in Sources */,
-				4C233B7E286E065900E5C13C /* accenture_assignmentUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -288,11 +215,6 @@
 			isa = PBXTargetDependency;
 			target = 4C233B58286E065800E5C13C /* accenture-assignment */;
 			targetProxy = 4C233B70286E065900E5C13C /* PBXContainerItemProxy */;
-		};
-		4C233B7B286E065900E5C13C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 4C233B58286E065800E5C13C /* accenture-assignment */;
-			targetProxy = 4C233B7A286E065900E5C13C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -526,42 +448,6 @@
 			};
 			name = Release;
 		};
-		4C233B8A286E065900E5C13C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = QU3CT6V6H6;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.bitar.accenture-assignmentUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "accenture-assignment";
-			};
-			name = Debug;
-		};
-		4C233B8B286E065900E5C13C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = QU3CT6V6H6;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.bitar.accenture-assignmentUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "accenture-assignment";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -588,15 +474,6 @@
 			buildConfigurations = (
 				4C233B87286E065900E5C13C /* Debug */,
 				4C233B88286E065900E5C13C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		4C233B89286E065900E5C13C /* Build configuration list for PBXNativeTarget "accenture-assignmentUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				4C233B8A286E065900E5C13C /* Debug */,
-				4C233B8B286E065900E5C13C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
