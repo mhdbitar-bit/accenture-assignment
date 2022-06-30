@@ -86,8 +86,7 @@
 				4C233B65286E065900E5C13C /* Assets.xcassets */,
 				4C233B67286E065900E5C13C /* LaunchScreen.storyboard */,
 				4C233B6A286E065900E5C13C /* Info.plist */,
-				4C233B8C286E115A00E5C13C /* Category.swift */,
-				4C233B90286E11E800E5C13C /* CategoryLoader.swift */,
+				4C233B92286E138700E5C13C /* Category Feature */,
 			);
 			path = "accenture-assignment";
 			sourceTree = "<group>";
@@ -98,6 +97,15 @@
 				4C233B73286E065900E5C13C /* accenture_assignmentTests.swift */,
 			);
 			path = "accenture-assignmentTests";
+			sourceTree = "<group>";
+		};
+		4C233B92286E138700E5C13C /* Category Feature */ = {
+			isa = PBXGroup;
+			children = (
+				4C233B8C286E115A00E5C13C /* Category.swift */,
+				4C233B90286E11E800E5C13C /* CategoryLoader.swift */,
+			);
+			path = "Category Feature";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
