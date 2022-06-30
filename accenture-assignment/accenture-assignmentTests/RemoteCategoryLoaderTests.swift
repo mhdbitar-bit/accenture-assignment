@@ -31,24 +31,28 @@ final class RemoteCategoryLoaderTests: XCTestCase {
     func test_load_deliversErrorOnClientError() {
         let (sut, client) = makeSUT()
         
-        var capturedError = [RemoteCategoryLoader.Error]()
-        sut.load { capturedError.append($0) }
+        var capturedErrors = [RemoteCategoryLoader.Error]()
+        sut.load { capturedErrors.append($0) }
         
         let clientError = NSError(domain: "Test", code: 0)
         client.complete(with: clientError)
         
-        XCTAssertEqual(capturedError, [.connecitivy])
+        XCTAssertEqual(capturedErrors, [.connecitivy])
     }
     
     func test_load_deliversErrorOnNon200HTTPResponse() {
         let (sut, client) = makeSUT()
         
-        var capturedError = [RemoteCategoryLoader.Error]()
-        sut.load { capturedError.append($0) }
+        let samples = [199, 201, 300, 400, 500]
         
-        client.complete(withStatusCode: 400)
-        
-        XCTAssertEqual(capturedError, [.invalidData])
+        samples.enumerated().forEach { index, code in
+            var capturedErrors = [RemoteCategoryLoader.Error]()
+            sut.load { capturedErrors.append($0) }
+            
+            client.complete(withStatusCode: code, at: index)
+            
+            XCTAssertEqual(capturedErrors, [.invalidData])
+        }
     }
     
     // MARK: - Helpers
