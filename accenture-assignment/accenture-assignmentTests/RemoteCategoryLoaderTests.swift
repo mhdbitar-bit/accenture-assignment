@@ -31,7 +31,7 @@ final class RemoteCategoryLoaderTests: XCTestCase {
     func test_load_deliversErrorOnClientError() {
         let (sut, client) = makeSUT()
         
-        expcat(sut, toCompleteWithError: .connecitivy) {
+        expcat(sut, toCompleteWith: .failure(.connecitivy)) {
             let clientError = NSError(domain: "Test", code: 0)
             client.complete(with: clientError)
         }
@@ -43,7 +43,7 @@ final class RemoteCategoryLoaderTests: XCTestCase {
         let samples = [199, 201, 300, 400, 500]
         
         samples.enumerated().forEach { index, code in
-            expcat(sut, toCompleteWithError: .invalidData) {
+            expcat(sut, toCompleteWith: .failure(.invalidData)) {
                 client.complete(withStatusCode: code, at: index)
             }
         }
@@ -52,7 +52,7 @@ final class RemoteCategoryLoaderTests: XCTestCase {
     func test_load_deliversErrorOn200HTTPResponseWithInvalidJSON() {
         let (sut, client) = makeSUT()
         
-        expcat(sut, toCompleteWithError: .invalidData) {
+        expcat(sut, toCompleteWith: .failure(.invalidData)) {
             let invalidJSON = Data("invalid json".utf8)
             client.complete(withStatusCode: 200, data: invalidJSON)
         }
@@ -61,13 +61,10 @@ final class RemoteCategoryLoaderTests: XCTestCase {
     func test_load_deliversNoItemsOn200HTTPResponseWithEmptyJSONlist() {
         let (sut, client) = makeSUT()
 
-        var capturedResults = [RemoteCategoryLoader.CategoryResult]()
-        sut.load { capturedResults.append($0) }
-        
-        let emptyListJSON = Data("[]".utf8)
-        client.complete(withStatusCode: 200, data: emptyListJSON)
-        
-        XCTAssertEqual(capturedResults, [.success([])])
+        expcat(sut, toCompleteWith: .success([])) {
+            let emptyListJSON = Data("[]".utf8)
+            client.complete(withStatusCode: 200, data: emptyListJSON)
+        }
     }
     
     // MARK: - Helpers
@@ -78,14 +75,14 @@ final class RemoteCategoryLoaderTests: XCTestCase {
         return (sut, client)
     }
     
-    private func expcat(_ sut: RemoteCategoryLoader, toCompleteWithError error: RemoteCategoryLoader.Error, when action: () -> Void, file: StaticString = #filePath, line: UInt = #line) {
+    private func expcat(_ sut: RemoteCategoryLoader, toCompleteWith result: RemoteCategoryLoader.CategoryResult, when action: () -> Void, file: StaticString = #filePath, line: UInt = #line) {
         
         var capturedResults = [RemoteCategoryLoader.CategoryResult]()
         sut.load { capturedResults.append($0) }
        
         action()
         
-        XCTAssertEqual(capturedResults, [.failure(error)], file: file, line: line)
+        XCTAssertEqual(capturedResults, [result], file: file, line: line)
     }
     
     private class HTTPClientSpy: HTTPClient {
