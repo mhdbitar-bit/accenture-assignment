@@ -8,7 +8,7 @@
 import Foundation
 
 protocol HTTPClient {
-    func get(from url: URL, completion: @escaping (Error) -> Void)
+    func get(from url: URL, completion: @escaping (Error?, HTTPURLResponse?) -> Void)
 }
 
 final class RemoteCategoryLoader {
@@ -17,6 +17,7 @@ final class RemoteCategoryLoader {
     
     enum Error: Swift.Error {
         case connecitivy
+        case invalidData
     }
     
     init(url: URL, client: HTTPClient) {
@@ -25,8 +26,12 @@ final class RemoteCategoryLoader {
     }
     
     func load(completion: @escaping (Error) -> Void) {
-        client.get(from: url) { error in
-            completion(.connecitivy)
+        client.get(from: url) { error, response in
+            if response != nil {
+                completion(.invalidData)
+            } else {
+                completion(.connecitivy)
+            }
         }
     }
 }
