@@ -15,6 +15,7 @@
 		4C233B8D286E115A00E5C13C /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C233B8C286E115A00E5C13C /* Category.swift */; };
 		4C233B91286E11E800E5C13C /* CategoryLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C233B90286E11E800E5C13C /* CategoryLoader.swift */; };
 		4C233B94286E142E00E5C13C /* RemoteCategoryLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C233B93286E142E00E5C13C /* RemoteCategoryLoaderTests.swift */; };
+		4CDCEDD1286E25D600DF3AAA /* RemoteCategoryLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDCEDD0286E25D600DF3AAA /* RemoteCategoryLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +40,7 @@
 		4C233B8C286E115A00E5C13C /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		4C233B90286E11E800E5C13C /* CategoryLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryLoader.swift; sourceTree = "<group>"; };
 		4C233B93286E142E00E5C13C /* RemoteCategoryLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteCategoryLoaderTests.swift; sourceTree = "<group>"; };
+		4CDCEDD0286E25D600DF3AAA /* RemoteCategoryLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteCategoryLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,13 +82,14 @@
 		4C233B5B286E065800E5C13C /* accenture-assignment */ = {
 			isa = PBXGroup;
 			children = (
+				4CDCEDCF286E25C900DF3AAA /* Category API */,
+				4C233B92286E138700E5C13C /* Category Feature */,
 				4C233B5C286E065800E5C13C /* AppDelegate.swift */,
 				4C233B5E286E065800E5C13C /* SceneDelegate.swift */,
 				4C233B62286E065800E5C13C /* Main.storyboard */,
 				4C233B65286E065900E5C13C /* Assets.xcassets */,
 				4C233B67286E065900E5C13C /* LaunchScreen.storyboard */,
 				4C233B6A286E065900E5C13C /* Info.plist */,
-				4C233B92286E138700E5C13C /* Category Feature */,
 			);
 			path = "accenture-assignment";
 			sourceTree = "<group>";
@@ -106,6 +109,14 @@
 				4C233B90286E11E800E5C13C /* CategoryLoader.swift */,
 			);
 			path = "Category Feature";
+			sourceTree = "<group>";
+		};
+		4CDCEDCF286E25C900DF3AAA /* Category API */ = {
+			isa = PBXGroup;
+			children = (
+				4CDCEDD0286E25D600DF3AAA /* RemoteCategoryLoader.swift */,
+			);
+			path = "Category API";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,6 +222,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C233B91286E11E800E5C13C /* CategoryLoader.swift in Sources */,
+				4CDCEDD1286E25D600DF3AAA /* RemoteCategoryLoader.swift in Sources */,
 				4C233B5D286E065800E5C13C /* AppDelegate.swift in Sources */,
 				4C233B5F286E065800E5C13C /* SceneDelegate.swift in Sources */,
 				4C233B8D286E115A00E5C13C /* Category.swift in Sources */,
