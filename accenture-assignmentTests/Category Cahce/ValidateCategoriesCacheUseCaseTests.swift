@@ -9,6 +9,15 @@ final class ValidateCategoriesCacheUseCaseTests: XCTestCase {
         XCTAssertEqual(store.receivedMessages, [])
     }
     
+    func test_validateCache_deleteCacheOnRetrievalError() {
+        let (sut, store) = makeSUT()
+        
+        sut.validateCahce()
+        store.completeRetrieval(with: anyNSError())
+        
+        XCTAssertEqual(store.receivedMessages, [.retrieve, .deleteCahcedCategories])
+    }
+    
     // MARK: - Helpers
     
     private func makeSUT(currentDate: @escaping () -> Date = Date.init, file: StaticString = #filePath, line: UInt = #line) -> (sut: LocalCategoryLoader, store: CategoryStoreSpy) {
@@ -17,5 +26,9 @@ final class ValidateCategoriesCacheUseCaseTests: XCTestCase {
         trackForMemoryLeacks(store, file: file, line: line)
         trackForMemoryLeacks(sut, file: file, line: line)
         return (sut, store)
+    }
+    
+    private func anyNSError() -> NSError {
+        NSError(domain: "any error", code: 0)
     }
 }

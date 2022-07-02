@@ -37,7 +37,6 @@ final class LocalCategoryLoader {
             
             switch result {
             case let .failure(error):
-                self.store.deleteCachedCategories() { _ in }
                 completion(.failure(error))
             
             case let .found(categories, timestamp) where self.validate(timestamp):
@@ -51,6 +50,11 @@ final class LocalCategoryLoader {
                 completion(.success([]))
             }
         }
+    }
+    
+    func validateCahce() {
+        store.retrieve { _ in }
+        store.deleteCachedCategories { _ in }
     }
     
     private var maxCacheAgeInDays: Int {
