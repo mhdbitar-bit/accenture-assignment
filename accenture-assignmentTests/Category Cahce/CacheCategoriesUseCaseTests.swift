@@ -11,19 +11,17 @@ final class CacheCategoriesUseCaseTests: XCTestCase {
     
     func test_save_requestsCacheDeletion() {
         let (sut, store) = makeSUT()
-        let items = [uniqueCategory(), uniqueCategory()]
         
-        sut.save(items) { _ in }
+        sut.save(uniqueCategories().models) { _ in }
         
         XCTAssertEqual(store.receivedMessages, [.deleteCahcedCategories])
     }
     
     func test_save_doesNotRequestCacheInsertionOnDeletionError() {
         let (sut, store) = makeSUT()
-        let items = [uniqueCategory(), uniqueCategory()]
         let deletionError = anyNSError()
         
-        sut.save(items) { _ in }
+        sut.save(uniqueCategories().models) { _ in }
         store.completeDeletion(with: deletionError)
         
         XCTAssertEqual(store.receivedMessages, [.deleteCahcedCategories])
@@ -31,14 +29,13 @@ final class CacheCategoriesUseCaseTests: XCTestCase {
     
     func test_save_requestNewCahceInsertionWithTimestampOnSuccessfulDeletion() {
         let timestamp = Date()
+        let items = uniqueCategories()
         let (sut, store) = makeSUT(currentDate: { timestamp })
-        let items = [uniqueCategory(), uniqueCategory()]
-        let localItems = items.map { LocalCategoryItem(id: $0.id, name: $0.name) }
         
-        sut.save(items) { _ in }
+        sut.save(items.models) { _ in }
         store.completeDeletionSuccessfully()
         
-        XCTAssertEqual(store.receivedMessages, [.deleteCahcedCategories, .insert(localItems, timestamp)])
+        XCTAssertEqual(store.receivedMessages, [.deleteCahcedCategories, .insert(items.local, timestamp)])
     }
     
     func test_save_failsOnDeletionError() {
@@ -74,7 +71,7 @@ final class CacheCategoriesUseCaseTests: XCTestCase {
         var sut: LocalCategoryLoader? = LocalCategoryLoader(store: store, currentDate: Date.init)
     
         var receviedResults = [LocalCategoryLoader.SaveResult]()
-        sut?.save([uniqueCategory()]) { receviedResults.append($0) }
+        sut?.save(uniqueCategories().models) { receviedResults.append($0) }
         
         sut = nil
         store.completeDeletion(with: anyNSError())
@@ -87,7 +84,7 @@ final class CacheCategoriesUseCaseTests: XCTestCase {
         var sut: LocalCategoryLoader? = LocalCategoryLoader(store: store, currentDate: Date.init)
     
         var receviedResults = [LocalCategoryLoader.SaveResult]()
-        sut?.save([uniqueCategory()]) { receviedResults.append($0) }
+        sut?.save(uniqueCategories().models) { receviedResults.append($0) }
         
         store.completeDeletionSuccessfully()
         sut = nil
@@ -110,7 +107,7 @@ final class CacheCategoriesUseCaseTests: XCTestCase {
         let exp = expectation(description: "Wait for save completion")
         
         var receivedError: Error?
-        sut.save([uniqueCategory()]) { error in
+        sut.save(uniqueCategories().models) { error in
             receivedError = error
             exp.fulfill()
         }
@@ -161,6 +158,12 @@ final class CacheCategoriesUseCaseTests: XCTestCase {
     
     private func uniqueCategory() -> CategoryItem {
         CategoryItem(id: 1, name: "any")
+    }
+
+    private func uniqueCategories() -> (models: [CategoryItem], local: [LocalCategoryItem]) {
+        let models = [uniqueCategory(), uniqueCategory()]
+        let local = models.map { LocalCategoryItem(id: $0.id, name: $0.name) }
+        return (models, local)
     }
     
     private func anyNSError() -> NSError {
