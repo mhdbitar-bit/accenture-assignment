@@ -11,12 +11,14 @@ final class LocalCategoryLoader {
     private let store: CategoryStore
     private let currentDate: () -> Date
     
+    typealias SaveResult = Error?
+    
     init(store: CategoryStore, currentDate: @escaping () -> Date) {
         self.store = store
         self.currentDate = currentDate
     }
     
-    func save(_ categories: [CategoryItem], completion: @escaping (Error?) -> Void) {
+    func save(_ categories: [CategoryItem], completion: @escaping (SaveResult) -> Void) {
         store.deleteCachedCategories { [weak self] error in
             guard let self = self else { return }
             if let cacheDeletionError = error {
@@ -27,7 +29,7 @@ final class LocalCategoryLoader {
         }
     }
     
-    private func cache(_ categories: [CategoryItem], with completion: @escaping (Error?) -> Void) {
+    private func cache(_ categories: [CategoryItem], with completion: @escaping (SaveResult) -> Void) {
         store.insert(categories, timestamp: currentDate()) { [weak self] error in
             guard self != nil else { return }
             

@@ -72,7 +72,7 @@ final class CacheCategoriesUseCaseTests: XCTestCase {
         let store = CategoryStoreSpy()
         var sut: LocalCategoryLoader? = LocalCategoryLoader(store: store, currentDate: Date.init)
     
-        var receviedResults = [Error?]()
+        var receviedResults = [LocalCategoryLoader.SaveResult]()
         sut?.save([uniqueCategory()]) { receviedResults.append($0) }
         
         sut = nil
@@ -85,7 +85,7 @@ final class CacheCategoriesUseCaseTests: XCTestCase {
         let store = CategoryStoreSpy()
         var sut: LocalCategoryLoader? = LocalCategoryLoader(store: store, currentDate: Date.init)
     
-        var receviedResults = [Error?]()
+        var receviedResults = [LocalCategoryLoader.SaveResult]()
         sut?.save([uniqueCategory()]) { receviedResults.append($0) }
         
         store.completeDeletionSuccessfully()
