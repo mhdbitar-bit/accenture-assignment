@@ -19,10 +19,14 @@ final class CategoryItemsMapper {
     
     private static var OK_200: Int { 200 }
     
-    static func map(_ data: Data, _ response: HTTPURLResponse) throws -> [CategoryItem] {
-        guard response.statusCode == OK_200 else {
-            throw RemoteCategoryLoader.Error.invalidData
+    static func map(_ data: Data, from response: HTTPURLResponse) -> RemoteCategoryLoader.CategoryResult {
+        guard response.statusCode == OK_200,
+              let items = try? JSONDecoder().decode([Item].self, from: data) else {
+            return .failure(.invalidData)
         }
-        return try JSONDecoder().decode([Item].self, from: data).map { $0.item }
+        
+        let categories = items.map { $0.item }
+        return .success(categories)
+        
     }
 }

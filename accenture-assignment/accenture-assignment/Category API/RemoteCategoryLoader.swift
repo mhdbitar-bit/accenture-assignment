@@ -27,12 +27,7 @@ final class RemoteCategoryLoader {
         client.get(from: url) { result in
             switch result {
             case let .success((data, response)):
-                do {
-                    let items = try CategoryItemsMapper.map(data, response)
-                    completion(.success(items))
-                } catch {
-                    completion(.failure(.invalidData))
-                }
+                completion(CategoryItemsMapper.map(data, from: response))
             case .failure:
                 completion(.failure(.connecitivy))
             }
