@@ -56,6 +56,10 @@ class CategoryStore {
     func completeInsertion(with error: Error, at index: Int = 0) {
         insertionCompletions[index](error)
     }
+    
+    func completeInsertionSuccessfully(at index: Int = 0) {
+        insertionCompletions[index](.none)
+    }
 }
 
 final class CacheCategoriesUseCaseTests: XCTestCase {
@@ -132,6 +136,24 @@ final class CacheCategoriesUseCaseTests: XCTestCase {
         wait(for: [exp], timeout: 1.0)
         
         XCTAssertEqual(receivedError as NSError?, insertionError)
+    }
+    
+    func test_save_succeedsOnSucessfulCacheInsertion() {
+        let items = [uniqueCategory(), uniqueCategory()]
+        let (sut, store) = makeSUT()
+        let exp = expectation(description: "Wait for save completion")
+        
+        var receivedError: Error?
+        sut.save(items) { error in
+            receivedError = error
+            exp.fulfill()
+        }
+        
+        store.completeDeletionSuccessfully()
+        store.completeInsertionSuccessfully()
+        wait(for: [exp], timeout: 1.0)
+        
+        XCTAssertNil(receivedError)
     }
     
     // MARK: - Helpers
