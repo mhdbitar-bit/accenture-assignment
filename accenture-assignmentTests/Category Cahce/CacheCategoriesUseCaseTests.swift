@@ -15,9 +15,14 @@ class LocalCategoryLoader {
 
 class CategoryStore {
     var deleteCachedCategoriesCallCount = 0
+    var insertCallCount = 0
     
     func deleteCachedCategories() {
         deleteCachedCategoriesCallCount += 1
+    }
+    
+    func completeDeletion(with error: Error, at index: Int = 0) {
+             
     }
 }
 
@@ -38,6 +43,17 @@ final class CacheCategoriesUseCaseTests: XCTestCase {
         XCTAssertEqual(store.deleteCachedCategoriesCallCount, 1)
     }
     
+    func test_save_doesNotRequestCacheInsertionOnDeletionError() {
+        let (sut, store) = makeSUT()
+        let items = [uniqueCategory(), uniqueCategory()]
+        let deletionError = anyNSError()
+        
+        sut.save(items)
+        store.completeDeletion(with: deletionError)
+        
+        XCTAssertEqual(store.insertCallCount, 0)
+    }
+    
     // MARK: - Helpers
     
     private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (sut: LocalCategoryLoader, store: CategoryStore) {
@@ -50,5 +66,9 @@ final class CacheCategoriesUseCaseTests: XCTestCase {
     
     private func uniqueCategory() -> CategoryItem {
         CategoryItem(id: 1, name: "any")
+    }
+    
+    private func anyNSError() -> NSError {
+        NSError(domain: "any error", code: 0)
     }
 }
