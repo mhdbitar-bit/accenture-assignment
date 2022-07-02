@@ -29,7 +29,7 @@ final class loadCategoryFromCahceUseCaseTests: XCTestCase {
                 receivedError = error
                 
             default:
-                XCTFail("Expected failure, got \(String(describing: result)) instead")
+                XCTFail("Expected failure, got \(result) instead")
             }
             
             exp.fulfill()
@@ -39,6 +39,29 @@ final class loadCategoryFromCahceUseCaseTests: XCTestCase {
         wait(for: [exp], timeout: 1.0)
 
         XCTAssertEqual(receivedError as NSError?, retrievalError)
+    }
+    
+    func test_load_deliversNoImagesOnEmptyCache() {
+        let (sut, store) = makeSUT()
+        let exp = expectation(description: "Wait for load completion")
+
+        var receivedCategories: [CategoryItem]?
+        sut.load() { result in
+            switch result {
+            case let .success(categories):
+                receivedCategories = categories
+                
+            default:
+                XCTFail("Expected success, got \(result) instead")
+            }
+            
+            exp.fulfill()
+        }
+
+        store.completeRetrievalWithEmptyCache()
+        wait(for: [exp], timeout: 1.0)
+
+        XCTAssertEqual(receivedCategories, [])
     }
     
     // MARK: - Helpers

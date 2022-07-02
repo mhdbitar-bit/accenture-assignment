@@ -12,7 +12,7 @@ final class LocalCategoryLoader {
     private let currentDate: () -> Date
     
     typealias SaveResult = Error?
-    typealias LoadResult = LoadCategoryResult?
+    typealias LoadResult = LoadCategoryResult
     
     init(store: CategoryStore, currentDate: @escaping () -> Date) {
         self.store = store
@@ -34,6 +34,8 @@ final class LocalCategoryLoader {
         store.retrieve { error in
             if let error = error {
                 completion(.failure(error))
+            } else {
+                completion(.success([]))
             }
         }
     }
