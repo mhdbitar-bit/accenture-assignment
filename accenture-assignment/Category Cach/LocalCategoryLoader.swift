@@ -12,9 +12,6 @@ final class LocalCategoryLoader {
     private let currentDate: () -> Date
     private let calendar = Calendar(identifier: .gregorian)
     
-    typealias SaveResult = Error?
-    typealias LoadResult = LoadCategoryResult
-    
     init(store: CategoryStore, currentDate: @escaping () -> Date) {
         self.store = store
         self.currentDate = currentDate
@@ -33,6 +30,8 @@ final class LocalCategoryLoader {
 }
 
 extension LocalCategoryLoader {
+    typealias SaveResult = Error?
+    
     func save(_ categories: [CategoryItem], completion: @escaping (SaveResult) -> Void) {
         store.deleteCachedCategories { [weak self] error in
             guard let self = self else { return }
@@ -54,6 +53,8 @@ extension LocalCategoryLoader {
 }
 
 extension LocalCategoryLoader: CategoryLoader {
+    typealias LoadResult = LoadCategoryResult
+    
     func load(completion: @escaping (LoadResult) -> Void) {
         store.retrieve { [weak self] result in
             guard let self = self else { return }
