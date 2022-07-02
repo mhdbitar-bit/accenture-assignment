@@ -108,12 +108,6 @@ final class RemoteCategoryLoaderTests: XCTestCase {
         return .failure(error)
     }
     
-    private func trackForMemoryLeacks(_ instance: AnyObject, file: StaticString = #filePath, line: UInt = #line) {
-        addTeardownBlock { [weak instance] in
-            XCTAssertNil(instance, "Instance should have been deallocated. Potential memory leak.", file: file, line: line)
-        }
-    }
-    
     private func makeItem(id: Int, name: String) -> (model: CategoryItem, json: [String: Any]) {
         
         let item = CategoryItem(id: id, name: name)
