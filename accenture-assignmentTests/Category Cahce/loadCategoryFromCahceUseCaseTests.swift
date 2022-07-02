@@ -100,6 +100,18 @@ final class loadCategoryFromCahceUseCaseTests: XCTestCase {
         XCTAssertEqual(store.receivedMessages, [.retrieve])
     }
     
+    func test_load_deleteCacheOnSevenDaysOldCache() {
+        let categories = uniqueCategories()
+        let fixedCurrentDate = Date()
+        let sevenDaysoldTimestamp = fixedCurrentDate.adding(days: -7)
+        let (sut, store) = makeSUT(currentDate: { fixedCurrentDate })
+        
+        sut.load() { _ in}
+        store.completeRetrieval(with: categories.local, timestamp: sevenDaysoldTimestamp)
+        
+        XCTAssertEqual(store.receivedMessages, [.retrieve, .deleteCahcedCategories])
+    }
+    
     // MARK: - Helpers
     
     private func makeSUT(currentDate: @escaping () -> Date = Date.init, file: StaticString = #filePath, line: UInt = #line) -> (sut: LocalCategoryLoader, store: CategoryStoreSpy) {
