@@ -29,8 +29,8 @@ final class LocalCategoryLoader {
         }
     }
     
-    func load() {
-        store.retrieve()
+    func load(completion: @escaping (Error?) -> Void) {
+        store.retrieve(completion: completion)
     }
     
     private func cache(_ categories: [CategoryItem], with completion: @escaping (SaveResult) -> Void) {
