@@ -30,10 +30,16 @@ final class LocalCategoryLoader {
     }
     
     private func cache(_ categories: [CategoryItem], with completion: @escaping (SaveResult) -> Void) {
-        store.insert(categories, timestamp: currentDate()) { [weak self] error in
+        store.insert(categories.toLocal(), timestamp: currentDate()) { [weak self] error in
             guard self != nil else { return }
             
             completion(error)
         }
+    }
+}
+
+private extension Array where Element == CategoryItem {
+    func toLocal() -> [LocalCategoryItem] {
+        map { LocalCategoryItem(id: $0.id, name: $0.name) }
     }
 }

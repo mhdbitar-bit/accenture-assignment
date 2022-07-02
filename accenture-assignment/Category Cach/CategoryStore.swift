@@ -12,5 +12,16 @@ protocol CategoryStore {
     typealias InsertionCompletion = (Error?) -> Void
     
     func deleteCachedCategories(completion: @escaping DeletionCompletion)
-    func insert(_ categories: [CategoryItem], timestamp: Date, completion: @escaping InsertionCompletion)
+    func insert(_ categories: [LocalCategoryItem], timestamp: Date, completion: @escaping InsertionCompletion)
+}
+
+// DTO 
+struct LocalCategoryItem: Equatable {
+    let id: Int
+    let name: String
+    
+    init(id: Int, name: String) {
+        self.id = id
+        self.name = name
+    }
 }

@@ -33,11 +33,12 @@ final class CacheCategoriesUseCaseTests: XCTestCase {
         let timestamp = Date()
         let (sut, store) = makeSUT(currentDate: { timestamp })
         let items = [uniqueCategory(), uniqueCategory()]
+        let localItems = items.map { LocalCategoryItem(id: $0.id, name: $0.name) }
         
         sut.save(items) { _ in }
         store.completeDeletionSuccessfully()
         
-        XCTAssertEqual(store.receivedMessages, [.deleteCahcedCategories, .insert(items, timestamp)])
+        XCTAssertEqual(store.receivedMessages, [.deleteCahcedCategories, .insert(localItems, timestamp)])
     }
     
     func test_save_failsOnDeletionError() {
@@ -123,7 +124,7 @@ final class CacheCategoriesUseCaseTests: XCTestCase {
     private class CategoryStoreSpy: CategoryStore {
         enum ReceivedMessage: Equatable {
             case deleteCahcedCategories
-            case insert([CategoryItem], Date)
+            case insert([LocalCategoryItem], Date)
         }
         
         private(set) var receivedMessages = [ReceivedMessage]()
@@ -144,7 +145,7 @@ final class CacheCategoriesUseCaseTests: XCTestCase {
             deletionCompletions[index](nil)
         }
         
-        func insert(_ categories: [CategoryItem], timestamp: Date, completion: @escaping InsertionCompletion) {
+        func insert(_ categories: [LocalCategoryItem], timestamp: Date, completion: @escaping InsertionCompletion) {
             insertionCompletions.append(completion)
             receivedMessages.append(.insert(categories, timestamp))
         }
