@@ -9,20 +9,37 @@ class LocalCategoryLoader {
     }
     
     func save(_ categories: [CategoryItem]) {
-        store.deleteCachedCategories()
+        store.deleteCachedCategories { [unowned self] error in
+            if error == nil {
+                self.store.insert(categories)
+            }
+        }
     }
 }
 
 class CategoryStore {
+    typealias DeletionCompletion = (Error?) -> Void
+    
     var deleteCachedCategoriesCallCount = 0
     var insertCallCount = 0
     
-    func deleteCachedCategories() {
+    private var deletionCompletions = [DeletionCompletion]()
+    
+    func deleteCachedCategories(completion: @escaping DeletionCompletion) {
         deleteCachedCategoriesCallCount += 1
+        deletionCompletions.append(completion)
     }
     
     func completeDeletion(with error: Error, at index: Int = 0) {
-             
+        deletionCompletions[index](error)
+    }
+    
+    func completeDeletionSuccessfully(at index: Int = 0) {
+        deletionCompletions[index](.none)
+    }
+    
+    func insert(_ categories: [CategoryItem]) {
+        insertCallCount += 1
     }
 }
 
@@ -52,6 +69,16 @@ final class CacheCategoriesUseCaseTests: XCTestCase {
         store.completeDeletion(with: deletionError)
         
         XCTAssertEqual(store.insertCallCount, 0)
+    }
+    
+    func test_save_requestNewCahceInsertionOnSuccessfulDeletion() {
+        let (sut, store) = makeSUT()
+        let items = [uniqueCategory(), uniqueCategory()]
+        
+        sut.save(items)
+        store.completeDeletionSuccessfully()
+        
+        XCTAssertEqual(store.insertCallCount, 1)
     }
     
     // MARK: - Helpers
