@@ -54,7 +54,7 @@ final class ValidateCategoriesCacheUseCaseTests: XCTestCase {
     func test_validateCache_deleteExpiredCache() {
         let categories = uniqueCategories()
         let fixedCurrentDate = Date()
-        let expiredTimestamp = fixedCurrentDate.minusCategoriesCacheMaxAge().adding(days: -1)
+        let expiredTimestamp = fixedCurrentDate.minusCategoriesCacheMaxAge().adding(seconds: -1)
         let (sut, store) = makeSUT(currentDate: { fixedCurrentDate })
         
         sut.validateCahce()

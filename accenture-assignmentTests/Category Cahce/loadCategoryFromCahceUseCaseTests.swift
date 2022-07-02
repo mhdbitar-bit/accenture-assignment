@@ -112,7 +112,7 @@ final class LoadCategoryFromCahceUseCaseTests: XCTestCase {
     func test_load_hasNoSideEffectsOnExpiredCache() {
         let categories = uniqueCategories()
         let fixedCurrentDate = Date()
-        let expiredTimestamp = fixedCurrentDate.minusCategoriesCacheMaxAge().adding(days: -1)
+        let expiredTimestamp = fixedCurrentDate.minusCategoriesCacheMaxAge().adding(seconds: -1)
         let (sut, store) = makeSUT(currentDate: { fixedCurrentDate })
         
         sut.load() { _ in}
