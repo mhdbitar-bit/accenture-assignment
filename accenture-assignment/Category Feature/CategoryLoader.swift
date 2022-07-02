@@ -7,8 +7,8 @@
 
 import Foundation
 
-typealias CategoryResult = Result<[CategoryItem], Error>
+typealias LoadCategoryResult = Result<[CategoryItem], Error>
 
 protocol CategoryLoader {
-    func load(completion: @escaping (CategoryResult) -> Void)
+    func load(completion: @escaping (LoadCategoryResult) -> Void)
 }

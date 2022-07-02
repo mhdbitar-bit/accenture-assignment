@@ -30,7 +30,7 @@ class accenture_assignmentEndToEndTests: XCTestCase {
     
     // MARK: - Helpers
     
-    private func getCategoriesResult(file: StaticString = #filePath, line: UInt = #line) -> CategoryResult? {
+    private func getCategoriesResult(file: StaticString = #filePath, line: UInt = #line) -> LoadCategoryResult? {
         let testServerURL = URL(string: "https://private-anon-f51dfcda52-androidtestmobgen.apiary-mock.com/categories")!
         let client = URLSessionHTTPClient(session: URLSession(configuration: .ephemeral))
         let loader = RemoteCategoryLoader(url: testServerURL, client: client)
@@ -39,7 +39,7 @@ class accenture_assignmentEndToEndTests: XCTestCase {
         
         let exp  = expectation(description: "Wait for load completion")
         
-        var receviedResult: CategoryResult?
+        var receviedResult: LoadCategoryResult?
         loader.load { result in
             receviedResult = result
             exp.fulfill()

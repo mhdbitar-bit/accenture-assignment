@@ -29,7 +29,7 @@ final class LocalCategoryLoader {
         }
     }
     
-    func load(completion: @escaping (Error?) -> Void) {
+    func load(completion: @escaping (LoadCategoryResult) -> Void) {
         store.retrieve(completion: completion)
     }
     
