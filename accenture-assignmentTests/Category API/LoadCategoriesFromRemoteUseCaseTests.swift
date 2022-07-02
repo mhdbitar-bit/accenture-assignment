@@ -1,7 +1,7 @@
 @testable import accenture_assignment
 import XCTest
 
-final class RemoteCategoryLoaderTests: XCTestCase {
+final class LoadCategoriesFromRemoteUseCaseTests: XCTestCase {
 
     func test_init_doesNotRequestDataFromURL() {
         let (_, client) = makeSUT()
