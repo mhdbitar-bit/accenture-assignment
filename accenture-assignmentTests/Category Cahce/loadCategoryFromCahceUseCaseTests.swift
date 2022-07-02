@@ -100,7 +100,7 @@ final class loadCategoryFromCahceUseCaseTests: XCTestCase {
         XCTAssertEqual(store.receivedMessages, [.retrieve])
     }
     
-    func test_load_deleteCacheOnSevenDaysOldCache() {
+    func test_load_hasNoSideEffectsOnSevenDaysOldCache() {
         let categories = uniqueCategories()
         let fixedCurrentDate = Date()
         let sevenDaysoldTimestamp = fixedCurrentDate.adding(days: -7)
@@ -109,10 +109,10 @@ final class loadCategoryFromCahceUseCaseTests: XCTestCase {
         sut.load() { _ in}
         store.completeRetrieval(with: categories.local, timestamp: sevenDaysoldTimestamp)
         
-        XCTAssertEqual(store.receivedMessages, [.retrieve, .deleteCahcedCategories])
+        XCTAssertEqual(store.receivedMessages, [.retrieve])
     }
     
-    func test_load_deleteCacheOnMoreThanSevenDaysOldCache() {
+    func test_load_hasNoSideEffectsOnMoreThanSevenDaysOldCache() {
         let categories = uniqueCategories()
         let fixedCurrentDate = Date()
         let moreThanSevenDaysoldTimestamp = fixedCurrentDate.adding(days: -7).adding(days: -1)
@@ -121,7 +121,7 @@ final class loadCategoryFromCahceUseCaseTests: XCTestCase {
         sut.load() { _ in}
         store.completeRetrieval(with: categories.local, timestamp: moreThanSevenDaysoldTimestamp)
         
-        XCTAssertEqual(store.receivedMessages, [.retrieve, .deleteCahcedCategories])
+        XCTAssertEqual(store.receivedMessages, [.retrieve])
     }
     
     func test_load_doesNotDeleiverResultAfterSUTInstanceHasBeenDeallicated() {

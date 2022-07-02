@@ -43,7 +43,6 @@ final class LocalCategoryLoader {
                 completion(.success(categories.toModels()))
                 
             case .found:
-                self.store.deleteCachedCategories { _ in }
                 completion(.success([]))
                 
             case .empty:
@@ -57,7 +56,11 @@ final class LocalCategoryLoader {
             switch result {
             case .failure:
                 self.store.deleteCachedCategories { _ in }
-            default: break
+                
+            case let .found(_, timestamp) where !self.validate(timestamp):
+                self.store.deleteCachedCategories { _ in }
+                
+            case .empty, .found: break
             }
         }
     }

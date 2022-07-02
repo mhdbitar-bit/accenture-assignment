@@ -39,6 +39,30 @@ final class ValidateCategoriesCacheUseCaseTests: XCTestCase {
         XCTAssertEqual(store.receivedMessages, [.retrieve])
     }
     
+    func test_validateCache_deleteSevenDaysOldCache() {
+        let categories = uniqueCategories()
+        let fixedCurrentDate = Date()
+        let sevenDaysoldTimestamp = fixedCurrentDate.adding(days: -7)
+        let (sut, store) = makeSUT(currentDate: { fixedCurrentDate })
+        
+        sut.validateCahce()
+        store.completeRetrieval(with: categories.local, timestamp: sevenDaysoldTimestamp)
+        
+        XCTAssertEqual(store.receivedMessages, [.retrieve, .deleteCahcedCategories])
+    }
+    
+    func test_validateCache_deleteMoreThanSevenDaysOldCache() {
+        let categories = uniqueCategories()
+        let fixedCurrentDate = Date()
+        let moreThanSevenDaysoldTimestamp = fixedCurrentDate.adding(days: -7).adding(days: -1)
+        let (sut, store) = makeSUT(currentDate: { fixedCurrentDate })
+        
+        sut.validateCahce()
+        store.completeRetrieval(with: categories.local, timestamp: moreThanSevenDaysoldTimestamp)
+        
+        XCTAssertEqual(store.receivedMessages, [.retrieve, .deleteCahcedCategories])
+    }
+    
     // MARK: - Helpers
     
     private func makeSUT(currentDate: @escaping () -> Date = Date.init, file: StaticString = #filePath, line: UInt = #line) -> (sut: LocalCategoryLoader, store: CategoryStoreSpy) {
