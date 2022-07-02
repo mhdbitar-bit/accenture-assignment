@@ -16,11 +16,16 @@ class LocalCategoryLoader {
             if let cacheDeletionError = error {
                 completion(cacheDeletionError)
             } else {
-                self.store.insert(categories, timestamp: self.currentDate()) { [weak self] error in
-                    guard self != nil else { return }
-                    completion(error)
-                }
+                self.cache(categories, with: completion)
             }
+        }
+    }
+    
+    private func cache(_ categories: [CategoryItem], with completion: @escaping (Error?) -> Void) {
+        store.insert(categories, timestamp: currentDate()) { [weak self] error in
+            guard self != nil else { return }
+            
+            completion(error)
         }
     }
 }
