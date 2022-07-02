@@ -29,6 +29,10 @@ final class LocalCategoryLoader {
         }
     }
     
+    func load() {
+        store.retrieve()
+    }
+    
     private func cache(_ categories: [CategoryItem], with completion: @escaping (SaveResult) -> Void) {
         store.insert(categories.toLocal(), timestamp: currentDate()) { [weak self] error in
             guard self != nil else { return }

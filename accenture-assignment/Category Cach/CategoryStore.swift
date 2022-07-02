@@ -13,4 +13,5 @@ protocol CategoryStore {
     
     func deleteCachedCategories(completion: @escaping DeletionCompletion)
     func insert(_ categories: [LocalCategoryItem], timestamp: Date, completion: @escaping InsertionCompletion)
+    func retrieve()
 }
