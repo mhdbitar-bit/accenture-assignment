@@ -16,3 +16,4 @@ struct LocalCategoryItem: Equatable {
         self.name = name
     }
 }
+
