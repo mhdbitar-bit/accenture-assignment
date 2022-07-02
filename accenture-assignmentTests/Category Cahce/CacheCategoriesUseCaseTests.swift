@@ -40,10 +40,11 @@ final class CacheCategoriesUseCaseTests: XCTestCase {
     
     // MARK: - Helpers
     
-    private func makeSUT() -> (sut: LocalCategoryLoader, store: CategoryStore) {
+    private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (sut: LocalCategoryLoader, store: CategoryStore) {
         let store = CategoryStore()
         let sut = LocalCategoryLoader(store: store)
-        
+        trackForMemoryLeacks(store, file: file, line: line)
+        trackForMemoryLeacks(sut, file: file, line: line)
         return (sut, store)
     }
     
