@@ -17,6 +17,7 @@
 		4C233B94286E142E00E5C13C /* RemoteCategoryLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C233B93286E142E00E5C13C /* RemoteCategoryLoaderTests.swift */; };
 		4CAB661828701ADD000C426F /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB661728701ADD000C426F /* HTTPClient.swift */; };
 		4CAB661A28701B10000C426F /* CategoryItemsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB661928701B10000C426F /* CategoryItemsMapper.swift */; };
+		4CAB661D28702EF1000C426F /* URLSessionHTTPClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB661C28702EF1000C426F /* URLSessionHTTPClientTests.swift */; };
 		4CDCEDD1286E25D600DF3AAA /* RemoteCategoryLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDCEDD0286E25D600DF3AAA /* RemoteCategoryLoader.swift */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +45,7 @@
 		4C233B93286E142E00E5C13C /* RemoteCategoryLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteCategoryLoaderTests.swift; sourceTree = "<group>"; };
 		4CAB661728701ADD000C426F /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		4CAB661928701B10000C426F /* CategoryItemsMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItemsMapper.swift; sourceTree = "<group>"; };
+		4CAB661C28702EF1000C426F /* URLSessionHTTPClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClientTests.swift; sourceTree = "<group>"; };
 		4CDCEDD0286E25D600DF3AAA /* RemoteCategoryLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteCategoryLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -119,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				4C233B93286E142E00E5C13C /* RemoteCategoryLoaderTests.swift */,
+				4CAB661C28702EF1000C426F /* URLSessionHTTPClientTests.swift */,
 			);
 			path = "Category API";
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C233B94286E142E00E5C13C /* RemoteCategoryLoaderTests.swift in Sources */,
+				4CAB661D28702EF1000C426F /* URLSessionHTTPClientTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
