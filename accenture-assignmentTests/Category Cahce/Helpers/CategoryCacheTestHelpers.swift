@@ -19,8 +19,12 @@ func uniqueCategories() -> (models: [CategoryItem], local: [LocalCategoryItem]) 
 }
 
 extension Date {
+    private var categoriesCacheMaxAgeInDays: Int {
+        return 7
+    }
+    
     func minusCategoriesCacheMaxAge() -> Date {
-        return adding(days: -7)
+        return adding(days: -categoriesCacheMaxAgeInDays)
     }
     
     func adding(days: Int) -> Date {
