@@ -10,8 +10,9 @@ class LocalCategoryLoader {
         self.currentDate = currentDate
     }
     
-    func save(_ categories: [CategoryItem]) {
+    func save(_ categories: [CategoryItem], completion: @escaping (Error?) -> Void) {
         store.deleteCachedCategories { [unowned self] error in
+            completion(error)
             if error == nil {
                 self.store.insert(categories, timestamp: self.currentDate())
             }
@@ -61,7 +62,7 @@ final class CacheCategoriesUseCaseTests: XCTestCase {
         let (sut, store) = makeSUT()
         let items = [uniqueCategory(), uniqueCategory()]
         
-        sut.save(items)
+        sut.save(items) { _ in }
         
         XCTAssertEqual(store.receivedMessages, [.deleteCahcedCategories])
     }
@@ -71,7 +72,7 @@ final class CacheCategoriesUseCaseTests: XCTestCase {
         let items = [uniqueCategory(), uniqueCategory()]
         let deletionError = anyNSError()
         
-        sut.save(items)
+        sut.save(items) { _ in }
         store.completeDeletion(with: deletionError)
         
         XCTAssertEqual(store.receivedMessages, [.deleteCahcedCategories])
@@ -82,10 +83,28 @@ final class CacheCategoriesUseCaseTests: XCTestCase {
         let (sut, store) = makeSUT(currentDate: { timestamp })
         let items = [uniqueCategory(), uniqueCategory()]
         
-        sut.save(items)
+        sut.save(items) { _ in }
         store.completeDeletionSuccessfully()
         
         XCTAssertEqual(store.receivedMessages, [.deleteCahcedCategories, .insert(items, timestamp)])
+    }
+    
+    func test_save_failsOnDeletionError() {
+        let (sut, store) = makeSUT()
+        let items = [uniqueCategory(), uniqueCategory()]
+        let deletionError = anyNSError()
+        let exp = expectation(description: "Wait for save completion")
+        
+        var receivedError: Error?
+        sut.save(items) { error in
+            receivedError = error
+            exp.fulfill()
+        }
+        store.completeDeletion(with: deletionError)
+        
+        wait(for: [exp], timeout: 1.0)
+        
+        XCTAssertEqual(receivedError as NSError?, deletionError)
     }
     
     // MARK: - Helpers
