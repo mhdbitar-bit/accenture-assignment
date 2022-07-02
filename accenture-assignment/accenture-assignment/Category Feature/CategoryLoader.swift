@@ -8,5 +8,5 @@
 import Foundation
 
 protocol CategoryLoader {
-    func load(completion: @escaping (Result<[Category], Error>) -> Void)
+    func load(completion: @escaping (Result<[CategoryItem], Error>) -> Void)
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Category: Equatable {
+struct CategoryItem: Equatable {
     let id: Int
     let name: String
     
@@ -17,7 +17,7 @@ struct Category: Equatable {
     }
 }
 
-extension Category: Decodable {
+extension CategoryItem: Decodable {
     private enum CodingKeys: String, CodingKey {
         case id = "type"
         case name = "category_name"

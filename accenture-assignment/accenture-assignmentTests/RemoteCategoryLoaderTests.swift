@@ -70,24 +70,11 @@ final class RemoteCategoryLoaderTests: XCTestCase {
     func test_load_deliversItemsOn200HTTPResponseWithJSONItems() {
         let (sut, client) = makeSUT()
 
-        let item1 = Category(id: 1, name: "a name")
+        let item1 = makeItem(id: 1, name: "a name")
+        let item2 = makeItem(id: 2, name: "another name")
         
-        let item1JSON: [String: Any] = [
-            "type": item1.id,
-            "category_name": item1.name
-        ]
-        
-        let item2 = Category(id: 2, name: "another name")
-        
-        let item2JSON: [String: Any] = [
-            "type": item2.id,
-            "category_name": item2.name
-        ]
-        
-        let itemsJSON = [item1JSON, item2JSON]
-        
-        expcat(sut, toCompleteWith: .success([item1, item2])) {
-            let json = try! JSONSerialization.data(withJSONObject: itemsJSON)
+        expcat(sut, toCompleteWith: .success([item1.model, item2.model])) {
+            let json = makeItemsJSON([item1.json, item2.json])
             client.complete(withStatusCode: 200, data: json)
         }
     }
@@ -98,6 +85,22 @@ final class RemoteCategoryLoaderTests: XCTestCase {
         let client = HTTPClientSpy()
         let sut = RemoteCategoryLoader(url: url, client: client)
         return (sut, client)
+    }
+    
+    private func makeItem(id: Int, name: String) -> (model: CategoryItem, json: [String: Any]) {
+        
+        let item = CategoryItem(id: id, name: name)
+        
+        let json: [String: Any] = [
+            "type": item.id,
+            "category_name": item.name
+        ]
+        
+        return (item, json)
+    }
+    
+    private func makeItemsJSON(_ items: [[String: Any]]) -> Data {
+        return try! JSONSerialization.data(withJSONObject: items)
     }
     
     private func expcat(_ sut: RemoteCategoryLoader, toCompleteWith result: RemoteCategoryLoader.CategoryResult, when action: () -> Void, file: StaticString = #filePath, line: UInt = #line) {

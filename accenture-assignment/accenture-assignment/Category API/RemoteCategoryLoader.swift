@@ -17,7 +17,7 @@ final class RemoteCategoryLoader {
     private let url: URL
     private let client: HTTPClient
     
-    typealias CategoryResult = Result<[Category], Error>
+    typealias CategoryResult = Result<[CategoryItem], Error>
     
     enum Error: Swift.Error {
         case connecitivy
@@ -33,7 +33,7 @@ final class RemoteCategoryLoader {
         client.get(from: url) { result in
             switch result {
             case let .success((data, _)):
-                if let items = try? JSONDecoder().decode([Category].self, from: data) {
+                if let items = try? JSONDecoder().decode([CategoryItem].self, from: data) {
                     completion(.success(items))
                 } else {
                     completion(.failure(.invalidData))
