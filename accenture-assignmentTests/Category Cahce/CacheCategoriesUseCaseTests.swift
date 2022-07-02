@@ -21,15 +21,19 @@ class LocalCategoryLoader {
 
 class CategoryStore {
     typealias DeletionCompletion = (Error?) -> Void
+        
+    enum ReceivedMessage: Equatable {
+        case deleteCahcedCategories
+        case insert([CategoryItem], Date)
+    }
     
-    var deleteCachedCategoriesCallCount = 0
-    var insertions = [(categories: [CategoryItem], timestamp: Date)]()
+    private(set) var receivedMessages = [ReceivedMessage]()
     
     private var deletionCompletions = [DeletionCompletion]()
     
     func deleteCachedCategories(completion: @escaping DeletionCompletion) {
-        deleteCachedCategoriesCallCount += 1
         deletionCompletions.append(completion)
+        receivedMessages.append(.deleteCahcedCategories)
     }
     
     func completeDeletion(with error: Error, at index: Int = 0) {
@@ -41,16 +45,16 @@ class CategoryStore {
     }
     
     func insert(_ categories: [CategoryItem], timestamp: Date) {
-        insertions.append((categories, timestamp))
+        receivedMessages.append(.insert(categories, timestamp))
     }
 }
 
 final class CacheCategoriesUseCaseTests: XCTestCase {
 
-    func test_init_doesNotDeleteCacheUponCreation() {
+    func test_init_doesNotMessageStoreUponCreation() {
         let (_, store) = makeSUT()
 
-        XCTAssertEqual(store.deleteCachedCategoriesCallCount, 0)
+        XCTAssertEqual(store.receivedMessages, [])
     }
     
     func test_save_requestsCacheDeletion() {
@@ -59,7 +63,7 @@ final class CacheCategoriesUseCaseTests: XCTestCase {
         
         sut.save(items)
         
-        XCTAssertEqual(store.deleteCachedCategoriesCallCount, 1)
+        XCTAssertEqual(store.receivedMessages, [.deleteCahcedCategories])
     }
     
     func test_save_doesNotRequestCacheInsertionOnDeletionError() {
@@ -70,7 +74,7 @@ final class CacheCategoriesUseCaseTests: XCTestCase {
         sut.save(items)
         store.completeDeletion(with: deletionError)
         
-        XCTAssertEqual(store.insertions.count, 0)
+        XCTAssertEqual(store.receivedMessages, [.deleteCahcedCategories])
     }
     
     func test_save_requestNewCahceInsertionWithTimestampOnSuccessfulDeletion() {
@@ -81,9 +85,7 @@ final class CacheCategoriesUseCaseTests: XCTestCase {
         sut.save(items)
         store.completeDeletionSuccessfully()
         
-        XCTAssertEqual(store.insertions.count, 1)
-        XCTAssertEqual(store.insertions.first?.categories, items)
-        XCTAssertEqual(store.insertions.first?.timestamp, timestamp)
+        XCTAssertEqual(store.receivedMessages, [.deleteCahcedCategories, .insert(items, timestamp)])
     }
     
     // MARK: - Helpers
