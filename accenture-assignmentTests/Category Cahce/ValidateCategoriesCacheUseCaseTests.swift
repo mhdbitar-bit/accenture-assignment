@@ -63,6 +63,19 @@ final class ValidateCategoriesCacheUseCaseTests: XCTestCase {
         XCTAssertEqual(store.receivedMessages, [.retrieve, .deleteCahcedCategories])
     }
     
+    func test_validateCache_doesNotDeleteInvalidCacheAfterSUTInstanceHasBeenDeallocated() {
+        let store = CategoryStoreSpy()
+        var sut: LocalCategoryLoader? = LocalCategoryLoader(store: store, currentDate: Date.init)
+        
+        sut?.validateCahce()
+        
+        sut = nil
+        store.completeRetrieval(with: anyNSError())
+        
+        XCTAssertEqual(store.receivedMessages, [.retrieve])
+        
+    }
+    
     // MARK: - Helpers
     
     private func makeSUT(currentDate: @escaping () -> Date = Date.init, file: StaticString = #filePath, line: UInt = #line) -> (sut: LocalCategoryLoader, store: CategoryStoreSpy) {
