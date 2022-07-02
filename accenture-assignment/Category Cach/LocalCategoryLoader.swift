@@ -20,6 +20,19 @@ final class LocalCategoryLoader {
         self.currentDate = currentDate
     }
     
+    private var maxCacheAgeInDays: Int {
+        return 7
+    }
+    
+    private func validate(_ timestamp: Date) -> Bool {
+        guard let maxCacheAge = calendar.date(byAdding: .day, value: maxCacheAgeInDays, to: timestamp) else {
+            return false
+        }
+        return currentDate() < maxCacheAge
+    }
+}
+
+extension LocalCategoryLoader {
     func save(_ categories: [CategoryItem], completion: @escaping (SaveResult) -> Void) {
         store.deleteCachedCategories { [weak self] error in
             guard let self = self else { return }
@@ -31,6 +44,16 @@ final class LocalCategoryLoader {
         }
     }
     
+    private func cache(_ categories: [CategoryItem], with completion: @escaping (SaveResult) -> Void) {
+        store.insert(categories.toLocal(), timestamp: currentDate()) { [weak self] error in
+            guard self != nil else { return }
+            
+            completion(error)
+        }
+    }
+}
+
+extension LocalCategoryLoader {
     func load(completion: @escaping (LoadResult) -> Void) {
         store.retrieve { [weak self] result in
             guard let self = self else { return }
@@ -47,7 +70,9 @@ final class LocalCategoryLoader {
             }
         }
     }
-    
+}
+
+extension LocalCategoryLoader {
     func validateCahce() {
         store.retrieve { [weak self] result in
             guard let self = self else { return }
@@ -61,25 +86,6 @@ final class LocalCategoryLoader {
                 
             case .empty, .found: break
             }
-        }
-    }
-    
-    private var maxCacheAgeInDays: Int {
-        return 7
-    }
-    
-    private func validate(_ timestamp: Date) -> Bool {
-        guard let maxCacheAge = calendar.date(byAdding: .day, value: maxCacheAgeInDays, to: timestamp) else {
-            return false
-        }
-        return currentDate() < maxCacheAge
-    }
-    
-    private func cache(_ categories: [CategoryItem], with completion: @escaping (SaveResult) -> Void) {
-        store.insert(categories.toLocal(), timestamp: currentDate()) { [weak self] error in
-            guard self != nil else { return }
-            
-            completion(error)
         }
     }
 }
