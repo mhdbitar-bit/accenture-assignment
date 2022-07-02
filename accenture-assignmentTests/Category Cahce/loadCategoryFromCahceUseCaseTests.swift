@@ -37,6 +37,7 @@ final class loadCategoryFromCahceUseCaseTests: XCTestCase {
     func test_load_deliversCachedCategoriesOnLessThanSevenDaysoldCache() {
         let categories = uniqueCategories()
         let fixedCurrentDate = Date()
+        // currentDate - (7 * 24 * 60 * 60)days + 1 second
         let lessThanSevenDaysoldTimestamp = fixedCurrentDate.adding(days: -7).adding(seconds: 1)
         let (sut, store) = makeSUT(currentDate: { fixedCurrentDate })
 
@@ -48,6 +49,7 @@ final class loadCategoryFromCahceUseCaseTests: XCTestCase {
     func test_load_deliversNoCategoriesOnSevenDaysoldCache() {
         let categories = uniqueCategories()
         let fixedCurrentDate = Date()
+        // currentDate - (7 * 24 * 60 * 60)days
         let sevenDaysoldTimestamp = fixedCurrentDate.adding(days: -7)
         let (sut, store) = makeSUT(currentDate: { fixedCurrentDate })
 
@@ -59,12 +61,22 @@ final class loadCategoryFromCahceUseCaseTests: XCTestCase {
     func test_load_deliversNoCategoriesOnMoreThanSevenDaysoldCache() {
         let categories = uniqueCategories()
         let fixedCurrentDate = Date()
+        // currentDate - (7 * 24 * 60 * 60)days - 1 second
         let moreThanSevenDaysoldTimestamp = fixedCurrentDate.adding(days: -7).adding(seconds: -1)
         let (sut, store) = makeSUT(currentDate: { fixedCurrentDate })
 
         expect(sut, toCompleteWith: .success([])) {
             store.completeRetrieval(with: categories.local, timestamp: moreThanSevenDaysoldTimestamp)
         }
+    }
+    
+    func test_load_deleteCacheOnRetrievalError() {
+        let (sut, store) = makeSUT()
+        
+        sut.load() { _ in}
+        store.completeRetrieval(with: anyNSError())
+        
+        XCTAssertEqual(store.receivedMessages, [.retrieve, .deleteCahcedCategories])
     }
     
     // MARK: - Helpers

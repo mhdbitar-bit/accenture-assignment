@@ -35,6 +35,7 @@ final class LocalCategoryLoader {
         store.retrieve { [unowned self] result in
             switch result {
             case let .failure(error):
+                self.store.deleteCachedCategories() { _ in }
                 completion(.failure(error))
             
             case let .found(categories, timestamp) where self.validate(timestamp):
