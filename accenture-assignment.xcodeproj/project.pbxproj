@@ -22,6 +22,7 @@
 		4CAB662228706289000C426F /* URLSessionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB662128706289000C426F /* URLSessionHTTPClient.swift */; };
 		4CAB663728706AC2000C426F /* accenture_assignmentEndToEndTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB663628706AC2000C426F /* accenture_assignmentEndToEndTests.swift */; };
 		4CAB663D28706F82000C426F /* XCTestCase+MemoryLeackTrackingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB661F287049A4000C426F /* XCTestCase+MemoryLeackTrackingHelper.swift */; };
+		4CAB6640287098D4000C426F /* CacheCategoriesUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB663F287098D4000C426F /* CacheCategoriesUseCaseTests.swift */; };
 		4CDCEDD1286E25D600DF3AAA /* RemoteCategoryLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDCEDD0286E25D600DF3AAA /* RemoteCategoryLoader.swift */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +62,7 @@
 		4CAB662128706289000C426F /* URLSessionHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClient.swift; sourceTree = "<group>"; };
 		4CAB663428706AC2000C426F /* accenture-assignmentEndToEndTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "accenture-assignmentEndToEndTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CAB663628706AC2000C426F /* accenture_assignmentEndToEndTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = accenture_assignmentEndToEndTests.swift; sourceTree = "<group>"; };
+		4CAB663F287098D4000C426F /* CacheCategoriesUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheCategoriesUseCaseTests.swift; sourceTree = "<group>"; };
 		4CDCEDD0286E25D600DF3AAA /* RemoteCategoryLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteCategoryLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -127,6 +129,7 @@
 		4C233B72286E065900E5C13C /* accenture-assignmentTests */ = {
 			isa = PBXGroup;
 			children = (
+				4CAB663E287098A6000C426F /* Category Cahce */,
 				4CAB661B28702251000C426F /* Category API */,
 			);
 			path = "accenture-assignmentTests";
@@ -165,6 +168,14 @@
 				4CAB663628706AC2000C426F /* accenture_assignmentEndToEndTests.swift */,
 			);
 			path = "accenture-assignmentEndToEndTests";
+			sourceTree = "<group>";
+		};
+		4CAB663E287098A6000C426F /* Category Cahce */ = {
+			isa = PBXGroup;
+			children = (
+				4CAB663F287098D4000C426F /* CacheCategoriesUseCaseTests.swift */,
+			);
+			path = "Category Cahce";
 			sourceTree = "<group>";
 		};
 		4CDCEDCF286E25C900DF3AAA /* Category API */ = {
@@ -327,6 +338,7 @@
 			files = (
 				4CAB6620287049A4000C426F /* XCTestCase+MemoryLeackTrackingHelper.swift in Sources */,
 				4C233B94286E142E00E5C13C /* LoadCategoriesFromRemoteUseCaseTests.swift in Sources */,
+				4CAB6640287098D4000C426F /* CacheCategoriesUseCaseTests.swift in Sources */,
 				4CAB661D28702EF1000C426F /* URLSessionHTTPClientTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
