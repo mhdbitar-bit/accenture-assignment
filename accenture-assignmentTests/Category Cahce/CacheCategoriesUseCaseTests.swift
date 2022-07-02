@@ -3,15 +3,17 @@ import XCTest
 
 class LocalCategoryLoader {
     private let store: CategoryStore
+    private let currentDate: () -> Date
     
-    init(store: CategoryStore) {
+    init(store: CategoryStore, currentDate: @escaping () -> Date) {
         self.store = store
+        self.currentDate = currentDate
     }
     
     func save(_ categories: [CategoryItem]) {
         store.deleteCachedCategories { [unowned self] error in
             if error == nil {
-                self.store.insert(categories)
+                self.store.insert(categories, timestamp: self.currentDate())
             }
         }
     }
@@ -22,6 +24,7 @@ class CategoryStore {
     
     var deleteCachedCategoriesCallCount = 0
     var insertCallCount = 0
+    var insertions = [(categories: [CategoryItem], timestamp: Date)]()
     
     private var deletionCompletions = [DeletionCompletion]()
     
@@ -38,8 +41,9 @@ class CategoryStore {
         deletionCompletions[index](.none)
     }
     
-    func insert(_ categories: [CategoryItem]) {
+    func insert(_ categories: [CategoryItem], timestamp: Date) {
         insertCallCount += 1
+        insertions.append((categories, timestamp))
     }
 }
 
@@ -81,11 +85,24 @@ final class CacheCategoriesUseCaseTests: XCTestCase {
         XCTAssertEqual(store.insertCallCount, 1)
     }
     
+    func test_save_requestNewCahceInsertionWithTimestampOnSuccessfulDeletion() {
+        let timestamp = Date()
+        let (sut, store) = makeSUT(currentDate: { timestamp })
+        let items = [uniqueCategory(), uniqueCategory()]
+        
+        sut.save(items)
+        store.completeDeletionSuccessfully()
+        
+        XCTAssertEqual(store.insertions.count, 1)
+        XCTAssertEqual(store.insertions.first?.categories, items)
+        XCTAssertEqual(store.insertions.first?.timestamp, timestamp)
+    }
+    
     // MARK: - Helpers
     
-    private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (sut: LocalCategoryLoader, store: CategoryStore) {
+    private func makeSUT(currentDate: @escaping () -> Date = Date.init, file: StaticString = #filePath, line: UInt = #line) -> (sut: LocalCategoryLoader, store: CategoryStore) {
         let store = CategoryStore()
-        let sut = LocalCategoryLoader(store: store)
+        let sut = LocalCategoryLoader(store: store, currentDate: currentDate)
         trackForMemoryLeacks(store, file: file, line: line)
         trackForMemoryLeacks(sut, file: file, line: line)
         return (sut, store)
