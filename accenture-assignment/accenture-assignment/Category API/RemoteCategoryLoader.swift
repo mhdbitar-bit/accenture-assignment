@@ -11,7 +11,7 @@ final class RemoteCategoryLoader {
     private let url: URL
     private let client: HTTPClient
     
-    typealias CategoryResult = Result<[CategoryItem], Error>
+    typealias Result = CategoryResult<Error>
     
     enum Error: Swift.Error {
         case connecitivy
@@ -23,7 +23,7 @@ final class RemoteCategoryLoader {
         self.client = client
     }
     
-    func load(completion: @escaping (CategoryResult) -> Void) {
+    func load(completion: @escaping (Result) -> Void) {
         client.get(from: url) { [weak self] result in
             guard self != nil else { return }
             

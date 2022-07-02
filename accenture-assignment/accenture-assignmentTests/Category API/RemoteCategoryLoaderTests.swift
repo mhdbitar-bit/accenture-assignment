@@ -85,7 +85,7 @@ final class RemoteCategoryLoaderTests: XCTestCase {
         let client = HTTPClientSpy()
         var sut: RemoteCategoryLoader? = RemoteCategoryLoader(url: url, client: client)
         
-        var capturedResults = [RemoteCategoryLoader.CategoryResult]()
+        var capturedResults = [RemoteCategoryLoader.Result]()
         sut?.load { capturedResults.append($0) }
         
         sut = nil
@@ -126,9 +126,9 @@ final class RemoteCategoryLoaderTests: XCTestCase {
         return try! JSONSerialization.data(withJSONObject: items)
     }
     
-    private func expcat(_ sut: RemoteCategoryLoader, toCompleteWith result: RemoteCategoryLoader.CategoryResult, when action: () -> Void, file: StaticString = #filePath, line: UInt = #line) {
+    private func expcat(_ sut: RemoteCategoryLoader, toCompleteWith result: RemoteCategoryLoader.Result, when action: () -> Void, file: StaticString = #filePath, line: UInt = #line) {
         
-        var capturedResults = [RemoteCategoryLoader.CategoryResult]()
+        var capturedResults = [RemoteCategoryLoader.Result]()
         sut.load { capturedResults.append($0) }
        
         action()
