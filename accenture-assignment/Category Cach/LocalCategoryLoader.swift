@@ -31,10 +31,15 @@ final class LocalCategoryLoader {
     }
     
     func load(completion: @escaping (LoadResult) -> Void) {
-        store.retrieve { error in
-            if let error = error {
+        store.retrieve { result in
+            switch result {
+            case let .failure(error):
                 completion(.failure(error))
-            } else {
+            
+            case let .found(categories, _):
+                completion(.success(categories.toModels()))
+                
+            case .empty:
                 completion(.success([]))
             }
         }
@@ -52,5 +57,11 @@ final class LocalCategoryLoader {
 private extension Array where Element == CategoryItem {
     func toLocal() -> [LocalCategoryItem] {
         map { LocalCategoryItem(id: $0.id, name: $0.name) }
+    }
+}
+
+private extension Array where Element == LocalCategoryItem {
+    func toModels() -> [CategoryItem] {
+        map { CategoryItem(id: $0.id, name: $0.name) }
     }
 }
