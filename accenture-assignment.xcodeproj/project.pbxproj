@@ -26,6 +26,7 @@
 		4CAB66432870AACD000C426F /* LocalCategoryLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB66422870AACD000C426F /* LocalCategoryLoader.swift */; };
 		4CAB66452870AB48000C426F /* CategoryStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB66442870AB48000C426F /* CategoryStore.swift */; };
 		4CAB66472870B6C7000C426F /* RemoteCategoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB66462870B6C7000C426F /* RemoteCategoryItem.swift */; };
+		4CAB66492870B704000C426F /* LocalCategoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB66482870B704000C426F /* LocalCategoryItem.swift */; };
 		4CDCEDD1286E25D600DF3AAA /* RemoteCategoryLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDCEDD0286E25D600DF3AAA /* RemoteCategoryLoader.swift */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +70,7 @@
 		4CAB66422870AACD000C426F /* LocalCategoryLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalCategoryLoader.swift; sourceTree = "<group>"; };
 		4CAB66442870AB48000C426F /* CategoryStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryStore.swift; sourceTree = "<group>"; };
 		4CAB66462870B6C7000C426F /* RemoteCategoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteCategoryItem.swift; sourceTree = "<group>"; };
+		4CAB66482870B704000C426F /* LocalCategoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalCategoryItem.swift; sourceTree = "<group>"; };
 		4CDCEDD0286E25D600DF3AAA /* RemoteCategoryLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteCategoryLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -190,6 +192,7 @@
 			children = (
 				4CAB66422870AACD000C426F /* LocalCategoryLoader.swift */,
 				4CAB66442870AB48000C426F /* CategoryStore.swift */,
+				4CAB66482870B704000C426F /* LocalCategoryItem.swift */,
 			);
 			path = "Category Cach";
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 			files = (
 				4CAB66472870B6C7000C426F /* RemoteCategoryItem.swift in Sources */,
 				4C233B91286E11E800E5C13C /* CategoryLoader.swift in Sources */,
+				4CAB66492870B704000C426F /* LocalCategoryItem.swift in Sources */,
 				4CDCEDD1286E25D600DF3AAA /* RemoteCategoryLoader.swift in Sources */,
 				4CAB661828701ADD000C426F /* HTTPClient.swift in Sources */,
 				4CAB662228706289000C426F /* URLSessionHTTPClient.swift in Sources */,
