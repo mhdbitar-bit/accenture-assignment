@@ -10,7 +10,7 @@ import XCTest
 
 
 class accenture_assignmentEndToEndTests: XCTestCase {
-    
+
     func test_endToEndServerGETCategoriesResult_matchesFixedTestAccountData() {
         switch getCategoriesResult() {
         case let .success(categories)?:
@@ -32,7 +32,7 @@ class accenture_assignmentEndToEndTests: XCTestCase {
     
     private func getCategoriesResult(file: StaticString = #filePath, line: UInt = #line) -> CategoryResult? {
         let testServerURL = URL(string: "https://private-anon-f51dfcda52-androidtestmobgen.apiary-mock.com/categories")!
-        let client = URLSessionHTTPClient()
+        let client = URLSessionHTTPClient(session: URLSession(configuration: .ephemeral))
         let loader = RemoteCategoryLoader(url: testServerURL, client: client)
         trackForMemoryLeacks(client, file: file, line: line)
         trackForMemoryLeacks(loader, file: file, line: line)
