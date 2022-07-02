@@ -67,6 +67,31 @@ final class RemoteCategoryLoaderTests: XCTestCase {
         }
     }
     
+    func test_load_deliversItemsOn200HTTPResponseWithJSONItems() {
+        let (sut, client) = makeSUT()
+
+        let item1 = Category(id: 1, name: "a name")
+        
+        let item1JSON: [String: Any] = [
+            "type": item1.id,
+            "category_name": item1.name
+        ]
+        
+        let item2 = Category(id: 2, name: "another name")
+        
+        let item2JSON: [String: Any] = [
+            "type": item2.id,
+            "category_name": item2.name
+        ]
+        
+        let itemsJSON = [item1JSON, item2JSON]
+        
+        expcat(sut, toCompleteWith: .success([item1, item2])) {
+            let json = try! JSONSerialization.data(withJSONObject: itemsJSON)
+            client.complete(withStatusCode: 200, data: json)
+        }
+    }
+    
     // MARK: - Helpers
     
     private func makeSUT(url: URL = URL(string: "https://a-url.com")!) -> (sut: RemoteCategoryLoader, client: HTTPClientSpy) {

@@ -33,8 +33,8 @@ final class RemoteCategoryLoader {
         client.get(from: url) { result in
             switch result {
             case let .success((data, _)):
-                if let _ = try? JSONSerialization.jsonObject(with: data) {
-                    completion(.success([]))
+                if let items = try? JSONDecoder().decode([Category].self, from: data) {
+                    completion(.success(items))
                 } else {
                     completion(.failure(.invalidData))
                 }
