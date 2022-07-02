@@ -53,8 +53,13 @@ final class LocalCategoryLoader {
     }
     
     func validateCahce() {
-        store.retrieve { _ in }
-        store.deleteCachedCategories { _ in }
+        store.retrieve { [unowned self] result in
+            switch result {
+            case .failure:
+                self.store.deleteCachedCategories { _ in }
+            default: break
+            }
+        }
     }
     
     private var maxCacheAgeInDays: Int {
