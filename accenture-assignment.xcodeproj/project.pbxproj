@@ -33,6 +33,7 @@
 		4CAB66522870E0E0000C426F /* CategoryCacheTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB66512870E0E0000C426F /* CategoryCacheTestHelpers.swift */; };
 		4CAB66542870E173000C426F /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB66532870E173000C426F /* SharedTestHelpers.swift */; };
 		4CAB66562870EA40000C426F /* CategoriesCahcePolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB66552870EA40000C426F /* CategoriesCahcePolicy.swift */; };
+		4CAB66582870F293000C426F /* CodableCateogiresStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB66572870F293000C426F /* CodableCateogiresStoreTests.swift */; };
 		4CDCEDD1286E25D600DF3AAA /* RemoteCategoryLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDCEDD0286E25D600DF3AAA /* RemoteCategoryLoader.swift */; };
 /* End PBXBuildFile section */
 
@@ -83,6 +84,7 @@
 		4CAB66512870E0E0000C426F /* CategoryCacheTestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCacheTestHelpers.swift; sourceTree = "<group>"; };
 		4CAB66532870E173000C426F /* SharedTestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTestHelpers.swift; sourceTree = "<group>"; };
 		4CAB66552870EA40000C426F /* CategoriesCahcePolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesCahcePolicy.swift; sourceTree = "<group>"; };
+		4CAB66572870F293000C426F /* CodableCateogiresStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableCateogiresStoreTests.swift; sourceTree = "<group>"; };
 		4CDCEDD0286E25D600DF3AAA /* RemoteCategoryLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteCategoryLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -199,6 +201,7 @@
 				4CAB663F287098D4000C426F /* CacheCategoriesUseCaseTests.swift */,
 				4CAB664A2870B9E2000C426F /* LoadCategoryFromCahceUseCaseTests.swift */,
 				4CAB664F2870DDEE000C426F /* ValidateCategoriesCacheUseCaseTests.swift */,
+				4CAB66572870F293000C426F /* CodableCateogiresStoreTests.swift */,
 			);
 			path = "Category Cahce";
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 			files = (
 				4CAB6620287049A4000C426F /* XCTestCase+MemoryLeackTrackingHelper.swift in Sources */,
 				4C233B94286E142E00E5C13C /* LoadCategoriesFromRemoteUseCaseTests.swift in Sources */,
+				4CAB66582870F293000C426F /* CodableCateogiresStoreTests.swift in Sources */,
 				4CAB664E2870BAE1000C426F /* CategoryStoreSpy.swift in Sources */,
 				4CAB664B2870B9E2000C426F /* LoadCategoryFromCahceUseCaseTests.swift in Sources */,
 				4CAB6640287098D4000C426F /* CacheCategoriesUseCaseTests.swift in Sources */,
