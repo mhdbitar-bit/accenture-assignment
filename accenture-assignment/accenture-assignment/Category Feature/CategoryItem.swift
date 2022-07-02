@@ -16,10 +16,3 @@ struct CategoryItem: Equatable {
         self.name = name
     }
 }
-
-extension CategoryItem: Decodable {
-    private enum CodingKeys: String, CodingKey {
-        case id = "type"
-        case name = "category_name"
-    }
-}
