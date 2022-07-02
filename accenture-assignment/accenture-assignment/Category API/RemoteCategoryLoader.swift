@@ -24,7 +24,9 @@ final class RemoteCategoryLoader {
     }
     
     func load(completion: @escaping (CategoryResult) -> Void) {
-        client.get(from: url) { result in
+        client.get(from: url) { [weak self] result in
+            guard self != nil else { return }
+            
             switch result {
             case let .success((data, response)):
                 completion(CategoryItemsMapper.map(data, from: response))
