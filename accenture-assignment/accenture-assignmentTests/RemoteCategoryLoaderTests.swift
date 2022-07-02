@@ -63,7 +63,7 @@ final class RemoteCategoryLoaderTests: XCTestCase {
         let (sut, client) = makeSUT()
 
         expcat(sut, toCompleteWith: .success([])) {
-            let emptyListJSON = Data("[]".utf8)
+            let emptyListJSON = makeItemsJSON([])
             client.complete(withStatusCode: 200, data: emptyListJSON)
         }
     }
