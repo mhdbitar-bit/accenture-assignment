@@ -14,7 +14,10 @@ class LocalCategoryLoader {
         store.deleteCachedCategories { [weak self] error in
             guard let self = self else { return }
             if error == nil {
-                self.store.insert(categories, timestamp: self.currentDate(), completion: completion)
+                self.store.insert(categories, timestamp: self.currentDate()) { [weak self] error in
+                    guard self != nil else { return }
+                    completion(error)
+                }
             } else {
                 completion(error)
             }
@@ -106,6 +109,20 @@ final class CacheCategoriesUseCaseTests: XCTestCase {
         
         sut = nil
         store.completeDeletion(with: anyNSError())
+        
+        XCTAssertTrue(receviedResults.isEmpty)
+    }
+    
+    func test_save_doesNotDeliverInsertionErrorAfterSUTInstanceHasBeenDeallocated() {
+        let store = CategoryStoreSpy()
+        var sut: LocalCategoryLoader? = LocalCategoryLoader(store: store, currentDate: Date.init)
+    
+        var receviedResults = [Error?]()
+        sut?.save([uniqueCategory()]) { receviedResults.append($0) }
+        
+        store.completeDeletionSuccessfully()
+        sut = nil
+        store.completeInsertion(with: anyNSError())
         
         XCTAssertTrue(receviedResults.isEmpty)
     }
