@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class RemoteCategoryLoader {
+final class RemoteCategoryLoader: CategoryLoader {
     private let url: URL
     private let client: HTTPClient
     
