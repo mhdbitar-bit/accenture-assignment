@@ -24,15 +24,13 @@ class CategoryStore {
 final class CacheCategoriesUseCaseTests: XCTestCase {
 
     func test_init_doesNotDeleteCacheUponCreation() {
-        let store = CategoryStore()
-        _ = LocalCategoryLoader(store: store)
-        
+        let (_, store) = makeSUT()
+
         XCTAssertEqual(store.deleteCachedCategoriesCallCount, 0)
     }
     
     func test_save_requestsCacheDeletion() {
-        let store = CategoryStore()
-        let sut = LocalCategoryLoader(store: store)
+        let (sut, store) = makeSUT()
         let items = [uniqueCategory(), uniqueCategory()]
         
         sut.save(items)
@@ -41,6 +39,13 @@ final class CacheCategoriesUseCaseTests: XCTestCase {
     }
     
     // MARK: - Helpers
+    
+    private func makeSUT() -> (sut: LocalCategoryLoader, store: CategoryStore) {
+        let store = CategoryStore()
+        let sut = LocalCategoryLoader(store: store)
+        
+        return (sut, store)
+    }
     
     private func uniqueCategory() -> CategoryItem {
         CategoryItem(id: 1, name: "any")
