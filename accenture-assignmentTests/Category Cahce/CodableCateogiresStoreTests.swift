@@ -46,24 +46,22 @@ class CodableCategoriesStore {
         let cache = Cache(categories: categories.map(CodableCategories.init), timestamp: timestamp)
         let encoded = try! encoder.encode(cache)
         try! encoded.write(to: storeURL)
-        completion(.none)
+        completion(nil)
     }
 }
 
 final class CodableCateogiresStoreTests: XCTestCase {
 
-    override class func setUp() {
+    override func setUp() {
         super.setUp()
         
-        let storeURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("categories.store")
-        try? FileManager.default.removeItem(at: storeURL)
+        try? FileManager.default.removeItem(at: storeURL())
     }
     
-    override class func tearDown() {
+    override func tearDown() {
         super.tearDown()
         
-        let storeURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("categories.store")
-        try? FileManager.default.removeItem(at: storeURL)
+        try? FileManager.default.removeItem(at: storeURL())
     }
     
     func test_retrieve_deliversEmptyOnEmptyCache() {
@@ -135,8 +133,12 @@ final class CodableCateogiresStoreTests: XCTestCase {
     // MARK: - Helpers
     
     private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> CodableCategoriesStore {
-        let sut = CodableCategoriesStore(storeURL: FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("categories.store"))
+        let sut = CodableCategoriesStore(storeURL: storeURL())
         trackForMemoryLeacks(sut, file: file, line: line)
         return sut
     }
+    
+    private func storeURL() -> URL {
+            return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("categories.store")
+        }
 }
