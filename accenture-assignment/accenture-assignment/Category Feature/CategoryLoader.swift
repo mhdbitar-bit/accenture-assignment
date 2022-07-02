@@ -7,10 +7,8 @@
 
 import Foundation
 
-typealias CategoryResult<Error: Swift.Error> = Result<[CategoryItem], Error>
+typealias CategoryResult = Result<[CategoryItem], Error>
 
 protocol CategoryLoader {
-    associatedtype Error: Swift.Error
-    
-    func load(completion: @escaping (CategoryResult<Error>) -> Void)
+    func load(completion: @escaping (CategoryResult) -> Void)
 }

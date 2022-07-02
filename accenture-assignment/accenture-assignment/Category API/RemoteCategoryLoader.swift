@@ -11,7 +11,7 @@ final class RemoteCategoryLoader: CategoryLoader {
     private let url: URL
     private let client: HTTPClient
     
-    typealias Result = CategoryResult<Error>
+    typealias Result = CategoryResult
     
     enum Error: Swift.Error {
         case connecitivy
@@ -31,7 +31,7 @@ final class RemoteCategoryLoader: CategoryLoader {
             case let .success((data, response)):
                 completion(CategoryItemsMapper.map(data, from: response))
             case .failure:
-                completion(.failure(.connecitivy))
+                completion(.failure(Error.connecitivy))
             }
         }
     }
