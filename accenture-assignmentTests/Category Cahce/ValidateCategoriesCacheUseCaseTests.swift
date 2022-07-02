@@ -27,38 +27,38 @@ final class ValidateCategoriesCacheUseCaseTests: XCTestCase {
         XCTAssertEqual(store.receivedMessages, [.retrieve])
     }
     
-    func test_validateCache_doesNotDeleteCahceOnLessThanSevenDaysOldCache() {
+    func test_validateCache_doesNotDeleteCahceOnNonExpiredCache() {
         let categories = uniqueCategories()
         let fixedCurrentDate = Date()
-        let lessThanSevenDaysoldTimestamp = fixedCurrentDate.adding(days: -7).adding(seconds: 1)
+        let nonExpiredTimestamp = fixedCurrentDate.minusCategoriesCacheMaxAge().adding(seconds: 1)
         let (sut, store) = makeSUT(currentDate: { fixedCurrentDate })
         
         sut.validateCahce()
-        store.completeRetrieval(with: categories.local, timestamp: lessThanSevenDaysoldTimestamp)
+        store.completeRetrieval(with: categories.local, timestamp: nonExpiredTimestamp)
         
         XCTAssertEqual(store.receivedMessages, [.retrieve])
     }
     
-    func test_validateCache_deleteSevenDaysOldCache() {
+    func test_validateCache_deleteCacheOnExpiration() {
         let categories = uniqueCategories()
         let fixedCurrentDate = Date()
-        let sevenDaysoldTimestamp = fixedCurrentDate.adding(days: -7)
+        let expirationTimestamp = fixedCurrentDate.minusCategoriesCacheMaxAge()
         let (sut, store) = makeSUT(currentDate: { fixedCurrentDate })
         
         sut.validateCahce()
-        store.completeRetrieval(with: categories.local, timestamp: sevenDaysoldTimestamp)
+        store.completeRetrieval(with: categories.local, timestamp: expirationTimestamp)
         
         XCTAssertEqual(store.receivedMessages, [.retrieve, .deleteCahcedCategories])
     }
     
-    func test_validateCache_deleteMoreThanSevenDaysOldCache() {
+    func test_validateCache_deleteExpiredCache() {
         let categories = uniqueCategories()
         let fixedCurrentDate = Date()
-        let moreThanSevenDaysoldTimestamp = fixedCurrentDate.adding(days: -7).adding(days: -1)
+        let expiredTimestamp = fixedCurrentDate.minusCategoriesCacheMaxAge().adding(days: -1)
         let (sut, store) = makeSUT(currentDate: { fixedCurrentDate })
         
         sut.validateCahce()
-        store.completeRetrieval(with: categories.local, timestamp: moreThanSevenDaysoldTimestamp)
+        store.completeRetrieval(with: categories.local, timestamp: expiredTimestamp)
         
         XCTAssertEqual(store.receivedMessages, [.retrieve, .deleteCahcedCategories])
     }
