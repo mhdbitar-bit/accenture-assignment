@@ -31,7 +31,7 @@ final class RemoteCategoryLoaderTests: XCTestCase {
     func test_load_deliversErrorOnClientError() {
         let (sut, client) = makeSUT()
         
-        expcat(sut, toCompleteWith: .failure(RemoteCategoryLoader.Error.connecitivy)) {
+        expcat(sut, toCompleteWith: failure(.connecitivy)) {
             let clientError = NSError(domain: "Test", code: 0)
             client.complete(with: clientError)
         }
@@ -43,7 +43,7 @@ final class RemoteCategoryLoaderTests: XCTestCase {
         let samples = [199, 201, 300, 400, 500]
         
         samples.enumerated().forEach { index, code in
-            expcat(sut, toCompleteWith: .failure(RemoteCategoryLoader.Error.invalidData)) {
+            expcat(sut, toCompleteWith: failure(.invalidData)) {
                 let json = makeItemsJSON([])
                 client.complete(withStatusCode: code, data: json, at: index)
             }
@@ -53,7 +53,7 @@ final class RemoteCategoryLoaderTests: XCTestCase {
     func test_load_deliversErrorOn200HTTPResponseWithInvalidJSON() {
         let (sut, client) = makeSUT()
         
-        expcat(sut, toCompleteWith: .failure(RemoteCategoryLoader.Error.invalidData)) {
+        expcat(sut, toCompleteWith: failure(.invalidData)) {
             let invalidJSON = Data("invalid json".utf8)
             client.complete(withStatusCode: 200, data: invalidJSON)
         }
@@ -102,6 +102,10 @@ final class RemoteCategoryLoaderTests: XCTestCase {
         trackForMemoryLeacks(sut, file: file, line: line)
         trackForMemoryLeacks(client, file: file, line: line)
         return (sut, client)
+    }
+    
+    private func failure(_ error: RemoteCategoryLoader.Error) -> RemoteCategoryLoader.Result {
+        return .failure(error)
     }
     
     private func trackForMemoryLeacks(_ instance: AnyObject, file: StaticString = #filePath, line: UInt = #line) {
