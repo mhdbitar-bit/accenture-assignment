@@ -124,6 +124,19 @@ final class loadCategoryFromCahceUseCaseTests: XCTestCase {
         XCTAssertEqual(store.receivedMessages, [.retrieve, .deleteCahcedCategories])
     }
     
+    func test_load_doesNotDeleiverResultAfterSUTInstanceHasBeenDeallicated() {
+        let store = CategoryStoreSpy()
+        var sut: LocalCategoryLoader? = LocalCategoryLoader(store: store, currentDate: Date.init)
+        
+        var receivedResult = [LocalCategoryLoader.LoadResult]()
+        sut?.load { receivedResult.append($0) }
+        
+        sut = nil
+        store.completeRetrievalWithEmptyCache()
+        
+        XCTAssertTrue(receivedResult.isEmpty)
+    }
+    
     // MARK: - Helpers
     
     private func makeSUT(currentDate: @escaping () -> Date = Date.init, file: StaticString = #filePath, line: UInt = #line) -> (sut: LocalCategoryLoader, store: CategoryStoreSpy) {
