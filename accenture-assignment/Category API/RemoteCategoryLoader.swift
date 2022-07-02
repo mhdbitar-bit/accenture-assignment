@@ -29,10 +29,26 @@ final class RemoteCategoryLoader: CategoryLoader {
             
             switch result {
             case let .success((data, response)):
-                completion(CategoryItemsMapper.map(data, from: response))
+                completion(RemoteCategoryLoader.map(data, from: response))
+               
             case .failure:
                 completion(.failure(Error.connecitivy))
             }
         }
+    }
+    
+    private static func map(_ data: Data, from response: HTTPURLResponse) -> Result {
+        do {
+            let items = try CategoryItemsMapper.map(data, from: response)
+            return .success(items.toModels())
+        } catch {
+            return .failure(error)
+        }
+    }
+}
+
+private extension Array where Element == RemoteCategoryItem {
+    func toModels() -> [CategoryItem] {
+        map { CategoryItem(id: $0.type, name: $0.category_name) }
     }
 }
