@@ -12,6 +12,7 @@ final class LocalCategoryLoader {
     private let currentDate: () -> Date
     
     typealias SaveResult = Error?
+    typealias LoadResult = LoadCategoryResult?
     
     init(store: CategoryStore, currentDate: @escaping () -> Date) {
         self.store = store
@@ -29,8 +30,12 @@ final class LocalCategoryLoader {
         }
     }
     
-    func load(completion: @escaping (LoadCategoryResult) -> Void) {
-        store.retrieve(completion: completion)
+    func load(completion: @escaping (LoadResult) -> Void) {
+        store.retrieve { error in
+            if let error = error {
+                completion(.failure(error))
+            }
+        }
     }
     
     private func cache(_ categories: [CategoryItem], with completion: @escaping (SaveResult) -> Void) {
