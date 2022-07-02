@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct LocalCategoryItem: Equatable, Codable {
+struct LocalCategoryItem: Equatable {
     let id: Int
     let name: String
     
@@ -16,4 +16,3 @@ struct LocalCategoryItem: Equatable, Codable {
         self.name = name
     }
 }
-

@@ -3,26 +3,44 @@ import XCTest
 
 class CodableCategoriesStore {
     private struct Cache: Codable {
-        let categories: [LocalCategoryItem]
+        let categories: [CodableCategories]
         let timestamp: Date
+        
+        var localCategories: [LocalCategoryItem] {
+            return categories.map { $0.local }
+        }
+    }
+    
+    private struct CodableCategories: Codable {
+        private let id: Int
+        private let name: String
+        
+        init(_ category: LocalCategoryItem) {
+            id = category.id
+            name = category.name
+        }
+        
+        var local: LocalCategoryItem {
+            return LocalCategoryItem(id: id, name: name)
+        }
     }
     
     private let storeURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("categories.store")
     
     func retrieve(completion: @escaping CategoryStore.RetrievalCompletion) {
         guard let data = try? Data(contentsOf: storeURL) else {
-            completion(.empty)
-            return
+            return completion(.empty)
         }
         
         let decoder = JSONDecoder()
         let cache = try! decoder.decode(Cache.self, from: data)
-        completion(.found(categories: cache.categories, timestamp: cache.timestamp))
+        completion(.found(categories: cache.localCategories, timestamp: cache.timestamp))
     }
     
     func insert(_ categories: [LocalCategoryItem], timestamp: Date, completion: @escaping CategoryStore.InsertionCompletion) {
         let encoder = JSONEncoder()
-        let encoded = try! encoder.encode(Cache(categories: categories, timestamp: timestamp))
+        let cache = Cache(categories: categories.map(CodableCategories.init), timestamp: timestamp)
+        let encoded = try! encoder.encode(cache)
         try! encoded.write(to: storeURL)
         completion(.none)
     }
