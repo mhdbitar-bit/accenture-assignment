@@ -101,7 +101,7 @@
 		4C233B72286E065900E5C13C /* accenture-assignmentTests */ = {
 			isa = PBXGroup;
 			children = (
-				4C233B93286E142E00E5C13C /* RemoteCategoryLoaderTests.swift */,
+				4CAB661B28702251000C426F /* Category API */,
 			);
 			path = "accenture-assignmentTests";
 			sourceTree = "<group>";
@@ -113,6 +113,14 @@
 				4C233B90286E11E800E5C13C /* CategoryLoader.swift */,
 			);
 			path = "Category Feature";
+			sourceTree = "<group>";
+		};
+		4CAB661B28702251000C426F /* Category API */ = {
+			isa = PBXGroup;
+			children = (
+				4C233B93286E142E00E5C13C /* RemoteCategoryLoaderTests.swift */,
+			);
+			path = "Category API";
 			sourceTree = "<group>";
 		};
 		4CDCEDCF286E25C900DF3AAA /* Category API */ = {
