@@ -25,7 +25,11 @@ class CodableCategoriesStore {
         }
     }
     
-    private let storeURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("categories.store")
+    private let storeURL: URL
+    
+    init(storeURL: URL) {
+        self.storeURL = storeURL
+    }
     
     func retrieve(completion: @escaping CategoryStore.RetrievalCompletion) {
         guard let data = try? Data(contentsOf: storeURL) else {
@@ -131,7 +135,7 @@ final class CodableCateogiresStoreTests: XCTestCase {
     // MARK: - Helpers
     
     private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> CodableCategoriesStore {
-        let sut = CodableCategoriesStore()
+        let sut = CodableCategoriesStore(storeURL: FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("categories.store"))
         trackForMemoryLeacks(sut, file: file, line: line)
         return sut
     }
