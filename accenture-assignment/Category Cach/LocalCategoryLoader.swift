@@ -42,10 +42,7 @@ final class LocalCategoryLoader {
             case let .found(categories, timestamp) where self.validate(timestamp):
                 completion(.success(categories.toModels()))
                 
-            case .found:
-                completion(.success([]))
-                
-            case .empty:
+            case .found, .empty:
                 completion(.success([]))
             }
         }
