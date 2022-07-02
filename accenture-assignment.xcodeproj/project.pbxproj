@@ -32,6 +32,7 @@
 		4CAB66502870DDEE000C426F /* ValidateCategoriesCacheUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB664F2870DDEE000C426F /* ValidateCategoriesCacheUseCaseTests.swift */; };
 		4CAB66522870E0E0000C426F /* CategoryCacheTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB66512870E0E0000C426F /* CategoryCacheTestHelpers.swift */; };
 		4CAB66542870E173000C426F /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB66532870E173000C426F /* SharedTestHelpers.swift */; };
+		4CAB66562870EA40000C426F /* CategoriesCahcePolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB66552870EA40000C426F /* CategoriesCahcePolicy.swift */; };
 		4CDCEDD1286E25D600DF3AAA /* RemoteCategoryLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDCEDD0286E25D600DF3AAA /* RemoteCategoryLoader.swift */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +82,7 @@
 		4CAB664F2870DDEE000C426F /* ValidateCategoriesCacheUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateCategoriesCacheUseCaseTests.swift; sourceTree = "<group>"; };
 		4CAB66512870E0E0000C426F /* CategoryCacheTestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCacheTestHelpers.swift; sourceTree = "<group>"; };
 		4CAB66532870E173000C426F /* SharedTestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTestHelpers.swift; sourceTree = "<group>"; };
+		4CAB66552870EA40000C426F /* CategoriesCahcePolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesCahcePolicy.swift; sourceTree = "<group>"; };
 		4CDCEDD0286E25D600DF3AAA /* RemoteCategoryLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteCategoryLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -205,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				4CAB66422870AACD000C426F /* LocalCategoryLoader.swift */,
+				4CAB66552870EA40000C426F /* CategoriesCahcePolicy.swift */,
 				4CAB66442870AB48000C426F /* CategoryStore.swift */,
 				4CAB66482870B704000C426F /* LocalCategoryItem.swift */,
 			);
@@ -364,6 +367,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CAB66562870EA40000C426F /* CategoriesCahcePolicy.swift in Sources */,
 				4CAB66472870B6C7000C426F /* RemoteCategoryItem.swift in Sources */,
 				4C233B91286E11E800E5C13C /* CategoryLoader.swift in Sources */,
 				4CAB66492870B704000C426F /* LocalCategoryItem.swift in Sources */,
