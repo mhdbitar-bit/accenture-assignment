@@ -35,11 +35,3 @@ final class LocalCategoryLoader {
         }
     }
 }
-
-protocol CategoryStore {
-    typealias DeletionCompletion = (Error?) -> Void
-    typealias InsertionCompletion = (Error?) -> Void
-    
-    func deleteCachedCategories(completion: @escaping DeletionCompletion)
-    func insert(_ categories: [CategoryItem], timestamp: Date, completion: @escaping InsertionCompletion)
-}

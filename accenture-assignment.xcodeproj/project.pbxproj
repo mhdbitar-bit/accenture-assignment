@@ -24,6 +24,7 @@
 		4CAB663D28706F82000C426F /* XCTestCase+MemoryLeackTrackingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB661F287049A4000C426F /* XCTestCase+MemoryLeackTrackingHelper.swift */; };
 		4CAB6640287098D4000C426F /* CacheCategoriesUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB663F287098D4000C426F /* CacheCategoriesUseCaseTests.swift */; };
 		4CAB66432870AACD000C426F /* LocalCategoryLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB66422870AACD000C426F /* LocalCategoryLoader.swift */; };
+		4CAB66452870AB48000C426F /* CategoryStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB66442870AB48000C426F /* CategoryStore.swift */; };
 		4CDCEDD1286E25D600DF3AAA /* RemoteCategoryLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDCEDD0286E25D600DF3AAA /* RemoteCategoryLoader.swift */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +66,7 @@
 		4CAB663628706AC2000C426F /* accenture_assignmentEndToEndTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = accenture_assignmentEndToEndTests.swift; sourceTree = "<group>"; };
 		4CAB663F287098D4000C426F /* CacheCategoriesUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheCategoriesUseCaseTests.swift; sourceTree = "<group>"; };
 		4CAB66422870AACD000C426F /* LocalCategoryLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalCategoryLoader.swift; sourceTree = "<group>"; };
+		4CAB66442870AB48000C426F /* CategoryStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryStore.swift; sourceTree = "<group>"; };
 		4CDCEDD0286E25D600DF3AAA /* RemoteCategoryLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteCategoryLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -185,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				4CAB66422870AACD000C426F /* LocalCategoryLoader.swift */,
+				4CAB66442870AB48000C426F /* CategoryStore.swift */,
 			);
 			path = "Category Cach";
 			sourceTree = "<group>";
@@ -341,6 +344,7 @@
 				4C233B5F286E065800E5C13C /* SceneDelegate.swift in Sources */,
 				4C233B8D286E115A00E5C13C /* CategoryItem.swift in Sources */,
 				4CAB661A28701B10000C426F /* CategoryItemsMapper.swift in Sources */,
+				4CAB66452870AB48000C426F /* CategoryStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
