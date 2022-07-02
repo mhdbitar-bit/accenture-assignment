@@ -129,6 +129,7 @@
 		4C233B72286E065900E5C13C /* accenture-assignmentTests */ = {
 			isa = PBXGroup;
 			children = (
+				4CAB661E28704984000C426F /* Helpers */,
 				4CAB663E287098A6000C426F /* Category Cahce */,
 				4CAB661B28702251000C426F /* Category API */,
 			);
@@ -147,7 +148,6 @@
 		4CAB661B28702251000C426F /* Category API */ = {
 			isa = PBXGroup;
 			children = (
-				4CAB661E28704984000C426F /* Helpers */,
 				4C233B93286E142E00E5C13C /* LoadCategoriesFromRemoteUseCaseTests.swift */,
 				4CAB661C28702EF1000C426F /* URLSessionHTTPClientTests.swift */,
 			);
