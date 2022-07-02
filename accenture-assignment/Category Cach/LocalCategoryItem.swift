@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct LocalCategoryItem: Equatable {
+struct LocalCategoryItem: Equatable, Codable {
     let id: Int
     let name: String
     
