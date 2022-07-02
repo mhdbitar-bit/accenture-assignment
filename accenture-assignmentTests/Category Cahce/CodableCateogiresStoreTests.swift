@@ -63,7 +63,7 @@ final class CodableCateogiresStoreTests: XCTestCase {
     }
     
     func test_retrieve_deliversEmptyOnEmptyCache() {
-        let sut = CodableCategoriesStore()
+        let sut = makeSUT()
         let exp = expectation(description: "Wait for cache retrieval")
         
         sut.retrieve { result in
@@ -82,7 +82,7 @@ final class CodableCateogiresStoreTests: XCTestCase {
     }
     
     func test_retrieve_hasNoSideEffectsOnEmptyCache() {
-        let sut = CodableCategoriesStore()
+        let sut = makeSUT()
         let exp = expectation(description: "Wait for cache retrieval")
         
         sut.retrieve { firstResult in
@@ -103,7 +103,7 @@ final class CodableCateogiresStoreTests: XCTestCase {
     }
     
     func test_retrieveAfterInsertingToEmptyCache_deliversInsertedValues() {
-        let sut = CodableCategoriesStore()
+        let sut = makeSUT()
         let categories = uniqueCategories().local
         let timestamp = Date()
         let exp = expectation(description: "Wait for cache retrieval")
@@ -126,5 +126,11 @@ final class CodableCateogiresStoreTests: XCTestCase {
         }
         
         wait(for: [exp], timeout: 1.0)
+    }
+    
+    // MARK: - Helpers
+    
+    private func makeSUT() -> CodableCategoriesStore {
+        return CodableCategoriesStore()
     }
 }
