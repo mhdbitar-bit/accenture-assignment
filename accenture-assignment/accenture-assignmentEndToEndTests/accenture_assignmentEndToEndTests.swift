@@ -27,6 +27,7 @@ class accenture_assignmentEndToEndTests: XCTestCase {
         }
     }
     
+    
     // MARK: - Helpers
     
     private func getCategoriesResult(file: StaticString = #filePath, line: UInt = #line) -> CategoryResult? {
