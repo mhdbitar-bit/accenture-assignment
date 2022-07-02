@@ -45,6 +45,17 @@ final class loadCategoryFromCahceUseCaseTests: XCTestCase {
         }
     }
     
+    func test_load_deliversNoCategoriesOnSevenDaysoldCache() {
+        let categories = uniqueCategories()
+        let fixedCurrentDate = Date()
+        let sevenDaysoldTimestamp = fixedCurrentDate.adding(days: -7)
+        let (sut, store) = makeSUT(currentDate: { fixedCurrentDate })
+
+        expect(sut, toCompleteWith: .success([])) {
+            store.completeRetrieval(with: categories.local, timestamp: sevenDaysoldTimestamp)
+        }
+    }
+    
     // MARK: - Helpers
     
     private func makeSUT(currentDate: @escaping () -> Date = Date.init, file: StaticString = #filePath, line: UInt = #line) -> (sut: LocalCategoryLoader, store: CategoryStoreSpy) {
