@@ -130,6 +130,40 @@ final class CodableCateogiresStoreTests: XCTestCase {
         wait(for: [exp], timeout: 1.0)
     }
     
+    func test_retrieve_hasNoSideEffectsOnNonEmptyCache() {
+        let sut = makeSUT()
+        let categories = uniqueCategories().local
+        let timestamp = Date()
+        let exp = expectation(description: "Wait for cache retrieval")
+        
+        sut.insert(categories, timestamp: timestamp) { insertionError in
+            XCTAssertNil(insertionError, "Expected categories to be inserted successfully")
+            
+            sut.retrieve { firstResult in
+                sut.retrieve { secondResult in
+                switch (firstResult, secondResult) {
+                case (let .found(firstFound), let .found(secondFound)):
+                    XCTAssertEqual(firstFound.categories, categories)
+                    XCTAssertEqual(firstFound.timestamp, timestamp)
+
+                    XCTAssertEqual(secondFound.categories, categories)
+                    XCTAssertEqual(secondFound.timestamp, timestamp)
+
+                    default:
+                        XCTFail("Expected retrieving twice from non empty caceh to deliver same found result categories \(categories) and \(timestamp), got \(firstResult) and \(secondResult) instead")
+                    }
+                
+                    exp.fulfill()
+                
+                }
+            }
+        }
+        
+        wait(for: [exp], timeout: 1.0)
+    }
+    
+    
+    
     // MARK: - Helpers
     
     private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> CodableCategoriesStore {
