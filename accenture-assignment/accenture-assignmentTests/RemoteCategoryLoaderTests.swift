@@ -82,10 +82,18 @@ final class RemoteCategoryLoaderTests: XCTestCase {
     
     // MARK: - Helpers
     
-    private func makeSUT(url: URL = URL(string: "https://a-url.com")!) -> (sut: RemoteCategoryLoader, client: HTTPClientSpy) {
+    private func makeSUT(url: URL = URL(string: "https://a-url.com")!, file: StaticString = #filePath, line: UInt = #line) -> (sut: RemoteCategoryLoader, client: HTTPClientSpy) {
         let client = HTTPClientSpy()
         let sut = RemoteCategoryLoader(url: url, client: client)
+        trackForMemoryLeacks(sut, file: file, line: line)
+        trackForMemoryLeacks(client, file: file, line: line)
         return (sut, client)
+    }
+    
+    private func trackForMemoryLeacks(_ instance: AnyObject, file: StaticString = #filePath, line: UInt = #line) {
+        addTeardownBlock { [weak instance] in
+            XCTAssertNil(instance, "Instance should have been deallocated. Potential memory leak.", file: file, line: line)
+        }
     }
     
     private func makeItem(id: Int, name: String) -> (model: CategoryItem, json: [String: Any]) {
