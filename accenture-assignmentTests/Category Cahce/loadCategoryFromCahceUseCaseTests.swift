@@ -20,48 +20,18 @@ final class loadCategoryFromCahceUseCaseTests: XCTestCase {
     func test_load_failsOnRetrievalError() {
         let (sut, store) = makeSUT()
         let retrievalError = anyNSError()
-        let exp = expectation(description: "Wait for load completion")
 
-        var receivedError: Error?
-        sut.load() { result in
-            switch result {
-            case let .failure(error):
-                receivedError = error
-                
-            default:
-                XCTFail("Expected failure, got \(result) instead")
-            }
-            
-            exp.fulfill()
+        expect(sut, toCompleteWith: .failure(retrievalError)) {
+            store.completeRetrieval(with: retrievalError)
         }
-
-        store.completeRetrieval(with: retrievalError)
-        wait(for: [exp], timeout: 1.0)
-
-        XCTAssertEqual(receivedError as NSError?, retrievalError)
     }
     
     func test_load_deliversNoImagesOnEmptyCache() {
         let (sut, store) = makeSUT()
-        let exp = expectation(description: "Wait for load completion")
 
-        var receivedCategories: [CategoryItem]?
-        sut.load() { result in
-            switch result {
-            case let .success(categories):
-                receivedCategories = categories
-                
-            default:
-                XCTFail("Expected success, got \(result) instead")
-            }
-            
-            exp.fulfill()
+        expect(sut, toCompleteWith: .success([])) {
+            store.completeRetrievalWithEmptyCache()
         }
-
-        store.completeRetrievalWithEmptyCache()
-        wait(for: [exp], timeout: 1.0)
-
-        XCTAssertEqual(receivedCategories, [])
     }
     
     // MARK: - Helpers
@@ -72,6 +42,28 @@ final class loadCategoryFromCahceUseCaseTests: XCTestCase {
         trackForMemoryLeacks(store, file: file, line: line)
         trackForMemoryLeacks(sut, file: file, line: line)
         return (sut, store)
+    }
+    
+    private func expect(_ sut: LocalCategoryLoader, toCompleteWith expectedResult: LocalCategoryLoader.LoadResult, when action: () -> Void, file: StaticString = #filePath, line: UInt = #line) {
+        let exp = expectation(description: "Wait for load completion")
+
+        sut.load() { receivedResult in
+            switch (receivedResult, expectedResult) {
+            case let (.success(receivedCategories), .success(expectedCategories)):
+                XCTAssertEqual(receivedCategories, expectedCategories, file: file, line: line)
+              
+            case let (.failure(receivedError as NSError), .failure(expectedCategories as NSError)):
+                XCTAssertEqual(receivedError, expectedCategories, file: file, line: line)
+                
+            default:
+                XCTFail("Expected result \(expectedResult), got \(receivedResult) instead", file: file, line: line)
+            }
+            
+            exp.fulfill()
+        }
+
+        action()
+        wait(for: [exp], timeout: 1.0)
     }
     
     private func anyNSError() -> NSError {
