@@ -7,12 +7,6 @@
 
 import Foundation
 
-protocol HTTPClient {
-    typealias HTTPClientResult = Result<(Data, HTTPURLResponse), Error>
-    
-    func get(from url: URL, completion: @escaping (HTTPClientResult) -> Void)
-}
-
 final class RemoteCategoryLoader {
     private let url: URL
     private let client: HTTPClient
