@@ -36,7 +36,7 @@ class accenture_assignmentEndToEndTests: XCTestCase {
         trackForMemoryLeacks(client, file: file, line: line)
         trackForMemoryLeacks(loader, file: file, line: line)
         
-        let exp = expectation(description: "Wait for load completion")
+        let exp  = expectation(description: "Wait for load completion")
         
         var receviedResult: CategoryResult?
         loader.load { result in
