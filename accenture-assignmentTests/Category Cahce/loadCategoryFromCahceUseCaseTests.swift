@@ -1,7 +1,7 @@
 @testable import accenture_assignment
 import XCTest
 
-final class loadCategoryFromCahceUseCaseTests: XCTestCase {
+final class LoadCategoryFromCahceUseCaseTests: XCTestCase {
 
     func test_init_doesNotMessageStoreUponCreation() {
         let (_, store) = makeSUT()
