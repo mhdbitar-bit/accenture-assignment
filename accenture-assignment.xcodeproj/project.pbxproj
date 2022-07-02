@@ -29,6 +29,7 @@
 		4CAB66492870B704000C426F /* LocalCategoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB66482870B704000C426F /* LocalCategoryItem.swift */; };
 		4CAB664B2870B9E2000C426F /* loadCategoryFromCahceUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB664A2870B9E2000C426F /* loadCategoryFromCahceUseCaseTests.swift */; };
 		4CAB664E2870BAE1000C426F /* CategoryStoreSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB664D2870BAE1000C426F /* CategoryStoreSpy.swift */; };
+		4CAB66502870DDEE000C426F /* ValidateCategoriesCacheUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB664F2870DDEE000C426F /* ValidateCategoriesCacheUseCaseTests.swift */; };
 		4CDCEDD1286E25D600DF3AAA /* RemoteCategoryLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDCEDD0286E25D600DF3AAA /* RemoteCategoryLoader.swift */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +76,7 @@
 		4CAB66482870B704000C426F /* LocalCategoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalCategoryItem.swift; sourceTree = "<group>"; };
 		4CAB664A2870B9E2000C426F /* loadCategoryFromCahceUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loadCategoryFromCahceUseCaseTests.swift; sourceTree = "<group>"; };
 		4CAB664D2870BAE1000C426F /* CategoryStoreSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryStoreSpy.swift; sourceTree = "<group>"; };
+		4CAB664F2870DDEE000C426F /* ValidateCategoriesCacheUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateCategoriesCacheUseCaseTests.swift; sourceTree = "<group>"; };
 		4CDCEDD0286E25D600DF3AAA /* RemoteCategoryLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteCategoryLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -189,6 +191,7 @@
 				4CAB664C2870BAD5000C426F /* Helpers */,
 				4CAB663F287098D4000C426F /* CacheCategoriesUseCaseTests.swift */,
 				4CAB664A2870B9E2000C426F /* loadCategoryFromCahceUseCaseTests.swift */,
+				4CAB664F2870DDEE000C426F /* ValidateCategoriesCacheUseCaseTests.swift */,
 			);
 			path = "Category Cahce";
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 				4CAB664B2870B9E2000C426F /* loadCategoryFromCahceUseCaseTests.swift in Sources */,
 				4CAB6640287098D4000C426F /* CacheCategoriesUseCaseTests.swift in Sources */,
 				4CAB661D28702EF1000C426F /* URLSessionHTTPClientTests.swift in Sources */,
+				4CAB66502870DDEE000C426F /* ValidateCategoriesCacheUseCaseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
