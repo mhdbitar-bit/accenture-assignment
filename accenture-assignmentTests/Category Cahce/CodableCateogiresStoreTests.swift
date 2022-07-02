@@ -51,17 +51,17 @@ class CodableCategoriesStore {
 }
 
 final class CodableCateogiresStoreTests: XCTestCase {
-
+    
     override func setUp() {
         super.setUp()
         
-        try? FileManager.default.removeItem(at: storeURL())
+        try? FileManager.default.removeItem(at: testSpecificStoreURL())
     }
     
     override func tearDown() {
         super.tearDown()
         
-        try? FileManager.default.removeItem(at: storeURL())
+        try? FileManager.default.removeItem(at: testSpecificStoreURL())
     }
     
     func test_retrieve_deliversEmptyOnEmptyCache() {
@@ -92,11 +92,11 @@ final class CodableCateogiresStoreTests: XCTestCase {
                 switch (firstResult, secondResult) {
                 case (.empty, .empty):
                     break
-                
+                    
                 default:
                     XCTFail("Expected retrieving twice from empty cache to deliver same empty result, got \(firstResult) and \(secondResult) instead")
                 }
-            
+                
                 exp.fulfill()
             }
         }
@@ -118,11 +118,11 @@ final class CodableCateogiresStoreTests: XCTestCase {
                 case let .found(categories: retrievedCategories, timestamp: retrievedTimestamp):
                     XCTAssertEqual(retrievedCategories, categories)
                     XCTAssertEqual(retrievedTimestamp, timestamp)
-                
+                    
                 default:
                     XCTFail("Expected found result with categories \(categories) and \(timestamp), got \(retrieveResult) instead")
                 }
-            
+                
                 exp.fulfill()
             }
         }
@@ -133,12 +133,12 @@ final class CodableCateogiresStoreTests: XCTestCase {
     // MARK: - Helpers
     
     private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> CodableCategoriesStore {
-        let sut = CodableCategoriesStore(storeURL: storeURL())
+        let sut = CodableCategoriesStore(storeURL: testSpecificStoreURL())
         trackForMemoryLeacks(sut, file: file, line: line)
         return sut
     }
     
-    private func storeURL() -> URL {
-            return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("categories.store")
-        }
+    private func testSpecificStoreURL() -> URL {
+        return FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!.appendingPathComponent("\(type(of: self)).store")
+    }
 }
