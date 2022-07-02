@@ -117,18 +117,4 @@ final class CacheCategoriesUseCaseTests: XCTestCase {
         
         XCTAssertEqual(receivedError as NSError?, expectedError, file: file, line: line)
     }
-    
-    private func uniqueCategory() -> CategoryItem {
-        CategoryItem(id: 1, name: "any")
-    }
-
-    private func uniqueCategories() -> (models: [CategoryItem], local: [LocalCategoryItem]) {
-        let models = [uniqueCategory(), uniqueCategory()]
-        let local = models.map { LocalCategoryItem(id: $0.id, name: $0.name) }
-        return (models, local)
-    }
-    
-    private func anyNSError() -> NSError {
-        NSError(domain: "any error", code: 0)
-    }
 }
