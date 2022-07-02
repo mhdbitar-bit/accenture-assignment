@@ -33,9 +33,10 @@ final class RemoteCategoryLoader {
         client.get(from: url) { result in
             switch result {
             case let .success((data, response)):
-                if response.statusCode == 200, let items = try? JSONDecoder().decode([Item].self, from: data) {
-                    completion(.success(items.map { $0.item }))
-                } else {
+                do {
+                    let items = try CategoryItemsMapper.map(data, response)
+                    completion(.success(items))
+                } catch {
                     completion(.failure(.invalidData))
                 }
             case .failure:
@@ -45,11 +46,20 @@ final class RemoteCategoryLoader {
     }
 }
 
-private struct Item: Decodable {
-    let type: Int
-    let category_name: String
+private class CategoryItemsMapper {
+    private struct Item: Decodable {
+        let type: Int
+        let category_name: String
+        
+        var item: CategoryItem {
+            return CategoryItem(id: type, name: category_name)
+        }
+    }
     
-    var item: CategoryItem {
-        return CategoryItem(id: type, name: category_name)
+    static func map(_ data: Data, _ response: HTTPURLResponse) throws -> [CategoryItem] {
+        guard response.statusCode == 200 else {
+            throw RemoteCategoryLoader.Error.invalidData
+        }
+        return try JSONDecoder().decode([Item].self, from: data).map { $0.item }
     }
 }
