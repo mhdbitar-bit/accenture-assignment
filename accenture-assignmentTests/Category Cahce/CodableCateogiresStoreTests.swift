@@ -76,7 +76,7 @@ final class CodableCateogiresStoreTests: XCTestCase {
         expect(sut, toRetrieveTwice: .empty)
     }
     
-    func test_retrieveAfterInsertingToEmptyCache_deliversInsertedValues() {
+    func test_retrieveDeliversFoundValuesOnNonEmptyCache() {
         let sut = makeSUT()
         let categories = uniqueCategories().local
         let timestamp = Date()
