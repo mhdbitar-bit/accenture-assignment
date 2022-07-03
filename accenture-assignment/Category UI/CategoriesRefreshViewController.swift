@@ -33,14 +33,10 @@ final class CategoriesRefreshViewController: NSObject {
     }
     
     private func startLoading() {
-        DispatchQueue.main.async { [self] in
-            self.view.beginRefreshing()
-        }
+        self.view.beginRefreshing()
     }
     
     private func stopLoading() {
-        DispatchQueue.main.async {
-            self.view.endRefreshing()
-        }
+        self.view.endRefreshing()
     }
 }

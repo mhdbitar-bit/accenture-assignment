@@ -11,9 +11,7 @@ final class CategoriesViewController: UITableViewController {
     private var refreshController: CategoriesRefreshViewController?
     private var tablewModel = [CategoryItem]() {
         didSet {
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
+            self.tableView.reloadData()
         }
     }
     

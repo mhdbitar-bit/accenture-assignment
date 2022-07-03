@@ -18,9 +18,7 @@ final class CategoryLoaderWithFallbackCompositeTests: XCTestCase {
     func test_load_deliversPrimaryCategoriesOnPrimaryLoaderSuccess() {
         let primaryCategories = uniqueCategories()
         let fallbackCategries = uniqueCategories()
-        let primaryLoader = LoaderStub(result: .success(primaryCategories))
-        let fallbackLoader = LoaderStub(result: .success(fallbackCategries))
-        let sut = CategoryLoaderWithFallbackComposite(primary: primaryLoader, fallback: fallbackLoader)
+        let sut = makeSUT(primaryResult: .success(primaryCategories), fallbackResult: .success(fallbackCategries))
         
         let exp = expectation(description: "Wait for load completion")
         sut.load { result in
@@ -36,6 +34,16 @@ final class CategoryLoaderWithFallbackCompositeTests: XCTestCase {
         }
         
         wait(for: [exp], timeout: 1.0)
+    }
+    
+    private func makeSUT(primaryResult: LoadCategoryResult, fallbackResult: LoadCategoryResult, file: StaticString = #file, line: UInt = #line) -> CategoryLoader {
+        let primaryLoader = LoaderStub(result: primaryResult)
+        let fallbackLoader = LoaderStub(result: fallbackResult)
+        let sut = CategoryLoaderWithFallbackComposite(primary: primaryLoader, fallback: fallbackLoader)
+        trackForMemoryLeacks(primaryLoader, file: file, line: line)
+        trackForMemoryLeacks(fallbackLoader, file: file, line: line)
+        trackForMemoryLeacks(sut, file: file, line: line)
+        return sut
     }
     
     private func uniqueCategories() -> [CategoryItem] {
