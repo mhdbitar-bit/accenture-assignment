@@ -23,12 +23,24 @@ final class CategoriesRefreshViewController: NSObject {
     var onRefresh: (([CategoryItem]) -> Void)?
     
     @objc func refresh() {
-        view.beginRefreshing()
+        startLoading()
         loader.load { [weak self] result in
             if let categories = try? result.get() {
                 self?.onRefresh?(categories)
             }
-            self?.view.endRefreshing()
+            self?.stopLoading()
+        }
+    }
+    
+    private func startLoading() {
+        DispatchQueue.main.async { [self] in
+            self.view.beginRefreshing()
+        }
+    }
+    
+    private func stopLoading() {
+        DispatchQueue.main.async {
+            self.view.endRefreshing()
         }
     }
 }
