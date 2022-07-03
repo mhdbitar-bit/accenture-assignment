@@ -191,14 +191,14 @@ final class CodableCateogiresStoreTests: XCTestCase {
     
     // MARK: - Helpers
     
-    private func makeSUT(storeURL: URL? = nil, file: StaticString = #filePath, line: UInt = #line) -> CodableCategoriesStore {
+    private func makeSUT(storeURL: URL? = nil, file: StaticString = #filePath, line: UInt = #line) -> CategoryStore {
         let sut = CodableCategoriesStore(storeURL: storeURL ?? testSpecificStoreURL())
         trackForMemoryLeacks(sut, file: file, line: line)
         return sut
     }
     
     @discardableResult
-    private func insert(_ cache: (categories: [LocalCategoryItem], timestamp: Date), to sut: CodableCategoriesStore) -> Error? {
+    private func insert(_ cache: (categories: [LocalCategoryItem], timestamp: Date), to sut: CategoryStore) -> Error? {
         let exp = expectation(description: "Wait for cache retrieval")
         var insertionError: Error?
         sut.insert(cache.categories, timestamp: cache.timestamp) { receivedInsertionError in
@@ -210,12 +210,12 @@ final class CodableCateogiresStoreTests: XCTestCase {
         return insertionError
     }
     
-    private func expect(_ sut: CodableCategoriesStore, toRetrieveTwice expectedResult: RetrieveCachedCategoriesResult, file: StaticString = #filePath, line: UInt = #line) {
+    private func expect(_ sut: CategoryStore, toRetrieveTwice expectedResult: RetrieveCachedCategoriesResult, file: StaticString = #filePath, line: UInt = #line) {
         expect(sut, toRetrieve: expectedResult, file: file, line: line)
         expect(sut, toRetrieve: expectedResult, file: file, line: line)
     }
     
-    private func expect(_ sut: CodableCategoriesStore, toRetrieve expectedResult: RetrieveCachedCategoriesResult, file: StaticString = #filePath, line: UInt = #line) {
+    private func expect(_ sut: CategoryStore, toRetrieve expectedResult: RetrieveCachedCategoriesResult, file: StaticString = #filePath, line: UInt = #line) {
         let exp = expectation(description: "Wait for cache retrieval")
         
         sut.retrieve { retrievedResult in
@@ -237,7 +237,7 @@ final class CodableCateogiresStoreTests: XCTestCase {
         wait(for: [exp], timeout: 1.0)
     }
     
-    private func deleteCache(from sut: CodableCategoriesStore) -> Error? {
+    private func deleteCache(from sut: CategoryStore) -> Error? {
         let exp = expectation(description: "Wait for cache deletion")
         var deletionError: Error?
         sut.deleteCachedCategories { receivedDeletionError in
