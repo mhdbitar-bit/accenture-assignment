@@ -46,11 +46,15 @@ class CodableCategoriesStore {
     }
     
     func insert(_ categories: [LocalCategoryItem], timestamp: Date, completion: @escaping CategoryStore.InsertionCompletion) {
-        let encoder = JSONEncoder()
-        let cache = Cache(categories: categories.map(CodableCategories.init), timestamp: timestamp)
-        let encoded = try! encoder.encode(cache)
-        try! encoded.write(to: storeURL)
-        completion(nil)
+        do {
+            let encoder = JSONEncoder()
+            let cache = Cache(categories: categories.map(CodableCategories.init), timestamp: timestamp)
+            let encoded = try encoder.encode(cache)
+            try encoded.write(to: storeURL)
+            completion(nil)
+        } catch {
+            completion(error)
+        }
     }
 }
 
@@ -130,6 +134,17 @@ final class CodableCateogiresStoreTests: XCTestCase {
         
         XCTAssertNil(latestInsertionError, "Expected to pverride cache successfuly")
         expect(sut, toRetrieve: .found(categories: latestCategories, timestamp: latestTimestamp))
+    }
+    
+    func test_insert_deliversErrorOnInsertionError() {
+        let invalidStoreURL = URL(string: "invalid://store-url")!
+        let sut = makeSUT(storeURL: invalidStoreURL)
+        let categories = uniqueCategories().local
+        let timestamp = Date()
+        
+        let insertionError = insert((categories, timestamp), to: sut)
+        
+        XCTAssertNotNil(insertionError, "Expected cache insertion to fail with an error")
     }
     
     // MARK: - Helpers
