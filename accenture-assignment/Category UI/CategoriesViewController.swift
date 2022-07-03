@@ -11,7 +11,9 @@ final class CategoriesViewController: UITableViewController {
     private var refreshController: CategoriesRefreshViewController?
     private var tablewModel = [CategoryItem]() {
         didSet {
-            tableView.reloadData()
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
     }
     
@@ -23,6 +25,7 @@ final class CategoriesViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "Categories"
         refreshControl = refreshController?.view
         refreshController?.onRefresh = { [weak self] categories in
             self?.tablewModel = categories
