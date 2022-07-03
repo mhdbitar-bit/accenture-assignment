@@ -3,9 +3,9 @@ import XCTest
 import UIKit
 
 class CategoriesViewController: UIViewController {
-    private var loader: CategoriesViewControllerTests.LoaderSpy?
+    private var loader: CategoryLoader?
          
-    convenience init(loader: CategoriesViewControllerTests.LoaderSpy) {
+    convenience init(loader: CategoryLoader) {
         self.init()
         self.loader = loader
     }
@@ -13,7 +13,7 @@ class CategoriesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loader?.load()
+        loader?.load { _ in }
     }
 }
 
@@ -37,10 +37,10 @@ final class CategoriesViewControllerTests: XCTestCase {
     
     // MARK: - Helpers
     
-    class LoaderSpy {
+    class LoaderSpy: CategoryLoader {
         private(set) var loadCallCount: Int = 0
         
-        func load() {
+        func load(completion: @escaping (LoadCategoryResult) -> Void) {
             loadCallCount += 1
         }
     }
