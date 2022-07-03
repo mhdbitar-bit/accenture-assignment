@@ -1,12 +1,6 @@
 @testable import accenture_assignment
 import XCTest
 
-protocol CategoryCache {
-    typealias SaveResult = Error?
-    
-    func save(_ categories: [CategoryItem], completion: @escaping (SaveResult) -> Void)
-}
-
 final class CategoryLoaderCacheDecorator: CategoryLoader {
     private let decoratee: CategoryLoader
     private let cache: CategoryCache

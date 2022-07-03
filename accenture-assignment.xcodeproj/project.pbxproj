@@ -45,6 +45,7 @@
 		4CAB66892871BA0F000C426F /* CategoryLoaderCacheDecoratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB66882871BA0F000C426F /* CategoryLoaderCacheDecoratorTests.swift */; };
 		4CAB668C2871BB9F000C426F /* CategoryLoaderStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB668B2871BB9F000C426F /* CategoryLoaderStub.swift */; };
 		4CAB668E2871BD88000C426F /* XCTestCase+CategoryLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB668D2871BD88000C426F /* XCTestCase+CategoryLoader.swift */; };
+		4CAB66902871C3A0000C426F /* CategoryCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB668F2871C3A0000C426F /* CategoryCache.swift */; };
 		4CDCEDD1286E25D600DF3AAA /* RemoteCategoryLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDCEDD0286E25D600DF3AAA /* RemoteCategoryLoader.swift */; };
 /* End PBXBuildFile section */
 
@@ -114,6 +115,7 @@
 		4CAB66882871BA0F000C426F /* CategoryLoaderCacheDecoratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryLoaderCacheDecoratorTests.swift; sourceTree = "<group>"; };
 		4CAB668B2871BB9F000C426F /* CategoryLoaderStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryLoaderStub.swift; sourceTree = "<group>"; };
 		4CAB668D2871BD88000C426F /* XCTestCase+CategoryLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+CategoryLoader.swift"; sourceTree = "<group>"; };
+		4CAB668F2871C3A0000C426F /* CategoryCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCache.swift; sourceTree = "<group>"; };
 		4CDCEDD0286E25D600DF3AAA /* RemoteCategoryLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteCategoryLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -204,6 +206,7 @@
 			children = (
 				4C233B8C286E115A00E5C13C /* CategoryItem.swift */,
 				4C233B90286E11E800E5C13C /* CategoryLoader.swift */,
+				4CAB668F2871C3A0000C426F /* CategoryCache.swift */,
 			);
 			path = "Category Feature";
 			sourceTree = "<group>";
@@ -479,6 +482,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CAB66902871C3A0000C426F /* CategoryCache.swift in Sources */,
 				4CAB66562870EA40000C426F /* CategoryCahcePolicy.swift in Sources */,
 				4CAB66472870B6C7000C426F /* RemoteCategoryItem.swift in Sources */,
 				4C233B91286E11E800E5C13C /* CategoryLoader.swift in Sources */,
