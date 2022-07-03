@@ -40,6 +40,12 @@ final class CategoryLoaderWithFallbackCompositeTests: XCTestCase {
         expect(sut, toCompleteWith: .success(fallbackCategries))
     }
     
+    func test_load_deliversErrorOnPrimaryAndFallbackLoaderFailure() {
+        let sut = makeSUT(primaryResult: .failure(anyNSError()), fallbackResult: .failure(anyNSError()))
+        
+        expect(sut, toCompleteWith: .failure(anyNSError()))
+    }
+    
     private func makeSUT(primaryResult: LoadCategoryResult, fallbackResult: LoadCategoryResult, file: StaticString = #file, line: UInt = #line) -> CategoryLoader {
         let primaryLoader = LoaderStub(result: primaryResult)
         let fallbackLoader = LoaderStub(result: fallbackResult)
