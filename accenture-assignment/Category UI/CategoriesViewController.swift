@@ -27,14 +27,11 @@ final class CategoriesViewController: UITableViewController {
     @objc private func load() {
         refreshControl?.beginRefreshing()
         loader?.load { [weak self] result in
-            switch result {
-            case let .success(categories):
+            if let categories = try? result.get() {
                 self?.tablewModel = categories
                 self?.tableView.reloadData()
-                self?.refreshControl?.endRefreshing()
-            
-            case .failure: break
             }
+            self?.refreshControl?.endRefreshing()
         }
     }
     
