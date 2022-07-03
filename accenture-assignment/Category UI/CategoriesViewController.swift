@@ -15,9 +15,12 @@ final class CategoriesViewController: UITableViewController {
         didSet { tableView.reloadData() }
     }
     
-    convenience init(loader: CategoryLoader) {
+    var onSelect: ((Int) -> Void)?
+    
+    convenience init(loader: CategoryLoader, onSelect: ((Int) -> Void)?) {
         self.init()
         self.refreshController = CategoriesRefreshViewController(loader: loader)
+        self.onSelect = onSelect
     }
     
     override func viewDidLoad() {

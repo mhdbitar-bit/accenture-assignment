@@ -81,7 +81,7 @@ final class CategoriesViewControllerTests: XCTestCase {
     
     private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (sut: CategoriesViewController, loader: LoaderSpy) {
         let loader = LoaderSpy()
-        let sut = CategoriesViewController(loader: loader)
+        let sut = CategoriesViewController(loader: loader) { _ in }
         trackForMemoryLeacks(loader, file: file, line: line)
         trackForMemoryLeacks(sut, file: file, line: line)
         return (sut, loader)

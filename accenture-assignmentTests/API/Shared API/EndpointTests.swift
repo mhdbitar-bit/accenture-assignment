@@ -5,7 +5,7 @@ final class CategoryEndpointTests: XCTestCase {
     
     func test_categories_endpointURL() {
         let baseURL = anyURL()
-        let received = CategoryEndpoint.getCategories.url(baseURL: baseURL)
+        let received = Endpoints.getCategories.url(baseURL: baseURL)
         
         XCTAssertEqual(received.scheme, "https", "scheme")
         XCTAssertEqual(received.host, "any-url.com", "host")

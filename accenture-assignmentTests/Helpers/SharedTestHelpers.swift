@@ -13,9 +13,19 @@ func anyNSError() -> NSError {
 }
 
 func anyURL() -> URL {
-    URL(string: "http://any-url.com")!
+    URL(string: "https://any-url.com")!
 }
 
 func uniqueCategoriesModel() -> [CategoryItem] {
     return [CategoryItem(id: 0, name: "a name")]
+}
+
+func makeItemsJSON(_ items: [[String: Any]]) -> Data {
+    return try! JSONSerialization.data(withJSONObject: items)
+}
+
+extension HTTPURLResponse {
+    convenience init(statusCode: Int) {
+        self.init(url: anyURL(), statusCode: statusCode, httpVersion: nil, headerFields: nil)!
+    }
 }

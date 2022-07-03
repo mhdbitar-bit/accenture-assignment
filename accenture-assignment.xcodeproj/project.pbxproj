@@ -48,8 +48,13 @@
 		4CAB66902871C3A0000C426F /* CategoryCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB668F2871C3A0000C426F /* CategoryCache.swift */; };
 		4CAB66922871C435000C426F /* CategoryLoaderCacheDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB66912871C435000C426F /* CategoryLoaderCacheDecorator.swift */; };
 		4CAB66952871C9D9000C426F /* CategoryAcceptenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB66942871C9D9000C426F /* CategoryAcceptenceTests.swift */; };
-		4CAB66972871D61F000C426F /* CategoryEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB66962871D61F000C426F /* CategoryEndpoint.swift */; };
-		4CAB66992871D7C3000C426F /* CategoryEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB66982871D7C3000C426F /* CategoryEndpointTests.swift */; };
+		4CAB66972871D61F000C426F /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB66962871D61F000C426F /* Endpoints.swift */; };
+		4CAB66992871D7C3000C426F /* EndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB66982871D7C3000C426F /* EndpointTests.swift */; };
+		4CAB66A32871DAE5000C426F /* BooksFromMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB66A22871DAE5000C426F /* BooksFromMapperTests.swift */; };
+		4CAB66A72871DB98000C426F /* RemoteBooksLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB66A62871DB98000C426F /* RemoteBooksLoader.swift */; };
+		4CAB66AA2871DBBF000C426F /* BookLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB66A92871DBBF000C426F /* BookLoader.swift */; };
+		4CAB66AC2871DBE6000C426F /* BookItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB66AB2871DBE6000C426F /* BookItem.swift */; };
+		4CAB66B12871DE4F000C426F /* BooksItemMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB66B02871DE4F000C426F /* BooksItemMapper.swift */; };
 		4CDCEDD1286E25D600DF3AAA /* RemoteCategoryLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDCEDD0286E25D600DF3AAA /* RemoteCategoryLoader.swift */; };
 /* End PBXBuildFile section */
 
@@ -122,8 +127,13 @@
 		4CAB668F2871C3A0000C426F /* CategoryCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCache.swift; sourceTree = "<group>"; };
 		4CAB66912871C435000C426F /* CategoryLoaderCacheDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryLoaderCacheDecorator.swift; sourceTree = "<group>"; };
 		4CAB66942871C9D9000C426F /* CategoryAcceptenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryAcceptenceTests.swift; sourceTree = "<group>"; };
-		4CAB66962871D61F000C426F /* CategoryEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryEndpoint.swift; sourceTree = "<group>"; };
-		4CAB66982871D7C3000C426F /* CategoryEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryEndpointTests.swift; sourceTree = "<group>"; };
+		4CAB66962871D61F000C426F /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
+		4CAB66982871D7C3000C426F /* EndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointTests.swift; sourceTree = "<group>"; };
+		4CAB66A22871DAE5000C426F /* BooksFromMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksFromMapperTests.swift; sourceTree = "<group>"; };
+		4CAB66A62871DB98000C426F /* RemoteBooksLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteBooksLoader.swift; sourceTree = "<group>"; };
+		4CAB66A92871DBBF000C426F /* BookLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookLoader.swift; sourceTree = "<group>"; };
+		4CAB66AB2871DBE6000C426F /* BookItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookItem.swift; sourceTree = "<group>"; };
+		4CAB66B02871DE4F000C426F /* BooksItemMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksItemMapper.swift; sourceTree = "<group>"; };
 		4CDCEDD0286E25D600DF3AAA /* RemoteCategoryLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteCategoryLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -184,9 +194,9 @@
 		4C233B5B286E065800E5C13C /* accenture-assignment */ = {
 			isa = PBXGroup;
 			children = (
-				4CDCEDCF286E25C900DF3AAA /* Category API */,
 				4CAB66412870AAB9000C426F /* Category Cach */,
-				4C233B92286E138700E5C13C /* Category Feature */,
+				4CAB66AF2871DE27000C426F /* APIs */,
+				4CAB66B42871DE85000C426F /* Features */,
 				4CAB665B287173CA000C426F /* Category UI */,
 				4C233B5C286E065800E5C13C /* AppDelegate.swift */,
 				4C233B5E286E065800E5C13C /* SceneDelegate.swift */,
@@ -205,7 +215,7 @@
 				4CAB66842871AB2E000C426F /* Main */,
 				4CAB661E28704984000C426F /* Helpers */,
 				4CAB663E287098A6000C426F /* Category Cahce */,
-				4CAB661B28702251000C426F /* Category API */,
+				4CAB669D2871DA87000C426F /* API */,
 			);
 			path = "accenture-assignmentTests";
 			sourceTree = "<group>";
@@ -224,8 +234,6 @@
 			isa = PBXGroup;
 			children = (
 				4C233B93286E142E00E5C13C /* LoadCategoriesFromRemoteUseCaseTests.swift */,
-				4CAB661C28702EF1000C426F /* URLSessionHTTPClientTests.swift */,
-				4CAB66982871D7C3000C426F /* CategoryEndpointTests.swift */,
 			);
 			path = "Category API";
 			sourceTree = "<group>";
@@ -319,15 +327,110 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		4CAB669A2871D994000C426F /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				4CAB662128706289000C426F /* URLSessionHTTPClient.swift */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		4CAB669B2871D9C0000C426F /* Shared API */ = {
+			isa = PBXGroup;
+			children = (
+				4CAB669A2871D994000C426F /* Infrastructure */,
+				4CAB661728701ADD000C426F /* HTTPClient.swift */,
+				4CAB66962871D61F000C426F /* Endpoints.swift */,
+			);
+			path = "Shared API";
+			sourceTree = "<group>";
+		};
+		4CAB669C2871D9D7000C426F /* Book API */ = {
+			isa = PBXGroup;
+			children = (
+				4CAB66A62871DB98000C426F /* RemoteBooksLoader.swift */,
+				4CAB66B02871DE4F000C426F /* BooksItemMapper.swift */,
+			);
+			path = "Book API";
+			sourceTree = "<group>";
+		};
+		4CAB669D2871DA87000C426F /* API */ = {
+			isa = PBXGroup;
+			children = (
+				4CAB66A12871DACF000C426F /* Shared API */,
+				4CAB66A02871DAA0000C426F /* Character API */,
+				4CAB669F2871DA94000C426F /* House API */,
+				4CAB669E2871DA8C000C426F /* Book API */,
+				4CAB661B28702251000C426F /* Category API */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		4CAB669E2871DA8C000C426F /* Book API */ = {
+			isa = PBXGroup;
+			children = (
+				4CAB66A22871DAE5000C426F /* BooksFromMapperTests.swift */,
+			);
+			path = "Book API";
+			sourceTree = "<group>";
+		};
+		4CAB669F2871DA94000C426F /* House API */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "House API";
+			sourceTree = "<group>";
+		};
+		4CAB66A02871DAA0000C426F /* Character API */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Character API";
+			sourceTree = "<group>";
+		};
+		4CAB66A12871DACF000C426F /* Shared API */ = {
+			isa = PBXGroup;
+			children = (
+				4CAB661C28702EF1000C426F /* URLSessionHTTPClientTests.swift */,
+				4CAB66982871D7C3000C426F /* EndpointTests.swift */,
+			);
+			path = "Shared API";
+			sourceTree = "<group>";
+		};
+		4CAB66A82871DBB1000C426F /* Book Feature */ = {
+			isa = PBXGroup;
+			children = (
+				4CAB66AB2871DBE6000C426F /* BookItem.swift */,
+				4CAB66A92871DBBF000C426F /* BookLoader.swift */,
+			);
+			path = "Book Feature";
+			sourceTree = "<group>";
+		};
+		4CAB66AF2871DE27000C426F /* APIs */ = {
+			isa = PBXGroup;
+			children = (
+				4CAB669B2871D9C0000C426F /* Shared API */,
+				4CDCEDCF286E25C900DF3AAA /* Category API */,
+				4CAB669C2871D9D7000C426F /* Book API */,
+			);
+			path = APIs;
+			sourceTree = "<group>";
+		};
+		4CAB66B42871DE85000C426F /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				4C233B92286E138700E5C13C /* Category Feature */,
+				4CAB66A82871DBB1000C426F /* Book Feature */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
 		4CDCEDCF286E25C900DF3AAA /* Category API */ = {
 			isa = PBXGroup;
 			children = (
 				4CDCEDD0286E25D600DF3AAA /* RemoteCategoryLoader.swift */,
-				4CAB66962871D61F000C426F /* CategoryEndpoint.swift */,
 				4CAB661928701B10000C426F /* CategoryItemsMapper.swift */,
 				4CAB66462870B6C7000C426F /* RemoteCategoryItem.swift */,
-				4CAB661728701ADD000C426F /* HTTPClient.swift */,
-				4CAB662128706289000C426F /* URLSessionHTTPClient.swift */,
 			);
 			path = "Category API";
 			sourceTree = "<group>";
@@ -498,21 +601,25 @@
 				4CAB66922871C435000C426F /* CategoryLoaderCacheDecorator.swift in Sources */,
 				4CAB66562870EA40000C426F /* CategoryCahcePolicy.swift in Sources */,
 				4CAB66472870B6C7000C426F /* RemoteCategoryItem.swift in Sources */,
+				4CAB66A72871DB98000C426F /* RemoteBooksLoader.swift in Sources */,
 				4C233B91286E11E800E5C13C /* CategoryLoader.swift in Sources */,
 				4CAB66492870B704000C426F /* LocalCategoryItem.swift in Sources */,
 				4CAB666F287193D2000C426F /* CategoriesRefreshViewController.swift in Sources */,
 				4CDCEDD1286E25D600DF3AAA /* RemoteCategoryLoader.swift in Sources */,
-				4CAB66972871D61F000C426F /* CategoryEndpoint.swift in Sources */,
+				4CAB66972871D61F000C426F /* Endpoints.swift in Sources */,
 				4CAB661828701ADD000C426F /* HTTPClient.swift in Sources */,
 				4CAB662228706289000C426F /* URLSessionHTTPClient.swift in Sources */,
 				4C233B5D286E065800E5C13C /* AppDelegate.swift in Sources */,
+				4CAB66AA2871DBBF000C426F /* BookLoader.swift in Sources */,
 				4CAB66432870AACD000C426F /* LocalCategoryLoader.swift in Sources */,
 				4C233B5F286E065800E5C13C /* SceneDelegate.swift in Sources */,
 				4CAB665A28716D14000C426F /* CodableCategoryStore.swift in Sources */,
+				4CAB66AC2871DBE6000C426F /* BookItem.swift in Sources */,
 				4C233B8D286E115A00E5C13C /* CategoryItem.swift in Sources */,
 				4CAB661A28701B10000C426F /* CategoryItemsMapper.swift in Sources */,
 				4CAB66872871AF69000C426F /* MainQueueDispatchDecorator.swift in Sources */,
 				4CAB66832871AA3B000C426F /* CategoryLoaderWithFallbackComposite.swift in Sources */,
+				4CAB66B12871DE4F000C426F /* BooksItemMapper.swift in Sources */,
 				4CAB66452870AB48000C426F /* CategoryStore.swift in Sources */,
 				4CAB667128719613000C426F /* CategoryCellController.swift in Sources */,
 				4CAB665D28717463000C426F /* CategoriesViewController.swift in Sources */,
@@ -530,9 +637,10 @@
 				4CAB664E2870BAE1000C426F /* CategoryStoreSpy.swift in Sources */,
 				4CAB66952871C9D9000C426F /* CategoryAcceptenceTests.swift in Sources */,
 				4CAB664B2870B9E2000C426F /* LoadCategoryFromCahceUseCaseTests.swift in Sources */,
+				4CAB66A32871DAE5000C426F /* BooksFromMapperTests.swift in Sources */,
 				4CAB6640287098D4000C426F /* CacheCategoriesUseCaseTests.swift in Sources */,
 				4CAB668C2871BB9F000C426F /* CategoryLoaderStub.swift in Sources */,
-				4CAB66992871D7C3000C426F /* CategoryEndpointTests.swift in Sources */,
+				4CAB66992871D7C3000C426F /* EndpointTests.swift in Sources */,
 				4CAB66542870E173000C426F /* SharedTestHelpers.swift in Sources */,
 				4CAB661D28702EF1000C426F /* URLSessionHTTPClientTests.swift in Sources */,
 				4CAB66852871AB42000C426F /* CategoryLoaderWithFallbackCompositeTests.swift in Sources */,
