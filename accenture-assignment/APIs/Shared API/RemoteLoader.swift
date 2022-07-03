@@ -7,29 +7,32 @@
 
 import Foundation
 
-final class RemoteLoader: CategoryLoader {
+final class RemoteLoader<Resource> {
     private let url: URL
     private let client: HTTPClient
-    
-    typealias Result = LoadCategoryResult
+    private let mapper: Mapper
     
     enum Error: Swift.Error {
         case connecitivy
         case invalidData
     }
     
-    init(url: URL, client: HTTPClient) {
+    typealias Result = Swift.Result<Resource, Swift.Error>
+    typealias Mapper = (Data, HTTPURLResponse) throws -> Resource
+    
+    init(url: URL, client: HTTPClient, mapper: @escaping Mapper) {
         self.url = url
         self.client = client
+        self.mapper = mapper
     }
     
     func load(completion: @escaping (Result) -> Void) {
         client.get(from: url) { [weak self] result in
-            guard self != nil else { return }
+            guard let self = self else { return }
             
             switch result {
             case let .success((data, response)):
-                completion(RemoteLoader.map(data, from: response))
+                completion(self.map(data, from: response))
                
             case .failure:
                 completion(.failure(Error.connecitivy))
@@ -37,10 +40,9 @@ final class RemoteLoader: CategoryLoader {
         }
     }
     
-    private static func map(_ data: Data, from response: HTTPURLResponse) -> Result {
+    private func map(_ data: Data, from response: HTTPURLResponse) -> Result {
         do {
-            let items = try CategoryItemsMapper.map(data, from: response)
-            return .success(items)
+            return .success(try mapper(data, response))
         } catch {
             return .failure(Error.invalidData)
         }

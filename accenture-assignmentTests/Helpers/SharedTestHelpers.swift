@@ -16,6 +16,18 @@ func anyURL() -> URL {
     URL(string: "https://any-url.com")!
 }
 
+func anyData() -> Data {
+    Data("any data".utf8)
+}
+
+func anyHTTPURLResponse() -> HTTPURLResponse {
+    HTTPURLResponse(url: anyURL(), statusCode: 200, httpVersion: nil, headerFields: nil)!
+}
+
+func nonHTTPURLResponse() -> URLResponse {
+    URLResponse(url: anyURL(), mimeType: nil, expectedContentLength: 0, textEncodingName: nil)
+}
+
 func uniqueCategoriesModel() -> [CategoryItem] {
     return [CategoryItem(id: 0, name: "a name")]
 }
