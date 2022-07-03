@@ -38,6 +38,7 @@
 		4CAB666C28717D42000C426F /* CategoriesViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB666B28717D42000C426F /* CategoriesViewControllerTests.swift */; };
 		4CAB666D28717FB9000C426F /* XCTestCase+MemoryLeackTrackingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB661F287049A4000C426F /* XCTestCase+MemoryLeackTrackingHelper.swift */; };
 		4CAB666F287193D2000C426F /* CategoriesRefreshViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB666E287193D2000C426F /* CategoriesRefreshViewController.swift */; };
+		4CAB667128719613000C426F /* CategoryCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB667028719613000C426F /* CategoryCellController.swift */; };
 		4CDCEDD1286E25D600DF3AAA /* RemoteCategoryLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDCEDD0286E25D600DF3AAA /* RemoteCategoryLoader.swift */; };
 /* End PBXBuildFile section */
 
@@ -100,6 +101,7 @@
 		4CAB666228717D1E000C426F /* accenture-assignmentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "accenture-assignmentUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CAB666B28717D42000C426F /* CategoriesViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewControllerTests.swift; sourceTree = "<group>"; };
 		4CAB666E287193D2000C426F /* CategoriesRefreshViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesRefreshViewController.swift; sourceTree = "<group>"; };
+		4CAB667028719613000C426F /* CategoryCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCellController.swift; sourceTree = "<group>"; };
 		4CDCEDD0286E25D600DF3AAA /* RemoteCategoryLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteCategoryLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -255,6 +257,7 @@
 			isa = PBXGroup;
 			children = (
 				4CAB665C28717463000C426F /* CategoriesViewController.swift */,
+				4CAB667028719613000C426F /* CategoryCellController.swift */,
 				4CAB666E287193D2000C426F /* CategoriesRefreshViewController.swift */,
 			);
 			path = "Category UI";
@@ -457,6 +460,7 @@
 				4C233B8D286E115A00E5C13C /* CategoryItem.swift in Sources */,
 				4CAB661A28701B10000C426F /* CategoryItemsMapper.swift in Sources */,
 				4CAB66452870AB48000C426F /* CategoryStore.swift in Sources */,
+				4CAB667128719613000C426F /* CategoryCellController.swift in Sources */,
 				4CAB665D28717463000C426F /* CategoriesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -31,16 +31,11 @@ final class CategoriesViewController: UITableViewController {
         refreshController?.refresh()
     }
     
-    
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tablewModel.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellModel = tablewModel[indexPath.row]
-        let cell = UITableViewCell()
-        cell.textLabel?.text = cellModel.name
-        return cell
+        return CategoryCellController(model: tablewModel[indexPath.row]).view()
     }
 }
