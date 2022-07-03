@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C16ABB32871EE660091BB89 /* HTTPClientSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C16ABB22871EE660091BB89 /* HTTPClientSpy.swift */; };
 		4C233B5D286E065800E5C13C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C233B5C286E065800E5C13C /* AppDelegate.swift */; };
 		4C233B5F286E065800E5C13C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C233B5E286E065800E5C13C /* SceneDelegate.swift */; };
 		4C233B66286E065900E5C13C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C233B65286E065900E5C13C /* Assets.xcassets */; };
@@ -83,6 +84,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4C16ABB22871EE660091BB89 /* HTTPClientSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientSpy.swift; sourceTree = "<group>"; };
 		4C233B59286E065800E5C13C /* accenture-assignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "accenture-assignment.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C233B5C286E065800E5C13C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C233B5E286E065800E5C13C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -169,6 +171,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C16ABB42871EECC0091BB89 /* Shared API Infra */ = {
+			isa = PBXGroup;
+			children = (
+				4CAB661C28702EF1000C426F /* URLSessionHTTPClientTests.swift */,
+			);
+			path = "Shared API Infra";
+			sourceTree = "<group>";
+		};
 		4C233B50286E065800E5C13C = {
 			isa = PBXGroup;
 			children = (
@@ -233,6 +243,7 @@
 		4CAB661B28702251000C426F /* Category API */ = {
 			isa = PBXGroup;
 			children = (
+				4CAB66982871D7C3000C426F /* EndpointTests.swift */,
 				4C233B93286E142E00E5C13C /* LoadCategoriesFromRemoteUseCaseTests.swift */,
 			);
 			path = "Category API";
@@ -357,6 +368,7 @@
 		4CAB669D2871DA87000C426F /* API */ = {
 			isa = PBXGroup;
 			children = (
+				4C16ABB42871EECC0091BB89 /* Shared API Infra */,
 				4CAB66A12871DACF000C426F /* Shared API */,
 				4CAB66A02871DAA0000C426F /* Character API */,
 				4CAB669F2871DA94000C426F /* House API */,
@@ -391,8 +403,7 @@
 		4CAB66A12871DACF000C426F /* Shared API */ = {
 			isa = PBXGroup;
 			children = (
-				4CAB661C28702EF1000C426F /* URLSessionHTTPClientTests.swift */,
-				4CAB66982871D7C3000C426F /* EndpointTests.swift */,
+				4C16ABB22871EE660091BB89 /* HTTPClientSpy.swift */,
 			);
 			path = "Shared API";
 			sourceTree = "<group>";
@@ -637,6 +648,7 @@
 				4CAB664E2870BAE1000C426F /* CategoryStoreSpy.swift in Sources */,
 				4CAB66952871C9D9000C426F /* CategoryAcceptenceTests.swift in Sources */,
 				4CAB664B2870B9E2000C426F /* LoadCategoryFromCahceUseCaseTests.swift in Sources */,
+				4C16ABB32871EE660091BB89 /* HTTPClientSpy.swift in Sources */,
 				4CAB66A32871DAE5000C426F /* BooksFromMapperTests.swift in Sources */,
 				4CAB6640287098D4000C426F /* CacheCategoriesUseCaseTests.swift in Sources */,
 				4CAB668C2871BB9F000C426F /* CategoryLoaderStub.swift in Sources */,
