@@ -26,7 +26,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func makeRootViewController() -> CategoriesViewController {
-        let remoteUrl = URL(string: "https://private-anon-72c71498a5-androidtestmobgen.apiary-mock.com/categories")!
+        let remoteUrl = CategoryEndpoint.getCategories.url(baseURL: URL(string: "https://private-anon-72c71498a5-androidtestmobgen.apiary-mock.com")!)
         let remoteClient = URLSessionHTTPClient(session: URLSession(configuration: .ephemeral))
         let remoteCategoryLoader = RemoteCategoryLoader(url: remoteUrl, client: remoteClient)
         

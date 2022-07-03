@@ -47,6 +47,9 @@
 		4CAB668E2871BD88000C426F /* XCTestCase+CategoryLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB668D2871BD88000C426F /* XCTestCase+CategoryLoader.swift */; };
 		4CAB66902871C3A0000C426F /* CategoryCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB668F2871C3A0000C426F /* CategoryCache.swift */; };
 		4CAB66922871C435000C426F /* CategoryLoaderCacheDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB66912871C435000C426F /* CategoryLoaderCacheDecorator.swift */; };
+		4CAB66952871C9D9000C426F /* CategoryAcceptenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB66942871C9D9000C426F /* CategoryAcceptenceTests.swift */; };
+		4CAB66972871D61F000C426F /* CategoryEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB66962871D61F000C426F /* CategoryEndpoint.swift */; };
+		4CAB66992871D7C3000C426F /* CategoryEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB66982871D7C3000C426F /* CategoryEndpointTests.swift */; };
 		4CDCEDD1286E25D600DF3AAA /* RemoteCategoryLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDCEDD0286E25D600DF3AAA /* RemoteCategoryLoader.swift */; };
 /* End PBXBuildFile section */
 
@@ -118,6 +121,9 @@
 		4CAB668D2871BD88000C426F /* XCTestCase+CategoryLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+CategoryLoader.swift"; sourceTree = "<group>"; };
 		4CAB668F2871C3A0000C426F /* CategoryCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCache.swift; sourceTree = "<group>"; };
 		4CAB66912871C435000C426F /* CategoryLoaderCacheDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryLoaderCacheDecorator.swift; sourceTree = "<group>"; };
+		4CAB66942871C9D9000C426F /* CategoryAcceptenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryAcceptenceTests.swift; sourceTree = "<group>"; };
+		4CAB66962871D61F000C426F /* CategoryEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryEndpoint.swift; sourceTree = "<group>"; };
+		4CAB66982871D7C3000C426F /* CategoryEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryEndpointTests.swift; sourceTree = "<group>"; };
 		4CDCEDD0286E25D600DF3AAA /* RemoteCategoryLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteCategoryLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -219,6 +225,7 @@
 			children = (
 				4C233B93286E142E00E5C13C /* LoadCategoriesFromRemoteUseCaseTests.swift */,
 				4CAB661C28702EF1000C426F /* URLSessionHTTPClientTests.swift */,
+				4CAB66982871D7C3000C426F /* CategoryEndpointTests.swift */,
 			);
 			path = "Category API";
 			sourceTree = "<group>";
@@ -298,6 +305,7 @@
 				4CAB668A2871BB94000C426F /* Helpers */,
 				4CAB667F28719DD0000C426F /* CategoryLoaderWithFallbackCompositeTests.swift */,
 				4CAB66882871BA0F000C426F /* CategoryLoaderCacheDecoratorTests.swift */,
+				4CAB66942871C9D9000C426F /* CategoryAcceptenceTests.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -315,6 +323,7 @@
 			isa = PBXGroup;
 			children = (
 				4CDCEDD0286E25D600DF3AAA /* RemoteCategoryLoader.swift */,
+				4CAB66962871D61F000C426F /* CategoryEndpoint.swift */,
 				4CAB661928701B10000C426F /* CategoryItemsMapper.swift */,
 				4CAB66462870B6C7000C426F /* RemoteCategoryItem.swift */,
 				4CAB661728701ADD000C426F /* HTTPClient.swift */,
@@ -493,6 +502,7 @@
 				4CAB66492870B704000C426F /* LocalCategoryItem.swift in Sources */,
 				4CAB666F287193D2000C426F /* CategoriesRefreshViewController.swift in Sources */,
 				4CDCEDD1286E25D600DF3AAA /* RemoteCategoryLoader.swift in Sources */,
+				4CAB66972871D61F000C426F /* CategoryEndpoint.swift in Sources */,
 				4CAB661828701ADD000C426F /* HTTPClient.swift in Sources */,
 				4CAB662228706289000C426F /* URLSessionHTTPClient.swift in Sources */,
 				4C233B5D286E065800E5C13C /* AppDelegate.swift in Sources */,
@@ -518,9 +528,11 @@
 				4C233B94286E142E00E5C13C /* LoadCategoriesFromRemoteUseCaseTests.swift in Sources */,
 				4CAB66582870F293000C426F /* CodableCateogiresStoreTests.swift in Sources */,
 				4CAB664E2870BAE1000C426F /* CategoryStoreSpy.swift in Sources */,
+				4CAB66952871C9D9000C426F /* CategoryAcceptenceTests.swift in Sources */,
 				4CAB664B2870B9E2000C426F /* LoadCategoryFromCahceUseCaseTests.swift in Sources */,
 				4CAB6640287098D4000C426F /* CacheCategoriesUseCaseTests.swift in Sources */,
 				4CAB668C2871BB9F000C426F /* CategoryLoaderStub.swift in Sources */,
+				4CAB66992871D7C3000C426F /* CategoryEndpointTests.swift in Sources */,
 				4CAB66542870E173000C426F /* SharedTestHelpers.swift in Sources */,
 				4CAB661D28702EF1000C426F /* URLSessionHTTPClientTests.swift in Sources */,
 				4CAB66852871AB42000C426F /* CategoryLoaderWithFallbackCompositeTests.swift in Sources */,
