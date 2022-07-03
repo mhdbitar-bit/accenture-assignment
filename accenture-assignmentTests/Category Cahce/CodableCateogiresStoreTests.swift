@@ -66,21 +66,8 @@ final class CodableCateogiresStoreTests: XCTestCase {
     
     func test_retrieve_deliversEmptyOnEmptyCache() {
         let sut = makeSUT()
-        let exp = expectation(description: "Wait for cache retrieval")
         
-        sut.retrieve { result in
-            switch result {
-            case .empty:
-                break
-                
-            default:
-                XCTFail("Expected empty result, got \(result) instead")
-            }
-            
-            exp.fulfill()
-        }
-        
-        wait(for: [exp], timeout: 1.0)
+        expect(sut, toRetrieve: .empty)
     }
     
     func test_retrieve_hasNoSideEffectsOnEmptyCache() {
@@ -108,26 +95,15 @@ final class CodableCateogiresStoreTests: XCTestCase {
         let sut = makeSUT()
         let categories = uniqueCategories().local
         let timestamp = Date()
-        let exp = expectation(description: "Wait for cache retrieval")
         
+        let exp = expectation(description: "Wait for cache retrieval")
         sut.insert(categories, timestamp: timestamp) { insertionError in
             XCTAssertNil(insertionError, "Expected categories to be inserted successfully")
-            
-            sut.retrieve { retrieveResult in
-                switch retrieveResult {
-                case let .found(categories: retrievedCategories, timestamp: retrievedTimestamp):
-                    XCTAssertEqual(retrievedCategories, categories)
-                    XCTAssertEqual(retrievedTimestamp, timestamp)
-                    
-                default:
-                    XCTFail("Expected found result with categories \(categories) and \(timestamp), got \(retrieveResult) instead")
-                }
-                
-                exp.fulfill()
-            }
+            exp.fulfill()
         }
-        
         wait(for: [exp], timeout: 1.0)
+        
+        expect(sut, toRetrieve: .found(categories: categories, timestamp: timestamp))
     }
     
     func test_retrieve_hasNoSideEffectsOnNonEmptyCache() {
@@ -142,7 +118,7 @@ final class CodableCateogiresStoreTests: XCTestCase {
             sut.retrieve { firstResult in
                 sut.retrieve { secondResult in
                 switch (firstResult, secondResult) {
-                case (let .found(firstFound), let .found(secondFound)):
+                case let (.found(firstFound), .found(secondFound)):
                     XCTAssertEqual(firstFound.categories, categories)
                     XCTAssertEqual(firstFound.timestamp, timestamp)
 
@@ -170,6 +146,28 @@ final class CodableCateogiresStoreTests: XCTestCase {
         let sut = CodableCategoriesStore(storeURL: testSpecificStoreURL())
         trackForMemoryLeacks(sut, file: file, line: line)
         return sut
+    }
+    
+    private func expect(_ sut: CodableCategoriesStore, toRetrieve expectedResult: RetrieveCachedCategoriesResult, file: StaticString = #filePath, line: UInt = #line) {
+        let exp = expectation(description: "Wait for cache retrieval")
+        
+        sut.retrieve { retrievedResult in
+            switch (expectedResult, retrievedResult) {
+            case (.empty, .empty):
+                break
+
+            case let (.found(categories: expectedCategories, timestamp: expectedTimestamp), .found(categories: retrievedCategories, timestamp: retrievedTimestamp)):
+                XCTAssertEqual(expectedCategories, retrievedCategories, file: file, line: line)
+                XCTAssertEqual(expectedTimestamp, retrievedTimestamp, file: file, line: line)
+                
+            default:
+                XCTFail("Expected to retrieve \(expectedResult), got \(retrievedResult) instead", file: file, line: line)
+            }
+            
+            exp.fulfill()
+        }
+        
+        wait(for: [exp], timeout: 1.0)
     }
     
     private func setupEmptyStoreState() {
