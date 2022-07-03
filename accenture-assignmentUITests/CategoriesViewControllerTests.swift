@@ -20,15 +20,13 @@ class CategoriesViewController: UIViewController {
 final class CategoriesViewControllerTests: XCTestCase {
 
     func test_init_doesNoLoadCategories() {
-        let loader = LoaderSpy()
-        _ = CategoriesViewController(loader: loader)
+        let (_, loader) = makeSUT()
         
         XCTAssertEqual(loader.loadCallCount, 0)
     }
     
     func test_viewDidLoad_loadsCategories() {
-        let loader = LoaderSpy()
-        let sut = CategoriesViewController(loader: loader)
+        let (sut, loader) = makeSUT()
         
         sut.loadViewIfNeeded()
         
@@ -36,6 +34,14 @@ final class CategoriesViewControllerTests: XCTestCase {
     }
     
     // MARK: - Helpers
+    
+    private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (sut: CategoriesViewController, loader: LoaderSpy) {
+        let loader = LoaderSpy()
+        let sut = CategoriesViewController(loader: loader)
+        trackForMemoryLeacks(loader, file: file, line: line)
+        trackForMemoryLeacks(sut, file: file, line: line)
+        return (sut, loader)
+    }
     
     class LoaderSpy: CategoryLoader {
         private(set) var loadCallCount: Int = 0

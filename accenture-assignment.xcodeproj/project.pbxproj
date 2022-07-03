@@ -36,6 +36,7 @@
 		4CAB665A28716D14000C426F /* CodableCategoryStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB665928716D14000C426F /* CodableCategoryStore.swift */; };
 		4CAB665D28717463000C426F /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB665C28717463000C426F /* CategoriesViewController.swift */; };
 		4CAB666C28717D42000C426F /* CategoriesViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB666B28717D42000C426F /* CategoriesViewControllerTests.swift */; };
+		4CAB666D28717FB9000C426F /* XCTestCase+MemoryLeackTrackingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB661F287049A4000C426F /* XCTestCase+MemoryLeackTrackingHelper.swift */; };
 		4CDCEDD1286E25D600DF3AAA /* RemoteCategoryLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDCEDD0286E25D600DF3AAA /* RemoteCategoryLoader.swift */; };
 /* End PBXBuildFile section */
 
@@ -487,6 +488,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CAB666C28717D42000C426F /* CategoriesViewControllerTests.swift in Sources */,
+				4CAB666D28717FB9000C426F /* XCTestCase+MemoryLeackTrackingHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
