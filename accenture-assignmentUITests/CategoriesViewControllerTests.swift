@@ -74,7 +74,7 @@ final class CategoriesViewControllerTests: XCTestCase {
             loader.completeCategoriesLoading(at: 0)
             exp.fulfill()
         }
-        wait(for: [exp], timeout: 1.0)
+        wait(for: [exp], timeout: 10.0)
     }
     
     // MARK: - Helpers

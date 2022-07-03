@@ -43,6 +43,7 @@
 		4CAB66852871AB42000C426F /* CategoryLoaderWithFallbackCompositeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB667F28719DD0000C426F /* CategoryLoaderWithFallbackCompositeTests.swift */; };
 		4CAB66872871AF69000C426F /* MainQueueDispatchDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB66862871AF69000C426F /* MainQueueDispatchDecorator.swift */; };
 		4CAB66892871BA0F000C426F /* CategoryLoaderCacheDecoratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB66882871BA0F000C426F /* CategoryLoaderCacheDecoratorTests.swift */; };
+		4CAB668C2871BB9F000C426F /* CategoryLoaderStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB668B2871BB9F000C426F /* CategoryLoaderStub.swift */; };
 		4CDCEDD1286E25D600DF3AAA /* RemoteCategoryLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDCEDD0286E25D600DF3AAA /* RemoteCategoryLoader.swift */; };
 /* End PBXBuildFile section */
 
@@ -110,6 +111,7 @@
 		4CAB66822871AA3B000C426F /* CategoryLoaderWithFallbackComposite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryLoaderWithFallbackComposite.swift; sourceTree = "<group>"; };
 		4CAB66862871AF69000C426F /* MainQueueDispatchDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainQueueDispatchDecorator.swift; sourceTree = "<group>"; };
 		4CAB66882871BA0F000C426F /* CategoryLoaderCacheDecoratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryLoaderCacheDecoratorTests.swift; sourceTree = "<group>"; };
+		4CAB668B2871BB9F000C426F /* CategoryLoaderStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryLoaderStub.swift; sourceTree = "<group>"; };
 		4CDCEDD0286E25D600DF3AAA /* RemoteCategoryLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteCategoryLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -285,10 +287,19 @@
 		4CAB66842871AB2E000C426F /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				4CAB668A2871BB94000C426F /* Helpers */,
 				4CAB667F28719DD0000C426F /* CategoryLoaderWithFallbackCompositeTests.swift */,
 				4CAB66882871BA0F000C426F /* CategoryLoaderCacheDecoratorTests.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		4CAB668A2871BB94000C426F /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				4CAB668B2871BB9F000C426F /* CategoryLoaderStub.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		4CDCEDCF286E25C900DF3AAA /* Category API */ = {
@@ -498,6 +509,7 @@
 				4CAB664E2870BAE1000C426F /* CategoryStoreSpy.swift in Sources */,
 				4CAB664B2870B9E2000C426F /* LoadCategoryFromCahceUseCaseTests.swift in Sources */,
 				4CAB6640287098D4000C426F /* CacheCategoriesUseCaseTests.swift in Sources */,
+				4CAB668C2871BB9F000C426F /* CategoryLoaderStub.swift in Sources */,
 				4CAB66542870E173000C426F /* SharedTestHelpers.swift in Sources */,
 				4CAB661D28702EF1000C426F /* URLSessionHTTPClientTests.swift in Sources */,
 				4CAB66852871AB42000C426F /* CategoryLoaderWithFallbackCompositeTests.swift in Sources */,

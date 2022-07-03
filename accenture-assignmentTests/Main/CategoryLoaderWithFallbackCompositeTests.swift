@@ -25,8 +25,8 @@ final class CategoryLoaderWithFallbackCompositeTests: XCTestCase {
     }
     
     private func makeSUT(primaryResult: LoadCategoryResult, fallbackResult: LoadCategoryResult, file: StaticString = #file, line: UInt = #line) -> CategoryLoader {
-        let primaryLoader = LoaderStub(result: primaryResult)
-        let fallbackLoader = LoaderStub(result: fallbackResult)
+        let primaryLoader = CategoryLoaderStub(result: primaryResult)
+        let fallbackLoader = CategoryLoaderStub(result: fallbackResult)
         let sut = CategoryLoaderWithFallbackComposite(primary: primaryLoader, fallback: fallbackLoader)
         trackForMemoryLeacks(primaryLoader, file: file, line: line)
         trackForMemoryLeacks(fallbackLoader, file: file, line: line)
@@ -61,17 +61,5 @@ final class CategoryLoaderWithFallbackCompositeTests: XCTestCase {
     
     private func anyNSError() -> NSError {
         return NSError(domain: "any error", code: 0)
-    }
-    
-    private class LoaderStub: CategoryLoader {
-        private let result: LoadCategoryResult
-        
-        init(result: LoadCategoryResult) {
-            self.result = result
-        }
-        
-        func load(completion: @escaping (LoadCategoryResult) -> Void) {
-            completion(result)
-        }
     }
 }

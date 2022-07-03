@@ -17,14 +17,14 @@ final class CategoryLoaderCacheDecoratorTests: XCTestCase {
     
     func test_load_deliversCategoriesOnLoaderSuccess() {
         let categories = uniqueCategories()
-        let loader = LoaderStub(result: .success(categories))
+        let loader = CategoryLoaderStub(result: .success(categories))
         let sut = CategoryLoaderCacheDecorator(decoratee: loader)
         
         expect(sut, toCompleteWith: .success(categories))
     }
     
     func test_load_deliversErrorOnLoaderFailure() {
-        let loader = LoaderStub(result: .failure(anyNSError()))
+        let loader = CategoryLoaderStub(result: .failure(anyNSError()))
         let sut = CategoryLoaderCacheDecorator(decoratee: loader)
         
         expect(sut, toCompleteWith: .failure(anyNSError()))
@@ -59,17 +59,5 @@ final class CategoryLoaderCacheDecoratorTests: XCTestCase {
     
     private func anyNSError() -> NSError {
         return NSError(domain: "any error", code: 0)
-    }
-    
-    private class LoaderStub: CategoryLoader {
-        private let result: LoadCategoryResult
-        
-        init(result: LoadCategoryResult) {
-            self.result = result
-        }
-        
-        func load(completion: @escaping (LoadCategoryResult) -> Void) {
-            completion(result)
-        }
     }
 }
