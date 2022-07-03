@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4C16ABB32871EE660091BB89 /* HTTPClientSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C16ABB22871EE660091BB89 /* HTTPClientSpy.swift */; };
+		4C16ABB62871F0FC0091BB89 /* RemoteLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C16ABB52871F0FC0091BB89 /* RemoteLoaderTests.swift */; };
+		4C16ABB82871F16F0091BB89 /* RemoteLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C16ABB72871F16F0091BB89 /* RemoteLoader.swift */; };
 		4C233B5D286E065800E5C13C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C233B5C286E065800E5C13C /* AppDelegate.swift */; };
 		4C233B5F286E065800E5C13C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C233B5E286E065800E5C13C /* SceneDelegate.swift */; };
 		4C233B66286E065900E5C13C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C233B65286E065900E5C13C /* Assets.xcassets */; };
@@ -85,6 +87,8 @@
 
 /* Begin PBXFileReference section */
 		4C16ABB22871EE660091BB89 /* HTTPClientSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientSpy.swift; sourceTree = "<group>"; };
+		4C16ABB52871F0FC0091BB89 /* RemoteLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteLoaderTests.swift; sourceTree = "<group>"; };
+		4C16ABB72871F16F0091BB89 /* RemoteLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteLoader.swift; sourceTree = "<group>"; };
 		4C233B59286E065800E5C13C /* accenture-assignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "accenture-assignment.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C233B5C286E065800E5C13C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C233B5E286E065800E5C13C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -351,7 +355,7 @@
 			children = (
 				4CAB669A2871D994000C426F /* Infrastructure */,
 				4CAB661728701ADD000C426F /* HTTPClient.swift */,
-				4CAB66962871D61F000C426F /* Endpoints.swift */,
+				4C16ABB72871F16F0091BB89 /* RemoteLoader.swift */,
 			);
 			path = "Shared API";
 			sourceTree = "<group>";
@@ -404,6 +408,7 @@
 			isa = PBXGroup;
 			children = (
 				4C16ABB22871EE660091BB89 /* HTTPClientSpy.swift */,
+				4C16ABB52871F0FC0091BB89 /* RemoteLoaderTests.swift */,
 			);
 			path = "Shared API";
 			sourceTree = "<group>";
@@ -439,6 +444,7 @@
 		4CDCEDCF286E25C900DF3AAA /* Category API */ = {
 			isa = PBXGroup;
 			children = (
+				4CAB66962871D61F000C426F /* Endpoints.swift */,
 				4CDCEDD0286E25D600DF3AAA /* RemoteCategoryLoader.swift */,
 				4CAB661928701B10000C426F /* CategoryItemsMapper.swift */,
 				4CAB66462870B6C7000C426F /* RemoteCategoryItem.swift */,
@@ -627,6 +633,7 @@
 				4CAB665A28716D14000C426F /* CodableCategoryStore.swift in Sources */,
 				4CAB66AC2871DBE6000C426F /* BookItem.swift in Sources */,
 				4C233B8D286E115A00E5C13C /* CategoryItem.swift in Sources */,
+				4C16ABB82871F16F0091BB89 /* RemoteLoader.swift in Sources */,
 				4CAB661A28701B10000C426F /* CategoryItemsMapper.swift in Sources */,
 				4CAB66872871AF69000C426F /* MainQueueDispatchDecorator.swift in Sources */,
 				4CAB66832871AA3B000C426F /* CategoryLoaderWithFallbackComposite.swift in Sources */,
@@ -652,6 +659,7 @@
 				4CAB66A32871DAE5000C426F /* BooksFromMapperTests.swift in Sources */,
 				4CAB6640287098D4000C426F /* CacheCategoriesUseCaseTests.swift in Sources */,
 				4CAB668C2871BB9F000C426F /* CategoryLoaderStub.swift in Sources */,
+				4C16ABB62871F0FC0091BB89 /* RemoteLoaderTests.swift in Sources */,
 				4CAB66992871D7C3000C426F /* EndpointTests.swift in Sources */,
 				4CAB66542870E173000C426F /* SharedTestHelpers.swift in Sources */,
 				4CAB661D28702EF1000C426F /* URLSessionHTTPClientTests.swift in Sources */,
