@@ -26,11 +26,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func makeRootViewController() -> CategoriesViewController {
-        let url = URL(string: "https://private-anon-72c71498a5-androidtestmobgen.apiary-mock.com/categories")!
-        let session = URLSession(configuration: .ephemeral)
-        let client = URLSessionHTTPClient(session: session)
-        let categoryLoader = RemoteCategoryLoader(url: url, client: client)
-        return CategoriesViewController(loader: categoryLoader)
+        let remoteUrl = URL(string: "https://private-anon-72c71498a5-androidtestmobgen.apiary-mock.com/categories")!
+        let remoteClient = URLSessionHTTPClient(session: URLSession(configuration: .ephemeral))
+        let remoteCategoryLoader = RemoteCategoryLoader(url: remoteUrl, client: remoteClient)
+        
+        let localURL = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!.appendingPathComponent("categories.store")
+        let localStore = CodableCategoryStore(storeURL: localURL)
+        let localCategoryLoader = LocalCategoryLoader(store: localStore, currentDate: Date.init)
+        
+        return CategoriesViewController(
+            loader: MainQueueDispatchDecorator(
+                decoratee: CategoryLoaderWithFallbackComposite(
+                    primary: remoteCategoryLoader,
+                    fallback: localCategoryLoader
+                )
+            )
+        )
     }
 }
 
