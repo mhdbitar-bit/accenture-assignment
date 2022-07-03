@@ -40,15 +40,9 @@ final class RemoteCategoryLoader: CategoryLoader {
     private static func map(_ data: Data, from response: HTTPURLResponse) -> Result {
         do {
             let items = try CategoryItemsMapper.map(data, from: response)
-            return .success(items.toModels())
+            return .success(items)
         } catch {
             return .failure(error)
         }
-    }
-}
-
-private extension Array where Element == RemoteCategoryItem {
-    func toModels() -> [CategoryItem] {
-        map { CategoryItem(id: $0.type, name: $0.category_name) }
     }
 }
