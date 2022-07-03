@@ -1,5 +1,5 @@
 //
-//  CodableCategoriesStore.swift
+//  CodableCategoryStore.swift
 //  accenture-assignment
 //
 //  Created by Mohammad Bitar on 7/3/22.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class CodableCategoriesStore: CategoryStore {
+final class CodableCategoryStore: CategoryStore {
     private struct Cache: Codable {
         let categories: [CodableCategories]
         let timestamp: Date
