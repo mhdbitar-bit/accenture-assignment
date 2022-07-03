@@ -31,7 +31,7 @@ final class CodableCategoryStore: CategoryStore {
         }
     }
     
-    private let queue = DispatchQueue(label: "\(CodableCategoryStore.self)Queue", qos: .userInitiated)
+    private let queue = DispatchQueue(label: "\(CodableCategoryStore.self)Queue", qos: .userInitiated, attributes: .concurrent)
     private let storeURL: URL
     
     init(storeURL: URL) {
@@ -57,7 +57,7 @@ final class CodableCategoryStore: CategoryStore {
     
     func insert(_ categories: [LocalCategoryItem], timestamp: Date, completion: @escaping InsertionCompletion) {
         let storeURL = self.storeURL
-        queue.async {
+        queue.async(flags: .barrier) {
             do {
                 let encoder = JSONEncoder()
                 let cache = Cache(categories: categories.map(CodableCategories.init), timestamp: timestamp)
@@ -72,7 +72,7 @@ final class CodableCategoryStore: CategoryStore {
     
     func deleteCachedCategories(completion: @escaping DeletionCompletion) {
         let storeURL = self.storeURL
-        queue.async {
+        queue.async(flags: .barrier) {
             guard FileManager.default.fileExists(atPath: storeURL.path) else {
                 return completion(nil)
             }
