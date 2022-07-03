@@ -18,10 +18,10 @@ final class CategoryLoaderCacheDecorator: CategoryLoader {
     
     func load(completion: @escaping (LoadCategoryResult) -> Void) {
         decoratee.load { [weak self] result in
-            if let categories = try? result.get() {
+            completion(result.map { categories in
                 self?.cache.save(categories) { _ in }
-            }
-            completion(result)
+                return categories
+            })
         }
     }
 }
