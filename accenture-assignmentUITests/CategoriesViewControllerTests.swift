@@ -20,7 +20,9 @@ class CategoriesViewController: UITableViewController {
     }
     
     @objc private func load() {
-        loader?.load { _ in }
+        loader?.load { [weak self] _ in
+            self?.refreshControl?.endRefreshing()
+        }
     }
 }
 
@@ -59,6 +61,15 @@ final class CategoriesViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.refreshControl?.isRefreshing, true)
     }
     
+    func test_viewDidLoad_hideLoadingIndicatorOnLoaderCompletion() {
+        let (sut, loader) = makeSUT()
+        
+        sut.loadViewIfNeeded()
+        loader.completeCategoriesLoading()
+        
+        XCTAssertEqual(sut.refreshControl?.isRefreshing, false)
+    }
+    
     // MARK: - Helpers
     
     private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (sut: CategoriesViewController, loader: LoaderSpy) {
@@ -70,10 +81,18 @@ final class CategoriesViewControllerTests: XCTestCase {
     }
     
     class LoaderSpy: CategoryLoader {
-        private(set) var loadCallCount: Int = 0
+        private var completions = [(LoadCategoryResult) -> Void]()
+        
+        var loadCallCount: Int {
+            return completions.count
+        }
         
         func load(completion: @escaping (LoadCategoryResult) -> Void) {
-            loadCallCount += 1
+            completions.append(completion)
+        }
+        
+        func completeCategoriesLoading() {
+            completions[0](.success([]))
         }
     }
 }
