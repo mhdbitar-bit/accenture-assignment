@@ -51,7 +51,7 @@ extension LocalCategoryLoader: CategoryLoader {
             case let .failure(error):
                 completion(.failure(error))
             
-            case let .found(categories, timestamp) where CategoriesCahcePolicy.validate(timestamp, against: self.currentDate()):
+            case let .found(categories, timestamp) where CategoryCahcePolicy.validate(timestamp, against: self.currentDate()):
                 completion(.success(categories.toModels()))
                 
             case .found, .empty:
@@ -70,7 +70,7 @@ extension LocalCategoryLoader {
             case .failure:
                 self.store.deleteCachedCategories { _ in }
                 
-            case let .found(_, timestamp) where !CategoriesCahcePolicy.validate(timestamp, against: self.currentDate()):
+            case let .found(_, timestamp) where !CategoryCahcePolicy.validate(timestamp, against: self.currentDate()):
                 self.store.deleteCachedCategories { _ in }
                 
             case .empty, .found: break

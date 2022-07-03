@@ -1,5 +1,5 @@
 //
-//  CategoriesCahcePolicy.swift
+//  CategoryCahcePolicy.swift
 //  accenture-assignment
 //
 //  Created by Mohammad Bitar on 7/3/22.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class CategoriesCahcePolicy {
+final class CategoryCahcePolicy {
     private init() {}
     
     private static let calendar = Calendar(identifier: .gregorian)
