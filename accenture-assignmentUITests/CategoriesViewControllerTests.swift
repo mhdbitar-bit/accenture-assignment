@@ -15,11 +15,11 @@ class CategoriesViewController: UITableViewController {
         
         refreshControl = UIRefreshControl()
         refreshControl?.addTarget(self, action: #selector(load), for: .valueChanged)
-        refreshControl?.beginRefreshing()
         load()
     }
     
     @objc private func load() {
+        refreshControl?.beginRefreshing()
         loader?.load { [weak self] _ in
             self?.refreshControl?.endRefreshing()
         }
@@ -28,63 +28,35 @@ class CategoriesViewController: UITableViewController {
 
 final class CategoriesViewControllerTests: XCTestCase {
 
-    func test_init_doesNoLoadCategories() {
-        let (_, loader) = makeSUT()
+    func test_loadCategoriesActions_requestCategoreisFromLoader() {
+        let (sut, loader) = makeSUT()
         
-        XCTAssertEqual(loader.loadCallCount, 0)
+        XCTAssertEqual(loader.loadCallCount, 0, "Expected no loading requests before view is loaded")
+        
+        sut.loadViewIfNeeded()
+        XCTAssertEqual(loader.loadCallCount, 1, "Expected a loading request once view is loaded")
+        
+        sut.simulateUserInitiatedCategoriesReload()
+        XCTAssertEqual(loader.loadCallCount, 2, "Expected another loading request once user initiates a reload")
+        
+        sut.simulateUserInitiatedCategoriesReload()
+        XCTAssertEqual(loader.loadCallCount, 3, "Expected yet another loading request once user initiates another reload")
     }
     
-    func test_viewDidLoad_loadsCategories() {
+    func test_loadingCategoriesActions_isVisibleWhileLoadingCategories() {
         let (sut, loader) = makeSUT()
         
         sut.loadViewIfNeeded()
+        XCTAssertTrue(sut.isShowingLoadingIndicator, "Expected loading indicator once view is loaded")
         
-        XCTAssertEqual(loader.loadCallCount, 1)
-    }
-    
-    func test_userInitiatedCategoriesReload_loadsCategories() {
-        let (sut, loader) = makeSUT()
-        sut.loadViewIfNeeded()
+        loader.completeCategoriesLoading(at: 0)
+        XCTAssertFalse(sut.isShowingLoadingIndicator, "Expected no loading indicator once loading is completed")
         
         sut.simulateUserInitiatedCategoriesReload()
-        XCTAssertEqual(loader.loadCallCount, 2)
+        XCTAssertTrue(sut.isShowingLoadingIndicator, "Expected loading indicator once user initiates a reload")
         
-        sut.simulateUserInitiatedCategoriesReload()
-        XCTAssertEqual(loader.loadCallCount, 3)
-    }
-    
-    func test_viewDidLoad_showLoadingIndicator() {
-        let (sut, _) = makeSUT()
-        
-        sut.loadViewIfNeeded()
-        
-        XCTAssertTrue(sut.isShowingloadingIndicator)
-    }
-    
-    func test_viewDidLoad_hideLoadingIndicatorOnLoaderCompletion() {
-        let (sut, loader) = makeSUT()
-        
-        sut.loadViewIfNeeded()
-        loader.completeCategoriesLoading()
-        
-        XCTAssertFalse(sut.isShowingloadingIndicator)
-    }
-    
-    func test_userInitiatedCategoriesReload_showLoadingIndicator() {
-        let (sut, _) = makeSUT()
-        
-        sut.simulateUserInitiatedCategoriesReload()
-        
-        XCTAssertTrue(sut.isShowingloadingIndicator)
-    }
-    
-    func test_userInitiatedCategoriesReload_hidesLoadingIndicatorOnLoaderCompletion() {
-        let (sut, loader) = makeSUT()
-        
-        sut.simulateUserInitiatedCategoriesReload()
-        loader.completeCategoriesLoading()
-        
-        XCTAssertFalse(sut.isShowingloadingIndicator)
+        loader.completeCategoriesLoading(at: 1)
+        XCTAssertFalse(sut.isShowingLoadingIndicator, "Expected no loading indicator once user initiated loading is completed")
     }
     
     // MARK: - Helpers
@@ -108,8 +80,8 @@ final class CategoriesViewControllerTests: XCTestCase {
             completions.append(completion)
         }
         
-        func completeCategoriesLoading() {
-            completions[0](.success([]))
+        func completeCategoriesLoading(at index: Int) {
+            completions[index](.success([]))
         }
     }
 }
@@ -119,7 +91,7 @@ private extension CategoriesViewController {
         refreshControl?.simulatePullToRefresh()
     }
     
-    var isShowingloadingIndicator: Bool {
+    var isShowingLoadingIndicator: Bool {
         return refreshControl?.isRefreshing == true
     }
 }
