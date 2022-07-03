@@ -18,7 +18,9 @@ final class CategoryLoaderCacheDecorator: CategoryLoader {
     
     func load(completion: @escaping (LoadCategoryResult) -> Void) {
         decoratee.load { [weak self] result in
-            self?.cache.save((try? result.get()) ?? []) { _ in }
+            if let categories = try? result.get() {
+                self?.cache.save(categories) { _ in }
+            }
             completion(result)
         }
     }
@@ -46,7 +48,16 @@ final class CategoryLoaderCacheDecoratorTests: XCTestCase, CategoryLoaderTestCas
         
         sut.load { _ in }
         
-        XCTAssertEqual(cache.messages, [.save(categories)])
+        XCTAssertEqual(cache.messages, [.save(categories)], "Expected to cache loaded categories on success")
+    }
+    
+    func test_load_doesNotCacheOnLoaderFailure() {
+        let cache = CacheSpy()
+        let sut = makeSUT(loaderResult: .failure(anyNSError()), cache: cache)
+        
+        sut.load { _ in }
+        
+        XCTAssertTrue(cache.messages.isEmpty, "Expected not to cache categories on load error")
     }
     
     // MARK: - Helpers
