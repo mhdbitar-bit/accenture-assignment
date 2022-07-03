@@ -8,32 +8,30 @@
 import UIKit
 
 final class CategoriesViewController: UITableViewController {
-    private var loader: CategoryLoader?
-    private var tablewModel = [CategoryItem]()
+    private var refreshController: CategoriesRefreshViewController?
+    private var tablewModel = [CategoryItem]() {
+        didSet {
+            tableView.reloadData()
+        }
+    }
     
     convenience init(loader: CategoryLoader) {
         self.init()
-        self.loader = loader
+        self.refreshController = CategoriesRefreshViewController(loader: loader)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        refreshControl = UIRefreshControl()
-        refreshControl?.addTarget(self, action: #selector(load), for: .valueChanged)
-        load()
+        refreshControl = refreshController?.view
+        refreshController?.onRefresh = { [weak self] categories in
+            self?.tablewModel = categories
+        }
+        
+        refreshController?.refresh()
     }
     
-    @objc private func load() {
-        refreshControl?.beginRefreshing()
-        loader?.load { [weak self] result in
-            if let categories = try? result.get() {
-                self?.tablewModel = categories
-                self?.tableView.reloadData()
-            }
-            self?.refreshControl?.endRefreshing()
-        }
-    }
+    
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tablewModel.count
@@ -46,49 +44,3 @@ final class CategoriesViewController: UITableViewController {
         return cell
     }
 }
-
-//final class CategoriesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-//
-//    private let tableView: UITableView = {
-//        let table = UITableView()
-//        table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-//        return table
-//    }()
-//
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//
-//        tableView.dataSource = self
-//        tableView.delegate = self
-//        view.addSubview(tableView)
-//
-//        tableView.refreshControl = UIRefreshControl()
-//        tableView.refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
-//    }
-//
-//    override func viewDidLayoutSubviews() {
-//        super.viewDidLayoutSubviews()
-//
-//        tableView.frame = view.bounds
-//    }
-//
-//    @objc private func refresh() {
-//        // TODO
-//    }
-//
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return 10
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-//
-//        cell.textLabel?.text = "Helo"
-//
-//        return cell
-//    }
-//
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        tableView.deselectRow(at: indexPath, animated: true)
-//    }
-//}
