@@ -81,12 +81,7 @@ final class CodableCateogiresStoreTests: XCTestCase {
         let categories = uniqueCategories().local
         let timestamp = Date()
         
-        let exp = expectation(description: "Wait for cache retrieval")
-        sut.insert(categories, timestamp: timestamp) { insertionError in
-            XCTAssertNil(insertionError, "Expected categories to be inserted successfully")
-            exp.fulfill()
-        }
-        wait(for: [exp], timeout: 1.0)
+        insert((categories, timestamp), to: sut)
         
         expect(sut, toRetrieve: .found(categories: categories, timestamp: timestamp))
     }
@@ -95,14 +90,9 @@ final class CodableCateogiresStoreTests: XCTestCase {
         let sut = makeSUT()
         let categories = uniqueCategories().local
         let timestamp = Date()
-        let exp = expectation(description: "Wait for cache retrieval")
         
-        sut.insert(categories, timestamp: timestamp) { insertionError in
-            XCTAssertNil(insertionError, "Expected categories to be inserted successfully")
-            exp.fulfill()
-        }
-        wait(for: [exp], timeout: 1.0)
-    
+        insert((categories, timestamp), to: sut)
+        
         expect(sut, toRetrieveTwice: .found(categories: categories, timestamp: timestamp))
     }
     
@@ -112,6 +102,15 @@ final class CodableCateogiresStoreTests: XCTestCase {
         let sut = CodableCategoriesStore(storeURL: testSpecificStoreURL())
         trackForMemoryLeacks(sut, file: file, line: line)
         return sut
+    }
+    
+    private func insert(_ cache: (categories: [LocalCategoryItem], timestamp: Date), to sut: CodableCategoriesStore) {
+        let exp = expectation(description: "Wait for cache retrieval")
+        sut.insert(cache.categories, timestamp: cache.timestamp) { insertionError in
+            XCTAssertNil(insertionError, "Expected categories to be inserted successfully")
+            exp.fulfill()
+        }
+        wait(for: [exp], timeout: 1.0)
     }
     
     private func expect(_ sut: CodableCategoriesStore, toRetrieveTwice expectedResult: RetrieveCachedCategoriesResult, file: StaticString = #filePath, line: UInt = #line) {
