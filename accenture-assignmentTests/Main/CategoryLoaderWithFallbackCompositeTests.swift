@@ -24,6 +24,8 @@ final class CategoryLoaderWithFallbackCompositeTests: XCTestCase, CategoryLoader
         expect(sut, toCompleteWith: .failure(anyNSError()))
     }
     
+    // MARK: - Helpers
+    
     private func makeSUT(primaryResult: LoadCategoryResult, fallbackResult: LoadCategoryResult, file: StaticString = #file, line: UInt = #line) -> CategoryLoader {
         let primaryLoader = CategoryLoaderStub(result: primaryResult)
         let fallbackLoader = CategoryLoaderStub(result: fallbackResult)
