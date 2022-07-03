@@ -19,9 +19,15 @@ final class CategoryLoaderCacheDecorator: CategoryLoader {
     func load(completion: @escaping (LoadCategoryResult) -> Void) {
         decoratee.load { [weak self] result in
             completion(result.map { categories in
-                self?.cache.save(categories) { _ in }
+                self?.cache.saveIgnoringResult(categories)
                 return categories
             })
         }
+    }
+}
+
+private extension CategoryCache {
+    func saveIgnoringResult(_ categories: [CategoryItem]) {
+        save(categories) { _ in }
     }
 }
