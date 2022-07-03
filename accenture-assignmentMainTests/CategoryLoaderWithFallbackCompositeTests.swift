@@ -30,40 +30,14 @@ final class CategoryLoaderWithFallbackCompositeTests: XCTestCase {
         let fallbackCategries = uniqueCategories()
         let sut = makeSUT(primaryResult: .success(primaryCategories), fallbackResult: .success(fallbackCategries))
         
-        let exp = expectation(description: "Wait for load completion")
-        sut.load { result in
-            switch result {
-            case let .success(receivedCategories):
-                XCTAssertEqual(receivedCategories, primaryCategories)
-                
-            case .failure:
-                XCTFail("Expected successful load categoreis result, got \(result) instead")
-            }
-            
-            exp.fulfill()
-        }
-        
-        wait(for: [exp], timeout: 1.0)
+        expect(sut, toCompleteWith: .success(primaryCategories))
     }
     
     func test_load_deliversFallbackCategoriesOnPrimaryFailure() {
         let fallbackCategries = uniqueCategories()
         let sut = makeSUT(primaryResult: .failure(anyNSError()), fallbackResult: .success(fallbackCategries))
         
-        let exp = expectation(description: "Wait for load completion")
-        sut.load { result in
-            switch result {
-            case let .success(receivedCategories):
-                XCTAssertEqual(receivedCategories, fallbackCategries)
-                
-            case .failure:
-                XCTFail("Expected successful load categoreis result, got \(result) instead")
-            }
-            
-            exp.fulfill()
-        }
-        
-        wait(for: [exp], timeout: 1.0)
+        expect(sut, toCompleteWith: .success(fallbackCategries))
     }
     
     private func makeSUT(primaryResult: LoadCategoryResult, fallbackResult: LoadCategoryResult, file: StaticString = #file, line: UInt = #line) -> CategoryLoader {
@@ -74,6 +48,27 @@ final class CategoryLoaderWithFallbackCompositeTests: XCTestCase {
         trackForMemoryLeacks(fallbackLoader, file: file, line: line)
         trackForMemoryLeacks(sut, file: file, line: line)
         return sut
+    }
+    
+    private func expect(_ sut: CategoryLoader, toCompleteWith expectedResult: LoadCategoryResult, file: StaticString = #file, line: UInt = #line) {
+        let exp = expectation(description: "Wait for load completion")
+        
+        sut.load { receivedResult in
+            switch (receivedResult, expectedResult) {
+            case let (.success(receivedCategories), .success(expectedCategories)):
+                XCTAssertEqual(receivedCategories, expectedCategories, file: file, line: line)
+                
+            case (.failure, .failure):
+                break
+                
+            default:
+                XCTFail("Expected \(expectedResult), got \(receivedResult) instead", file: file, line: line)
+            }
+            
+            exp.fulfill()
+        }
+        
+        wait(for: [exp], timeout: 1.0)
     }
     
     private func uniqueCategories() -> [CategoryItem] {
