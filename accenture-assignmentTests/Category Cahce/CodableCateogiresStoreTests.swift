@@ -1,7 +1,7 @@
 @testable import accenture_assignment
 import XCTest
 
-class CodableCategoriesStore {
+class CodableCategoriesStore: CategoryStore {
     private struct Cache: Codable {
         let categories: [CodableCategories]
         let timestamp: Date
@@ -31,7 +31,7 @@ class CodableCategoriesStore {
         self.storeURL = storeURL
     }
     
-    func retrieve(completion: @escaping CategoryStore.RetrievalCompletion) {
+    func retrieve(completion: @escaping RetrievalCompletion) {
         guard let data = try? Data(contentsOf: storeURL) else {
             return completion(.empty)
         }
@@ -45,7 +45,7 @@ class CodableCategoriesStore {
         }
     }
     
-    func insert(_ categories: [LocalCategoryItem], timestamp: Date, completion: @escaping CategoryStore.InsertionCompletion) {
+    func insert(_ categories: [LocalCategoryItem], timestamp: Date, completion: @escaping InsertionCompletion) {
         do {
             let encoder = JSONEncoder()
             let cache = Cache(categories: categories.map(CodableCategories.init), timestamp: timestamp)
@@ -57,7 +57,7 @@ class CodableCategoriesStore {
         }
     }
     
-    func deleteCachedCategories(completion: @escaping CategoryStore.DeletionCompletion) {
+    func deleteCachedCategories(completion: @escaping DeletionCompletion) {
         guard FileManager.default.fileExists(atPath: storeURL.path) else {
             return completion(nil)
         }
