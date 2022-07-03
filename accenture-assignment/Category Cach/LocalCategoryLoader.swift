@@ -17,8 +17,8 @@ final class LocalCategoryLoader {
     }
 }
 
-extension LocalCategoryLoader {
-    typealias SaveResult = Error?
+extension LocalCategoryLoader: CategoryCache {
+    typealias SaveResult = CategoryCache.SaveResult
     
     func save(_ categories: [CategoryItem], completion: @escaping (SaveResult) -> Void) {
         store.deleteCachedCategories { [weak self] error in
