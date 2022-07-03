@@ -41,6 +41,7 @@
 		4CAB667128719613000C426F /* CategoryCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB667028719613000C426F /* CategoryCellController.swift */; };
 		4CAB668028719DD0000C426F /* CategoryLoaderWithFallbackCompositeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB667F28719DD0000C426F /* CategoryLoaderWithFallbackCompositeTests.swift */; };
 		4CAB66812871A6B1000C426F /* XCTestCase+MemoryLeackTrackingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB661F287049A4000C426F /* XCTestCase+MemoryLeackTrackingHelper.swift */; };
+		4CAB66832871AA3B000C426F /* CategoryLoaderWithFallbackComposite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB66822871AA3B000C426F /* CategoryLoaderWithFallbackComposite.swift */; };
 		4CDCEDD1286E25D600DF3AAA /* RemoteCategoryLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDCEDD0286E25D600DF3AAA /* RemoteCategoryLoader.swift */; };
 /* End PBXBuildFile section */
 
@@ -113,6 +114,7 @@
 		4CAB667028719613000C426F /* CategoryCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCellController.swift; sourceTree = "<group>"; };
 		4CAB667628719DA2000C426F /* accenture-assignmentMainTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "accenture-assignmentMainTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CAB667F28719DD0000C426F /* CategoryLoaderWithFallbackCompositeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryLoaderWithFallbackCompositeTests.swift; sourceTree = "<group>"; };
+		4CAB66822871AA3B000C426F /* CategoryLoaderWithFallbackComposite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryLoaderWithFallbackComposite.swift; sourceTree = "<group>"; };
 		4CDCEDD0286E25D600DF3AAA /* RemoteCategoryLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteCategoryLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -191,6 +193,7 @@
 				4C233B65286E065900E5C13C /* Assets.xcassets */,
 				4C233B67286E065900E5C13C /* LaunchScreen.storyboard */,
 				4C233B6A286E065900E5C13C /* Info.plist */,
+				4CAB66822871AA3B000C426F /* CategoryLoaderWithFallbackComposite.swift */,
 			);
 			path = "accenture-assignment";
 			sourceTree = "<group>";
@@ -518,6 +521,7 @@
 				4CAB665A28716D14000C426F /* CodableCategoryStore.swift in Sources */,
 				4C233B8D286E115A00E5C13C /* CategoryItem.swift in Sources */,
 				4CAB661A28701B10000C426F /* CategoryItemsMapper.swift in Sources */,
+				4CAB66832871AA3B000C426F /* CategoryLoaderWithFallbackComposite.swift in Sources */,
 				4CAB66452870AB48000C426F /* CategoryStore.swift in Sources */,
 				4CAB667128719613000C426F /* CategoryCellController.swift in Sources */,
 				4CAB665D28717463000C426F /* CategoriesViewController.swift in Sources */,

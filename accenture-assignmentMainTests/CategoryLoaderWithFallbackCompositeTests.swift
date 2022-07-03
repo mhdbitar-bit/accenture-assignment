@@ -1,28 +1,6 @@
 @testable import accenture_assignment
 import XCTest
 
-class CategoryLoaderWithFallbackComposite: CategoryLoader {
-    private let primary: CategoryLoader
-    private let fallback: CategoryLoader
-    
-    init(primary: CategoryLoader, fallback: CategoryLoader) {
-        self.primary = primary
-        self.fallback = fallback
-    }
-    
-    func load(completion: @escaping (LoadCategoryResult) -> Void) {
-        primary.load { [weak self] result in
-            switch result {
-            case .success:
-                completion(result)
-                
-            case .failure:
-                self?.fallback.load(completion: completion)
-            }
-        }
-    }
-}
-
 final class CategoryLoaderWithFallbackCompositeTests: XCTestCase {
 
     func test_load_deliversPrimaryCategoriesOnPrimaryLoaderSuccess() {
