@@ -71,6 +71,16 @@
                ReferencedContainer = "container:accenture-assignment.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "4CAB666128717D1E000C426F"
+               BuildableName = "accenture-assignmentUITests.xctest"
+               BlueprintName = "accenture-assignmentUITests"
+               ReferencedContainer = "container:accenture-assignment.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
