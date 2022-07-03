@@ -1,7 +1,7 @@
 @testable import accenture_assignment
 import XCTest
 
-final class BooksFromMapperTests: XCTestCase {
+final class BooksMapperTests: XCTestCase {
 
     func test_map_throwsErrorOnNon200HTTPResponse() throws {
         let json = makeItemsJSON([])
