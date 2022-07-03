@@ -1,25 +1,6 @@
 @testable import accenture_assignment
 import XCTest
 
-final class CategoryLoaderCacheDecorator: CategoryLoader {
-    private let decoratee: CategoryLoader
-    private let cache: CategoryCache
-    
-    init(decoratee: CategoryLoader, cache: CategoryCache) {
-        self.decoratee = decoratee
-        self.cache = cache
-    }
-    
-    func load(completion: @escaping (LoadCategoryResult) -> Void) {
-        decoratee.load { [weak self] result in
-            completion(result.map { categories in
-                self?.cache.save(categories) { _ in }
-                return categories
-            })
-        }
-    }
-}
-
 final class CategoryLoaderCacheDecoratorTests: XCTestCase, CategoryLoaderTestCase {
     
     func test_load_deliversCategoriesOnLoaderSuccess() {
