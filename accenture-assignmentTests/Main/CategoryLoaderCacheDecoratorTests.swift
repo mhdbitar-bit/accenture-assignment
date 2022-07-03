@@ -13,7 +13,7 @@ final class CategoryLoaderCacheDecorator: CategoryLoader {
     }
 }
 
-final class CategoryLoaderCacheDecoratorTests: XCTestCase {
+final class CategoryLoaderCacheDecoratorTests: XCTestCase, CategoryLoaderTestCase {
     
     func test_load_deliversCategoriesOnLoaderSuccess() {
         let categories = uniqueCategoriesModel()
@@ -28,28 +28,5 @@ final class CategoryLoaderCacheDecoratorTests: XCTestCase {
         let sut = CategoryLoaderCacheDecorator(decoratee: loader)
         
         expect(sut, toCompleteWith: .failure(anyNSError()))
-    }
-    
-    // MARK: - Helpers
-    
-    private func expect(_ sut: CategoryLoader, toCompleteWith expectedResult: LoadCategoryResult, file: StaticString = #file, line: UInt = #line) {
-        let exp = expectation(description: "Wait for load completion")
-        
-        sut.load { receivedResult in
-            switch (receivedResult, expectedResult) {
-            case let (.success(receivedCategories), .success(expectedCategories)):
-                XCTAssertEqual(receivedCategories, expectedCategories, file: file, line: line)
-                
-            case (.failure, .failure):
-                break
-                
-            default:
-                XCTFail("Expected \(expectedResult), got \(receivedResult) instead", file: file, line: line)
-            }
-            
-            exp.fulfill()
-        }
-        
-        wait(for: [exp], timeout: 1.0)
     }
 }

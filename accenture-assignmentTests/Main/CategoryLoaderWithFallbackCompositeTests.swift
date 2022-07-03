@@ -1,7 +1,7 @@
 @testable import accenture_assignment
 import XCTest
 
-final class CategoryLoaderWithFallbackCompositeTests: XCTestCase {
+final class CategoryLoaderWithFallbackCompositeTests: XCTestCase, CategoryLoaderTestCase {
 
     func test_load_deliversPrimaryCategoriesOnPrimaryLoaderSuccess() {
         let primaryCategories = uniqueCategoriesModel()
@@ -32,26 +32,5 @@ final class CategoryLoaderWithFallbackCompositeTests: XCTestCase {
         trackForMemoryLeacks(fallbackLoader, file: file, line: line)
         trackForMemoryLeacks(sut, file: file, line: line)
         return sut
-    }
-    
-    private func expect(_ sut: CategoryLoader, toCompleteWith expectedResult: LoadCategoryResult, file: StaticString = #file, line: UInt = #line) {
-        let exp = expectation(description: "Wait for load completion")
-        
-        sut.load { receivedResult in
-            switch (receivedResult, expectedResult) {
-            case let (.success(receivedCategories), .success(expectedCategories)):
-                XCTAssertEqual(receivedCategories, expectedCategories, file: file, line: line)
-                
-            case (.failure, .failure):
-                break
-                
-            default:
-                XCTFail("Expected \(expectedResult), got \(receivedResult) instead", file: file, line: line)
-            }
-            
-            exp.fulfill()
-        }
-        
-        wait(for: [exp], timeout: 1.0)
     }
 }
