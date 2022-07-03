@@ -26,26 +26,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func makeRootViewController() -> CategoriesViewController {
-        return CategoriesViewController()
-//        let client = URLSessionHTTPClient(session: .shared)
-//        let remoteService = RemotePhotoService(client: client)
-//        let imageService = RemoteImageDataService(client: client)
-//
-//        let localStoreURL = NSPersistentContainer
-//            .defaultDirectoryURL()
-//            .appendingPathComponent("image-search-store.sqlite")
-//
-//        let localStore = try! CoreDataSearchStore(storeURL: localStoreURL)
-//        let keywordsService = SearchKeywordService(store: localStore)
-//
-//        let photoOperation = Operations()
-//        let viewModel = PhotoListViewModel(
-//            remoteService: remoteService,
-//            imageService: imageService,
-//            searchKeywordService: keywordsService,
-//            photoOperation: photoOperation)
-//        let vc = PhotoListViewController(viewModel: viewModel)
-//        return vc
+        let url = URL(string: "https://private-anon-72c71498a5-androidtestmobgen.apiary-mock.com/categories")!
+        let session = URLSession(configuration: .ephemeral)
+        let client = URLSessionHTTPClient(session: session)
+        let categoryLoader = RemoteCategoryLoader(url: url, client: client)
+        return CategoriesViewController(loader: categoryLoader)
     }
 }
 
