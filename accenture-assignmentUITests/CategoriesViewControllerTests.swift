@@ -51,6 +51,19 @@ final class CategoriesViewControllerTests: XCTestCase {
         assertThat(sut, isRendering: [cat1, cat2])
     }
     
+    func test_loadCategoriesCompletion_doesNotAlertCurrentRenderingStateOnError() {
+        let cat1 = makeCategory()
+        let (sut, loader) = makeSUT()
+        
+        sut.loadViewIfNeeded()
+        loader.completeCategoriesLoading(with: [cat1], at: 0)
+        assertThat(sut, isRendering: [cat1])
+        
+        sut.simulateUserInitiatedCategoriesReload()
+        loader.completeCategoriesWithError(at: 1)
+        assertThat(sut, isRendering: [cat1])
+    }
+    
     // MARK: - Helpers
     
     private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (sut: CategoriesViewController, loader: LoaderSpy) {
@@ -81,7 +94,7 @@ final class CategoriesViewControllerTests: XCTestCase {
         XCTAssertEqual(cell.nameText, cateogry.name, "Expected name  text to be \(String(describing: cateogry.name)) for category view at index \(index)", file: file, line: line)
     }
     
-    private func makeCategory(id: Int, name: String) -> CategoryItem {
+    private func makeCategory(id: Int = 0, name: String = "a name") -> CategoryItem {
         return CategoryItem(id: id, name: name)
     }
     
@@ -98,6 +111,11 @@ final class CategoriesViewControllerTests: XCTestCase {
         
         func completeCategoriesLoading(with categories: [CategoryItem] = [], at index: Int = 0) {
             completions[index](.success(categories))
+        }
+        
+        func completeCategoriesWithError(at index: Int = 0) {
+            let error = NSError(domain: "an error", code: 0)
+            completions[index](.failure(error))
         }
     }
 }
