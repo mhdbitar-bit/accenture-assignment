@@ -10,9 +10,7 @@ import UIKit
 final class CategoriesViewController: UITableViewController {
     private var refreshController: CategoriesRefreshViewController?
     private var tablewModel = [CategoryItem]() {
-        didSet {
-            self.tableView.reloadData()
-        }
+        didSet { tableView.reloadData() }
     }
     
     convenience init(loader: CategoryLoader) {
