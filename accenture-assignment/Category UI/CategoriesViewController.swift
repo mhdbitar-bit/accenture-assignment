@@ -7,6 +7,8 @@
 
 import UIKit
 
+// TODO handle the error cases
+
 final class CategoriesViewController: UITableViewController {
     private var refreshController: CategoriesRefreshViewController?
     private var tablewModel = [CategoryItem]() {

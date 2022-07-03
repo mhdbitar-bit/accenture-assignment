@@ -37,7 +37,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         return CategoriesViewController(
             loader: MainQueueDispatchDecorator(
                 decoratee: CategoryLoaderWithFallbackComposite(
-                    primary: remoteCategoryLoader,
+                    primary: CategoryLoaderCacheDecorator(
+                        decoratee: remoteCategoryLoader,
+                        cache: localCategoryLoader
+                    ),
                     fallback: localCategoryLoader
                 )
             )
