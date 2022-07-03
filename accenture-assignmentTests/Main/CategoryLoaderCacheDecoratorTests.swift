@@ -16,7 +16,7 @@ final class CategoryLoaderCacheDecorator: CategoryLoader {
 final class CategoryLoaderCacheDecoratorTests: XCTestCase {
     
     func test_load_deliversCategoriesOnLoaderSuccess() {
-        let categories = uniqueCategories()
+        let categories = uniqueCategoriesModel()
         let loader = CategoryLoaderStub(result: .success(categories))
         let sut = CategoryLoaderCacheDecorator(decoratee: loader)
         
@@ -51,13 +51,5 @@ final class CategoryLoaderCacheDecoratorTests: XCTestCase {
         }
         
         wait(for: [exp], timeout: 1.0)
-    }
-    
-    private func uniqueCategories() -> [CategoryItem] {
-        return [CategoryItem(id: 0, name: "a name")]
-    }
-    
-    private func anyNSError() -> NSError {
-        return NSError(domain: "any error", code: 0)
     }
 }

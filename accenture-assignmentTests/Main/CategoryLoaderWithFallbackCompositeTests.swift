@@ -4,15 +4,15 @@ import XCTest
 final class CategoryLoaderWithFallbackCompositeTests: XCTestCase {
 
     func test_load_deliversPrimaryCategoriesOnPrimaryLoaderSuccess() {
-        let primaryCategories = uniqueCategories()
-        let fallbackCategries = uniqueCategories()
+        let primaryCategories = uniqueCategoriesModel()
+        let fallbackCategries = uniqueCategoriesModel()
         let sut = makeSUT(primaryResult: .success(primaryCategories), fallbackResult: .success(fallbackCategries))
         
         expect(sut, toCompleteWith: .success(primaryCategories))
     }
     
     func test_load_deliversFallbackCategoriesOnPrimaryFailure() {
-        let fallbackCategries = uniqueCategories()
+        let fallbackCategries = uniqueCategoriesModel()
         let sut = makeSUT(primaryResult: .failure(anyNSError()), fallbackResult: .success(fallbackCategries))
         
         expect(sut, toCompleteWith: .success(fallbackCategries))
@@ -53,13 +53,5 @@ final class CategoryLoaderWithFallbackCompositeTests: XCTestCase {
         }
         
         wait(for: [exp], timeout: 1.0)
-    }
-    
-    private func uniqueCategories() -> [CategoryItem] {
-        return [CategoryItem(id: 0, name: "a name")]
-    }
-    
-    private func anyNSError() -> NSError {
-        return NSError(domain: "any error", code: 0)
     }
 }
