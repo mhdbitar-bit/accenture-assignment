@@ -58,7 +58,7 @@ final class CategoriesViewControllerTests: XCTestCase {
         
         sut.loadViewIfNeeded()
         
-        XCTAssertEqual(sut.refreshControl?.isRefreshing, true)
+        XCTAssertTrue(sut.isShowingloadingIndicator)
     }
     
     func test_viewDidLoad_hideLoadingIndicatorOnLoaderCompletion() {
@@ -67,7 +67,7 @@ final class CategoriesViewControllerTests: XCTestCase {
         sut.loadViewIfNeeded()
         loader.completeCategoriesLoading()
         
-        XCTAssertEqual(sut.refreshControl?.isRefreshing, false)
+        XCTAssertFalse(sut.isShowingloadingIndicator)
     }
     
     func test_userInitiatedCategoriesReload_showLoadingIndicator() {
@@ -75,7 +75,7 @@ final class CategoriesViewControllerTests: XCTestCase {
         
         sut.simulateUserInitiatedCategoriesReload()
         
-        XCTAssertEqual(sut.refreshControl?.isRefreshing, true)
+        XCTAssertTrue(sut.isShowingloadingIndicator)
     }
     
     func test_userInitiatedCategoriesReload_hidesLoadingIndicatorOnLoaderCompletion() {
@@ -84,7 +84,7 @@ final class CategoriesViewControllerTests: XCTestCase {
         sut.simulateUserInitiatedCategoriesReload()
         loader.completeCategoriesLoading()
         
-        XCTAssertEqual(sut.refreshControl?.isRefreshing, false)
+        XCTAssertFalse(sut.isShowingloadingIndicator)
     }
     
     // MARK: - Helpers
@@ -117,6 +117,10 @@ final class CategoriesViewControllerTests: XCTestCase {
 private extension CategoriesViewController {
     func simulateUserInitiatedCategoriesReload() {
         refreshControl?.simulatePullToRefresh()
+    }
+    
+    var isShowingloadingIndicator: Bool {
+        return refreshControl?.isRefreshing == true
     }
 }
 
