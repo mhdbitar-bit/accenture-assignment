@@ -118,6 +118,20 @@ final class CodableCateogiresStoreTests: XCTestCase {
         expect(sut, toRetrieveTwice: .failure(anyNSError()))
     }
     
+    func test_insert_overridesPreviouslynsertedCacheValues() {
+        let sut = makeSUT()
+        
+        let firstInsertionError = insert((uniqueCategories().local, Date()), to: sut)
+        XCTAssertNil(firstInsertionError, "Expected to insert cahce successfuly")
+        
+        let latestCategories = uniqueCategories().local
+        let latestTimestamp = Date()
+        let latestInsertionError = insert((latestCategories, latestTimestamp), to: sut)
+        
+        XCTAssertNil(latestInsertionError, "Expected to pverride cache successfuly")
+        expect(sut, toRetrieve: .found(categories: latestCategories, timestamp: latestTimestamp))
+    }
+    
     // MARK: - Helpers
     
     private func makeSUT(storeURL: URL? = nil, file: StaticString = #filePath, line: UInt = #line) -> CodableCategoriesStore {
@@ -126,13 +140,17 @@ final class CodableCateogiresStoreTests: XCTestCase {
         return sut
     }
     
-    private func insert(_ cache: (categories: [LocalCategoryItem], timestamp: Date), to sut: CodableCategoriesStore) {
+    @discardableResult
+    private func insert(_ cache: (categories: [LocalCategoryItem], timestamp: Date), to sut: CodableCategoriesStore) -> Error? {
         let exp = expectation(description: "Wait for cache retrieval")
-        sut.insert(cache.categories, timestamp: cache.timestamp) { insertionError in
-            XCTAssertNil(insertionError, "Expected categories to be inserted successfully")
+        var insertionError: Error?
+        sut.insert(cache.categories, timestamp: cache.timestamp) { receivedInsertionError in
+            insertionError = receivedInsertionError
             exp.fulfill()
         }
         wait(for: [exp], timeout: 1.0)
+        
+        return insertionError
     }
     
     private func expect(_ sut: CodableCategoriesStore, toRetrieveTwice expectedResult: RetrieveCachedCategoriesResult, file: StaticString = #filePath, line: UInt = #line) {
