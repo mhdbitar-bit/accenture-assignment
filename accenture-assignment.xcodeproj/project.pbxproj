@@ -34,6 +34,7 @@
 		4CAB66542870E173000C426F /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB66532870E173000C426F /* SharedTestHelpers.swift */; };
 		4CAB66562870EA40000C426F /* CategoriesCahcePolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB66552870EA40000C426F /* CategoriesCahcePolicy.swift */; };
 		4CAB66582870F293000C426F /* CodableCateogiresStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB66572870F293000C426F /* CodableCateogiresStoreTests.swift */; };
+		4CAB665A28716D14000C426F /* CodableCategoriesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB665928716D14000C426F /* CodableCategoriesStore.swift */; };
 		4CDCEDD1286E25D600DF3AAA /* RemoteCategoryLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDCEDD0286E25D600DF3AAA /* RemoteCategoryLoader.swift */; };
 /* End PBXBuildFile section */
 
@@ -85,6 +86,7 @@
 		4CAB66532870E173000C426F /* SharedTestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTestHelpers.swift; sourceTree = "<group>"; };
 		4CAB66552870EA40000C426F /* CategoriesCahcePolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesCahcePolicy.swift; sourceTree = "<group>"; };
 		4CAB66572870F293000C426F /* CodableCateogiresStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableCateogiresStoreTests.swift; sourceTree = "<group>"; };
+		4CAB665928716D14000C426F /* CodableCategoriesStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableCategoriesStore.swift; sourceTree = "<group>"; };
 		4CDCEDD0286E25D600DF3AAA /* RemoteCategoryLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteCategoryLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -213,6 +215,7 @@
 				4CAB66552870EA40000C426F /* CategoriesCahcePolicy.swift */,
 				4CAB66442870AB48000C426F /* CategoryStore.swift */,
 				4CAB66482870B704000C426F /* LocalCategoryItem.swift */,
+				4CAB665928716D14000C426F /* CodableCategoriesStore.swift */,
 			);
 			path = "Category Cach";
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 				4C233B5D286E065800E5C13C /* AppDelegate.swift in Sources */,
 				4CAB66432870AACD000C426F /* LocalCategoryLoader.swift in Sources */,
 				4C233B5F286E065800E5C13C /* SceneDelegate.swift in Sources */,
+				4CAB665A28716D14000C426F /* CodableCategoriesStore.swift in Sources */,
 				4C233B8D286E115A00E5C13C /* CategoryItem.swift in Sources */,
 				4CAB661A28701B10000C426F /* CategoryItemsMapper.swift in Sources */,
 				4CAB66452870AB48000C426F /* CategoryStore.swift in Sources */,
