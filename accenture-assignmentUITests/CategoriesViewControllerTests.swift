@@ -42,14 +42,14 @@ final class CategoriesViewControllerTests: XCTestCase {
         XCTAssertEqual(loader.loadCallCount, 1)
     }
     
-    func test_pullToRefresh_loadsCategories() {
+    func test_userInitiatedCategoriesReload_loadsCategories() {
         let (sut, loader) = makeSUT()
         sut.loadViewIfNeeded()
         
-        sut.refreshControl?.simulatePullToRefresh()
+        sut.simulateUserInitiatedCategoriesReload()
         XCTAssertEqual(loader.loadCallCount, 2)
         
-        sut.refreshControl?.simulatePullToRefresh()
+        sut.simulateUserInitiatedCategoriesReload()
         XCTAssertEqual(loader.loadCallCount, 3)
     }
     
@@ -70,18 +70,18 @@ final class CategoriesViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.refreshControl?.isRefreshing, false)
     }
     
-    func test_pullToRefresh_showLoadingIndicator() {
+    func test_userInitiatedCategoriesReload_showLoadingIndicator() {
         let (sut, _) = makeSUT()
         
-        sut.refreshControl?.simulatePullToRefresh()
+        sut.simulateUserInitiatedCategoriesReload()
         
         XCTAssertEqual(sut.refreshControl?.isRefreshing, true)
     }
     
-    func test_pullToRefresh_hidesLoadingIndicatorOnLoaderCompletion() {
+    func test_userInitiatedCategoriesReload_hidesLoadingIndicatorOnLoaderCompletion() {
         let (sut, loader) = makeSUT()
         
-        sut.refreshControl?.simulatePullToRefresh()
+        sut.simulateUserInitiatedCategoriesReload()
         loader.completeCategoriesLoading()
         
         XCTAssertEqual(sut.refreshControl?.isRefreshing, false)
@@ -111,6 +111,12 @@ final class CategoriesViewControllerTests: XCTestCase {
         func completeCategoriesLoading() {
             completions[0](.success([]))
         }
+    }
+}
+
+private extension CategoriesViewController {
+    func simulateUserInitiatedCategoriesReload() {
+        refreshControl?.simulatePullToRefresh()
     }
 }
 
