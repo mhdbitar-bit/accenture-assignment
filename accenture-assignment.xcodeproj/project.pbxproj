@@ -10,6 +10,7 @@
 		4C16ABB32871EE660091BB89 /* HTTPClientSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C16ABB22871EE660091BB89 /* HTTPClientSpy.swift */; };
 		4C16ABB62871F0FC0091BB89 /* RemoteLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C16ABB52871F0FC0091BB89 /* RemoteLoaderTests.swift */; };
 		4C16ABB82871F16F0091BB89 /* RemoteLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C16ABB72871F16F0091BB89 /* RemoteLoader.swift */; };
+		4C16ABBC28734C8C0091BB89 /* HouseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C16ABBB28734C8C0091BB89 /* HouseItem.swift */; };
 		4C233B5D286E065800E5C13C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C233B5C286E065800E5C13C /* AppDelegate.swift */; };
 		4C233B5F286E065800E5C13C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C233B5E286E065800E5C13C /* SceneDelegate.swift */; };
 		4C233B66286E065900E5C13C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C233B65286E065900E5C13C /* Assets.xcassets */; };
@@ -87,6 +88,7 @@
 		4C16ABB22871EE660091BB89 /* HTTPClientSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientSpy.swift; sourceTree = "<group>"; };
 		4C16ABB52871F0FC0091BB89 /* RemoteLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteLoaderTests.swift; sourceTree = "<group>"; };
 		4C16ABB72871F16F0091BB89 /* RemoteLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteLoader.swift; sourceTree = "<group>"; };
+		4C16ABBB28734C8C0091BB89 /* HouseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseItem.swift; sourceTree = "<group>"; };
 		4C233B59286E065800E5C13C /* accenture-assignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "accenture-assignment.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C233B5C286E065800E5C13C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C233B5E286E065800E5C13C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -177,6 +179,14 @@
 				4CAB661C28702EF1000C426F /* URLSessionHTTPClientTests.swift */,
 			);
 			path = "Shared API Infra";
+			sourceTree = "<group>";
+		};
+		4C16ABBA28734C770091BB89 /* Hous Feature */ = {
+			isa = PBXGroup;
+			children = (
+				4C16ABBB28734C8C0091BB89 /* HouseItem.swift */,
+			);
+			path = "Hous Feature";
 			sourceTree = "<group>";
 		};
 		4C233B50286E065800E5C13C = {
@@ -430,6 +440,7 @@
 		4CAB66B42871DE85000C426F /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				4C16ABBA28734C770091BB89 /* Hous Feature */,
 				4C233B92286E138700E5C13C /* Category Feature */,
 				4CAB66A82871DBB1000C426F /* Book Feature */,
 			);
@@ -613,6 +624,7 @@
 				4CAB66562870EA40000C426F /* CategoryCahcePolicy.swift in Sources */,
 				4CAB66472870B6C7000C426F /* RemoteCategoryItem.swift in Sources */,
 				4C233B91286E11E800E5C13C /* CategoryLoader.swift in Sources */,
+				4C16ABBC28734C8C0091BB89 /* HouseItem.swift in Sources */,
 				4CAB66492870B704000C426F /* LocalCategoryItem.swift in Sources */,
 				4CAB666F287193D2000C426F /* CategoriesRefreshViewController.swift in Sources */,
 				4CAB66972871D61F000C426F /* Endpoints.swift in Sources */,
