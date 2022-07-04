@@ -49,3 +49,4 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 }
 
+extension RemoteLoader: CategoryLoader where Resource == [CategoryItem] {}
