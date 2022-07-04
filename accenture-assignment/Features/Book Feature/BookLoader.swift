@@ -7,8 +7,6 @@
 
 import Foundation
 
-import Foundation
-
 typealias LoadBookResult = Result<[BookItem], Error>
 
 protocol BookLoader {
