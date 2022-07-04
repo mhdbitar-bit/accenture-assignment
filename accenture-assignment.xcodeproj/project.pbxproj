@@ -54,11 +54,9 @@
 		4CAB66972871D61F000C426F /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB66962871D61F000C426F /* Endpoints.swift */; };
 		4CAB66992871D7C3000C426F /* EndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB66982871D7C3000C426F /* EndpointTests.swift */; };
 		4CAB66A32871DAE5000C426F /* BooksMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB66A22871DAE5000C426F /* BooksMapperTests.swift */; };
-		4CAB66A72871DB98000C426F /* RemoteBooksLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB66A62871DB98000C426F /* RemoteBooksLoader.swift */; };
 		4CAB66AA2871DBBF000C426F /* BookLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB66A92871DBBF000C426F /* BookLoader.swift */; };
 		4CAB66AC2871DBE6000C426F /* BookItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB66AB2871DBE6000C426F /* BookItem.swift */; };
 		4CAB66B12871DE4F000C426F /* BooksItemMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB66B02871DE4F000C426F /* BooksItemMapper.swift */; };
-		4CDCEDD1286E25D600DF3AAA /* RemoteCategoryLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDCEDD0286E25D600DF3AAA /* RemoteCategoryLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -136,11 +134,9 @@
 		4CAB66962871D61F000C426F /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
 		4CAB66982871D7C3000C426F /* EndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointTests.swift; sourceTree = "<group>"; };
 		4CAB66A22871DAE5000C426F /* BooksMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksMapperTests.swift; sourceTree = "<group>"; };
-		4CAB66A62871DB98000C426F /* RemoteBooksLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteBooksLoader.swift; sourceTree = "<group>"; };
 		4CAB66A92871DBBF000C426F /* BookLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookLoader.swift; sourceTree = "<group>"; };
 		4CAB66AB2871DBE6000C426F /* BookItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookItem.swift; sourceTree = "<group>"; };
 		4CAB66B02871DE4F000C426F /* BooksItemMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksItemMapper.swift; sourceTree = "<group>"; };
-		4CDCEDD0286E25D600DF3AAA /* RemoteCategoryLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteCategoryLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -363,7 +359,6 @@
 		4CAB669C2871D9D7000C426F /* Book API */ = {
 			isa = PBXGroup;
 			children = (
-				4CAB66A62871DB98000C426F /* RemoteBooksLoader.swift */,
 				4CAB66B02871DE4F000C426F /* BooksItemMapper.swift */,
 			);
 			path = "Book API";
@@ -445,7 +440,6 @@
 			isa = PBXGroup;
 			children = (
 				4CAB66962871D61F000C426F /* Endpoints.swift */,
-				4CDCEDD0286E25D600DF3AAA /* RemoteCategoryLoader.swift */,
 				4CAB661928701B10000C426F /* CategoryItemsMapper.swift */,
 				4CAB66462870B6C7000C426F /* RemoteCategoryItem.swift */,
 			);
@@ -618,11 +612,9 @@
 				4CAB66922871C435000C426F /* CategoryLoaderCacheDecorator.swift in Sources */,
 				4CAB66562870EA40000C426F /* CategoryCahcePolicy.swift in Sources */,
 				4CAB66472870B6C7000C426F /* RemoteCategoryItem.swift in Sources */,
-				4CAB66A72871DB98000C426F /* RemoteBooksLoader.swift in Sources */,
 				4C233B91286E11E800E5C13C /* CategoryLoader.swift in Sources */,
 				4CAB66492870B704000C426F /* LocalCategoryItem.swift in Sources */,
 				4CAB666F287193D2000C426F /* CategoriesRefreshViewController.swift in Sources */,
-				4CDCEDD1286E25D600DF3AAA /* RemoteCategoryLoader.swift in Sources */,
 				4CAB66972871D61F000C426F /* Endpoints.swift in Sources */,
 				4CAB661828701ADD000C426F /* HTTPClient.swift in Sources */,
 				4CAB662228706289000C426F /* URLSessionHTTPClient.swift in Sources */,

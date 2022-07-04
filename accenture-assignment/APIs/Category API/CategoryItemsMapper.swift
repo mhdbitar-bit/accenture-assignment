@@ -10,10 +10,14 @@ import Foundation
 final class CategoryItemsMapper {
     private static var OK_200: Int { 200 }
     
+    enum Error: Swift.Error {
+        case invalidData
+    }
+    
     static func map(_ data: Data, from response: HTTPURLResponse) throws -> [CategoryItem] {
         guard response.statusCode == OK_200,
               let items = try? JSONDecoder().decode([RemoteCategoryItem].self, from: data) else {
-            throw RemoteCategoryLoader.Error.invalidData
+            throw Error.invalidData
         }
         
         return items.toModels()

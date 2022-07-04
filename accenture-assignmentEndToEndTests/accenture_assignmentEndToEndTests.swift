@@ -27,13 +27,12 @@ class accenture_assignmentEndToEndTests: XCTestCase {
         }
     }
     
-    
     // MARK: - Helpers
     
     private func getCategoriesResult(file: StaticString = #filePath, line: UInt = #line) -> LoadCategoryResult? {
         let testServerURL = URL(string: "https://private-anon-f51dfcda52-androidtestmobgen.apiary-mock.com/categories")!
         let client = URLSessionHTTPClient(session: URLSession(configuration: .ephemeral))
-        let loader = RemoteCategoryLoader(url: testServerURL, client: client)
+        let loader = RemoteLoader(url: testServerURL, client: client, mapper: CategoryItemsMapper.map)
         trackForMemoryLeacks(client, file: file, line: line)
         trackForMemoryLeacks(loader, file: file, line: line)
         

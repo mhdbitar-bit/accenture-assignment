@@ -28,7 +28,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func makeRootViewController() -> CategoriesViewController {
         let remoteUrl = Endpoints.getCategories.url(baseURL: URL(string: "https://private-anon-72c71498a5-androidtestmobgen.apiary-mock.com")!)
         let remoteClient = URLSessionHTTPClient(session: URLSession(configuration: .ephemeral))
-        let remoteCategoryLoader = RemoteCategoryLoader(url: remoteUrl, client: remoteClient)
+        let remoteCategoryLoader = RemoteLoader(url: remoteUrl, client: remoteClient, mapper: CategoryItemsMapper.map)
         
         let localURL = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!.appendingPathComponent("categories.store")
         let localStore = CodableCategoryStore(storeURL: localURL)

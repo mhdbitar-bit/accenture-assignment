@@ -31,13 +31,17 @@ final class BooksItemMapper {
             )
         }
     }
+    
+    private enum Error: Swift.Error {
+        case invalidData
+    }
 
     private static var OK_200: Int { 200 }
     
     static func map(_ data: Data, from response: HTTPURLResponse) throws -> [BookItem] {
         guard response.statusCode == OK_200,
               let items = try? JSONDecoder().decode([RemoteBookItem].self, from: data) else {
-            throw RemoteBooksLoader.Error.invalidData
+            throw Error.invalidData
         }
         
         return items.map { $0.item }
