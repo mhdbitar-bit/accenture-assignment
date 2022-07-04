@@ -12,6 +12,8 @@
 		4C16ABB82871F16F0091BB89 /* RemoteLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C16ABB72871F16F0091BB89 /* RemoteLoader.swift */; };
 		4C16ABBC28734C8C0091BB89 /* HouseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C16ABBB28734C8C0091BB89 /* HouseItem.swift */; };
 		4C16ABC028734DDD0091BB89 /* HouseLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C16ABBF28734DDD0091BB89 /* HouseLoader.swift */; };
+		4C16ABC328734E410091BB89 /* HouseItemMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C16ABC228734E410091BB89 /* HouseItemMapper.swift */; };
+		4C16ABC528734ED00091BB89 /* HoouseMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C16ABC428734ED00091BB89 /* HoouseMapperTests.swift */; };
 		4C233B5D286E065800E5C13C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C233B5C286E065800E5C13C /* AppDelegate.swift */; };
 		4C233B5F286E065800E5C13C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C233B5E286E065800E5C13C /* SceneDelegate.swift */; };
 		4C233B66286E065900E5C13C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C233B65286E065900E5C13C /* Assets.xcassets */; };
@@ -91,6 +93,8 @@
 		4C16ABB72871F16F0091BB89 /* RemoteLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteLoader.swift; sourceTree = "<group>"; };
 		4C16ABBB28734C8C0091BB89 /* HouseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseItem.swift; sourceTree = "<group>"; };
 		4C16ABBF28734DDD0091BB89 /* HouseLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseLoader.swift; sourceTree = "<group>"; };
+		4C16ABC228734E410091BB89 /* HouseItemMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseItemMapper.swift; sourceTree = "<group>"; };
+		4C16ABC428734ED00091BB89 /* HoouseMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoouseMapperTests.swift; sourceTree = "<group>"; };
 		4C233B59286E065800E5C13C /* accenture-assignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "accenture-assignment.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C233B5C286E065800E5C13C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C233B5E286E065800E5C13C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -190,6 +194,14 @@
 				4C16ABBF28734DDD0091BB89 /* HouseLoader.swift */,
 			);
 			path = "Hous Feature";
+			sourceTree = "<group>";
+		};
+		4C16ABC128734E320091BB89 /* House API */ = {
+			isa = PBXGroup;
+			children = (
+				4C16ABC228734E410091BB89 /* HouseItemMapper.swift */,
+			);
+			path = "House API";
 			sourceTree = "<group>";
 		};
 		4C233B50286E065800E5C13C = {
@@ -401,6 +413,7 @@
 		4CAB669F2871DA94000C426F /* House API */ = {
 			isa = PBXGroup;
 			children = (
+				4C16ABC428734ED00091BB89 /* HoouseMapperTests.swift */,
 			);
 			path = "House API";
 			sourceTree = "<group>";
@@ -433,6 +446,7 @@
 		4CAB66AF2871DE27000C426F /* APIs */ = {
 			isa = PBXGroup;
 			children = (
+				4C16ABC128734E320091BB89 /* House API */,
 				4CAB669B2871D9C0000C426F /* Shared API */,
 				4CDCEDCF286E25C900DF3AAA /* Category API */,
 				4CAB669C2871D9D7000C426F /* Book API */,
@@ -622,6 +636,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C16ABC328734E410091BB89 /* HouseItemMapper.swift in Sources */,
 				4CAB66902871C3A0000C426F /* CategoryCache.swift in Sources */,
 				4CAB66922871C435000C426F /* CategoryLoaderCacheDecorator.swift in Sources */,
 				4CAB66562870EA40000C426F /* CategoryCahcePolicy.swift in Sources */,
@@ -665,6 +680,7 @@
 				4CAB664B2870B9E2000C426F /* LoadCategoryFromCahceUseCaseTests.swift in Sources */,
 				4C16ABB32871EE660091BB89 /* HTTPClientSpy.swift in Sources */,
 				4CAB66A32871DAE5000C426F /* BooksMapperTests.swift in Sources */,
+				4C16ABC528734ED00091BB89 /* HoouseMapperTests.swift in Sources */,
 				4CAB6640287098D4000C426F /* CacheCategoriesUseCaseTests.swift in Sources */,
 				4CAB668C2871BB9F000C426F /* CategoryLoaderStub.swift in Sources */,
 				4C16ABB62871F0FC0091BB89 /* RemoteLoaderTests.swift in Sources */,
