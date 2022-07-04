@@ -8,12 +8,12 @@
 import Foundation
 
 struct HouseItem: Equatable {
-    let id: Int
+    let id: String
     let name: String
     let region: String
     let title: String
     
-    init(id: Int, name: String, region: String, title: String) {
+    init(id: String, name: String, region: String, title: String) {
         self.id = id
         self.name = name
         self.region = region
