@@ -34,18 +34,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let localStore = CodableCategoryStore(storeURL: localURL)
         let localCategoryLoader = LocalCategoryLoader(store: localStore, currentDate: Date.init)
         
-        return CategoriesViewController(
-            loader: MainQueueDispatchDecorator(
+        return CategoryUIComposer.categoryComposedWith(
+            categoryLoader: MainQueueDispatchDecorator(
                 decoratee: CategoryLoaderWithFallbackComposite(
-                    primary: CategoryLoaderCacheDecorator(
-                        decoratee: remoteCategoryLoader,
-                        cache: localCategoryLoader
-                    ),
-                    fallback: localCategoryLoader
-                )
-            )) { id in
-                // TODO open new screen
-            }
+            primary: remoteCategoryLoader,
+            fallback: localCategoryLoader)))
     }
 }
 

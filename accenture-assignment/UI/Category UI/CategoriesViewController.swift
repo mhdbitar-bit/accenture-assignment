@@ -7,20 +7,15 @@
 
 import UIKit
 
-// TODO handle the error cases
-
 final class CategoriesViewController: UITableViewController {
     private var refreshController: CategoriesRefreshViewController?
-    private var tablewModel = [CategoryItem]() {
+    var tablewModel = [CategoryItem]() {
         didSet { tableView.reloadData() }
     }
     
-    var onSelect: ((Int) -> Void)?
-    
-    convenience init(loader: CategoryLoader, onSelect: ((Int) -> Void)?) {
+    convenience init(refreshController: CategoriesRefreshViewController) {
         self.init()
-        self.refreshController = CategoriesRefreshViewController(loader: loader)
-        self.onSelect = onSelect
+        self.refreshController = refreshController
     }
     
     override func viewDidLoad() {
@@ -28,10 +23,6 @@ final class CategoriesViewController: UITableViewController {
         
         title = "Categories"
         refreshControl = refreshController?.view
-        refreshController?.onRefresh = { [weak self] categories in
-            self?.tablewModel = categories
-        }
-        
         refreshController?.refresh()
     }
     
