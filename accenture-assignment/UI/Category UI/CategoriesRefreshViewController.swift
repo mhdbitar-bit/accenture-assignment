@@ -10,16 +10,16 @@ import UIKit
 final class CategoriesRefreshViewController: NSObject, CategoryLoadingView {
     private(set) lazy var view = loadView()
     
-    private let presenter: CategoryPresenter
+    private let loadCategories: () -> Void
     
-    init(presenter: CategoryPresenter) {
-        self.presenter = presenter
+    init(loadCategories: @escaping () -> Void) {
+        self.loadCategories = loadCategories
     }
     
     var onRefresh: (([CategoryItem]) -> Void)?
     
     @objc func refresh() {
-        presenter.loadCategories()
+        loadCategories()
     }
     
     func display(_ viewModel: CategoryLoadingViewModel) {
