@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="161" id="KGk-i7-Jjw" customClass="HouseTableViewCell" customModule="accenture_assignment" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="161"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="161"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3ai-U1-GaJ">
+                        <rect key="frame" x="0.0" y="5" width="320" height="151"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="huV-cX-Q1a">
+                                <rect key="frame" x="8" y="8" width="100" height="135"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="hXH-9D-sEZ"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="bMo-oS-veY">
+                                <rect key="frame" x="116" y="8" width="196" height="112"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="House Algood" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4MT-kI-TQQ">
+                                        <rect key="frame" x="0.0" y="0.0" width="196" height="30"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A golden wreath, on a blue field with a gold border(Azure, a garland of laurel within a bordure or" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SUS-vU-2Jb">
+                                        <rect key="frame" x="0.0" y="38" width="196" height="74"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <color key="textColor" systemColor="tertiaryLabelColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="huV-cX-Q1a" firstAttribute="top" secondItem="3ai-U1-GaJ" secondAttribute="top" constant="8" id="Cr2-72-7Sj"/>
+                            <constraint firstItem="bMo-oS-veY" firstAttribute="top" secondItem="huV-cX-Q1a" secondAttribute="top" id="LGa-8S-hHl"/>
+                            <constraint firstAttribute="bottom" secondItem="huV-cX-Q1a" secondAttribute="bottom" constant="8" id="MZi-Yy-RdT"/>
+                            <constraint firstItem="bMo-oS-veY" firstAttribute="leading" secondItem="huV-cX-Q1a" secondAttribute="trailing" constant="8" symbolic="YES" id="cOq-MO-K03"/>
+                            <constraint firstAttribute="trailing" secondItem="bMo-oS-veY" secondAttribute="trailing" constant="8" id="pAS-Mg-FlH"/>
+                            <constraint firstItem="huV-cX-Q1a" firstAttribute="centerY" secondItem="3ai-U1-GaJ" secondAttribute="centerY" id="rUL-b8-32r"/>
+                            <constraint firstItem="bMo-oS-veY" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="huV-cX-Q1a" secondAttribute="bottom" id="ren-6y-UjI"/>
+                            <constraint firstItem="huV-cX-Q1a" firstAttribute="leading" secondItem="3ai-U1-GaJ" secondAttribute="leading" constant="8" id="se4-JJ-QiL"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="3ai-U1-GaJ" secondAttribute="trailing" id="Bvp-bH-igJ"/>
+                    <constraint firstItem="3ai-U1-GaJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="YTh-35-RUX"/>
+                    <constraint firstItem="3ai-U1-GaJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="fdh-BX-CzR"/>
+                    <constraint firstAttribute="bottom" secondItem="3ai-U1-GaJ" secondAttribute="bottom" constant="5" id="fx2-zu-xFF"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="houseImage" destination="huV-cX-Q1a" id="u5k-RT-82i"/>
+                <outlet property="houseNameLabel" destination="4MT-kI-TQQ" id="rgo-nd-QL3"/>
+                <outlet property="houseTitleLabel" destination="SUS-vU-2Jb" id="AxY-yw-8sc"/>
+            </connections>
+            <point key="canvasLocation" x="131.8840579710145" y="124.21875"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="tertiaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
