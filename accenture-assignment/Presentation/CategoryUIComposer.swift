@@ -35,8 +35,8 @@ private final class WeakRefVirtualProxy<T: AnyObject> {
 }
 
 extension WeakRefVirtualProxy: CategoryLoadingView where T: CategoryLoadingView {
-    func display(isLoading: Bool) {
-        object?.display(isLoading: isLoading)
+    func display(_ viewModel: CategoryLoadingViewModel) {
+        object?.display(viewModel)
     }
 }
 
@@ -47,7 +47,7 @@ private final class CategoryViewAdapter: CategoryView {
         self.controller = controller
     }
     
-    func display(categories: [CategoryItem]) {
-        controller?.tablewModel = categories
+    func display(_ viewModel: CategoryViewModel) {
+        controller?.tablewModel = viewModel.categories
     }
 }

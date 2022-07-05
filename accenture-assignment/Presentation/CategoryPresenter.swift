@@ -7,12 +7,20 @@
 
 import Foundation
 
+struct CategoryLoadingViewModel {
+    let isLoading: Bool
+}
+
 protocol CategoryLoadingView {
-    func display(isLoading: Bool)
+    func display(_ viewModel: CategoryLoadingViewModel)
+}
+
+struct CategoryViewModel {
+    let categories: [CategoryItem]
 }
 
 protocol CategoryView {
-    func display(categories: [CategoryItem])
+    func display(_ viewModel: CategoryViewModel)
 }
 
 final class CategoryPresenter {
@@ -28,12 +36,12 @@ final class CategoryPresenter {
     var loadingView: CategoryLoadingView?
     
     func loadCategories() {
-        loadingView?.display(isLoading: true)
+        loadingView?.display(CategoryLoadingViewModel(isLoading: true))
         categoryLoader.load { [weak self] result in
             if let categories = try? result.get() {
-                self?.categoryView?.display(categories: categories)
+                self?.categoryView?.display(CategoryViewModel(categories: categories))
             }
-            self?.loadingView?.display(isLoading: false)
+            self?.loadingView?.display(CategoryLoadingViewModel(isLoading: false))
         }
     }
 }

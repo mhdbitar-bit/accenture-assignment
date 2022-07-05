@@ -22,8 +22,8 @@ final class CategoriesRefreshViewController: NSObject, CategoryLoadingView {
         presenter.loadCategories()
     }
     
-    func display(isLoading: Bool) {
-        if isLoading {
+    func display(_ viewModel: CategoryLoadingViewModel) {
+        if viewModel.isLoading {
             view.beginRefreshing()
         } else {
             view.endRefreshing()
