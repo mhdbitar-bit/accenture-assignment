@@ -11,12 +11,17 @@ final class CategoryUIComposer {
     private init() {}
     
     static func categoryComposedWith(categoryLoader: CategoryLoader) -> CategoriesViewController {
-        let presnter = CategoryPresenter()
-        let presentationAdapter = CategoryLoaderPresentationAdapter(categoryLoader: categoryLoader, presenter: presnter)
+        let presentationAdapter = CategoryLoaderPresentationAdapter(categoryLoader: categoryLoader)
         let refreshController = CategoriesRefreshViewController(delegate: presentationAdapter)
         let categoriesController = CategoriesViewController(refreshController: refreshController)
-        presnter.loadingView = WeakRefVirtualProxy(refreshController)
-        presnter.categoryView = CategoryViewAdapter(controller: categoriesController)
+        
+        let presnter = CategoryPresenter(
+            categoryView: CategoryViewAdapter(controller: categoriesController),
+            loadingView: WeakRefVirtualProxy(refreshController)
+        )
+        
+        presentationAdapter.presenter = presnter
+        
         return categoriesController
     }
     
@@ -55,23 +60,22 @@ private final class CategoryViewAdapter: CategoryView {
 
 private final class CategoryLoaderPresentationAdapter: CategoriesRefreshViewControllerDelegate {
     private let categoryLoader: CategoryLoader
-    private let presenter: CategoryPresenter
+    var presenter: CategoryPresenter?
     
-    init(categoryLoader: CategoryLoader, presenter: CategoryPresenter) {
+    init(categoryLoader: CategoryLoader) {
         self.categoryLoader = categoryLoader
-        self.presenter = presenter
     }
     
     func didRequestCategoriesRefresh() {
-        presenter.didStartLoadingCategories()
+        presenter?.didStartLoadingCategories()
         
         categoryLoader.load { [weak self] result in
             switch result {
             case let .success(categories):
-                self?.presenter.didFinishLoadingCategories(with: categories)
+                self?.presenter?.didFinishLoadingCategories(with: categories)
                 
             case let .failure(error):
-                self?.presenter.didFinishLoadingCategories(with: error)
+                self?.presenter?.didFinishLoadingCategories(with: error)
             }
         }
     }

@@ -24,19 +24,24 @@ protocol CategoryView {
 }
 
 final class CategoryPresenter {
-    var categoryView: CategoryView?
-    var loadingView: CategoryLoadingView?
+    private var categoryView: CategoryView
+    private var loadingView: CategoryLoadingView
+    
+    init(categoryView: CategoryView, loadingView: CategoryLoadingView) {
+        self.categoryView = categoryView
+        self.loadingView = loadingView
+    }
     
     func didStartLoadingCategories() {
-        loadingView?.display(CategoryLoadingViewModel(isLoading: true))
+        loadingView.display(CategoryLoadingViewModel(isLoading: true))
     }
     
     func didFinishLoadingCategories(with categories: [CategoryItem]) {
-        categoryView?.display(CategoryViewModel(categories: categories))
-        loadingView?.display(CategoryLoadingViewModel(isLoading: false))
+        categoryView.display(CategoryViewModel(categories: categories))
+        loadingView.display(CategoryLoadingViewModel(isLoading: false))
     }
     
     func didFinishLoadingCategories(with error: Error) {
-        loadingView?.display(CategoryLoadingViewModel(isLoading: false))
+        loadingView.display(CategoryLoadingViewModel(isLoading: false))
     }
 }
