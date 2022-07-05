@@ -24,24 +24,19 @@ protocol CategoryView {
 }
 
 final class CategoryPresenter {
-    typealias Observer<T> = (T) -> Void
-    
-    private let categoryLoader: CategoryLoader
-    
-    init(categoryLoader: CategoryLoader) {
-        self.categoryLoader = categoryLoader
-    }
-    
     var categoryView: CategoryView?
     var loadingView: CategoryLoadingView?
     
-    func loadCategories() {
+    func didStartLoadingCategories() {
         loadingView?.display(CategoryLoadingViewModel(isLoading: true))
-        categoryLoader.load { [weak self] result in
-            if let categories = try? result.get() {
-                self?.categoryView?.display(CategoryViewModel(categories: categories))
-            }
-            self?.loadingView?.display(CategoryLoadingViewModel(isLoading: false))
-        }
+    }
+    
+    func didFinishLoadingCategories(with categories: [CategoryItem]) {
+        categoryView?.display(CategoryViewModel(categories: categories))
+        loadingView?.display(CategoryLoadingViewModel(isLoading: false))
+    }
+    
+    func didFinishLoadingCategories(with error: Error) {
+        loadingView?.display(CategoryLoadingViewModel(isLoading: false))
     }
 }
