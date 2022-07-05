@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol CategoryLoadingView: AnyObject {
+protocol CategoryLoadingView {
     func display(isLoading: Bool)
 }
 
@@ -25,7 +25,7 @@ final class CategoryPresenter {
     }
     
     var categoryView: CategoryView?
-    weak var loadingView: CategoryLoadingView?
+    var loadingView: CategoryLoadingView?
     
     func loadCategories() {
         loadingView?.display(isLoading: true)

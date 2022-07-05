@@ -14,7 +14,7 @@ final class CategoryUIComposer {
         let presnter = CategoryPresenter(categoryLoader: categoryLoader)
         let refreshController = CategoriesRefreshViewController(presenter: presnter)
         let categoriesController = CategoriesViewController(refreshController: refreshController)
-        presnter.loadingView = refreshController
+        presnter.loadingView = WeakRefVirtualProxy(refreshController)
         presnter.categoryView = CategoryViewAdapter(controller: categoriesController)
         return categoriesController
     }
@@ -23,6 +23,20 @@ final class CategoryUIComposer {
         return { [weak controller] categories in
             controller?.tablewModel = categories
         }
+    }
+}
+
+private final class WeakRefVirtualProxy<T: AnyObject> {
+    private weak var object: T?
+    
+    init(_ object: T) {
+        self.object = object
+    }
+}
+
+extension WeakRefVirtualProxy: CategoryLoadingView where T: CategoryLoadingView {
+    func display(isLoading: Bool) {
+        object?.display(isLoading: isLoading)
     }
 }
 
