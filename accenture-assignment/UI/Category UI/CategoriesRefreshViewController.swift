@@ -7,19 +7,23 @@
 
 import UIKit
 
+protocol CategoriesRefreshViewControllerDelegate {
+    func didRequestCategoriesRefresh()
+}
+
 final class CategoriesRefreshViewController: NSObject, CategoryLoadingView {
     private(set) lazy var view = loadView()
     
-    private let loadCategories: () -> Void
+    private let delegate: CategoriesRefreshViewControllerDelegate
     
-    init(loadCategories: @escaping () -> Void) {
-        self.loadCategories = loadCategories
+    init(delegate: CategoriesRefreshViewControllerDelegate) {
+        self.delegate = delegate
     }
     
     var onRefresh: (([CategoryItem]) -> Void)?
     
     @objc func refresh() {
-        loadCategories()
+        delegate.didRequestCategoriesRefresh()
     }
     
     func display(_ viewModel: CategoryLoadingViewModel) {

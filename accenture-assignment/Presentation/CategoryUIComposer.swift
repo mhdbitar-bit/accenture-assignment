@@ -13,7 +13,7 @@ final class CategoryUIComposer {
     static func categoryComposedWith(categoryLoader: CategoryLoader) -> CategoriesViewController {
         let presnter = CategoryPresenter()
         let presentationAdapter = CategoryLoaderPresentationAdapter(categoryLoader: categoryLoader, presenter: presnter)
-        let refreshController = CategoriesRefreshViewController(loadCategories: presentationAdapter.loadCategories)
+        let refreshController = CategoriesRefreshViewController(delegate: presentationAdapter)
         let categoriesController = CategoriesViewController(refreshController: refreshController)
         presnter.loadingView = WeakRefVirtualProxy(refreshController)
         presnter.categoryView = CategoryViewAdapter(controller: categoriesController)
@@ -53,7 +53,7 @@ private final class CategoryViewAdapter: CategoryView {
     }
 }
 
-private final class CategoryLoaderPresentationAdapter {
+private final class CategoryLoaderPresentationAdapter: CategoriesRefreshViewControllerDelegate {
     private let categoryLoader: CategoryLoader
     private let presenter: CategoryPresenter
     
@@ -62,7 +62,7 @@ private final class CategoryLoaderPresentationAdapter {
         self.presenter = presenter
     }
     
-    func loadCategories() {
+    func didRequestCategoriesRefresh() {
         presenter.didStartLoadingCategories()
         
         categoryLoader.load { [weak self] result in
