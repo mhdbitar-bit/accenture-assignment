@@ -35,17 +35,7 @@ final class CategoryUIComposer {
     }
 }
 
-private final class CategoryViewAdapter: CategoryView {
-    private weak var controller: CategoriesViewController?
-    
-    init(controller: CategoriesViewController) {
-        self.controller = controller
-    }
-    
-    func display(_ viewModel: CategoryViewModel) {
-        controller?.tablewModel = viewModel.categories
-    }
-}
+
 
 private final class CategoryLoaderPresentationAdapter: CategoriesRefreshViewControllerDelegate {
     private let categoryLoader: CategoryLoader
