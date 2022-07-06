@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct CategoryLoadingViewModel {
+struct ResourceLoadingViewModel {
     let isLoading: Bool
 }

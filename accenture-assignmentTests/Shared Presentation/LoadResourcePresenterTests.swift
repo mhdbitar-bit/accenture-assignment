@@ -39,7 +39,7 @@ final class LoadResourcePresenterTests: XCTestCase {
         sut.didFinishLoading(with: anyNSError())
         
         XCTAssertEqual(view.messages, [
-            .display(errorMessage: "connectivity error"),
+            .display(errorMessage: sut.LoadError),
             .display(isLoading: false)
         ])
     }
@@ -60,7 +60,7 @@ final class LoadResourcePresenterTests: XCTestCase {
         return (sut, view)
     }
 
-    private class ViewSpy: ResourceView, CategoryLoadingView, CategoryErrorView {
+    private class ViewSpy: ResourceView, ResourceLoadingView, CategoryErrorView {
         typealias ResourceViewModel = String
         
         enum Message: Hashable {
@@ -75,7 +75,7 @@ final class LoadResourcePresenterTests: XCTestCase {
             messages.insert(.display(errorMessage: viewModel.message))
         }
         
-        func display(_ viewModel: CategoryLoadingViewModel) {
+        func display(_ viewModel: ResourceLoadingViewModel) {
             messages.insert(.display(isLoading: viewModel.isLoading))
         }
         

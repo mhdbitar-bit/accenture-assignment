@@ -11,7 +11,7 @@ protocol CategoriesRefreshViewControllerDelegate {
     func didRequestCategoriesRefresh()
 }
 
-final class CategoriesRefreshViewController: NSObject, CategoryLoadingView {
+final class CategoriesRefreshViewController: NSObject, ResourceLoadingView {
     private(set) lazy var view = loadView()
     
     private let delegate: CategoriesRefreshViewControllerDelegate
@@ -26,7 +26,7 @@ final class CategoriesRefreshViewController: NSObject, CategoryLoadingView {
         delegate.didRequestCategoriesRefresh()
     }
     
-    func display(_ viewModel: CategoryLoadingViewModel) {
+    func display(_ viewModel: ResourceLoadingViewModel) {
         if viewModel.isLoading {
             view.beginRefreshing()
         } else {

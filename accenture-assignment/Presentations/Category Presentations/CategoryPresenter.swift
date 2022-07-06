@@ -7,10 +7,6 @@
 
 import Foundation
 
-protocol CategoryLoadingView {
-    func display(_ viewModel: CategoryLoadingViewModel)
-}
-
 protocol CategoryView {
     func display(_ viewModel: CategoryViewModel)
 }
@@ -21,10 +17,10 @@ protocol CategoryErrorView {
 
 final class CategoryPresenter {
     private var categoryView: CategoryView
-    private var loadingView: CategoryLoadingView
+    private var loadingView: ResourceLoadingView
     private var errorView: CategoryErrorView
     
-    init(categoryView: CategoryView, loadingView: CategoryLoadingView, errorView: CategoryErrorView) {
+    init(categoryView: CategoryView, loadingView: ResourceLoadingView, errorView: CategoryErrorView) {
         self.categoryView = categoryView
         self.loadingView = loadingView
         self.errorView = errorView
@@ -32,16 +28,16 @@ final class CategoryPresenter {
     
     func didStartLoadingCategories() {
         errorView.display(.noError)
-        loadingView.display(CategoryLoadingViewModel(isLoading: true))
+        loadingView.display(ResourceLoadingViewModel(isLoading: true))
     }
     
     func didFinishLoadingCategories(with categories: [CategoryItem]) {
         categoryView.display(CategoryViewModel(categories: categories))
-        loadingView.display(CategoryLoadingViewModel(isLoading: false))
+        loadingView.display(ResourceLoadingViewModel(isLoading: false))
     }
     
     func didFinishLoadingCategories(with error: Error) {
         errorView.display(.error(message: "Connectivity error"))
-        loadingView.display(CategoryLoadingViewModel(isLoading: false))
+        loadingView.display(ResourceLoadingViewModel(isLoading: false))
     }
 }
