@@ -86,6 +86,9 @@
 		4CAC722D28760F49004EC9DC /* BookPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAC722C28760F49004EC9DC /* BookPresenter.swift */; };
 		4CAC722F28760F7E004EC9DC /* BookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAC722E28760F7E004EC9DC /* BookViewModel.swift */; };
 		4CAC723328760FBA004EC9DC /* BookPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAC723228760FBA004EC9DC /* BookPresenterTest.swift */; };
+		4CAC723628761248004EC9DC /* CharacterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAC723528761248004EC9DC /* CharacterViewModel.swift */; };
+		4CAC723828761261004EC9DC /* CharacterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAC723728761261004EC9DC /* CharacterPresenter.swift */; };
+		4CAC723B2876129C004EC9DC /* CharacterPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAC723A2876129C004EC9DC /* CharacterPresenterTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -195,6 +198,9 @@
 		4CAC722C28760F49004EC9DC /* BookPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookPresenter.swift; sourceTree = "<group>"; };
 		4CAC722E28760F7E004EC9DC /* BookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewModel.swift; sourceTree = "<group>"; };
 		4CAC723228760FBA004EC9DC /* BookPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookPresenterTest.swift; sourceTree = "<group>"; };
+		4CAC723528761248004EC9DC /* CharacterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewModel.swift; sourceTree = "<group>"; };
+		4CAC723728761261004EC9DC /* CharacterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterPresenter.swift; sourceTree = "<group>"; };
+		4CAC723A2876129C004EC9DC /* CharacterPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterPresenterTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -608,6 +614,7 @@
 		4CAC721C2875FB98004EC9DC /* Presentations */ = {
 			isa = PBXGroup;
 			children = (
+				4CAC72342876122F004EC9DC /* Character Presentations */,
 				4CAC722B28760F33004EC9DC /* Book Presentations */,
 				4CAC72192875F939004EC9DC /* Shared Presentation */,
 				4CAC721D2875FB9E004EC9DC /* Category Presentations */,
@@ -644,6 +651,7 @@
 		4CAC723028760F9A004EC9DC /* Presentations */ = {
 			isa = PBXGroup;
 			children = (
+				4CAC72392876128C004EC9DC /* Character Presentations */,
 				4CAC723128760FA9004EC9DC /* Book Presentations */,
 				4CAC722828760B88004EC9DC /* Category Presentation */,
 				4C35A4802875F62700207FBD /* Shared Presentation */,
@@ -657,6 +665,23 @@
 				4CAC723228760FBA004EC9DC /* BookPresenterTest.swift */,
 			);
 			path = "Book Presentations";
+			sourceTree = "<group>";
+		};
+		4CAC72342876122F004EC9DC /* Character Presentations */ = {
+			isa = PBXGroup;
+			children = (
+				4CAC723528761248004EC9DC /* CharacterViewModel.swift */,
+				4CAC723728761261004EC9DC /* CharacterPresenter.swift */,
+			);
+			path = "Character Presentations";
+			sourceTree = "<group>";
+		};
+		4CAC72392876128C004EC9DC /* Character Presentations */ = {
+			isa = PBXGroup;
+			children = (
+				4CAC723A2876129C004EC9DC /* CharacterPresenterTests.swift */,
+			);
+			path = "Character Presentations";
 			sourceTree = "<group>";
 		};
 		4CDCEDCF286E25C900DF3AAA /* Category API */ = {
@@ -858,9 +883,11 @@
 				4CAC72232875FBDF004EC9DC /* ResourceErrorViewModel.swift in Sources */,
 				4CAB662228706289000C426F /* URLSessionHTTPClient.swift in Sources */,
 				4C233B5D286E065800E5C13C /* AppDelegate.swift in Sources */,
+				4CAC723828761261004EC9DC /* CharacterPresenter.swift in Sources */,
 				4CAB66AA2871DBBF000C426F /* BookLoader.swift in Sources */,
 				4CAB66432870AACD000C426F /* LocalCategoryLoader.swift in Sources */,
 				4C233B5F286E065800E5C13C /* SceneDelegate.swift in Sources */,
+				4CAC723628761248004EC9DC /* CharacterViewModel.swift in Sources */,
 				4CA7CA472874BEC40078E464 /* CategoryUIComposer.swift in Sources */,
 				4CAB665A28716D14000C426F /* CodableCategoryStore.swift in Sources */,
 				4CAB66AC2871DBE6000C426F /* BookItem.swift in Sources */,
@@ -904,6 +931,7 @@
 				4CAB6640287098D4000C426F /* CacheCategoriesUseCaseTests.swift in Sources */,
 				4CAB668C2871BB9F000C426F /* CategoryLoaderStub.swift in Sources */,
 				4C16ABB62871F0FC0091BB89 /* RemoteLoaderTests.swift in Sources */,
+				4CAC723B2876129C004EC9DC /* CharacterPresenterTests.swift in Sources */,
 				4CAB66992871D7C3000C426F /* EndpointTests.swift in Sources */,
 				4CAB66542870E173000C426F /* SharedTestHelpers.swift in Sources */,
 				4CAB661D28702EF1000C426F /* URLSessionHTTPClientTests.swift in Sources */,
