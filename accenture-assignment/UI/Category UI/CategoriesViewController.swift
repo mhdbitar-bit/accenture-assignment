@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class CategoriesViewController: UITableViewController, CategoryErrorView {
+final class CategoriesViewController: UITableViewController, ResourceErrorView {
     private var refreshController: CategoriesRefreshViewController?
     var tablewModel = [CategoryItem]() {
         didSet { tableView.reloadData() }
@@ -26,7 +26,7 @@ final class CategoriesViewController: UITableViewController, CategoryErrorView {
         refreshController?.refresh()
     }
     
-    func display(_ viewModel: CategoryErrorViewModel) {
+    func display(_ viewModel: ResourceErrorViewModel) {
         guard let message = viewModel.message else { return }
         let alert = UIAlertController(title: "error", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "close", style: .default))

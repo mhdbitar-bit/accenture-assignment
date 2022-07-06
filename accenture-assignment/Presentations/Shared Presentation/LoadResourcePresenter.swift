@@ -18,12 +18,12 @@ final class LoadResourcePresenter<Resource, View: ResourceView> {
     
     private var resourceView: View
     private var loadingView: ResourceLoadingView
-    private var errorView: CategoryErrorView
+    private var errorView: ResourceErrorView
     private let mapper: Mapper
     
     let LoadError: String = "Couldn't connect to the server"
     
-    init(resourceView: View, loadingView: ResourceLoadingView, errorView: CategoryErrorView, mapper: @escaping Mapper) {
+    init(resourceView: View, loadingView: ResourceLoadingView, errorView: ResourceErrorView, mapper: @escaping Mapper) {
         self.resourceView = resourceView
         self.loadingView = loadingView
         self.errorView = errorView

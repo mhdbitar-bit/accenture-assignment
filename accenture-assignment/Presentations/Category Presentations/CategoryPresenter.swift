@@ -11,16 +11,14 @@ protocol CategoryView {
     func display(_ viewModel: CategoryViewModel)
 }
 
-protocol CategoryErrorView {
-    func display(_ viewModel: CategoryErrorViewModel)
-}
+
 
 final class CategoryPresenter {
     private var categoryView: CategoryView
     private var loadingView: ResourceLoadingView
-    private var errorView: CategoryErrorView
+    private var errorView: ResourceErrorView
     
-    init(categoryView: CategoryView, loadingView: ResourceLoadingView, errorView: CategoryErrorView) {
+    init(categoryView: CategoryView, loadingView: ResourceLoadingView, errorView: ResourceErrorView) {
         self.categoryView = categoryView
         self.loadingView = loadingView
         self.errorView = errorView

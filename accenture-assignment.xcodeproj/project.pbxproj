@@ -79,8 +79,9 @@
 		4CAC721B2875F94D004EC9DC /* LoadResourcePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAC721A2875F94D004EC9DC /* LoadResourcePresenter.swift */; };
 		4CAC721F2875FBBA004EC9DC /* ResourceLoadingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAC721E2875FBBA004EC9DC /* ResourceLoadingViewModel.swift */; };
 		4CAC72212875FBCF004EC9DC /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAC72202875FBCF004EC9DC /* CategoryViewModel.swift */; };
-		4CAC72232875FBDF004EC9DC /* CategoryErrorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAC72222875FBDF004EC9DC /* CategoryErrorViewModel.swift */; };
+		4CAC72232875FBDF004EC9DC /* ResourceErrorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAC72222875FBDF004EC9DC /* ResourceErrorViewModel.swift */; };
 		4CAC722528760A1A004EC9DC /* ResourceLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAC722428760A1A004EC9DC /* ResourceLoadingView.swift */; };
+		4CAC722728760ABB004EC9DC /* ResourceErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAC722628760ABB004EC9DC /* ResourceErrorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -183,8 +184,9 @@
 		4CAC721A2875F94D004EC9DC /* LoadResourcePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadResourcePresenter.swift; sourceTree = "<group>"; };
 		4CAC721E2875FBBA004EC9DC /* ResourceLoadingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceLoadingViewModel.swift; sourceTree = "<group>"; };
 		4CAC72202875FBCF004EC9DC /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
-		4CAC72222875FBDF004EC9DC /* CategoryErrorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryErrorViewModel.swift; sourceTree = "<group>"; };
+		4CAC72222875FBDF004EC9DC /* ResourceErrorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceErrorViewModel.swift; sourceTree = "<group>"; };
 		4CAC722428760A1A004EC9DC /* ResourceLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceLoadingView.swift; sourceTree = "<group>"; };
+		4CAC722628760ABB004EC9DC /* ResourceErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceErrorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -589,6 +591,8 @@
 				4CAC721A2875F94D004EC9DC /* LoadResourcePresenter.swift */,
 				4CAC722428760A1A004EC9DC /* ResourceLoadingView.swift */,
 				4CAC721E2875FBBA004EC9DC /* ResourceLoadingViewModel.swift */,
+				4CAC722628760ABB004EC9DC /* ResourceErrorView.swift */,
+				4CAC72222875FBDF004EC9DC /* ResourceErrorViewModel.swift */,
 			);
 			path = "Shared Presentation";
 			sourceTree = "<group>";
@@ -606,7 +610,6 @@
 			isa = PBXGroup;
 			children = (
 				4CA7CA442874BC130078E464 /* CategoryPresenter.swift */,
-				4CAC72222875FBDF004EC9DC /* CategoryErrorViewModel.swift */,
 				4CAC72202875FBCF004EC9DC /* CategoryViewModel.swift */,
 			);
 			path = "Category Presentations";
@@ -802,10 +805,11 @@
 				4CAB66492870B704000C426F /* LocalCategoryItem.swift in Sources */,
 				4CA7CA492874C3580078E464 /* CategoryCellController.swift in Sources */,
 				4CAB666F287193D2000C426F /* CategoriesRefreshViewController.swift in Sources */,
+				4CAC722728760ABB004EC9DC /* ResourceErrorView.swift in Sources */,
 				4CAB66972871D61F000C426F /* Endpoints.swift in Sources */,
 				4C16ABCB287352950091BB89 /* CharacterItemMapper.swift in Sources */,
 				4CAB661828701ADD000C426F /* HTTPClient.swift in Sources */,
-				4CAC72232875FBDF004EC9DC /* CategoryErrorViewModel.swift in Sources */,
+				4CAC72232875FBDF004EC9DC /* ResourceErrorViewModel.swift in Sources */,
 				4CAB662228706289000C426F /* URLSessionHTTPClient.swift in Sources */,
 				4C233B5D286E065800E5C13C /* AppDelegate.swift in Sources */,
 				4CAB66AA2871DBBF000C426F /* BookLoader.swift in Sources */,
