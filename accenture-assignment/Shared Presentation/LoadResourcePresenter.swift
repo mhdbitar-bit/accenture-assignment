@@ -21,6 +21,8 @@ final class LoadResourcePresenter<Resource, View: ResourceView> {
     private var errorView: CategoryErrorView
     private let mapper: Mapper
     
+    private let LoadError: String = "Couldn't connect to the server"
+    
     init(resourceView: View, loadingView: CategoryLoadingView, errorView: CategoryErrorView, mapper: @escaping Mapper) {
         self.resourceView = resourceView
         self.loadingView = loadingView
@@ -39,7 +41,7 @@ final class LoadResourcePresenter<Resource, View: ResourceView> {
     }
     
     func didFinishLoading(with error: Error) {
-        errorView.display(.error(message: "connectivity error"))
+        errorView.display(.error(message: LoadError))
         loadingView.display(CategoryLoadingViewModel(isLoading: false))
     }
 }
