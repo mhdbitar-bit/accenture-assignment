@@ -273,7 +273,6 @@
 		4C233B5B286E065800E5C13C /* accenture-assignment */ = {
 			isa = PBXGroup;
 			children = (
-				4CA7CA432874BBFB0078E464 /* Presentation */,
 				4CAB66412870AAB9000C426F /* Category Cach */,
 				4CAB66AF2871DE27000C426F /* APIs */,
 				4CAB66B42871DE85000C426F /* Features */,
@@ -348,7 +347,7 @@
 			path = "Character UI";
 			sourceTree = "<group>";
 		};
-		4CA7CA432874BBFB0078E464 /* Presentation */ = {
+		4CA7CA432874BBFB0078E464 /* Composers */ = {
 			isa = PBXGroup;
 			children = (
 				4CA7CA442874BC130078E464 /* CategoryPresenter.swift */,
@@ -358,7 +357,7 @@
 				4C35A47C2875F03100207FBD /* CategoryViewAdapter.swift */,
 				4C35A47E2875F07300207FBD /* CategoryLoaderPresentationAdapter.swift */,
 			);
-			path = Presentation;
+			path = Composers;
 			sourceTree = "<group>";
 		};
 		4CAB661B28702251000C426F /* Category API */ = {
@@ -423,6 +422,7 @@
 		4CAB665B287173CA000C426F /* Category UI */ = {
 			isa = PBXGroup;
 			children = (
+				4CA7CA432874BBFB0078E464 /* Composers */,
 				4CAB665C28717463000C426F /* CategoriesViewController.swift */,
 				4CAB666E287193D2000C426F /* CategoriesRefreshViewController.swift */,
 				4CA7CA482874C3580078E464 /* CategoryCellController.swift */,
