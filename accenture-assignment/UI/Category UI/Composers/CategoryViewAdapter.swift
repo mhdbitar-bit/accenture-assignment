@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class CategoryViewAdapter: CategoryView {
+final class CategoryViewAdapter: ResourceView {
     private weak var controller: CategoriesViewController?
     
     init(controller: CategoriesViewController) {

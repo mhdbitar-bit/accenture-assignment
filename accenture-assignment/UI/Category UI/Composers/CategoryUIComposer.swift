@@ -18,10 +18,11 @@ final class CategoryUIComposer {
         let refreshController = CategoriesRefreshViewController(delegate: presentationAdapter)
         let categoriesController = CategoriesViewController(refreshController: refreshController)
         
-        let presnter = CategoryPresenter(
-            categoryView: CategoryViewAdapter(controller: categoriesController),
+        let presnter = LoadResourcePresenter(
+            resourceView: CategoryViewAdapter(controller: categoriesController),
             loadingView: WeakRefVirtualProxy(refreshController),
-            errorView: WeakRefVirtualProxy(categoriesController)
+            errorView: WeakRefVirtualProxy(categoriesController),
+            mapper: CategoryPresenter.map
         )
         
         presentationAdapter.presenter = presnter

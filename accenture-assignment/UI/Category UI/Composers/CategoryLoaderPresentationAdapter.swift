@@ -9,22 +9,22 @@ import Foundation
 
 final class CategoryLoaderPresentationAdapter: CategoriesRefreshViewControllerDelegate {
     private let categoryLoader: CategoryLoader
-    var presenter: CategoryPresenter?
+    var presenter: LoadResourcePresenter<[CategoryItem], CategoryViewAdapter>?
     
     init(categoryLoader: CategoryLoader) {
         self.categoryLoader = categoryLoader
     }
     
     func didRequestCategoriesRefresh() {
-        presenter?.didStartLoadingCategories()
+        presenter?.didStartLoading()
         
         categoryLoader.load { [weak self] result in
             switch result {
             case let .success(categories):
-                self?.presenter?.didFinishLoadingCategories(with: categories)
+                self?.presenter?.didFinishLoading(with: categories)
                 
             case let .failure(error):
-                self?.presenter?.didFinishLoadingCategories(with: error)
+                self?.presenter?.didFinishLoading(with: error)
             }
         }
     }
