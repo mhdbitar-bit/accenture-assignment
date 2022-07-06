@@ -11,7 +11,10 @@ final class CategoryUIComposer {
     private init() {}
     
     static func categoryComposedWith(categoryLoader: CategoryLoader) -> CategoriesViewController {
-        let presentationAdapter = CategoryLoaderPresentationAdapter(categoryLoader: categoryLoader)
+        let presentationAdapter = CategoryLoaderPresentationAdapter(
+            categoryLoader: MainQueueDispatchDecorator(decoratee: categoryLoader)
+        )
+        
         let refreshController = CategoriesRefreshViewController(delegate: presentationAdapter)
         let categoriesController = CategoriesViewController(refreshController: refreshController)
         

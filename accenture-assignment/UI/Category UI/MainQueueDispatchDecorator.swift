@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class MainQueueDispatchDecorator<T> {
+private final class MainQueueDispatchDecorator<T> {
     private let decoratee: T
     
     init(decoratee: T) {
@@ -15,15 +15,18 @@ final class MainQueueDispatchDecorator<T> {
     }
     
     func dispatch(completion: @escaping () -> Void) {
-        guard Thread.isMainThread else {
-            return DispatchQueue.main.async(execute: completion)
+        if Thread.isMainThread {
+            completion()
+        } else {
+            DispatchQueue.main.async {
+                completion()
+            }
         }
-        
-        completion()
     }
 }
 
 extension MainQueueDispatchDecorator: CategoryLoader where T == CategoryLoader {
+    
     func load(completion: @escaping (LoadCategoryResult) -> Void) {
         decoratee.load { [weak self] result in
             self?.dispatch {

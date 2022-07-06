@@ -35,10 +35,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let localCategoryLoader = LocalCategoryLoader(store: localStore, currentDate: Date.init)
         
         return CategoryUIComposer.categoryComposedWith(
-            categoryLoader: MainQueueDispatchDecorator(
-                decoratee: CategoryLoaderWithFallbackComposite(
-            primary: remoteCategoryLoader,
-            fallback: localCategoryLoader)))
+            categoryLoader: CategoryLoaderWithFallbackComposite(
+                primary: remoteCategoryLoader,
+                fallback: localCategoryLoader))
     }
 }
 
