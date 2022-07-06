@@ -347,6 +347,7 @@
 			children = (
 				4CA7CA442874BC130078E464 /* CategoryPresenter.swift */,
 				4CA7CA462874BEC40078E464 /* CategoryUIComposer.swift */,
+				4CAB66862871AF69000C426F /* MainQueueDispatchDecorator.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -415,7 +416,6 @@
 			children = (
 				4CAB665C28717463000C426F /* CategoriesViewController.swift */,
 				4CAB666E287193D2000C426F /* CategoriesRefreshViewController.swift */,
-				4CAB66862871AF69000C426F /* MainQueueDispatchDecorator.swift */,
 				4CA7CA482874C3580078E464 /* CategoryCellController.swift */,
 			);
 			path = "Category UI";
