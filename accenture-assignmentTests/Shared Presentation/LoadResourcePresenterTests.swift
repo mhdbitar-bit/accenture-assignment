@@ -32,6 +32,17 @@ final class LoadResourcePresenterTests: XCTestCase {
             .display(isLoading: false)
         ])
     }
+    
+    func test_didFinishLoadingWithError_displaysErrorMessageAndStopLoading() {
+        let (sut, view) = makeSUT()
+        
+        sut.didFinishLoading(with: anyNSError())
+        
+        XCTAssertEqual(view.messages, [
+            .display(errorMessage: "connectivity error"),
+            .display(isLoading: false)
+        ])
+    }
 
     // MARK: - Helpers
     

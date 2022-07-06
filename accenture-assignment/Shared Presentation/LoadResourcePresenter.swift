@@ -38,7 +38,8 @@ final class LoadResourcePresenter<Resource, View: ResourceView> {
         loadingView.display(CategoryLoadingViewModel(isLoading: false))
     }
     
-    func didFinishLoadingCategories(with error: Error) {
+    func didFinishLoading(with error: Error) {
+        errorView.display(.error(message: "connectivity error"))
         loadingView.display(CategoryLoadingViewModel(isLoading: false))
     }
 }
