@@ -11,8 +11,6 @@ protocol CategoryView {
     func display(_ viewModel: CategoryViewModel)
 }
 
-
-
 final class CategoryPresenter {
     private var categoryView: CategoryView
     private var loadingView: ResourceLoadingView
@@ -30,12 +28,16 @@ final class CategoryPresenter {
     }
     
     func didFinishLoadingCategories(with categories: [CategoryItem]) {
-        categoryView.display(CategoryViewModel(categories: categories))
+        categoryView.display(Self.map(categories))
         loadingView.display(ResourceLoadingViewModel(isLoading: false))
     }
     
     func didFinishLoadingCategories(with error: Error) {
         errorView.display(.error(message: "Connectivity error"))
         loadingView.display(ResourceLoadingViewModel(isLoading: false))
+    }
+    
+    static func map(_ categories: [CategoryItem]) -> CategoryViewModel {
+        return CategoryViewModel(categories: categories)
     }
 }

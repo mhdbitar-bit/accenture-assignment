@@ -82,6 +82,7 @@
 		4CAC72232875FBDF004EC9DC /* ResourceErrorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAC72222875FBDF004EC9DC /* ResourceErrorViewModel.swift */; };
 		4CAC722528760A1A004EC9DC /* ResourceLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAC722428760A1A004EC9DC /* ResourceLoadingView.swift */; };
 		4CAC722728760ABB004EC9DC /* ResourceErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAC722628760ABB004EC9DC /* ResourceErrorView.swift */; };
+		4CAC722A28760B9D004EC9DC /* CategoryPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAC722928760B9D004EC9DC /* CategoryPresenterTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -187,6 +188,7 @@
 		4CAC72222875FBDF004EC9DC /* ResourceErrorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceErrorViewModel.swift; sourceTree = "<group>"; };
 		4CAC722428760A1A004EC9DC /* ResourceLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceLoadingView.swift; sourceTree = "<group>"; };
 		4CAC722628760ABB004EC9DC /* ResourceErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceErrorView.swift; sourceTree = "<group>"; };
+		4CAC722928760B9D004EC9DC /* CategoryPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPresenterTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -306,6 +308,7 @@
 		4C233B72286E065900E5C13C /* accenture-assignmentTests */ = {
 			isa = PBXGroup;
 			children = (
+				4CAC722828760B88004EC9DC /* Category Presentation */,
 				4C35A4802875F62700207FBD /* Shared Presentation */,
 				4CAB66842871AB2E000C426F /* Main */,
 				4CAB661E28704984000C426F /* Helpers */,
@@ -615,6 +618,14 @@
 			path = "Category Presentations";
 			sourceTree = "<group>";
 		};
+		4CAC722828760B88004EC9DC /* Category Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				4CAC722928760B9D004EC9DC /* CategoryPresenterTests.swift */,
+			);
+			path = "Category Presentation";
+			sourceTree = "<group>";
+		};
 		4CDCEDCF286E25C900DF3AAA /* Category API */ = {
 			isa = PBXGroup;
 			children = (
@@ -841,6 +852,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CAC722A28760B9D004EC9DC /* CategoryPresenterTests.swift in Sources */,
 				4C35A4822875F64800207FBD /* LoadResourcePresenterTests.swift in Sources */,
 				4CAB6620287049A4000C426F /* XCTestCase+MemoryLeackTrackingHelper.swift in Sources */,
 				4CAB66892871BA0F000C426F /* CategoryLoaderCacheDecoratorTests.swift in Sources */,
