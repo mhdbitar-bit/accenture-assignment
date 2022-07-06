@@ -20,3 +20,9 @@ extension WeakRefVirtualProxy: CategoryLoadingView where T: CategoryLoadingView 
         object?.display(viewModel)
     }
 }
+
+extension WeakRefVirtualProxy: CategoryErrorView where T: CategoryErrorView {
+    func display(_ viewModel: CategoryErrorViewModel) {
+        object?.display(viewModel)
+    }
+}

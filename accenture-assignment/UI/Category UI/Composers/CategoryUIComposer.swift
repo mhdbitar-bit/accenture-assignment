@@ -20,7 +20,8 @@ final class CategoryUIComposer {
         
         let presnter = CategoryPresenter(
             categoryView: CategoryViewAdapter(controller: categoriesController),
-            loadingView: WeakRefVirtualProxy(refreshController)
+            loadingView: WeakRefVirtualProxy(refreshController),
+            errorView: WeakRefVirtualProxy(categoriesController)
         )
         
         presentationAdapter.presenter = presnter
