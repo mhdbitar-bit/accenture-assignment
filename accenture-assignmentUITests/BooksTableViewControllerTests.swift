@@ -126,19 +126,6 @@ final class BooksTableViewControllerTests: XCTestCase {
         XCTAssertEqual(cell.noPagesLabel.text, "\(book.numberOfPages)", "Expected number of pages to be \(String(describing: book.numberOfPages)) for book view at index \(index)", file: file, line: line)
     }
     
-    private func makeBook(name: String = "a name", isbn: String = "a isbn", numberOfPages: Int = 0, country: String = "a country", publisher: String = "a publisher", mediaType: String = "a media type", released: String = "1996-08-01T00:00:00", authors: [String] = ["an author"]) -> BookItem {
-        return BookItem(
-            name: name,
-            isbn: isbn,
-            numberOfPages: numberOfPages,
-            country: country,
-            publisher: publisher,
-            mediaType: mediaType,
-            released: released,
-            authors: authors)
-    }
-
-    
     class LoaderSpy: BookLoader {
         private var completions = [(LoadBookResult) -> Void]()
         
