@@ -17,21 +17,20 @@ final class BookCellController {
     func view(_ tableView: UITableView) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: BookTableViewCell.ID) as! BookTableViewCell
         cell.bookTitleLabel.text = model.name
-        cell.authorLabel.text = convertArrayToString(items: model.authors)
+        cell.authorLabel.text = "by, " + convertArrayToString(items: model.authors)
         cell.releaseDateLabel.text = getFormattedReleasedDate(date: model.released)
-        cell.noPagesLabel.text = "\(model.numberOfPages)"
+        cell.noPagesLabel.text = "pages no. \(model.numberOfPages)"
         return cell
     }
     
     private func getFormattedReleasedDate(date: String) -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.timeZone = .current
-        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-        dateFormatter.dateFormat = "MMM d, yyyy"
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
         if let dateWithFormate = dateFormatter.date(from: model.released) {
-            return dateWithFormate.formatToString(using: dateFormatter)
+            dateFormatter.dateFormat = "MMM d, yyyy"
+            return dateFormatter.string(from: dateWithFormate)
         }
-        
+               
         return date
     }
 }
