@@ -58,3 +58,25 @@ extension MainQueueDispatchDecorator: CharacterLoader where T == CharacterLoader
         }
     }
 }
+
+extension MainQueueDispatchDecorator: HouseLoader where T == HouseLoader {
+    
+    func load(completion: @escaping (LoadHouseResult) -> Void) {
+        decoratee.load { [weak self] result in
+            self?.dispatch {
+                completion(result)
+            }
+        }
+    }
+}
+
+extension MainQueueDispatchDecorator: ImageDataLoader where T == ImageDataLoader {
+    
+    func loadImageData(from url: URL, completion: @escaping (ImageDataResult) -> Void) -> ImageDataLoaderTask {
+        decoratee.loadImageData(from: url) { [weak self] result in
+            self?.dispatch {
+                completion(result)
+            }
+        }
+    }
+}

@@ -46,7 +46,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             case .Books:
                 self.navigationController.show(self.makeBookViewController(with: item.category.rawValue), sender: self)
             case .Houses:
-                break
+                self.navigationController.show(self.makeHousesViewController(with: item.category.rawValue), sender: self)
             case .Characters:
                 self.navigationController.show(self.makeCharacterViewController(with: item.category.rawValue), sender: self)
             }
@@ -65,6 +65,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let loader = RemoteLoader(url: remoteUrl, client: remoteClient, mapper: CharacterItemMapper.map)
         let viewModel = CharacterViewModel(loader: MainQueueDispatchDecorator(decoratee: loader))
         return CharactersTableViewController(viewModel: viewModel)
+    }
+    
+    private func makeHousesViewController(with type: Int) -> HousesTableViewController {
+        let remoteUrl = Endpoints.getLists(type).url(baseURL: baseURL)
+        let loader = RemoteLoader(url: remoteUrl, client: remoteClient, mapper: HouseItemMapper.map)
+        let imageLoader = RemoteImageDataLoader(client: remoteClient)
+        return HouseUIComposer.housesComposedWith(houseloader: MainQueueDispatchDecorator(decoratee: loader), imageLoader: MainQueueDispatchDecorator(decoratee: imageLoader))
     }
 }
 

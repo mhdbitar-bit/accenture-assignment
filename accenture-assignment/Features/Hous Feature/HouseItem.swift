@@ -12,11 +12,13 @@ struct HouseItem: Equatable {
     let name: String
     let region: String
     let title: String
+    let imageURL: URL?
     
-    init(id: String, name: String, region: String, title: String) {
+    init(id: String, name: String, region: String, title: String, imageURL: URL?) {
         self.id = id
         self.name = name
         self.region = region
         self.title = title
+        self.imageURL = imageURL
     }
 }

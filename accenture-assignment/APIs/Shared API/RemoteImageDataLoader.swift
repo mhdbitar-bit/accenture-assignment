@@ -50,7 +50,7 @@ final class RemoteImageDataLoader: ImageDataLoader {
             task.complete(with: result
                 .mapError { _ in Error.connecitivy }
                 .flatMap { (data, response) in
-                    let isValidResponse = response.statusCode == 200 && data.isEmpty
+                    let isValidResponse = response.statusCode == 200 && !data.isEmpty
                     return isValidResponse ? .success(data) : .failure(Error.invalidData)
                 })
         }

@@ -45,6 +45,8 @@
 		4C6C542E28785122009DABC8 /* HouseCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C542D28785122009DABC8 /* HouseCellController.swift */; };
 		4C6C54312878567C009DABC8 /* ImageDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C54302878567C009DABC8 /* ImageDataLoader.swift */; };
 		4C6C543328785722009DABC8 /* RemoteImageDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C543228785722009DABC8 /* RemoteImageDataLoader.swift */; };
+		4C6C54352878626B009DABC8 /* HouseImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C54342878626B009DABC8 /* HouseImageViewModel.swift */; };
+		4C6C543728786DE6009DABC8 /* HouseUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C543628786DE6009DABC8 /* HouseUIComposer.swift */; };
 		4CA7CA342874A5B40078E464 /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA7CA322874A5B40078E464 /* BookTableViewCell.swift */; };
 		4CA7CA352874A5B40078E464 /* BookTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CA7CA332874A5B40078E464 /* BookTableViewCell.xib */; };
 		4CA7CA392874A8DD0078E464 /* HouseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA7CA372874A8DD0078E464 /* HouseTableViewCell.swift */; };
@@ -156,6 +158,8 @@
 		4C6C542D28785122009DABC8 /* HouseCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseCellController.swift; sourceTree = "<group>"; };
 		4C6C54302878567C009DABC8 /* ImageDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDataLoader.swift; sourceTree = "<group>"; };
 		4C6C543228785722009DABC8 /* RemoteImageDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImageDataLoader.swift; sourceTree = "<group>"; };
+		4C6C54342878626B009DABC8 /* HouseImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseImageViewModel.swift; sourceTree = "<group>"; };
+		4C6C543628786DE6009DABC8 /* HouseUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseUIComposer.swift; sourceTree = "<group>"; };
 		4CA7CA322874A5B40078E464 /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
 		4CA7CA332874A5B40078E464 /* BookTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookTableViewCell.xib; sourceTree = "<group>"; };
 		4CA7CA372874A8DD0078E464 /* HouseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseTableViewCell.swift; sourceTree = "<group>"; };
@@ -447,6 +451,7 @@
 			isa = PBXGroup;
 			children = (
 				4C6C542B287850E6009DABC8 /* HousesViewModel.swift */,
+				4C6C54342878626B009DABC8 /* HouseImageViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -487,6 +492,7 @@
 				4C6C542828784D48009DABC8 /* ViewModel */,
 				4C6C542728784D41009DABC8 /* Controllers */,
 				4C6C542628784D2A009DABC8 /* Views */,
+				4C6C543628786DE6009DABC8 /* HouseUIComposer.swift */,
 			);
 			path = "House UI";
 			sourceTree = "<group>";
@@ -882,6 +888,7 @@
 			files = (
 				4CA7CA342874A5B40078E464 /* BookTableViewCell.swift in Sources */,
 				4C6C541D28783B7A009DABC8 /* CharacterCellController.swift in Sources */,
+				4C6C54352878626B009DABC8 /* HouseImageViewModel.swift in Sources */,
 				4C16ABC328734E410091BB89 /* HouseItemMapper.swift in Sources */,
 				4CAB66902871C3A0000C426F /* CategoryCache.swift in Sources */,
 				4CAB66922871C435000C426F /* CategoryLoaderCacheDecorator.swift in Sources */,
@@ -889,6 +896,7 @@
 				4CAB66562870EA40000C426F /* CategoryCahcePolicy.swift in Sources */,
 				4C6C53F928780BE7009DABC8 /* CategoryViewModel.swift in Sources */,
 				4C6C541F28783C1C009DABC8 /* SharedHelpers.swift in Sources */,
+				4C6C543728786DE6009DABC8 /* HouseUIComposer.swift in Sources */,
 				4C6C542C287850E6009DABC8 /* HousesViewModel.swift in Sources */,
 				4C16ABC028734DDD0091BB89 /* HouseLoader.swift in Sources */,
 				4CAB66472870B6C7000C426F /* RemoteCategoryItem.swift in Sources */,
