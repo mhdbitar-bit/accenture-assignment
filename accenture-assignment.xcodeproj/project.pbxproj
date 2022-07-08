@@ -24,7 +24,6 @@
 		4C233B8D286E115A00E5C13C /* CategoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C233B8C286E115A00E5C13C /* CategoryItem.swift */; };
 		4C233B91286E11E800E5C13C /* CategoryLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C233B90286E11E800E5C13C /* CategoryLoader.swift */; };
 		4C233B94286E142E00E5C13C /* CategoriesMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C233B93286E142E00E5C13C /* CategoriesMapperTests.swift */; };
-		4C6C53F72877FCF4009DABC8 /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C53F62877FCF4009DABC8 /* ListTableViewController.swift */; };
 		4C6C53F928780BE7009DABC8 /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C53F828780BE7009DABC8 /* CategoryViewModel.swift */; };
 		4C6C53FB28781131009DABC8 /* MainQueueDispatchDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C53FA28781131009DABC8 /* MainQueueDispatchDecorator.swift */; };
 		4C6C53FE2878155E009DABC8 /* Alertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C53FD2878155E009DABC8 /* Alertable.swift */; };
@@ -120,7 +119,6 @@
 		4C233B8C286E115A00E5C13C /* CategoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItem.swift; sourceTree = "<group>"; };
 		4C233B90286E11E800E5C13C /* CategoryLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryLoader.swift; sourceTree = "<group>"; };
 		4C233B93286E142E00E5C13C /* CategoriesMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesMapperTests.swift; sourceTree = "<group>"; };
-		4C6C53F62877FCF4009DABC8 /* ListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
 		4C6C53F828780BE7009DABC8 /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
 		4C6C53FA28781131009DABC8 /* MainQueueDispatchDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainQueueDispatchDecorator.swift; sourceTree = "<group>"; };
 		4C6C53FD2878155E009DABC8 /* Alertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alertable.swift; sourceTree = "<group>"; };
@@ -305,14 +303,6 @@
 			path = "Category Feature";
 			sourceTree = "<group>";
 		};
-		4C6C53F52877FCC7009DABC8 /* Shared UI */ = {
-			isa = PBXGroup;
-			children = (
-				4C6C53F62877FCF4009DABC8 /* ListTableViewController.swift */,
-			);
-			path = "Shared UI";
-			sourceTree = "<group>";
-		};
 		4C6C53FC28781554009DABC8 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -323,11 +313,27 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		4C6C5401287816AB009DABC8 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4CAB665C28717463000C426F /* CategoriesViewController.swift */,
+				4CA7CA482874C3580078E464 /* CategoryCellController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		4C6C5402287816B2009DABC8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4C6C53F828780BE7009DABC8 /* CategoryViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		4CA7CA2B28749E550078E464 /* UI */ = {
 			isa = PBXGroup;
 			children = (
 				4C6C53FC28781554009DABC8 /* Helpers */,
-				4C6C53F52877FCC7009DABC8 /* Shared UI */,
 				4CA7CA3B2874AADD0078E464 /* Character UI */,
 				4CA7CA362874A8CD0078E464 /* House UI */,
 				4CA7CA2F2874A2EF0078E464 /* Book UI */,
@@ -425,9 +431,8 @@
 		4CAB665B287173CA000C426F /* Category UI */ = {
 			isa = PBXGroup;
 			children = (
-				4CAB665C28717463000C426F /* CategoriesViewController.swift */,
-				4C6C53F828780BE7009DABC8 /* CategoryViewModel.swift */,
-				4CA7CA482874C3580078E464 /* CategoryCellController.swift */,
+				4C6C5401287816AB009DABC8 /* Controllers */,
+				4C6C5402287816B2009DABC8 /* ViewModel */,
 			);
 			path = "Category UI";
 			sourceTree = "<group>";
@@ -749,7 +754,6 @@
 				4C16ABC028734DDD0091BB89 /* HouseLoader.swift in Sources */,
 				4CAB66472870B6C7000C426F /* RemoteCategoryItem.swift in Sources */,
 				4C233B91286E11E800E5C13C /* CategoryLoader.swift in Sources */,
-				4C6C53F72877FCF4009DABC8 /* ListTableViewController.swift in Sources */,
 				4C16ABBC28734C8C0091BB89 /* HouseItem.swift in Sources */,
 				4CAB66492870B704000C426F /* LocalCategoryItem.swift in Sources */,
 				4CA7CA492874C3580078E464 /* CategoryCellController.swift in Sources */,
