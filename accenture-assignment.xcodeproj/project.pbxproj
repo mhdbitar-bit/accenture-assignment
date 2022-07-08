@@ -27,6 +27,7 @@
 		4C6C53F72877FCF4009DABC8 /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C53F62877FCF4009DABC8 /* ListTableViewController.swift */; };
 		4C6C53F928780BE7009DABC8 /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C53F828780BE7009DABC8 /* CategoryViewModel.swift */; };
 		4C6C53FB28781131009DABC8 /* MainQueueDispatchDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C53FA28781131009DABC8 /* MainQueueDispatchDecorator.swift */; };
+		4C6C53FE2878155E009DABC8 /* Alertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C53FD2878155E009DABC8 /* Alertable.swift */; };
 		4CA7CA342874A5B40078E464 /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA7CA322874A5B40078E464 /* BookTableViewCell.swift */; };
 		4CA7CA352874A5B40078E464 /* BookTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CA7CA332874A5B40078E464 /* BookTableViewCell.xib */; };
 		4CA7CA392874A8DD0078E464 /* HouseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA7CA372874A8DD0078E464 /* HouseTableViewCell.swift */; };
@@ -121,6 +122,7 @@
 		4C6C53F62877FCF4009DABC8 /* ListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
 		4C6C53F828780BE7009DABC8 /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
 		4C6C53FA28781131009DABC8 /* MainQueueDispatchDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainQueueDispatchDecorator.swift; sourceTree = "<group>"; };
+		4C6C53FD2878155E009DABC8 /* Alertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alertable.swift; sourceTree = "<group>"; };
 		4CA7CA322874A5B40078E464 /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
 		4CA7CA332874A5B40078E464 /* BookTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookTableViewCell.xib; sourceTree = "<group>"; };
 		4CA7CA372874A8DD0078E464 /* HouseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseTableViewCell.swift; sourceTree = "<group>"; };
@@ -310,9 +312,18 @@
 			path = "Shared UI";
 			sourceTree = "<group>";
 		};
+		4C6C53FC28781554009DABC8 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				4C6C53FD2878155E009DABC8 /* Alertable.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		4CA7CA2B28749E550078E464 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				4C6C53FC28781554009DABC8 /* Helpers */,
 				4C6C53F52877FCC7009DABC8 /* Shared UI */,
 				4CA7CA3B2874AADD0078E464 /* Character UI */,
 				4CA7CA362874A8CD0078E464 /* House UI */,
@@ -754,6 +765,7 @@
 				4C16ABB82871F16F0091BB89 /* RemoteLoader.swift in Sources */,
 				4C16ABC9287351A50091BB89 /* CharacterItem.swift in Sources */,
 				4CAB661A28701B10000C426F /* CategoryItemsMapper.swift in Sources */,
+				4C6C53FE2878155E009DABC8 /* Alertable.swift in Sources */,
 				4CAB66832871AA3B000C426F /* CategoryLoaderWithFallbackComposite.swift in Sources */,
 				4CA7CA3E2874AAED0078E464 /* CharacterTableViewCell.swift in Sources */,
 				4CAB66B12871DE4F000C426F /* BooksItemMapper.swift in Sources */,
