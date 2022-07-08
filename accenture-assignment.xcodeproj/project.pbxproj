@@ -504,9 +504,18 @@
 		4C6C544328789B5D009DABC8 /* Cache */ = {
 			isa = PBXGroup;
 			children = (
+				4C6C544428789B83009DABC8 /* Infrastructure */,
 				4CAB66412870AAB9000C426F /* Category Cach */,
 			);
 			path = Cache;
+			sourceTree = "<group>";
+		};
+		4C6C544428789B83009DABC8 /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				4CAB665928716D14000C426F /* CodableCategoryStore.swift */,
+			);
+			path = Infrastructure;
 			sourceTree = "<group>";
 		};
 		4CA7CA2B28749E550078E464 /* UI */ = {
@@ -598,7 +607,6 @@
 				4CAB66552870EA40000C426F /* CategoryCahcePolicy.swift */,
 				4CAB66442870AB48000C426F /* CategoryStore.swift */,
 				4CAB66482870B704000C426F /* LocalCategoryItem.swift */,
-				4CAB665928716D14000C426F /* CodableCategoryStore.swift */,
 			);
 			path = "Category Cach";
 			sourceTree = "<group>";
