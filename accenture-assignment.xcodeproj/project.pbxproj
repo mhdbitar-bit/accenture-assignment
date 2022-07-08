@@ -471,10 +471,26 @@
 		4C6C5438287887B1009DABC8 /* Splash UI */ = {
 			isa = PBXGroup;
 			children = (
-				4C6C5439287887CB009DABC8 /* SplashViewController.swift */,
-				4C6C543E28788AB3009DABC8 /* SplashViewModel.swift */,
+				4C6C544128789ABA009DABC8 /* Controller */,
+				4C6C544028789AAD009DABC8 /* ViewModel */,
 			);
 			path = "Splash UI";
+			sourceTree = "<group>";
+		};
+		4C6C544028789AAD009DABC8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4C6C543E28788AB3009DABC8 /* SplashViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4C6C544128789ABA009DABC8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4C6C5439287887CB009DABC8 /* SplashViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		4CA7CA2B28749E550078E464 /* UI */ = {
