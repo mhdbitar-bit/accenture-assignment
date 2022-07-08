@@ -12,4 +12,6 @@ final class BookTableViewCell: UITableViewCell {
     @IBOutlet private(set) var authorLabel: UILabel!
     @IBOutlet private(set) var releaseDateLabel: UILabel!
     @IBOutlet private(set) var noPagesLabel: UILabel!
+    
+    static let ID = "BookTableViewCell"
 }

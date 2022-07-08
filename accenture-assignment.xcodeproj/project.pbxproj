@@ -27,7 +27,6 @@
 		4C6C53F928780BE7009DABC8 /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C53F828780BE7009DABC8 /* CategoryViewModel.swift */; };
 		4C6C53FB28781131009DABC8 /* MainQueueDispatchDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C53FA28781131009DABC8 /* MainQueueDispatchDecorator.swift */; };
 		4C6C53FE2878155E009DABC8 /* Alertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C53FD2878155E009DABC8 /* Alertable.swift */; };
-		4C6C540028781639009DABC8 /* UITableViewCell+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C53FF28781639009DABC8 /* UITableViewCell+Ext.swift */; };
 		4C6C540628781709009DABC8 /* BookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C540528781709009DABC8 /* BookViewModel.swift */; };
 		4C6C540928781772009DABC8 /* BooksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C540828781772009DABC8 /* BooksTableViewController.swift */; };
 		4C6C540B2878181B009DABC8 /* BookCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C540A2878181B009DABC8 /* BookCellController.swift */; };
@@ -127,7 +126,6 @@
 		4C6C53F828780BE7009DABC8 /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
 		4C6C53FA28781131009DABC8 /* MainQueueDispatchDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainQueueDispatchDecorator.swift; sourceTree = "<group>"; };
 		4C6C53FD2878155E009DABC8 /* Alertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alertable.swift; sourceTree = "<group>"; };
-		4C6C53FF28781639009DABC8 /* UITableViewCell+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Ext.swift"; sourceTree = "<group>"; };
 		4C6C540528781709009DABC8 /* BookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewModel.swift; sourceTree = "<group>"; };
 		4C6C540828781772009DABC8 /* BooksTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksTableViewController.swift; sourceTree = "<group>"; };
 		4C6C540A2878181B009DABC8 /* BookCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCellController.swift; sourceTree = "<group>"; };
@@ -318,7 +316,6 @@
 			children = (
 				4C6C53FA28781131009DABC8 /* MainQueueDispatchDecorator.swift */,
 				4C6C53FD2878155E009DABC8 /* Alertable.swift */,
-				4C6C53FF28781639009DABC8 /* UITableViewCell+Ext.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -792,7 +789,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CA7CA342874A5B40078E464 /* BookTableViewCell.swift in Sources */,
-				4C6C540028781639009DABC8 /* UITableViewCell+Ext.swift in Sources */,
 				4C16ABC328734E410091BB89 /* HouseItemMapper.swift in Sources */,
 				4CAB66902871C3A0000C426F /* CategoryCache.swift in Sources */,
 				4CAB66922871C435000C426F /* CategoryLoaderCacheDecorator.swift in Sources */,

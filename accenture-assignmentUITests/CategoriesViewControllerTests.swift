@@ -99,7 +99,7 @@ final class CategoriesViewControllerTests: XCTestCase {
     }
     
     private func assertThat(_ sut: CategoriesViewController, hasViewConfiguredFor cateogry: CategoryItem, at index: Int, file: StaticString = #filePath, line: UInt = #line) {
-        let view = sut.categoryView(at: index)
+        let view = sut.view(at: index)
         
         guard let cell = view else {
             return XCTFail("Expected \(UITableViewCell.self) instance, got \(String(describing: view)) instead", file: file, line: line)

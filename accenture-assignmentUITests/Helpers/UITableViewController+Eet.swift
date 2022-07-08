@@ -21,7 +21,7 @@ extension UITableViewController {
         return tableView.numberOfRows(inSection: resourceSection)
     }
     
-    func categoryView(at row: Int) -> UITableViewCell? {
+    func view(at row: Int) -> UITableViewCell? {
         let ds = tableView.dataSource
         let index = IndexPath(row: row, section: resourceSection)
         return ds?.tableView(tableView, cellForRowAt: index)

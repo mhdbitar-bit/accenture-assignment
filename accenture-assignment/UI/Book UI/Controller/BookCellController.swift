@@ -14,8 +14,8 @@ final class BookCellController {
         self.model = model
     }
     
-    func view() -> UITableViewCell {
-        let cell = BookTableViewCell()
+    func view(_ tableView: UITableView) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: BookTableViewCell.ID) as! BookTableViewCell
         cell.bookTitleLabel.text = model.name
         cell.authorLabel.text = getListOfAuthorsAsString(authos: model.authors)
         cell.releaseDateLabel.text = getFormattedReleasedDate(date: model.released)

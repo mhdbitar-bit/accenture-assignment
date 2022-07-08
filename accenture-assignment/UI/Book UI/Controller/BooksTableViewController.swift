@@ -28,6 +28,7 @@ final class BooksTableViewController: UITableViewController, Alertable {
         super.viewDidLoad()
         
         navigationItem.title = viewModel.title
+        tableView.register(UINib(nibName: BookTableViewCell.ID, bundle: nil), forCellReuseIdentifier: BookTableViewCell.ID)
         setupRefreshControl()
         bind()
         
@@ -82,6 +83,6 @@ final class BooksTableViewController: UITableViewController, Alertable {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return BookCellController(model: books[indexPath.row]).view()
+        return BookCellController(model: books[indexPath.row]).view(tableView)
     }
 }
