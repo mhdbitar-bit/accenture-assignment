@@ -316,8 +316,6 @@
 				4C233B65286E065900E5C13C /* Assets.xcassets */,
 				4C233B67286E065900E5C13C /* LaunchScreen.storyboard */,
 				4C233B6A286E065900E5C13C /* Info.plist */,
-				4CAB66822871AA3B000C426F /* CategoryLoaderWithFallbackComposite.swift */,
-				4CAB66912871C435000C426F /* CategoryLoaderCacheDecorator.swift */,
 			);
 			path = "accenture-assignment";
 			sourceTree = "<group>";
@@ -495,6 +493,8 @@
 		4C6C544228789AF6009DABC8 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				4CAB66822871AA3B000C426F /* CategoryLoaderWithFallbackComposite.swift */,
+				4CAB66912871C435000C426F /* CategoryLoaderCacheDecorator.swift */,
 				4C233B5C286E065800E5C13C /* AppDelegate.swift */,
 				4C233B5E286E065800E5C13C /* SceneDelegate.swift */,
 			);
