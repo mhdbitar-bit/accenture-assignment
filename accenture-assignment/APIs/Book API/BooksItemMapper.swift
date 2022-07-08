@@ -11,13 +11,13 @@ final class BooksItemMapper {
     private struct RemoteBookItem: Decodable {
         let name: String
         let isbn: String
+        let authors: [String]
         let numberOfPages: Int
-        let country: String
         let publisher: String
+        let country: String
         let mediaType: String
         let released: String
-        let authors: [String]
-
+        
         var item: BookItem {
             return BookItem(
                 name: name,
