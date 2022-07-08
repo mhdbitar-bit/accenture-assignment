@@ -7,6 +7,4 @@
 ## App Architecture :
 
 * I've tried to apply clean architecture in all my modules. you can run the test by clicking ⌘ + U.
-
-
-![Location Diagram drawio](https://user-images.githubusercontent.com/100424059/157089470-8b8ef928-3b5e-4037-b8fa-dd6e1b0a71dc.png)
+* Applied MVVM Design pattern inside the presentation layer
