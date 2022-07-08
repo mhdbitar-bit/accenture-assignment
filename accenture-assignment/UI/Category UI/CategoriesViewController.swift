@@ -6,39 +6,83 @@
 //
 
 import UIKit
+import Combine
 
-final class CategoriesViewController: UITableViewController, ResourceErrorView {
-    private var refreshController: CategoriesRefreshViewController?
-    var tablewModel = [CategoryItem]() {
-        didSet { tableView.reloadData() }
+final class CategoriesViewController: UITableViewController, Alertable {
+
+    private var viewModel: CategoryViewModel!
+    private var cancellables: Set<AnyCancellable> = []
+    
+    private var categories = [CategoryItem]() {
+        didSet {
+            tableView.reloadData()
+        }
     }
     
-    convenience init(refreshController: CategoriesRefreshViewController) {
+    convenience init(viewModel: CategoryViewModel) {
         self.init()
-        self.refreshController = refreshController
+        self.viewModel = viewModel
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Categories"
-        refreshControl = refreshController?.view
-        refreshController?.refresh()
+        navigationItem.title = viewModel.title
+        setupRefreshControl()
+        bind()
+        
+        if tableView.numberOfRows(inSection: 0) == 0 {
+            refresh()
+        }
+    }
+
+    private func setupRefreshControl() {
+        refreshControl = UIRefreshControl()
+        refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
     }
     
-    func display(_ viewModel: ResourceErrorViewModel) {
-        guard let message = viewModel.message else { return }
-        let alert = UIAlertController(title: "error", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "close", style: .default))
-        present(alert, animated: true)
+    @objc private func refresh() {
+        viewModel.loadCategories()
+    }
+    
+    private func bind() {
+        bindLoading()
+        bindError()
+        bindCategories()
+    }
+    
+    private func bindLoading() {
+        viewModel.$isLoading.sink { [weak self] isLoading in
+            if isLoading {
+                self?.refreshControl?.beginRefreshing()
+            } else {
+                self?.refreshControl?.endRefreshing()
+            }
+        }.store(in: &cancellables)
+    }
+    
+    private func bindCategories() {
+        viewModel.$categories.sink { [weak self] categories in
+            guard let self = self else { return }
+            self.categories = categories
+        }.store(in: &cancellables)
+    }
+    
+    private func bindError() {
+        viewModel.$error.sink { [weak self] error in
+            guard let self = self else { return }
+            if let error = error {
+                self.showAlert(message: error)
+            }
+        }.store(in: &cancellables)
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tablewModel.count
+        return categories.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return CategoryCellController(model: tablewModel[indexPath.row]).view()
+        return CategoryCellController(model: categories[indexPath.row]).view()
     }
 }
 
@@ -46,5 +90,15 @@ extension UITableView {
     func dequeueReusableCell<T: UITableViewCell>() -> T {
         let identifier = String(describing: T.self)
         return dequeueReusableCell(withIdentifier: identifier) as! T
+    }
+}
+
+public protocol Alertable {}
+public extension Alertable where Self: UIViewController {
+    
+    func showAlert(title: String = "", message: String, preferredStyle: UIAlertController.Style = .alert, completion: (() -> Void)? = nil) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: preferredStyle)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default))
+        self.present(alert, animated: true, completion: completion)
     }
 }

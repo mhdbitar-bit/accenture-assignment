@@ -34,10 +34,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let localStore = CodableCategoryStore(storeURL: localURL)
         let localCategoryLoader = LocalCategoryLoader(store: localStore, currentDate: Date.init)
         
-        return CategoryUIComposer.categoryComposedWith(
-            categoryLoader: CategoryLoaderWithFallbackComposite(
+        let viewModel = CategoryViewModel(
+            loader: MainQueueDispatchDecorator(decoratee: CategoryLoaderWithFallbackComposite(
                 primary: remoteCategoryLoader,
-                fallback: localCategoryLoader))
+                fallback: localCategoryLoader)))
+        
+        return CategoriesViewController(viewModel: viewModel)
     }
 }
 

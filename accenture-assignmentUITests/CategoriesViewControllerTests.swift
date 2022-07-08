@@ -11,10 +11,10 @@ final class CategoriesViewControllerTests: XCTestCase {
         
         sut.loadViewIfNeeded()
         XCTAssertEqual(loader.loadCallCount, 1, "Expected a loading request once view is loaded")
-        
+
         sut.simulateUserInitiatedCategoriesReload()
         XCTAssertEqual(loader.loadCallCount, 2, "Expected another loading request once user initiates a reload")
-        
+
         sut.simulateUserInitiatedCategoriesReload()
         XCTAssertEqual(loader.loadCallCount, 3, "Expected yet another loading request once user initiates another reload")
     }
@@ -81,7 +81,8 @@ final class CategoriesViewControllerTests: XCTestCase {
     
     private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (sut: CategoriesViewController, loader: LoaderSpy) {
         let loader = LoaderSpy()
-        let sut = CategoryUIComposer.categoryComposedWith(categoryLoader: loader) 
+        let viewModel = CategoryViewModel(loader: loader)
+        let sut = CategoriesViewController(viewModel: viewModel)
         trackForMemoryLeacks(loader, file: file, line: line)
         trackForMemoryLeacks(sut, file: file, line: line)
         return (sut, loader)
