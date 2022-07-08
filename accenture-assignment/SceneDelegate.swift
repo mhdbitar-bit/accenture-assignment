@@ -39,7 +39,26 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 primary: remoteCategoryLoader,
                 fallback: localCategoryLoader)))
         
-        return CategoriesViewController(viewModel: viewModel)
+        return CategoriesViewController(viewModel: viewModel) { [weak self] item in
+            guard let self = self else { return }
+            switch item.category {
+            case .Books:
+                self.navigationController.show(Self.makeBookViewController(with: item.category.rawValue), sender: self)
+            case .Houses:
+                break
+            case .Characters:
+                break
+            }
+        }
+    }
+    
+    private static func makeBookViewController(with type: Int) -> BooksTableViewController {
+        let remoteUrl = Endpoints.getLists(type).url(baseURL: URL(string: "https://private-anon-72c71498a5-androidtestmobgen.apiary-mock.com")!)
+        let cleint = URLSessionHTTPClient(session: URLSession(configuration: .ephemeral))
+        
+        let loader = RemoteLoader(url: remoteUrl, client: cleint, mapper: BooksItemMapper.map)
+        let viewModel = BookViewModel(loader: MainQueueDispatchDecorator(decoratee: loader))
+        return BooksTableViewController(viewModel: viewModel)
     }
 }
 

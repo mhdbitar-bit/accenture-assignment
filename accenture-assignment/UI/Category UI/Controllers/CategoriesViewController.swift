@@ -11,6 +11,7 @@ import Combine
 final class CategoriesViewController: UITableViewController, Alertable {
 
     private var viewModel: CategoryViewModel!
+    private var onSelect: ((CategoryItem) -> Void)?
     private var cancellables: Set<AnyCancellable> = []
     
     private var categories = [CategoryItem]() {
@@ -19,9 +20,10 @@ final class CategoriesViewController: UITableViewController, Alertable {
         }
     }
     
-    convenience init(viewModel: CategoryViewModel) {
+    convenience init(viewModel: CategoryViewModel, onSelect: ((CategoryItem) -> Void)?) {
         self.init()
         self.viewModel = viewModel
+        self.onSelect = onSelect
     }
     
     override func viewDidLoad() {
@@ -35,7 +37,11 @@ final class CategoriesViewController: UITableViewController, Alertable {
             refresh()
         }
     }
+}
 
+// MARK: - Setup
+
+extension CategoriesViewController {
     private func setupRefreshControl() {
         refreshControl = UIRefreshControl()
         refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
@@ -44,7 +50,11 @@ final class CategoriesViewController: UITableViewController, Alertable {
     @objc private func refresh() {
         viewModel.loadCategories()
     }
-    
+}
+
+// MARK: - Binding
+
+extension CategoriesViewController {
     private func bind() {
         bindLoading()
         bindError()
@@ -76,12 +86,20 @@ final class CategoriesViewController: UITableViewController, Alertable {
             }
         }.store(in: &cancellables)
     }
-    
+}
+
+// MARK: - TableView
+
+extension CategoriesViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return categories.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return CategoryCellController(model: categories[indexPath.row]).view()
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        onSelect?(categories[indexPath.row])
     }
 }

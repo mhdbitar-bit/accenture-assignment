@@ -79,10 +79,10 @@ final class CategoriesViewControllerTests: XCTestCase {
     
     // MARK: - Helpers
     
-    private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (sut: CategoriesViewController, loader: LoaderSpy) {
+    private func makeSUT(onSelect: ((CategoryItem) -> Void)? = nil, file: StaticString = #filePath, line: UInt = #line) -> (sut: CategoriesViewController, loader: LoaderSpy) {
         let loader = LoaderSpy()
         let viewModel = CategoryViewModel(loader: loader)
-        let sut = CategoriesViewController(viewModel: viewModel)
+        let sut = CategoriesViewController(viewModel: viewModel, onSelect: onSelect)
         trackForMemoryLeacks(loader, file: file, line: line)
         trackForMemoryLeacks(sut, file: file, line: line)
         return (sut, loader)
@@ -106,10 +106,6 @@ final class CategoriesViewControllerTests: XCTestCase {
         }
 
         XCTAssertEqual(cell.nameText, cateogry.name, "Expected name  text to be \(String(describing: cateogry.name)) for category view at index \(index)", file: file, line: line)
-    }
-    
-    private func makeCategory(id: Int = 0, name: String = "a name") -> CategoryItem {
-        return CategoryItem(id: id, name: name)
     }
     
     class LoaderSpy: CategoryLoader {

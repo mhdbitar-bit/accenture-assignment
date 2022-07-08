@@ -13,11 +13,11 @@ struct CategoryItem: Equatable {
     
     var category: Category {
         switch id {
-        case 1:
+        case 0:
             return .Books
-        case 2:
+        case 1:
             return .Houses
-        case 3:
+        case 2:
             return .Characters
         default: return .Books
         }
@@ -30,7 +30,7 @@ struct CategoryItem: Equatable {
 }
 
 enum Category: Int {
-    case Books
-    case Houses
-    case Characters
+    case Books = 1
+    case Houses = 2
+    case Characters = 3
 }

@@ -27,6 +27,12 @@ extension UITableViewController {
         return ds?.tableView(tableView, cellForRowAt: index)
     }
     
+    func simulateTapOnCategoryImage(at row: Int) {
+        let delegate = tableView.delegate
+        let index = IndexPath(row: row, section: 0)
+        delegate?.tableView?(tableView, didSelectRowAt: index)
+    }
+    
     private var resourceSection: Int {
         return 0
     }
