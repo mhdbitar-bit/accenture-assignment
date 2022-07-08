@@ -12,7 +12,7 @@ final class SplashViewModel {
     
     let loader: CategoryLoader
     
-    @Published var categories: [CategoryItem] = []
+    @Published var loadingComplete: Bool = false
     @Published var error: String? = nil
     
     init(loader: CategoryLoader) {
@@ -24,8 +24,8 @@ final class SplashViewModel {
             guard let self = self else { return }
             
             switch result {
-            case .success(let categories):
-                self.categories = categories
+            case .success:
+                self.loadingComplete = true
                 
             case .failure(let error):
                 self.error = error.localizedDescription

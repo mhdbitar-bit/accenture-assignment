@@ -19,10 +19,10 @@ final class SplashViewController: UIViewController, Alertable {
     }()
     
     private var viewModel: SplashViewModel!
-    private var onComplete: (([CategoryItem]) -> Void)?
+    private var onComplete: (() -> Void)?
     private var cancellables: Set<AnyCancellable> = []
     
-    convenience init(viewModel: SplashViewModel, onComplete: (([CategoryItem]) -> Void)?) {
+    convenience init(viewModel: SplashViewModel, onComplete: (() -> Void)?) {
         self.init()
         self.viewModel = viewModel
         self.onComplete = onComplete
@@ -55,14 +55,16 @@ final class SplashViewController: UIViewController, Alertable {
     }
     
     private func bind() {
-        bindCategories()
+        bindComplete()
         bindError()
     }
     
-    private func bindCategories() {
-        viewModel.$categories.sink { [weak self] categories in
+    private func bindComplete() {
+        viewModel.$loadingComplete.sink { [weak self] isComplete in
             guard let self = self else { return }
-            self.onComplete?(categories)
+            if isComplete {
+                self.onComplete?()
+            }
         }.store(in: &cancellables)
     }
     
