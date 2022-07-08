@@ -33,6 +33,8 @@
 		4C6C540D28781D92009DABC8 /* BooksTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C540C28781D92009DABC8 /* BooksTableViewControllerTests.swift */; };
 		4C6C541028781E73009DABC8 /* UITableViewController+Eet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C540F28781E73009DABC8 /* UITableViewController+Eet.swift */; };
 		4C6C541228782D4D009DABC8 /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C541128782D4D009DABC8 /* SharedTestHelpers.swift */; };
+		4C6C54162878396A009DABC8 /* CharacterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C54152878396A009DABC8 /* CharacterViewModel.swift */; };
+		4C6C5418287839AA009DABC8 /* CharacterLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C5417287839AA009DABC8 /* CharacterLoader.swift */; };
 		4CA7CA342874A5B40078E464 /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA7CA322874A5B40078E464 /* BookTableViewCell.swift */; };
 		4CA7CA352874A5B40078E464 /* BookTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CA7CA332874A5B40078E464 /* BookTableViewCell.xib */; };
 		4CA7CA392874A8DD0078E464 /* HouseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA7CA372874A8DD0078E464 /* HouseTableViewCell.swift */; };
@@ -132,6 +134,8 @@
 		4C6C540C28781D92009DABC8 /* BooksTableViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksTableViewControllerTests.swift; sourceTree = "<group>"; };
 		4C6C540F28781E73009DABC8 /* UITableViewController+Eet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewController+Eet.swift"; sourceTree = "<group>"; };
 		4C6C541128782D4D009DABC8 /* SharedTestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTestHelpers.swift; sourceTree = "<group>"; };
+		4C6C54152878396A009DABC8 /* CharacterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewModel.swift; sourceTree = "<group>"; };
+		4C6C5417287839AA009DABC8 /* CharacterLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterLoader.swift; sourceTree = "<group>"; };
 		4CA7CA322874A5B40078E464 /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
 		4CA7CA332874A5B40078E464 /* BookTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookTableViewCell.xib; sourceTree = "<group>"; };
 		4CA7CA372874A8DD0078E464 /* HouseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseTableViewCell.swift; sourceTree = "<group>"; };
@@ -246,6 +250,7 @@
 			isa = PBXGroup;
 			children = (
 				4C16ABC8287351A50091BB89 /* CharacterItem.swift */,
+				4C6C5417287839AA009DABC8 /* CharacterLoader.swift */,
 			);
 			path = "Character Feature";
 			sourceTree = "<group>";
@@ -381,6 +386,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		4C6C54142878395E009DABC8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4C6C54152878396A009DABC8 /* CharacterViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		4CA7CA2B28749E550078E464 /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -415,6 +428,7 @@
 		4CA7CA3B2874AADD0078E464 /* Character UI */ = {
 			isa = PBXGroup;
 			children = (
+				4C6C54142878395E009DABC8 /* ViewModel */,
 				4C6C54132878393F009DABC8 /* Views */,
 			);
 			path = "Character UI";
@@ -806,6 +820,7 @@
 				4C16ABC028734DDD0091BB89 /* HouseLoader.swift in Sources */,
 				4CAB66472870B6C7000C426F /* RemoteCategoryItem.swift in Sources */,
 				4C233B91286E11E800E5C13C /* CategoryLoader.swift in Sources */,
+				4C6C54162878396A009DABC8 /* CharacterViewModel.swift in Sources */,
 				4C16ABBC28734C8C0091BB89 /* HouseItem.swift in Sources */,
 				4CAB66492870B704000C426F /* LocalCategoryItem.swift in Sources */,
 				4CA7CA492874C3580078E464 /* CategoryCellController.swift in Sources */,
@@ -814,6 +829,7 @@
 				4CAB661828701ADD000C426F /* HTTPClient.swift in Sources */,
 				4C6C540928781772009DABC8 /* BooksTableViewController.swift in Sources */,
 				4CAB662228706289000C426F /* URLSessionHTTPClient.swift in Sources */,
+				4C6C5418287839AA009DABC8 /* CharacterLoader.swift in Sources */,
 				4C233B5D286E065800E5C13C /* AppDelegate.swift in Sources */,
 				4CAB66AA2871DBBF000C426F /* BookLoader.swift in Sources */,
 				4CAB66432870AACD000C426F /* LocalCategoryLoader.swift in Sources */,

@@ -65,3 +65,4 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 extension RemoteLoader: CategoryLoader where Resource == [CategoryItem] {}
 extension RemoteLoader: BookLoader where Resource == [BookItem] {}
 extension RemoteLoader: HouseLoader where Resource == [HouseItem] {}
+extension RemoteLoader: CharacterLoader where Resource == [CharacterItem] {}
