@@ -17,7 +17,9 @@ final class CharacterCellController {
     func view(_ tableView: UITableView) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CharacterTableViewCell.ID) as! CharacterTableViewCell
         cell.characterNameLabel.text = model.name
-        cell.actorLabel.text = convertArrayToString(items: model.playedBy)
+        if !model.playedBy.isEmpty {
+            cell.actorLabel.text = "by," + convertArrayToString(items: model.playedBy)
+        }
         return cell
     }
 }
