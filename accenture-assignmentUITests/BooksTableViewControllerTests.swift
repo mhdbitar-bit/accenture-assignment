@@ -98,11 +98,11 @@ final class BooksTableViewControllerTests: XCTestCase {
     
     private func assertThat(_ sut: BooksTableViewController, isRendering books: [BookItem], file: StaticString = #filePath, line: UInt = #line) {
         guard sut.numberOfRenderedResourceViews() == books.count else {
-            return XCTFail("Expected \(books.count) categories, got \(sut.numberOfRenderedResourceViews()) instead", file: file, line: line   )
+            return XCTFail("Expected \(books.count) books, got \(sut.numberOfRenderedResourceViews()) instead", file: file, line: line   )
         }
         
-        books.enumerated().forEach { index, category in
-            assertThat(sut, hasViewConfiguredFor: category, at: index, file: file, line: line)
+        books.enumerated().forEach { index, book in
+            assertThat(sut, hasViewConfiguredFor: book, at: index, file: file, line: line)
         }
     }
     
