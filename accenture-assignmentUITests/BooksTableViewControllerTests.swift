@@ -60,6 +60,19 @@ final class BooksTableViewControllerTests: XCTestCase {
         assertThat(sut, isRendering: [book1, book2])
     }
     
+    func test_loadBooksCompletion_doesNotAlertCurrentRenderingStateOnError() {
+        let book1 = makeBook()
+        let (sut, loader) = makeSUT()
+        
+        sut.loadViewIfNeeded()
+        loader.completeBooksLoading(with: [book1], at: 0)
+        assertThat(sut, isRendering: [book1])
+        
+        sut.simulateUserInitiatedResourceReload()
+        loader.completeBooksWithError(at: 1)
+        assertThat(sut, isRendering: [book1])
+    }
+    
     // MARK: - Helpers
     
     private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (sut: BooksTableViewController, loader: LoaderSpy) {
