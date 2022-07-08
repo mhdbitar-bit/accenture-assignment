@@ -12,10 +12,10 @@ final class CategoriesViewControllerTests: XCTestCase {
         sut.loadViewIfNeeded()
         XCTAssertEqual(loader.loadCallCount, 1, "Expected a loading request once view is loaded")
 
-        sut.simulateUserInitiatedCategoriesReload()
+        sut.simulateUserInitiatedResourceReload()
         XCTAssertEqual(loader.loadCallCount, 2, "Expected another loading request once user initiates a reload")
 
-        sut.simulateUserInitiatedCategoriesReload()
+        sut.simulateUserInitiatedResourceReload()
         XCTAssertEqual(loader.loadCallCount, 3, "Expected yet another loading request once user initiates another reload")
     }
     
@@ -28,7 +28,7 @@ final class CategoriesViewControllerTests: XCTestCase {
         loader.completeCategoriesLoading(at: 0)
         XCTAssertFalse(sut.isShowingLoadingIndicator, "Expected no loading indicator once loading completes successfuly")
         
-        sut.simulateUserInitiatedCategoriesReload()
+        sut.simulateUserInitiatedResourceReload()
         XCTAssertTrue(sut.isShowingLoadingIndicator, "Expected loading indicator once user initiates a reload")
         
         loader.completeCategoriesWithError(at: 1)
@@ -47,7 +47,7 @@ final class CategoriesViewControllerTests: XCTestCase {
         loader.completeCategoriesLoading(with: [cat1], at: 0)
         assertThat(sut, isRendering: [cat1])
         
-        sut.simulateUserInitiatedCategoriesReload()
+        sut.simulateUserInitiatedResourceReload()
         loader.completeCategoriesLoading(with: [cat1, cat2], at: 1)
         assertThat(sut, isRendering: [cat1, cat2])
     }
@@ -60,7 +60,7 @@ final class CategoriesViewControllerTests: XCTestCase {
         loader.completeCategoriesLoading(with: [cat1], at: 0)
         assertThat(sut, isRendering: [cat1])
         
-        sut.simulateUserInitiatedCategoriesReload()
+        sut.simulateUserInitiatedResourceReload()
         loader.completeCategoriesWithError(at: 1)
         assertThat(sut, isRendering: [cat1])
     }
@@ -89,8 +89,8 @@ final class CategoriesViewControllerTests: XCTestCase {
     }
     
     private func assertThat(_ sut: CategoriesViewController, isRendering categories: [CategoryItem], file: StaticString = #filePath, line: UInt = #line) {
-        guard sut.numberOfRenderedCategoriesViews() == categories.count else {
-            return XCTFail("Expected \(categories.count) categories, got \(sut.numberOfRenderedCategoriesViews()) instead", file: file, line: line   )
+        guard sut.numberOfRenderedResourceViews() == categories.count else {
+            return XCTFail("Expected \(categories.count) categories, got \(sut.numberOfRenderedResourceViews()) instead", file: file, line: line   )
         }
         
         categories.enumerated().forEach { index, category in
@@ -134,41 +134,10 @@ final class CategoriesViewControllerTests: XCTestCase {
     }
 }
 
-private extension CategoriesViewController {
-    func simulateUserInitiatedCategoriesReload() {
-        refreshControl?.simulatePullToRefresh()
-    }
-    
-    var isShowingLoadingIndicator: Bool {
-        return refreshControl?.isRefreshing == true
-    }
-    
-    func numberOfRenderedCategoriesViews() -> Int {
-        return tableView.numberOfRows(inSection: categoriesSection)
-    }
-    
-    func categoryView(at row: Int) -> UITableViewCell? {
-        let ds = tableView.dataSource
-        let index = IndexPath(row: row, section: categoriesSection)
-        return ds?.tableView(tableView, cellForRowAt: index)
-    }
-    
-    private var categoriesSection: Int {
-        return 0
-    }
-}
+
 
 private extension UITableViewCell {
     var nameText: String {
         return textLabel?.text ?? ""
-    }
-}
-
-private extension UIRefreshControl {
-    func simulatePullToRefresh() {
-        allTargets.forEach { target in
-            actions(forTarget: target, forControlEvent: .valueChanged)?.forEach { (target as NSObject).perform(Selector($0))
-            }
-        }
     }
 }
