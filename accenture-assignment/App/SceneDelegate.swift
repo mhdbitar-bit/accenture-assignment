@@ -49,7 +49,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 fallback: local)))
         return SplashViewController(viewModel: viewModel) { [weak self] in
             guard let self = self else { return }
-            self.navigationController.setViewControllers([self.makeCategoriesViewController()], animated: true)
+            self.navigationController.setViewControllers([self.makeCategoriesViewController()], animated: false)
         }
     }
     
