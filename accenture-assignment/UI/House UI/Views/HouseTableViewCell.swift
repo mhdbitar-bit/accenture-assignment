@@ -11,4 +11,6 @@ final class HouseTableViewCell: UITableViewCell {
     @IBOutlet private(set) var houseImage: UIImageView!
     @IBOutlet private(set) var houseNameLabel: UILabel!
     @IBOutlet private(set) var houseTitleLabel: UILabel!
+    
+    static let ID = "HouseTableViewCell"
 }
