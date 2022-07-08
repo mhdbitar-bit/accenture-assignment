@@ -14,9 +14,7 @@ final class CharactersTableViewController: UITableViewController, Alertable {
     private var cancellables: Set<AnyCancellable> = []
     
     private var characters = [CharacterItem]() {
-        didSet {
-            tableView.reloadData()
-        }
+        didSet { tableView.reloadData() }
     }
     
     convenience init(viewModel: CharacterViewModel) {
@@ -37,7 +35,7 @@ final class CharactersTableViewController: UITableViewController, Alertable {
         }
     }
 
-    private func setupRefreshControl() {
+    func setupRefreshControl() {
         refreshControl = UIRefreshControl()
         refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
     }
@@ -55,9 +53,9 @@ final class CharactersTableViewController: UITableViewController, Alertable {
     private func bindLoading() {
         viewModel.$isLoading.sink { [weak self] isLoading in
             if isLoading {
-                self?.refreshControl?.beginRefreshing()
+                self?.startLoading()
             } else {
-                self?.refreshControl?.endRefreshing()
+                self?.stopLoading()
             }
         }.store(in: &cancellables)
     }

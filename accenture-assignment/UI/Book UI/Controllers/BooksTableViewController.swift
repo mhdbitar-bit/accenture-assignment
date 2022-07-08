@@ -14,9 +14,7 @@ final class BooksTableViewController: UITableViewController, Alertable {
     private var cancellables: Set<AnyCancellable> = []
     
     private var books = [BookItem]() {
-        didSet {
-            tableView.reloadData()
-        }
+        didSet { tableView.reloadData() }
     }
     
     convenience init(viewModel: BookViewModel) {
@@ -55,9 +53,9 @@ final class BooksTableViewController: UITableViewController, Alertable {
     private func bindLoading() {
         viewModel.$isLoading.sink { [weak self] isLoading in
             if isLoading {
-                self?.refreshControl?.beginRefreshing()
+                self?.startLoading()
             } else {
-                self?.refreshControl?.endRefreshing()
+                self?.stopLoading()
             }
         }.store(in: &cancellables)
     }

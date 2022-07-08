@@ -15,9 +15,7 @@ final class CategoriesViewController: UITableViewController, Alertable {
     private var cancellables: Set<AnyCancellable> = []
     
     private var categories = [CategoryItem]() {
-        didSet {
-            tableView.reloadData()
-        }
+        didSet { tableView.reloadData() }
     }
     
     convenience init(viewModel: CategoryViewModel, onSelect: ((CategoryItem) -> Void)?) {
@@ -64,13 +62,13 @@ extension CategoriesViewController {
     private func bindLoading() {
         viewModel.$isLoading.sink { [weak self] isLoading in
             if isLoading {
-                self?.refreshControl?.beginRefreshing()
+                self?.startLoading()
             } else {
-                self?.refreshControl?.endRefreshing()
+                self?.stopLoading()
             }
         }.store(in: &cancellables)
     }
-    
+        
     private func bindCategories() {
         viewModel.$categories.sink { [weak self] categories in
             guard let self = self else { return }

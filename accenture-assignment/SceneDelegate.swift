@@ -11,6 +11,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
     private let navigationController = UINavigationController()
+    private let baseURL = URL(string: "https://private-anon-72c71498a5-androidtestmobgen.apiary-mock.com")!
+    private let remoteClient = URLSessionHTTPClient(session: URLSession(configuration: .ephemeral))
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
@@ -26,8 +28,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func makeRootViewController() -> CategoriesViewController {
-        let remoteUrl = Endpoints.getCategories.url(baseURL: URL(string: "https://private-anon-72c71498a5-androidtestmobgen.apiary-mock.com")!)
-        let remoteClient = URLSessionHTTPClient(session: URLSession(configuration: .ephemeral))
+        let remoteUrl = Endpoints.getCategories.url(baseURL: baseURL)
         let remoteCategoryLoader = RemoteLoader(url: remoteUrl, client: remoteClient, mapper: CategoryItemsMapper.map)
         
         let localURL = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!.appendingPathComponent("categories.store")
@@ -43,22 +44,27 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             guard let self = self else { return }
             switch item.category {
             case .Books:
-                self.navigationController.show(Self.makeBookViewController(with: item.category.rawValue), sender: self)
+                self.navigationController.show(self.makeBookViewController(with: item.category.rawValue), sender: self)
             case .Houses:
                 break
             case .Characters:
-                break
+                self.navigationController.show(self.makeCharacterViewController(with: item.category.rawValue), sender: self)
             }
         }
     }
     
-    private static func makeBookViewController(with type: Int) -> BooksTableViewController {
-        let remoteUrl = Endpoints.getLists(type).url(baseURL: URL(string: "https://private-anon-72c71498a5-androidtestmobgen.apiary-mock.com")!)
-        let cleint = URLSessionHTTPClient(session: URLSession(configuration: .ephemeral))
-        
-        let loader = RemoteLoader(url: remoteUrl, client: cleint, mapper: BooksItemMapper.map)
+    private func makeBookViewController(with type: Int) -> BooksTableViewController {
+        let remoteUrl = Endpoints.getLists(type).url(baseURL: baseURL)
+        let loader = RemoteLoader(url: remoteUrl, client: remoteClient, mapper: BooksItemMapper.map)
         let viewModel = BookViewModel(loader: MainQueueDispatchDecorator(decoratee: loader))
         return BooksTableViewController(viewModel: viewModel)
+    }
+    
+    private func makeCharacterViewController(with type: Int) -> CharactersTableViewController {
+        let remoteUrl = Endpoints.getLists(type).url(baseURL: baseURL)
+        let loader = RemoteLoader(url: remoteUrl, client: remoteClient, mapper: CharacterItemMapper.map)
+        let viewModel = CharacterViewModel(loader: MainQueueDispatchDecorator(decoratee: loader))
+        return CharactersTableViewController(viewModel: viewModel)
     }
 }
 

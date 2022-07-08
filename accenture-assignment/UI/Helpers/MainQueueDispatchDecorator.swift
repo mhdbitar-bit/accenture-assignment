@@ -47,3 +47,14 @@ extension MainQueueDispatchDecorator: BookLoader where T == BookLoader {
         }
     }
 }
+
+extension MainQueueDispatchDecorator: CharacterLoader where T == CharacterLoader {
+    
+    func load(completion: @escaping (LoadCharacterResult) -> Void) {
+        decoratee.load { [weak self] result in
+            self?.dispatch {
+                completion(result)
+            }
+        }
+    }
+}
