@@ -27,53 +27,52 @@
                                     <constraint firstAttribute="height" constant="100" id="pZq-sH-V9g"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p6a-Mo-zmV">
-                                <rect key="frame" x="133" y="8" width="207" height="30"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="by Author name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9yv-D6-VfM">
-                                <rect key="frame" x="133" y="47" width="207" height="15"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cnz-Xt-nTf">
-                                <rect key="frame" x="133" y="80" width="207" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z5G-yX-2EW">
-                                <rect key="frame" x="52" y="161" width="207" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="bmy-41-bvq">
+                                <rect key="frame" x="116" y="8" width="224" height="200"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Book name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p6a-Mo-zmV">
+                                        <rect key="frame" x="0.0" y="0.0" width="224" height="120.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="by Author name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9yv-D6-VfM">
+                                        <rect key="frame" x="0.0" y="128.5" width="224" height="14.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cnz-Xt-nTf">
+                                        <rect key="frame" x="0.0" y="151" width="224" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z5G-yX-2EW">
+                                        <rect key="frame" x="0.0" y="179.5" width="224" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Cnz-Xt-nTf" firstAttribute="top" secondItem="9yv-D6-VfM" secondAttribute="bottom" constant="18" id="0Sd-fR-fD9"/>
                             <constraint firstItem="VcB-Ou-RF6" firstAttribute="leading" secondItem="IPI-7t-kcV" secondAttribute="leading" constant="8" id="0bF-6Y-UK5"/>
-                            <constraint firstItem="9yv-D6-VfM" firstAttribute="top" secondItem="p6a-Mo-zmV" secondAttribute="bottom" constant="9" id="56e-pU-ZRV"/>
+                            <constraint firstItem="bmy-41-bvq" firstAttribute="leading" secondItem="VcB-Ou-RF6" secondAttribute="trailing" constant="8" id="4Bg-Th-P4C"/>
                             <constraint firstItem="VcB-Ou-RF6" firstAttribute="top" secondItem="IPI-7t-kcV" secondAttribute="top" constant="8" id="5nw-6e-5KL"/>
-                            <constraint firstAttribute="trailing" secondItem="p6a-Mo-zmV" secondAttribute="trailing" constant="8" id="889-eG-LAx"/>
-                            <constraint firstItem="9yv-D6-VfM" firstAttribute="leading" secondItem="p6a-Mo-zmV" secondAttribute="leading" id="EAE-uv-Su7"/>
-                            <constraint firstItem="p6a-Mo-zmV" firstAttribute="top" secondItem="VcB-Ou-RF6" secondAttribute="top" id="VVo-LN-nT0"/>
-                            <constraint firstItem="p6a-Mo-zmV" firstAttribute="leading" secondItem="VcB-Ou-RF6" secondAttribute="trailing" constant="25" id="XKD-K9-GLh"/>
-                            <constraint firstItem="Cnz-Xt-nTf" firstAttribute="trailing" secondItem="9yv-D6-VfM" secondAttribute="trailing" id="n0K-wd-YWr"/>
-                            <constraint firstItem="9yv-D6-VfM" firstAttribute="trailing" secondItem="p6a-Mo-zmV" secondAttribute="trailing" id="rG7-jU-xgp"/>
-                            <constraint firstItem="Cnz-Xt-nTf" firstAttribute="leading" secondItem="9yv-D6-VfM" secondAttribute="leading" id="zHm-dv-EKC"/>
+                            <constraint firstAttribute="bottom" secondItem="bmy-41-bvq" secondAttribute="bottom" constant="8" id="Qy6-GG-Ofs"/>
+                            <constraint firstItem="bmy-41-bvq" firstAttribute="top" secondItem="IPI-7t-kcV" secondAttribute="top" constant="8" id="d2X-RK-6EJ"/>
+                            <constraint firstAttribute="trailing" secondItem="bmy-41-bvq" secondAttribute="trailing" constant="8" id="xgC-LK-hcy"/>
                         </constraints>
                     </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="IPI-7t-kcV" secondAttribute="trailing" id="8Ay-KM-IBn"/>
-                    <constraint firstItem="IPI-7t-kcV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="D5J-P0-zlm"/>
-                    <constraint firstAttribute="bottom" secondItem="IPI-7t-kcV" secondAttribute="bottom" constant="5" id="dEd-bH-7SD"/>
+                    <constraint firstItem="IPI-7t-kcV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" priority="999" constant="5" id="D5J-P0-zlm"/>
+                    <constraint firstAttribute="bottom" secondItem="IPI-7t-kcV" secondAttribute="bottom" priority="999" constant="5" id="dEd-bH-7SD"/>
                     <constraint firstItem="IPI-7t-kcV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="nGg-0D-oE8"/>
                 </constraints>
             </tableViewCellContentView>
