@@ -44,6 +44,7 @@
 		4C6C542C287850E6009DABC8 /* HousesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C542B287850E6009DABC8 /* HousesViewModel.swift */; };
 		4C6C542E28785122009DABC8 /* HouseCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C542D28785122009DABC8 /* HouseCellController.swift */; };
 		4C6C54312878567C009DABC8 /* ImageDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C54302878567C009DABC8 /* ImageDataLoader.swift */; };
+		4C6C543328785722009DABC8 /* RemoteImageDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C543228785722009DABC8 /* RemoteImageDataLoader.swift */; };
 		4CA7CA342874A5B40078E464 /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA7CA322874A5B40078E464 /* BookTableViewCell.swift */; };
 		4CA7CA352874A5B40078E464 /* BookTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CA7CA332874A5B40078E464 /* BookTableViewCell.xib */; };
 		4CA7CA392874A8DD0078E464 /* HouseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA7CA372874A8DD0078E464 /* HouseTableViewCell.swift */; };
@@ -154,6 +155,7 @@
 		4C6C542B287850E6009DABC8 /* HousesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HousesViewModel.swift; sourceTree = "<group>"; };
 		4C6C542D28785122009DABC8 /* HouseCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseCellController.swift; sourceTree = "<group>"; };
 		4C6C54302878567C009DABC8 /* ImageDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDataLoader.swift; sourceTree = "<group>"; };
+		4C6C543228785722009DABC8 /* RemoteImageDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImageDataLoader.swift; sourceTree = "<group>"; };
 		4CA7CA322874A5B40078E464 /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
 		4CA7CA332874A5B40078E464 /* BookTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookTableViewCell.xib; sourceTree = "<group>"; };
 		4CA7CA372874A8DD0078E464 /* HouseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseTableViewCell.swift; sourceTree = "<group>"; };
@@ -612,6 +614,7 @@
 				4CAB661728701ADD000C426F /* HTTPClient.swift */,
 				4CAB66962871D61F000C426F /* Endpoints.swift */,
 				4C16ABB72871F16F0091BB89 /* RemoteLoader.swift */,
+				4C6C543228785722009DABC8 /* RemoteImageDataLoader.swift */,
 			);
 			path = "Shared API";
 			sourceTree = "<group>";
@@ -915,6 +918,7 @@
 				4CAB66AC2871DBE6000C426F /* BookItem.swift in Sources */,
 				4CA7CA392874A8DD0078E464 /* HouseTableViewCell.swift in Sources */,
 				4C233B8D286E115A00E5C13C /* CategoryItem.swift in Sources */,
+				4C6C543328785722009DABC8 /* RemoteImageDataLoader.swift in Sources */,
 				4C16ABB82871F16F0091BB89 /* RemoteLoader.swift in Sources */,
 				4C16ABC9287351A50091BB89 /* CharacterItem.swift in Sources */,
 				4CAB661A28701B10000C426F /* CategoryItemsMapper.swift in Sources */,
