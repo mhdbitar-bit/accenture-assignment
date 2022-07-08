@@ -6,6 +6,7 @@
 //
 
 @testable import accenture_assignment
+import Foundation
 
 func makeCategory(id: Int = 0, name: String = "a name") -> CategoryItem {
     return CategoryItem(id: id, name: name)
@@ -21,4 +22,35 @@ func makeBook(name: String = "a name", isbn: String = "a isbn", numberOfPages: I
         mediaType: mediaType,
         released: released,
         authors: authors)
+}
+
+func makeCharacter(
+    id: String = "id",
+    name: String = "a name",
+    gender: String = "gender",
+    culture: String = "culture",
+    born: String = "born",
+    died: String = "died",
+    father: String = "father",
+    mother: String = "mother",
+    spouse: String = "spouse",
+    titles: [String] = ["title 1"],
+    aliases: [String] = ["aliases"],
+    playedBy: [String] = ["actor"],
+    allegiances: [URL] = [URL(string: "http:/a-url.com")!]
+) -> CharacterItem {
+    return CharacterItem(
+        id: id,
+        name: name,
+        gender: gender,
+        culture: culture,
+        born: born,
+        died: died,
+        father: father,
+        mother: mother,
+        spouse: spouse,
+        titles: titles,
+        aliases: aliases,
+        playedBy: playedBy,
+        allegiances: allegiances)
 }

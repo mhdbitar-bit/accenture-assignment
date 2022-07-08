@@ -38,6 +38,7 @@
 		4C6C541B28783AB9009DABC8 /* CharactersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C541A28783AB9009DABC8 /* CharactersTableViewController.swift */; };
 		4C6C541D28783B7A009DABC8 /* CharacterCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C541C28783B7A009DABC8 /* CharacterCellController.swift */; };
 		4C6C541F28783C1C009DABC8 /* SharedHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C541E28783C1C009DABC8 /* SharedHelpers.swift */; };
+		4C6C542128783D51009DABC8 /* CharactersTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C542028783D51009DABC8 /* CharactersTableViewControllerTests.swift */; };
 		4CA7CA342874A5B40078E464 /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA7CA322874A5B40078E464 /* BookTableViewCell.swift */; };
 		4CA7CA352874A5B40078E464 /* BookTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CA7CA332874A5B40078E464 /* BookTableViewCell.xib */; };
 		4CA7CA392874A8DD0078E464 /* HouseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA7CA372874A8DD0078E464 /* HouseTableViewCell.swift */; };
@@ -142,6 +143,7 @@
 		4C6C541A28783AB9009DABC8 /* CharactersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersTableViewController.swift; sourceTree = "<group>"; };
 		4C6C541C28783B7A009DABC8 /* CharacterCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCellController.swift; sourceTree = "<group>"; };
 		4C6C541E28783C1C009DABC8 /* SharedHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedHelpers.swift; sourceTree = "<group>"; };
+		4C6C542028783D51009DABC8 /* CharactersTableViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersTableViewControllerTests.swift; sourceTree = "<group>"; };
 		4CA7CA322874A5B40078E464 /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
 		4CA7CA332874A5B40078E464 /* BookTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookTableViewCell.xib; sourceTree = "<group>"; };
 		4CA7CA372874A8DD0078E464 /* HouseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseTableViewCell.swift; sourceTree = "<group>"; };
@@ -525,6 +527,7 @@
 				4C6C540E28781E59009DABC8 /* Helpers */,
 				4CAB666B28717D42000C426F /* CategoriesViewControllerTests.swift */,
 				4C6C540C28781D92009DABC8 /* BooksTableViewControllerTests.swift */,
+				4C6C542028783D51009DABC8 /* CharactersTableViewControllerTests.swift */,
 			);
 			path = "accenture-assignmentUITests";
 			sourceTree = "<group>";
@@ -913,6 +916,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C6C541028781E73009DABC8 /* UITableViewController+Eet.swift in Sources */,
+				4C6C542128783D51009DABC8 /* CharactersTableViewControllerTests.swift in Sources */,
 				4CAB666C28717D42000C426F /* CategoriesViewControllerTests.swift in Sources */,
 				4C6C541228782D4D009DABC8 /* SharedTestHelpers.swift in Sources */,
 				4CAB666D28717FB9000C426F /* XCTestCase+MemoryLeackTrackingHelper.swift in Sources */,
