@@ -17,7 +17,7 @@ final class BookCellController {
     func view(_ tableView: UITableView) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: BookTableViewCell.ID) as! BookTableViewCell
         cell.bookTitleLabel.text = model.name
-        cell.authorLabel.text = getListOfAuthorsAsString(authos: model.authors)
+        cell.authorLabel.text = convertArrayToString(items: model.authors)
         cell.releaseDateLabel.text = getFormattedReleasedDate(date: model.released)
         cell.noPagesLabel.text = "\(model.numberOfPages)"
         return cell
@@ -33,14 +33,6 @@ final class BookCellController {
         }
         
         return date
-    }
-    
-    private func getListOfAuthorsAsString(authos: [String]) -> String {
-        let formatter = ListFormatter()
-        if let names = formatter.string(from: model.authors) {
-            return names
-        }
-        return ""
     }
 }
 
