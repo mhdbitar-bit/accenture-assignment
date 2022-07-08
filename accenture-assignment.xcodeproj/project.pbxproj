@@ -307,7 +307,6 @@
 			isa = PBXGroup;
 			children = (
 				4C6C53F62877FCF4009DABC8 /* ListTableViewController.swift */,
-				4C6C53FA28781131009DABC8 /* MainQueueDispatchDecorator.swift */,
 			);
 			path = "Shared UI";
 			sourceTree = "<group>";
@@ -315,6 +314,7 @@
 		4C6C53FC28781554009DABC8 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				4C6C53FA28781131009DABC8 /* MainQueueDispatchDecorator.swift */,
 				4C6C53FD2878155E009DABC8 /* Alertable.swift */,
 			);
 			path = Helpers;
