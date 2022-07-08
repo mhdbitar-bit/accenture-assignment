@@ -10,4 +10,6 @@ import UIKit
 final class CharacterTableViewCell: UITableViewCell {
     @IBOutlet private(set) var characterNameLabel: UILabel!
     @IBOutlet private(set) var actorLabel: UILabel!
+    
+    static let ID = "CharacterTableViewCell"
 }

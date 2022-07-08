@@ -35,6 +35,9 @@
 		4C6C541228782D4D009DABC8 /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C541128782D4D009DABC8 /* SharedTestHelpers.swift */; };
 		4C6C54162878396A009DABC8 /* CharacterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C54152878396A009DABC8 /* CharacterViewModel.swift */; };
 		4C6C5418287839AA009DABC8 /* CharacterLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C5417287839AA009DABC8 /* CharacterLoader.swift */; };
+		4C6C541B28783AB9009DABC8 /* CharactersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C541A28783AB9009DABC8 /* CharactersTableViewController.swift */; };
+		4C6C541D28783B7A009DABC8 /* CharacterCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C541C28783B7A009DABC8 /* CharacterCellController.swift */; };
+		4C6C541F28783C1C009DABC8 /* SharedHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C541E28783C1C009DABC8 /* SharedHelpers.swift */; };
 		4CA7CA342874A5B40078E464 /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA7CA322874A5B40078E464 /* BookTableViewCell.swift */; };
 		4CA7CA352874A5B40078E464 /* BookTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CA7CA332874A5B40078E464 /* BookTableViewCell.xib */; };
 		4CA7CA392874A8DD0078E464 /* HouseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA7CA372874A8DD0078E464 /* HouseTableViewCell.swift */; };
@@ -136,6 +139,9 @@
 		4C6C541128782D4D009DABC8 /* SharedTestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTestHelpers.swift; sourceTree = "<group>"; };
 		4C6C54152878396A009DABC8 /* CharacterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewModel.swift; sourceTree = "<group>"; };
 		4C6C5417287839AA009DABC8 /* CharacterLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterLoader.swift; sourceTree = "<group>"; };
+		4C6C541A28783AB9009DABC8 /* CharactersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersTableViewController.swift; sourceTree = "<group>"; };
+		4C6C541C28783B7A009DABC8 /* CharacterCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCellController.swift; sourceTree = "<group>"; };
+		4C6C541E28783C1C009DABC8 /* SharedHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedHelpers.swift; sourceTree = "<group>"; };
 		4CA7CA322874A5B40078E464 /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
 		4CA7CA332874A5B40078E464 /* BookTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookTableViewCell.xib; sourceTree = "<group>"; };
 		4CA7CA372874A8DD0078E464 /* HouseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseTableViewCell.swift; sourceTree = "<group>"; };
@@ -321,6 +327,7 @@
 			children = (
 				4C6C53FA28781131009DABC8 /* MainQueueDispatchDecorator.swift */,
 				4C6C53FD2878155E009DABC8 /* Alertable.swift */,
+				4C6C541E28783C1C009DABC8 /* SharedHelpers.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -359,13 +366,13 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		4C6C540728781763009DABC8 /* Controller */ = {
+		4C6C540728781763009DABC8 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				4C6C540828781772009DABC8 /* BooksTableViewController.swift */,
 				4C6C540A2878181B009DABC8 /* BookCellController.swift */,
 			);
-			path = Controller;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		4C6C540E28781E59009DABC8 /* Helpers */ = {
@@ -394,6 +401,15 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		4C6C541928783AA2009DABC8 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4C6C541A28783AB9009DABC8 /* CharactersTableViewController.swift */,
+				4C6C541C28783B7A009DABC8 /* CharacterCellController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		4CA7CA2B28749E550078E464 /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -409,7 +425,7 @@
 		4CA7CA2F2874A2EF0078E464 /* Book UI */ = {
 			isa = PBXGroup;
 			children = (
-				4C6C540728781763009DABC8 /* Controller */,
+				4C6C540728781763009DABC8 /* Controllers */,
 				4C6C5404287816E7009DABC8 /* ViewModel */,
 				4C6C5403287816E1009DABC8 /* Views */,
 			);
@@ -428,6 +444,7 @@
 		4CA7CA3B2874AADD0078E464 /* Character UI */ = {
 			isa = PBXGroup;
 			children = (
+				4C6C541928783AA2009DABC8 /* Controllers */,
 				4C6C54142878395E009DABC8 /* ViewModel */,
 				4C6C54132878393F009DABC8 /* Views */,
 			);
@@ -811,12 +828,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CA7CA342874A5B40078E464 /* BookTableViewCell.swift in Sources */,
+				4C6C541D28783B7A009DABC8 /* CharacterCellController.swift in Sources */,
 				4C16ABC328734E410091BB89 /* HouseItemMapper.swift in Sources */,
 				4CAB66902871C3A0000C426F /* CategoryCache.swift in Sources */,
 				4CAB66922871C435000C426F /* CategoryLoaderCacheDecorator.swift in Sources */,
 				4C6C540628781709009DABC8 /* BookViewModel.swift in Sources */,
 				4CAB66562870EA40000C426F /* CategoryCahcePolicy.swift in Sources */,
 				4C6C53F928780BE7009DABC8 /* CategoryViewModel.swift in Sources */,
+				4C6C541F28783C1C009DABC8 /* SharedHelpers.swift in Sources */,
 				4C16ABC028734DDD0091BB89 /* HouseLoader.swift in Sources */,
 				4CAB66472870B6C7000C426F /* RemoteCategoryItem.swift in Sources */,
 				4C233B91286E11E800E5C13C /* CategoryLoader.swift in Sources */,
@@ -831,6 +850,7 @@
 				4CAB662228706289000C426F /* URLSessionHTTPClient.swift in Sources */,
 				4C6C5418287839AA009DABC8 /* CharacterLoader.swift in Sources */,
 				4C233B5D286E065800E5C13C /* AppDelegate.swift in Sources */,
+				4C6C541B28783AB9009DABC8 /* CharactersTableViewController.swift in Sources */,
 				4CAB66AA2871DBBF000C426F /* BookLoader.swift in Sources */,
 				4CAB66432870AACD000C426F /* LocalCategoryLoader.swift in Sources */,
 				4C233B5F286E065800E5C13C /* SceneDelegate.swift in Sources */,
