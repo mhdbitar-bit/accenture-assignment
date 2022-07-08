@@ -27,7 +27,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.makeKeyAndVisible()
     }
     
-    func makeRootViewController() -> CategoriesViewController {
+    private func makeCategoryloaders() -> (remote: RemoteLoader<[CategoryItem]>, local: LocalCategoryLoader) {
         let remoteUrl = Endpoints.getCategories.url(baseURL: baseURL)
         let remoteCategoryLoader = RemoteLoader(url: remoteUrl, client: remoteClient, mapper: CategoryItemsMapper.map)
         
@@ -35,10 +35,33 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let localStore = CodableCategoryStore(storeURL: localURL)
         let localCategoryLoader = LocalCategoryLoader(store: localStore, currentDate: Date.init)
         
+        return (remoteCategoryLoader, localCategoryLoader)
+    }
+    
+    private func makeRootViewController() -> SplashViewController {
+        let (remote, local) = makeCategoryloaders()
+        let viewModel = SplashViewModel(
+            loader: MainQueueDispatchDecorator(decoratee: CategoryLoaderWithFallbackComposite(
+                primary: CategoryLoaderCacheDecorator(
+                    decoratee: remote,
+                    cache: local
+                ),
+                fallback: local)))
+        return SplashViewController(viewModel: viewModel) { [weak self] categories in
+            guard let self = self else { return }
+            self.navigationController.setViewControllers([self.makeCategoriesViewController()], animated: true)
+        }
+    }
+    
+    func makeCategoriesViewController() -> CategoriesViewController {
+        let (remote, local) = makeCategoryloaders()
         let viewModel = CategoryViewModel(
             loader: MainQueueDispatchDecorator(decoratee: CategoryLoaderWithFallbackComposite(
-                primary: remoteCategoryLoader,
-                fallback: localCategoryLoader)))
+                primary: local,
+                fallback:  CategoryLoaderCacheDecorator(
+                    decoratee: remote,
+                    cache: local
+                ))))
         
         return CategoriesViewController(viewModel: viewModel) { [weak self] item in
             guard let self = self else { return }
