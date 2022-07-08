@@ -415,14 +415,23 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		4C6C542628784D2A009DABC8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4CA7CA372874A8DD0078E464 /* HouseTableViewCell.swift */,
+				4CA7CA382874A8DD0078E464 /* HouseTableViewCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		4CA7CA2B28749E550078E464 /* UI */ = {
 			isa = PBXGroup;
 			children = (
 				4C6C53FC28781554009DABC8 /* Helpers */,
+				4CAB665B287173CA000C426F /* Category UI */,
+				4CA7CA2F2874A2EF0078E464 /* Book UI */,
 				4CA7CA3B2874AADD0078E464 /* Character UI */,
 				4CA7CA362874A8CD0078E464 /* House UI */,
-				4CA7CA2F2874A2EF0078E464 /* Book UI */,
-				4CAB665B287173CA000C426F /* Category UI */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -440,8 +449,7 @@
 		4CA7CA362874A8CD0078E464 /* House UI */ = {
 			isa = PBXGroup;
 			children = (
-				4CA7CA372874A8DD0078E464 /* HouseTableViewCell.swift */,
-				4CA7CA382874A8DD0078E464 /* HouseTableViewCell.xib */,
+				4C6C542628784D2A009DABC8 /* Views */,
 			);
 			path = "House UI";
 			sourceTree = "<group>";
@@ -567,8 +575,8 @@
 			children = (
 				4CAB669A2871D994000C426F /* Infrastructure */,
 				4CAB661728701ADD000C426F /* HTTPClient.swift */,
-				4C16ABB72871F16F0091BB89 /* RemoteLoader.swift */,
 				4CAB66962871D61F000C426F /* Endpoints.swift */,
+				4C16ABB72871F16F0091BB89 /* RemoteLoader.swift */,
 			);
 			path = "Shared API";
 			sourceTree = "<group>";
