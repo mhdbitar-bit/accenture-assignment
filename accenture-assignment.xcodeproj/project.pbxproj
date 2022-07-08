@@ -32,6 +32,7 @@
 		4C6C540B2878181B009DABC8 /* BookCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C540A2878181B009DABC8 /* BookCellController.swift */; };
 		4C6C540D28781D92009DABC8 /* BooksTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C540C28781D92009DABC8 /* BooksTableViewControllerTests.swift */; };
 		4C6C541028781E73009DABC8 /* UITableViewController+Eet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C540F28781E73009DABC8 /* UITableViewController+Eet.swift */; };
+		4C6C541228782D4D009DABC8 /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C541128782D4D009DABC8 /* SharedTestHelpers.swift */; };
 		4CA7CA342874A5B40078E464 /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA7CA322874A5B40078E464 /* BookTableViewCell.swift */; };
 		4CA7CA352874A5B40078E464 /* BookTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CA7CA332874A5B40078E464 /* BookTableViewCell.xib */; };
 		4CA7CA392874A8DD0078E464 /* HouseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA7CA372874A8DD0078E464 /* HouseTableViewCell.swift */; };
@@ -69,7 +70,6 @@
 		4CAB668E2871BD88000C426F /* XCTestCase+CategoryLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB668D2871BD88000C426F /* XCTestCase+CategoryLoader.swift */; };
 		4CAB66902871C3A0000C426F /* CategoryCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB668F2871C3A0000C426F /* CategoryCache.swift */; };
 		4CAB66922871C435000C426F /* CategoryLoaderCacheDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB66912871C435000C426F /* CategoryLoaderCacheDecorator.swift */; };
-		4CAB66952871C9D9000C426F /* CategoryAcceptenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB66942871C9D9000C426F /* CategoryAcceptenceTests.swift */; };
 		4CAB66972871D61F000C426F /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB66962871D61F000C426F /* Endpoints.swift */; };
 		4CAB66992871D7C3000C426F /* EndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB66982871D7C3000C426F /* EndpointTests.swift */; };
 		4CAB66A32871DAE5000C426F /* BooksMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB66A22871DAE5000C426F /* BooksMapperTests.swift */; };
@@ -131,6 +131,7 @@
 		4C6C540A2878181B009DABC8 /* BookCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCellController.swift; sourceTree = "<group>"; };
 		4C6C540C28781D92009DABC8 /* BooksTableViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksTableViewControllerTests.swift; sourceTree = "<group>"; };
 		4C6C540F28781E73009DABC8 /* UITableViewController+Eet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewController+Eet.swift"; sourceTree = "<group>"; };
+		4C6C541128782D4D009DABC8 /* SharedTestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTestHelpers.swift; sourceTree = "<group>"; };
 		4CA7CA322874A5B40078E464 /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
 		4CA7CA332874A5B40078E464 /* BookTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookTableViewCell.xib; sourceTree = "<group>"; };
 		4CA7CA372874A8DD0078E464 /* HouseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseTableViewCell.swift; sourceTree = "<group>"; };
@@ -168,7 +169,6 @@
 		4CAB668D2871BD88000C426F /* XCTestCase+CategoryLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+CategoryLoader.swift"; sourceTree = "<group>"; };
 		4CAB668F2871C3A0000C426F /* CategoryCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCache.swift; sourceTree = "<group>"; };
 		4CAB66912871C435000C426F /* CategoryLoaderCacheDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryLoaderCacheDecorator.swift; sourceTree = "<group>"; };
-		4CAB66942871C9D9000C426F /* CategoryAcceptenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryAcceptenceTests.swift; sourceTree = "<group>"; };
 		4CAB66962871D61F000C426F /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
 		4CAB66982871D7C3000C426F /* EndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointTests.swift; sourceTree = "<group>"; };
 		4CAB66A22871DAE5000C426F /* BooksMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksMapperTests.swift; sourceTree = "<group>"; };
@@ -367,6 +367,7 @@
 			isa = PBXGroup;
 			children = (
 				4C6C540F28781E73009DABC8 /* UITableViewController+Eet.swift */,
+				4C6C541128782D4D009DABC8 /* SharedTestHelpers.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -495,7 +496,6 @@
 				4CAB668A2871BB94000C426F /* Helpers */,
 				4CAB667F28719DD0000C426F /* CategoryLoaderWithFallbackCompositeTests.swift */,
 				4CAB66882871BA0F000C426F /* CategoryLoaderCacheDecoratorTests.swift */,
-				4CAB66942871C9D9000C426F /* CategoryAcceptenceTests.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -523,6 +523,7 @@
 				4CAB669A2871D994000C426F /* Infrastructure */,
 				4CAB661728701ADD000C426F /* HTTPClient.swift */,
 				4C16ABB72871F16F0091BB89 /* RemoteLoader.swift */,
+				4CAB66962871D61F000C426F /* Endpoints.swift */,
 			);
 			path = "Shared API";
 			sourceTree = "<group>";
@@ -616,7 +617,6 @@
 		4CDCEDCF286E25C900DF3AAA /* Category API */ = {
 			isa = PBXGroup;
 			children = (
-				4CAB66962871D61F000C426F /* Endpoints.swift */,
 				4CAB661928701B10000C426F /* CategoryItemsMapper.swift */,
 				4CAB66462870B6C7000C426F /* RemoteCategoryItem.swift */,
 			);
@@ -837,7 +837,6 @@
 				4C233B94286E142E00E5C13C /* CategoriesMapperTests.swift in Sources */,
 				4CAB66582870F293000C426F /* CodableCateogiresStoreTests.swift in Sources */,
 				4CAB664E2870BAE1000C426F /* CategoryStoreSpy.swift in Sources */,
-				4CAB66952871C9D9000C426F /* CategoryAcceptenceTests.swift in Sources */,
 				4CAB664B2870B9E2000C426F /* LoadCategoryFromCahceUseCaseTests.swift in Sources */,
 				4C16ABB32871EE660091BB89 /* HTTPClientSpy.swift in Sources */,
 				4C16ABCF287353CB0091BB89 /* CharacterMapperTests.swift in Sources */,
@@ -871,6 +870,7 @@
 			files = (
 				4C6C541028781E73009DABC8 /* UITableViewController+Eet.swift in Sources */,
 				4CAB666C28717D42000C426F /* CategoriesViewControllerTests.swift in Sources */,
+				4C6C541228782D4D009DABC8 /* SharedTestHelpers.swift in Sources */,
 				4CAB666D28717FB9000C426F /* XCTestCase+MemoryLeackTrackingHelper.swift in Sources */,
 				4C6C540D28781D92009DABC8 /* BooksTableViewControllerTests.swift in Sources */,
 			);

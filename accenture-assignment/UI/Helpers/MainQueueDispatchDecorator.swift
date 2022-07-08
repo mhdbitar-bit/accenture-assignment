@@ -35,3 +35,15 @@ extension MainQueueDispatchDecorator: CategoryLoader where T == CategoryLoader {
         }
     }
 }
+
+
+extension MainQueueDispatchDecorator: BookLoader where T == BookLoader {
+    
+    func load(completion: @escaping (LoadBookResult) -> Void) {
+        decoratee.load { [weak self] result in
+            self?.dispatch {
+                completion(result)
+            }
+        }
+    }
+}
