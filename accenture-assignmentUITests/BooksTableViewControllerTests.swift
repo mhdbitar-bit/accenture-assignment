@@ -117,13 +117,13 @@ final class BooksTableViewControllerTests: XCTestCase {
         
         let formatter = ListFormatter()
         if let authors = formatter.string(from: book.authors) {
-            XCTAssertEqual(cell.authorLabel.text, authors, "Expected author text to be \(String(describing: authors)) for book view at index \(index)", file: file, line: line)
+            XCTAssertEqual(cell.authorLabel.text, "by, " + authors, "Expected author text to be \(String(describing: authors)) for book view at index \(index)", file: file, line: line)
         } else {
             let authorLabelText = cell.authorLabel.text ?? ""
             XCTAssertTrue(authorLabelText.isEmpty, "Expected author text to be empty")
         }
         
-        XCTAssertEqual(cell.noPagesLabel.text, "\(book.numberOfPages)", "Expected number of pages to be \(String(describing: book.numberOfPages)) for book view at index \(index)", file: file, line: line)
+        XCTAssertEqual(cell.noPagesLabel.text, "pages no. \(book.numberOfPages)", "Expected number of pages to be \(String(describing: book.numberOfPages)) for book view at index \(index)", file: file, line: line)
     }
     
     class LoaderSpy: BookLoader {

@@ -121,8 +121,8 @@ final class CharactersTableViewControllerTests: XCTestCase {
         XCTAssertEqual(cell.characterNameLabel.text, character.name, "Expected name text to be \(String(describing: character.name)) for character view at index \(index)", file: file, line: line)
         
         let formatter = ListFormatter()
-        if let authors = formatter.string(from: character.playedBy) {
-            XCTAssertEqual(cell.actorLabel.text, authors, "Expected actor text to be \(String(describing: authors)) for character view at index \(index)", file: file, line: line)
+        if let actor = formatter.string(from: character.playedBy) {
+            XCTAssertEqual(cell.actorLabel.text, "by," + actor, "Expected actor text to be \(String(describing: actor)) for character view at index \(index)", file: file, line: line)
         } else {
             let actorLabelText = cell.actorLabel.text ?? ""
             XCTAssertTrue(actorLabelText.isEmpty, "Expected actor text to be empty")

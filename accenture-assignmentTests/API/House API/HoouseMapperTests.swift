@@ -57,7 +57,8 @@ final class HoouseMapperTests: XCTestCase {
             id: id,
             name: name,
             region: region,
-            title: title
+            title: title,
+            imageURL: nil
         )
         
         let json: [String: Any] = [
