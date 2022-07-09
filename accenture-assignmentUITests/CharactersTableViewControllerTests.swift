@@ -81,7 +81,7 @@ final class CharactersTableViewControllerTests: XCTestCase {
     func test_loadCharactersCompletion_dispatchesFromBackgroundToMainThread() {
         let (sut, loader) = makeSUT()
         sut.loadViewIfNeeded()
-        
+
         let exp = expectation(description: "Wait for background queue")
         DispatchQueue.global().async {
             loader.completeCharactersLoading(at: 0)
@@ -94,7 +94,7 @@ final class CharactersTableViewControllerTests: XCTestCase {
     
     private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (sut: CharactersTableViewController, loader: LoaderSpy) {
         let loader = LoaderSpy()
-        let viewModel = CharacterViewModel(loader: loader)
+        let viewModel = CharacterViewModel(loader: MainQueueDispatchDecorator(decoratee: loader))
         let sut = CharactersTableViewController(viewModel: viewModel)
         trackForMemoryLeacks(loader, file: file, line: line)
         trackForMemoryLeacks(sut, file: file, line: line)

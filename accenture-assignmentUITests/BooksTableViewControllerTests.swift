@@ -89,7 +89,7 @@ final class BooksTableViewControllerTests: XCTestCase {
     
     private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (sut: BooksTableViewController, loader: LoaderSpy) {
         let loader = LoaderSpy()
-        let viewModel = BookViewModel(loader: loader)
+        let viewModel = BookViewModel(loader: MainQueueDispatchDecorator(decoratee: loader))
         let sut = BooksTableViewController(viewModel: viewModel)
         trackForMemoryLeacks(loader, file: file, line: line)
         trackForMemoryLeacks(sut, file: file, line: line)

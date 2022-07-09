@@ -81,7 +81,7 @@ final class CategoriesViewControllerTests: XCTestCase {
     
     private func makeSUT(onSelect: ((CategoryItem) -> Void)? = nil, file: StaticString = #filePath, line: UInt = #line) -> (sut: CategoriesViewController, loader: LoaderSpy) {
         let loader = LoaderSpy()
-        let viewModel = CategoryViewModel(loader: loader)
+        let viewModel = CategoryViewModel(loader: MainQueueDispatchDecorator(decoratee: loader))
         let sut = CategoriesViewController(viewModel: viewModel, onSelect: onSelect)
         trackForMemoryLeacks(loader, file: file, line: line)
         trackForMemoryLeacks(sut, file: file, line: line)
