@@ -30,15 +30,11 @@
 		4C6C540628781709009DABC8 /* BookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C540528781709009DABC8 /* BookViewModel.swift */; };
 		4C6C540928781772009DABC8 /* BooksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C540828781772009DABC8 /* BooksTableViewController.swift */; };
 		4C6C540B2878181B009DABC8 /* BookCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C540A2878181B009DABC8 /* BookCellController.swift */; };
-		4C6C540D28781D92009DABC8 /* BooksTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C540C28781D92009DABC8 /* BooksTableViewControllerTests.swift */; };
-		4C6C541028781E73009DABC8 /* UITableViewController+Eet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C540F28781E73009DABC8 /* UITableViewController+Eet.swift */; };
-		4C6C541228782D4D009DABC8 /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C541128782D4D009DABC8 /* SharedTestHelpers.swift */; };
 		4C6C54162878396A009DABC8 /* CharacterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C54152878396A009DABC8 /* CharacterViewModel.swift */; };
 		4C6C5418287839AA009DABC8 /* CharacterLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C5417287839AA009DABC8 /* CharacterLoader.swift */; };
 		4C6C541B28783AB9009DABC8 /* CharactersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C541A28783AB9009DABC8 /* CharactersTableViewController.swift */; };
 		4C6C541D28783B7A009DABC8 /* CharacterCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C541C28783B7A009DABC8 /* CharacterCellController.swift */; };
 		4C6C541F28783C1C009DABC8 /* SharedHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C541E28783C1C009DABC8 /* SharedHelpers.swift */; };
-		4C6C542128783D51009DABC8 /* CharactersTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C542028783D51009DABC8 /* CharactersTableViewControllerTests.swift */; };
 		4C6C542328784B87009DABC8 /* UITableView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C542228784B87009DABC8 /* UITableView+Ext.swift */; };
 		4C6C542A28784D6A009DABC8 /* HousesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C542928784D6A009DABC8 /* HousesTableViewController.swift */; };
 		4C6C542C287850E6009DABC8 /* HousesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C542B287850E6009DABC8 /* HousesViewModel.swift */; };
@@ -49,6 +45,11 @@
 		4C6C543728786DE6009DABC8 /* HouseUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C543628786DE6009DABC8 /* HouseUIComposer.swift */; };
 		4C6C543A287887CB009DABC8 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C5439287887CB009DABC8 /* SplashViewController.swift */; };
 		4C6C543F28788AB3009DABC8 /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C543E28788AB3009DABC8 /* SplashViewModel.swift */; };
+		4C722A2A2881F6C400444AAD /* UITableViewController+Eet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C540F28781E73009DABC8 /* UITableViewController+Eet.swift */; };
+		4C722A2B2881F6CC00444AAD /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C541128782D4D009DABC8 /* SharedTestHelpers.swift */; };
+		4C722A2C2881F6D100444AAD /* CategoriesViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB666B28717D42000C426F /* CategoriesViewControllerTests.swift */; };
+		4C722A2D2881F6D500444AAD /* BooksTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C540C28781D92009DABC8 /* BooksTableViewControllerTests.swift */; };
+		4C722A2E2881F6D800444AAD /* CharactersTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C542028783D51009DABC8 /* CharactersTableViewControllerTests.swift */; };
 		4CA7CA342874A5B40078E464 /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA7CA322874A5B40078E464 /* BookTableViewCell.swift */; };
 		4CA7CA352874A5B40078E464 /* BookTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CA7CA332874A5B40078E464 /* BookTableViewCell.xib */; };
 		4CA7CA392874A8DD0078E464 /* HouseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA7CA372874A8DD0078E464 /* HouseTableViewCell.swift */; };
@@ -77,8 +78,6 @@
 		4CAB66582870F293000C426F /* CodableCateogiresStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB66572870F293000C426F /* CodableCateogiresStoreTests.swift */; };
 		4CAB665A28716D14000C426F /* CodableCategoryStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB665928716D14000C426F /* CodableCategoryStore.swift */; };
 		4CAB665D28717463000C426F /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB665C28717463000C426F /* CategoriesViewController.swift */; };
-		4CAB666C28717D42000C426F /* CategoriesViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB666B28717D42000C426F /* CategoriesViewControllerTests.swift */; };
-		4CAB666D28717FB9000C426F /* XCTestCase+MemoryLeackTrackingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB661F287049A4000C426F /* XCTestCase+MemoryLeackTrackingHelper.swift */; };
 		4CAB66832871AA3B000C426F /* CategoryLoaderWithFallbackComposite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB66822871AA3B000C426F /* CategoryLoaderWithFallbackComposite.swift */; };
 		4CAB66852871AB42000C426F /* CategoryLoaderWithFallbackCompositeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB667F28719DD0000C426F /* CategoryLoaderWithFallbackCompositeTests.swift */; };
 		4CAB66892871BA0F000C426F /* CategoryLoaderCacheDecoratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB66882871BA0F000C426F /* CategoryLoaderCacheDecoratorTests.swift */; };
@@ -103,13 +102,6 @@
 			remoteInfo = "accenture-assignment";
 		};
 		4CAB663828706AC2000C426F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4C233B51286E065800E5C13C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 4C233B58286E065800E5C13C;
-			remoteInfo = "accenture-assignment";
-		};
-		4CAB666628717D1F000C426F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4C233B51286E065800E5C13C /* Project object */;
 			proxyType = 1;
@@ -192,7 +184,6 @@
 		4CAB66572870F293000C426F /* CodableCateogiresStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableCateogiresStoreTests.swift; sourceTree = "<group>"; };
 		4CAB665928716D14000C426F /* CodableCategoryStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableCategoryStore.swift; sourceTree = "<group>"; };
 		4CAB665C28717463000C426F /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
-		4CAB666228717D1E000C426F /* accenture-assignmentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "accenture-assignmentUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CAB666B28717D42000C426F /* CategoriesViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewControllerTests.swift; sourceTree = "<group>"; };
 		4CAB667F28719DD0000C426F /* CategoryLoaderWithFallbackCompositeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryLoaderWithFallbackCompositeTests.swift; sourceTree = "<group>"; };
 		4CAB66822871AA3B000C426F /* CategoryLoaderWithFallbackComposite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryLoaderWithFallbackComposite.swift; sourceTree = "<group>"; };
@@ -225,13 +216,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		4CAB663128706AC2000C426F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4CAB665F28717D1E000C426F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -289,7 +273,6 @@
 				4C233B5B286E065800E5C13C /* accenture-assignment */,
 				4C233B72286E065900E5C13C /* accenture-assignmentTests */,
 				4CAB663528706AC2000C426F /* accenture-assignmentEndToEndTests */,
-				4CAB666328717D1F000C426F /* accenture-assignmentUITests */,
 				4C233B5A286E065800E5C13C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -300,7 +283,6 @@
 				4C233B59286E065800E5C13C /* accenture-assignment.app */,
 				4C233B6F286E065900E5C13C /* accenture-assignmentTests.xctest */,
 				4CAB663428706AC2000C426F /* accenture-assignmentEndToEndTests.xctest */,
-				4CAB666228717D1E000C426F /* accenture-assignmentUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -323,6 +305,7 @@
 		4C233B72286E065900E5C13C /* accenture-assignmentTests */ = {
 			isa = PBXGroup;
 			children = (
+				4C722A282881F67E00444AAD /* Presentation */,
 				4CAB66842871AB2E000C426F /* Main */,
 				4CAB661E28704984000C426F /* Helpers */,
 				4CAB663E287098A6000C426F /* Category Cahce */,
@@ -518,6 +501,17 @@
 			path = Infrastructure;
 			sourceTree = "<group>";
 		};
+		4C722A282881F67E00444AAD /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				4C6C540E28781E59009DABC8 /* Helpers */,
+				4CAB666B28717D42000C426F /* CategoriesViewControllerTests.swift */,
+				4C6C540C28781D92009DABC8 /* BooksTableViewControllerTests.swift */,
+				4C6C542028783D51009DABC8 /* CharactersTableViewControllerTests.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
 		4CA7CA2B28749E550078E464 /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -627,17 +621,6 @@
 				4C6C5402287816B2009DABC8 /* ViewModel */,
 			);
 			path = "Category UI";
-			sourceTree = "<group>";
-		};
-		4CAB666328717D1F000C426F /* accenture-assignmentUITests */ = {
-			isa = PBXGroup;
-			children = (
-				4C6C540E28781E59009DABC8 /* Helpers */,
-				4CAB666B28717D42000C426F /* CategoriesViewControllerTests.swift */,
-				4C6C540C28781D92009DABC8 /* BooksTableViewControllerTests.swift */,
-				4C6C542028783D51009DABC8 /* CharactersTableViewControllerTests.swift */,
-			);
-			path = "accenture-assignmentUITests";
 			sourceTree = "<group>";
 		};
 		4CAB66842871AB2E000C426F /* Main */ = {
@@ -831,24 +814,6 @@
 			productReference = 4CAB663428706AC2000C426F /* accenture-assignmentEndToEndTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		4CAB666128717D1E000C426F /* accenture-assignmentUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 4CAB666828717D1F000C426F /* Build configuration list for PBXNativeTarget "accenture-assignmentUITests" */;
-			buildPhases = (
-				4CAB665E28717D1E000C426F /* Sources */,
-				4CAB665F28717D1E000C426F /* Frameworks */,
-				4CAB666028717D1E000C426F /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				4CAB666728717D1F000C426F /* PBXTargetDependency */,
-			);
-			name = "accenture-assignmentUITests";
-			productName = "accenture-assignmentUITests";
-			productReference = 4CAB666228717D1E000C426F /* accenture-assignmentUITests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -871,11 +836,6 @@
 						CreatedOnToolsVersion = 13.4.1;
 						TestTargetID = 4C233B58286E065800E5C13C;
 					};
-					4CAB666128717D1E000C426F = {
-						CreatedOnToolsVersion = 13.4.1;
-						LastSwiftMigration = 1340;
-						TestTargetID = 4C233B58286E065800E5C13C;
-					};
 				};
 			};
 			buildConfigurationList = 4C233B54286E065800E5C13C /* Build configuration list for PBXProject "accenture-assignment" */;
@@ -894,7 +854,6 @@
 				4C233B58286E065800E5C13C /* accenture-assignment */,
 				4C233B6E286E065900E5C13C /* accenture-assignmentTests */,
 				4CAB663328706AC2000C426F /* accenture-assignmentEndToEndTests */,
-				4CAB666128717D1E000C426F /* accenture-assignmentUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -920,13 +879,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		4CAB663228706AC2000C426F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4CAB666028717D1E000C426F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1001,11 +953,14 @@
 			files = (
 				4CAB6620287049A4000C426F /* XCTestCase+MemoryLeackTrackingHelper.swift in Sources */,
 				4CAB66892871BA0F000C426F /* CategoryLoaderCacheDecoratorTests.swift in Sources */,
+				4C722A2B2881F6CC00444AAD /* SharedTestHelpers.swift in Sources */,
+				4C722A2A2881F6C400444AAD /* UITableViewController+Eet.swift in Sources */,
 				4C233B94286E142E00E5C13C /* CategoriesMapperTests.swift in Sources */,
 				4CAB66582870F293000C426F /* CodableCateogiresStoreTests.swift in Sources */,
 				4CAB664E2870BAE1000C426F /* CategoryStoreSpy.swift in Sources */,
 				4CAB664B2870B9E2000C426F /* LoadCategoryFromCahceUseCaseTests.swift in Sources */,
 				4C16ABB32871EE660091BB89 /* HTTPClientSpy.swift in Sources */,
+				4C722A2E2881F6D800444AAD /* CharactersTableViewControllerTests.swift in Sources */,
 				4C16ABCF287353CB0091BB89 /* CharacterMapperTests.swift in Sources */,
 				4CAB66A32871DAE5000C426F /* BooksMapperTests.swift in Sources */,
 				4C16ABC528734ED00091BB89 /* HoouseMapperTests.swift in Sources */,
@@ -1018,6 +973,8 @@
 				4CAB66852871AB42000C426F /* CategoryLoaderWithFallbackCompositeTests.swift in Sources */,
 				4CAB668E2871BD88000C426F /* XCTestCase+CategoryLoader.swift in Sources */,
 				4CAB66522870E0E0000C426F /* CategoryCacheTestHelpers.swift in Sources */,
+				4C722A2C2881F6D100444AAD /* CategoriesViewControllerTests.swift in Sources */,
+				4C722A2D2881F6D500444AAD /* BooksTableViewControllerTests.swift in Sources */,
 				4CAB66502870DDEE000C426F /* ValidateCategoriesCacheUseCaseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1028,19 +985,6 @@
 			files = (
 				4CAB663728706AC2000C426F /* accenture_assignmentEndToEndTests.swift in Sources */,
 				4CAB663D28706F82000C426F /* XCTestCase+MemoryLeackTrackingHelper.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4CAB665E28717D1E000C426F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4C6C541028781E73009DABC8 /* UITableViewController+Eet.swift in Sources */,
-				4C6C542128783D51009DABC8 /* CharactersTableViewControllerTests.swift in Sources */,
-				4CAB666C28717D42000C426F /* CategoriesViewControllerTests.swift in Sources */,
-				4C6C541228782D4D009DABC8 /* SharedTestHelpers.swift in Sources */,
-				4CAB666D28717FB9000C426F /* XCTestCase+MemoryLeackTrackingHelper.swift in Sources */,
-				4C6C540D28781D92009DABC8 /* BooksTableViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1056,11 +1000,6 @@
 			isa = PBXTargetDependency;
 			target = 4C233B58286E065800E5C13C /* accenture-assignment */;
 			targetProxy = 4CAB663828706AC2000C426F /* PBXContainerItemProxy */;
-		};
-		4CAB666728717D1F000C426F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 4C233B58286E065800E5C13C /* accenture-assignment */;
-			targetProxy = 4CAB666628717D1F000C426F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1333,55 +1272,6 @@
 			};
 			name = Release;
 		};
-		4CAB666928717D1F000C426F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = QU3CT6V6H6;
-				GENERATE_INFOPLIST_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.bitar.accenture-assignmentUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/accenture-assignment.app/accenture-assignment";
-			};
-			name = Debug;
-		};
-		4CAB666A28717D1F000C426F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = QU3CT6V6H6;
-				GENERATE_INFOPLIST_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.bitar.accenture-assignmentUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/accenture-assignment.app/accenture-assignment";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1417,15 +1307,6 @@
 			buildConfigurations = (
 				4CAB663B28706AC2000C426F /* Debug */,
 				4CAB663C28706AC2000C426F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		4CAB666828717D1F000C426F /* Build configuration list for PBXNativeTarget "accenture-assignmentUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				4CAB666928717D1F000C426F /* Debug */,
-				4CAB666A28717D1F000C426F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
