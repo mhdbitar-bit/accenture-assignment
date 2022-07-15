@@ -55,39 +55,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4CAB662628706A4B000C426F"
-               BuildableName = "accenture-assignmentAPIEndToEndTests.xctest"
-               BlueprintName = "accenture-assignmentAPIEndToEndTests"
-               ReferencedContainer = "container:accenture-assignment.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "4CAB663328706AC2000C426F"
                BuildableName = "accenture-assignmentEndToEndTests.xctest"
                BlueprintName = "accenture-assignmentEndToEndTests"
-               ReferencedContainer = "container:accenture-assignment.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4CAB666128717D1E000C426F"
-               BuildableName = "accenture-assignmentUITests.xctest"
-               BlueprintName = "accenture-assignmentUITests"
-               ReferencedContainer = "container:accenture-assignment.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4CAB667528719DA2000C426F"
-               BuildableName = "accenture-assignmentMainTests.xctest"
-               BlueprintName = "accenture-assignmentMainTests"
                ReferencedContainer = "container:accenture-assignment.xcodeproj">
             </BuildableReference>
          </TestableReference>
