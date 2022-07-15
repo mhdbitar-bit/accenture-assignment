@@ -46,7 +46,6 @@
 		4C6C543A287887CB009DABC8 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C5439287887CB009DABC8 /* SplashViewController.swift */; };
 		4C6C543F28788AB3009DABC8 /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C543E28788AB3009DABC8 /* SplashViewModel.swift */; };
 		4C722A2A2881F6C400444AAD /* UITableViewController+Eet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C540F28781E73009DABC8 /* UITableViewController+Eet.swift */; };
-		4C722A2B2881F6CC00444AAD /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C541128782D4D009DABC8 /* SharedTestHelpers.swift */; };
 		4C722A2C2881F6D100444AAD /* CategoriesViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB666B28717D42000C426F /* CategoriesViewControllerTests.swift */; };
 		4C722A2D2881F6D500444AAD /* BooksTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C540C28781D92009DABC8 /* BooksTableViewControllerTests.swift */; };
 		4C722A2E2881F6D800444AAD /* CharactersTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C542028783D51009DABC8 /* CharactersTableViewControllerTests.swift */; };
@@ -139,7 +138,6 @@
 		4C6C540A2878181B009DABC8 /* BookCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCellController.swift; sourceTree = "<group>"; };
 		4C6C540C28781D92009DABC8 /* BooksTableViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksTableViewControllerTests.swift; sourceTree = "<group>"; };
 		4C6C540F28781E73009DABC8 /* UITableViewController+Eet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewController+Eet.swift"; sourceTree = "<group>"; };
-		4C6C541128782D4D009DABC8 /* SharedTestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTestHelpers.swift; sourceTree = "<group>"; };
 		4C6C54152878396A009DABC8 /* CharacterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewModel.swift; sourceTree = "<group>"; };
 		4C6C5417287839AA009DABC8 /* CharacterLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterLoader.swift; sourceTree = "<group>"; };
 		4C6C541A28783AB9009DABC8 /* CharactersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersTableViewController.swift; sourceTree = "<group>"; };
@@ -382,7 +380,6 @@
 			isa = PBXGroup;
 			children = (
 				4C6C540F28781E73009DABC8 /* UITableViewController+Eet.swift */,
-				4C6C541128782D4D009DABC8 /* SharedTestHelpers.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -953,7 +950,6 @@
 			files = (
 				4CAB6620287049A4000C426F /* XCTestCase+MemoryLeackTrackingHelper.swift in Sources */,
 				4CAB66892871BA0F000C426F /* CategoryLoaderCacheDecoratorTests.swift in Sources */,
-				4C722A2B2881F6CC00444AAD /* SharedTestHelpers.swift in Sources */,
 				4C722A2A2881F6C400444AAD /* UITableViewController+Eet.swift in Sources */,
 				4C233B94286E142E00E5C13C /* CategoriesMapperTests.swift in Sources */,
 				4CAB66582870F293000C426F /* CodableCateogiresStoreTests.swift in Sources */,
