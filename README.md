@@ -2,7 +2,7 @@
 
 * It's a simple App that fetches a list of categories and stores it inside the app's file system. After the fetching process has been done a list of categories will be presented using **UITableView** and if the user selects one of the presented categories it will fetch the information of that category and display it on another page.
  
- * I sperated the app into two test targets one for main **Unit Tests** and the other for **End to End Tests** multi targets to make the  
+ * I separated the app into two test targets one for main **Unit Tests** and the other for **End to End Tests** multi targets to make the tests run faster because End to End tests usually are slower than Unit tests.  
  
 ## App Architecture :
 
