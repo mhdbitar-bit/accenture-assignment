@@ -10,3 +10,8 @@
 * Applied MVVM Design pattern inside the presentation layer.
 * I've tried to decouple all my modules using protocols, so you can find that I hide the implementation details by using protocols.
 * For caching I used **File System** to store the categories I know we can use **UserDefault** to store because it's simple data just an array of Strings, so I made my solution replaceable so you can replace it by using any kind of persistent.
+* you can see that the app is including the following modules:
+- API module
+- Cache module
+- Feature/Domain module
+- UI and Presentation module
