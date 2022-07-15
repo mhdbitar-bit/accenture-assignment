@@ -13,6 +13,8 @@ I applied clean architecture in all my modules. you can see that the app is incl
  - Feature/Domain module
  - UI and Presentation module
 
+For the ***API module*** I used **URLSession** to handle the HTTP calls, Of course, the app has been implemented in a way that we can use any framework or third parties like **Alamofire**.
+
 For the ***Presentation module*** I used **MVVM** Design pattern, and I've tried to decouple all my modules using protocols, so you can find that I hide the implementation details by using protocols.
 
 For the ***Caching module*** I used **File System** to store the categories I know we can use **UserDefault** to store because it's simple data just an array of Strings, so I made my solution replaceable so you can replace it by using any kind of persistent.
