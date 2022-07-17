@@ -15,7 +15,7 @@ final class RemoteImageDataLoader: ImageDataLoader {
     }
     
     enum Error: Swift.Error {
-        case connecitivy
+        case connectivity
         case invalidData
     }
     
@@ -48,7 +48,7 @@ final class RemoteImageDataLoader: ImageDataLoader {
             guard self != nil else { return }
             
             task.complete(with: result
-                .mapError { _ in Error.connecitivy }
+                .mapError { _ in Error.connectivity }
                 .flatMap { (data, response) in
                     let isValidResponse = response.statusCode == 200 && !data.isEmpty
                     return isValidResponse ? .success(data) : .failure(Error.invalidData)

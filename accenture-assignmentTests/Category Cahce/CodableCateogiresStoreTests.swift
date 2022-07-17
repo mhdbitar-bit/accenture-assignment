@@ -149,7 +149,7 @@ final class CodableCateogiresStoreTests: XCTestCase {
     // MARK: - Helpers
     
     private func makeSUT(storeURL: URL? = nil, file: StaticString = #filePath, line: UInt = #line) -> CategoryStore {
-        let sut = CodableCategoryStore(storeURL: storeURL ?? testSpecificStoreURL())
+        let sut = CodeableCategoryStore(storeURL: storeURL ?? testSpecificStoreURL())
         trackForMemoryLeacks(sut, file: file, line: line)
         return sut
     }

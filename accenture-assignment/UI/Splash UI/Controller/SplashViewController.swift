@@ -20,7 +20,7 @@ final class SplashViewController: UIViewController, Alertable {
     
     private var viewModel: SplashViewModel!
     private var onComplete: (() -> Void)?
-    private var cancellables: Set<AnyCancellable> = []
+    private var cancelable: Set<AnyCancellable> = []
     
     convenience init(viewModel: SplashViewModel, onComplete: (() -> Void)?) {
         self.init()
@@ -65,7 +65,7 @@ final class SplashViewController: UIViewController, Alertable {
             if isComplete {
                 self.onComplete?()
             }
-        }.store(in: &cancellables)
+        }.store(in: &cancelable)
     }
     
     private func bindError() {
@@ -74,6 +74,6 @@ final class SplashViewController: UIViewController, Alertable {
             if let error = error {
                 self.showAlert(message: error)
             }
-        }.store(in: &cancellables)
+        }.store(in: &cancelable)
     }
 }

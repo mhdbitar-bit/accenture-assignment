@@ -11,7 +11,7 @@ import Combine
 final class CharactersTableViewController: UITableViewController, Alertable {
     
     private var viewModel: CharacterViewModel!
-    private var cancellables: Set<AnyCancellable> = []
+    private var cancelable: Set<AnyCancellable> = []
     
     private var characters = [CharacterItem]() {
         didSet { tableView.reloadData() }
@@ -57,14 +57,14 @@ final class CharactersTableViewController: UITableViewController, Alertable {
             } else {
                 self?.stopLoading()
             }
-        }.store(in: &cancellables)
+        }.store(in: &cancelable)
     }
     
     private func bindBooks() {
         viewModel.$characters.sink { [weak self] characters in
             guard let self = self else { return }
             self.characters = characters
-        }.store(in: &cancellables)
+        }.store(in: &cancelable)
     }
     
     private func bindError() {
@@ -73,7 +73,7 @@ final class CharactersTableViewController: UITableViewController, Alertable {
             if let error = error {
                 self.showAlert(message: error)
             }
-        }.store(in: &cancellables)
+        }.store(in: &cancelable)
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -13,7 +13,7 @@ final class RemoteLoader<Resource> {
     private let mapper: Mapper
     
     enum Error: Swift.Error {
-        case connecitivy
+        case connectivity
         case invalidData
     }
     
@@ -35,7 +35,7 @@ final class RemoteLoader<Resource> {
                 completion(self.map(data, from: response))
                
             case .failure:
-                completion(.failure(Error.connecitivy))
+                completion(.failure(Error.connectivity))
             }
         }
     }

@@ -27,19 +27,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.makeKeyAndVisible()
     }
     
-    private func makeCategoryloaders() -> (remote: RemoteLoader<[CategoryItem]>, local: LocalCategoryLoader) {
+    private func makeCategoryLoaders() -> (remote: RemoteLoader<[CategoryItem]>, local: LocalCategoryLoader) {
         let remoteUrl = Endpoints.getCategories.url(baseURL: baseURL)
         let remoteCategoryLoader = RemoteLoader(url: remoteUrl, client: remoteClient, mapper: CategoryItemsMapper.map)
         
         let localURL = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!.appendingPathComponent("categories.store")
-        let localStore = CodableCategoryStore(storeURL: localURL)
+        let localStore = CodeableCategoryStore(storeURL: localURL)
         let localCategoryLoader = LocalCategoryLoader(store: localStore, currentDate: Date.init)
         
         return (remoteCategoryLoader, localCategoryLoader)
     }
     
     private func makeRootViewController() -> SplashViewController {
-        let (remote, local) = makeCategoryloaders()
+        let (remote, local) = makeCategoryLoaders()
         let viewModel = SplashViewModel(
             loader: MainQueueDispatchDecorator(decoratee: CategoryLoaderWithFallbackComposite(
                 primary: CategoryLoaderCacheDecorator(
@@ -54,7 +54,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func makeCategoriesViewController() -> CategoriesViewController {
-        let (remote, local) = makeCategoryloaders()
+        let (remote, local) = makeCategoryLoaders()
         let viewModel = CategoryViewModel(
             loader: MainQueueDispatchDecorator(decoratee: CategoryLoaderWithFallbackComposite(
                 primary: local,
@@ -94,7 +94,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let remoteUrl = Endpoints.getLists(type).url(baseURL: baseURL)
         let loader = RemoteLoader(url: remoteUrl, client: remoteClient, mapper: HouseItemMapper.map)
         let imageLoader = RemoteImageDataLoader(client: remoteClient)
-        return HouseUIComposer.housesComposedWith(houseloader: MainQueueDispatchDecorator(decoratee: loader), imageLoader: MainQueueDispatchDecorator(decoratee: imageLoader))
+        return HouseUIComposer.housesComposedWith(houseLoader: MainQueueDispatchDecorator(decoratee: loader), imageLoader: MainQueueDispatchDecorator(decoratee: imageLoader))
     }
 }
 

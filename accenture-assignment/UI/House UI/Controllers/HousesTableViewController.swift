@@ -11,7 +11,7 @@ import Combine
 final class HousesTableViewController: UITableViewController, UITableViewDataSourcePrefetching, Alertable {
     
     private var viewModel: HousesViewModel!
-    private var cancellables: Set<AnyCancellable> = []
+    private var cancelable: Set<AnyCancellable> = []
     var tableModel = [HouseCellController]() {
         didSet { tableView.reloadData() }
     }
@@ -55,7 +55,7 @@ final class HousesTableViewController: UITableViewController, UITableViewDataSou
             } else {
                 self?.stopLoading()
             }
-        }.store(in: &cancellables)
+        }.store(in: &cancelable)
     }
     
     private func bindError() {
@@ -64,7 +64,7 @@ final class HousesTableViewController: UITableViewController, UITableViewDataSou
             if let error = error {
                 self.showAlert(message: error)
             }
-        }.store(in: &cancellables)
+        }.store(in: &cancelable)
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

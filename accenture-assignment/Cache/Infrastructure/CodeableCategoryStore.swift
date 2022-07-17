@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class CodableCategoryStore: CategoryStore {
+final class CodeableCategoryStore: CategoryStore {
     private struct Cache: Codable {
         let categories: [CodableCategories]
         let timestamp: Date
@@ -31,7 +31,7 @@ final class CodableCategoryStore: CategoryStore {
         }
     }
     
-    private let queue = DispatchQueue(label: "\(CodableCategoryStore.self)Queue", qos: .userInitiated, attributes: .concurrent)
+    private let queue = DispatchQueue(label: "\(CodeableCategoryStore.self)Queue", qos: .userInitiated, attributes: .concurrent)
     private let storeURL: URL
     
     init(storeURL: URL) {

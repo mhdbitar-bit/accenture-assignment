@@ -12,7 +12,7 @@ final class CategoriesViewController: UITableViewController, Alertable {
 
     private var viewModel: CategoryViewModel!
     private var onSelect: ((CategoryItem) -> Void)?
-    private var cancellables: Set<AnyCancellable> = []
+    private var cancelable: Set<AnyCancellable> = []
     
     private var categories = [CategoryItem]() {
         didSet { tableView.reloadData() }
@@ -66,14 +66,14 @@ extension CategoriesViewController {
             } else {
                 self?.stopLoading()
             }
-        }.store(in: &cancellables)
+        }.store(in: &cancelable)
     }
         
     private func bindCategories() {
         viewModel.$categories.sink { [weak self] categories in
             guard let self = self else { return }
             self.categories = categories
-        }.store(in: &cancellables)
+        }.store(in: &cancelable)
     }
     
     private func bindError() {
@@ -82,7 +82,7 @@ extension CategoriesViewController {
             if let error = error {
                 self.showAlert(message: error)
             }
-        }.store(in: &cancellables)
+        }.store(in: &cancelable)
     }
 }
 

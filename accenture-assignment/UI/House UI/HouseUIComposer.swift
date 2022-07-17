@@ -9,18 +9,18 @@ import UIKit
 import Combine
 
 final class HouseUIComposer {
-    private static var cancellables: Set<AnyCancellable> = []
+    private static var cancelable: Set<AnyCancellable> = []
     private init() {}
     
-    static func housesComposedWith(houseloader: HouseLoader, imageLoader: ImageDataLoader) -> HousesTableViewController {
-        let viewModel = HousesViewModel(loader: houseloader)
+    static func housesComposedWith(houseLoader: HouseLoader, imageLoader: ImageDataLoader) -> HousesTableViewController {
+        let viewModel = HousesViewModel(loader: houseLoader)
         let controller = HousesTableViewController(viewModel: viewModel)
         
         viewModel.$houses.sink { [weak controller] houses in
             controller?.tableModel = houses.map { model in
                 HouseCellController(viewModel: HouseImageViewModel(model: model, imageLoader: imageLoader, imageTransformer: UIImage.init))
             }
-        }.store(in: &cancellables)
+        }.store(in: &cancelable)
         return controller
     }
 }

@@ -10,7 +10,7 @@ import Combine
 
 final class HouseCellController {
     private let viewModel: HouseImageViewModel<UIImage>
-    private var cancellables: Set<AnyCancellable> = []
+    private var cancelable: Set<AnyCancellable> = []
     private var cell: HouseTableViewCell?
     
     init(viewModel: HouseImageViewModel<UIImage>) {
@@ -42,7 +42,7 @@ final class HouseCellController {
             } else {
                 cell?.houseImage.image = UIImage(systemName: "photo.fill")
             }
-        }.store(in: &cancellables)
+        }.store(in: &cancelable)
     }
     
     private func releaseCellForReuse() {

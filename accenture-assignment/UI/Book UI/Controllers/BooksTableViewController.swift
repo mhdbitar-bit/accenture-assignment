@@ -11,7 +11,7 @@ import Combine
 final class BooksTableViewController: UITableViewController, Alertable {
     
     private var viewModel: BookViewModel!
-    private var cancellables: Set<AnyCancellable> = []
+    private var cancelable: Set<AnyCancellable> = []
     
     private var books = [BookItem]() {
         didSet { tableView.reloadData() }
@@ -57,14 +57,14 @@ final class BooksTableViewController: UITableViewController, Alertable {
             } else {
                 self?.stopLoading()
             }
-        }.store(in: &cancellables)
+        }.store(in: &cancelable)
     }
     
     private func bindBooks() {
         viewModel.$books.sink { [weak self] books in
             guard let self = self else { return }
             self.books = books
-        }.store(in: &cancellables)
+        }.store(in: &cancelable)
     }
     
     private func bindError() {
@@ -73,7 +73,7 @@ final class BooksTableViewController: UITableViewController, Alertable {
             if let error = error {
                 self.showAlert(message: error)
             }
-        }.store(in: &cancellables)
+        }.store(in: &cancelable)
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
